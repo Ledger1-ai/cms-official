@@ -48,7 +48,9 @@ jobs:
           cp -rL node_modules/@swc .next/standalone/node_modules/
 
           mkdir deployment
-          cp -rL .next/standalone/. deployment/
+          rsync -aL .next/standalone/ deployment/ || echo "Rsync: Some files could not be copied (likely broken symlinks)"
+          cp -rL public deployment/public || true
+          cp -rL .next/static deployment/.next/static || true
 
           cd deployment
           tar -czf ../release.tar.gz .
