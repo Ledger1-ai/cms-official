@@ -16,14 +16,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: Install Dependencies
-        run: npm install -g pnpm && pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Run Unit Tests
         run: npx vitest run
 
       - name: Run Lint
-        run: npm run lint
+        run: pnpm run lint
         continue-on-error: true # Warning only for now
 
       - name: Prisma Schema Validate
