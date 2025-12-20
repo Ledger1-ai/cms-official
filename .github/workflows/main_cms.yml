@@ -29,6 +29,9 @@ jobs:
           version: 8
 
       - name: pnpm install, build, and test
+        env:
+          ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_KEY }}
+          API_KEY_ENCRYPTION_KEY: ${{ secrets.API_KEY_ENCRYPTION_KEY }}
         run: |
           pnpm install
           npx prisma generate
@@ -59,7 +62,3 @@ jobs:
           slot-name: "Production"
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_10465936071D4A7AA627DEB04C65156B }}
-
-
-
-

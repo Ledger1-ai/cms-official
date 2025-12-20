@@ -29,6 +29,9 @@ jobs:
           version: 8
 
       - name: pnpm install, build, and test
+        env:
+          ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_KEY }}
+          API_KEY_ENCRYPTION_KEY: ${{ secrets.API_KEY_ENCRYPTION_KEY }}
         run: |
           pnpm install --frozen-lockfile
           pnpm run build --if-present
