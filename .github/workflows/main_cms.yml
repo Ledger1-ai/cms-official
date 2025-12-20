@@ -38,11 +38,14 @@ jobs:
           pnpm run build
           pnpm run test
 
+      - name: Zip artifact for deployment
+        run: zip -r --symlinks release.zip .
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: .
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -60,5 +63,5 @@ jobs:
         with:
           app-name: "cms"
           slot-name: "Production"
-          package: .
+          package: release.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_10465936071D4A7AA627DEB04C65156B }}
