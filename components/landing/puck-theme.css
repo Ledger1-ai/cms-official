@@ -1,0 +1,157 @@
+/* Dark Mode & Glassmorphism Overrides for Puck */
+
+:root {
+    /* Core Colors */
+    --puck-color-black: #ffffff;
+    /* Invert text to white */
+    --puck-color-white: #0a0a0a;
+    /* Invert bg to dark */
+
+    --puck-color-grey-1: #171717;
+    /* Darker grey for sidebars */
+    --puck-color-grey-2: #262626;
+    /* Slightly lighter for inputs */
+    --puck-color-grey-3: #404040;
+    /* Borders */
+    --puck-color-grey-4: #525252;
+    --puck-color-grey-5: #737373;
+    --puck-color-grey-6: #a3a3a3;
+    --puck-color-grey-7: #d4d4d4;
+    --puck-color-grey-8: #e5e5e5;
+    --puck-color-grey-09: #f5f5f5;
+
+    /* Brand Colors (Emerald) */
+    --puck-color-azure-4: #059669;
+    /* Primary Action */
+    --puck-color-azure-5: #10b981;
+    /* Primary Hover */
+    --puck-color-azure-9: #d1fae5;
+    /* Light accent */
+}
+
+/* Base Editor UI */
+.Puck {
+    background-color: var(--puck-color-white);
+    color: var(--puck-color-black);
+    font-family: inherit;
+}
+
+/* Left Sidebar (Components) & Right Sidebar (Fields) */
+div[class*="Sidebar"] {
+    background: rgba(10, 10, 10, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Floating Left Sidebar (Components) */
+div[class*="LeftDragDropZone"] {
+    position: absolute !important;
+    left: 24px !important;
+    top: 90px !important;
+    bottom: 24px !important;
+    width: 280px !important;
+    z-index: 50 !important;
+    background: rgba(10, 10, 10, 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Floating Right Sidebar (Fields - Pop Out) */
+div[class*="RightFieldZone"] {
+    position: absolute !important;
+    right: 24px !important;
+    top: 90px !important;
+    bottom: 24px !important;
+    width: 320px !important;
+    z-index: 50 !important;
+    background: rgba(10, 10, 10, 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Header */
+header[class*="Header"] {
+    background: rgba(10, 10, 10, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Card/Item Backgrounds in Sidebar */
+div[class*="ComponentList"] div[class*="DraggableComponent"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    transition: all 0.2s;
+    color: #e5e5e5 !important;
+}
+
+div[class*="ComponentList"] div[class*="DraggableComponent"]:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Inputs & Fields */
+input,
+textarea,
+select {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+}
+
+/* Canvas Area */
+div[class*="Puck"]>div[class*="Canvas"] {
+    background-color: #000000 !important;
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.08), transparent 25%) !important;
+}
+
+/* Publish Button - NUCLEAR OPTION */
+/* Target specific Puck primary buttons in the header */
+header button[class*="Button--primary"],
+header button[class*="primary"],
+header button[class*="Primary"],
+header div[class*="actions"] button:last-of-type,
+header div[class*="Actions"] button:last-of-type {
+    display: none !important;
+}
+
+/* Viewport Controls Bar (PC, Tablet, Phone) */
+div[class*="ViewportControls"] {
+    background-color: #0a0a0a !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 4px !important;
+    gap: 8px !important;
+}
+
+div[class*="ViewportControls"] button {
+    color: #a3a3a3 !important;
+    /* Inactive color */
+    transition: all 0.2s;
+    border-radius: 4px !important;
+}
+
+div[class*="ViewportControls"] button:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+div[class*="ViewportControls"] button[class*="isActive"],
+div[class*="ViewportControls"] button[class*="active"] {
+    color: #10b981 !important;
+    /* Brand Emerald */
+    background: rgba(5, 150, 105, 0.2) !important;
+}
+
+/* Icons inside Viewport Controls */
+div[class*="ViewportControls"] svg {
+    stroke-width: 2px;
+}

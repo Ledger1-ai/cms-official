@@ -1,0 +1,1082 @@
+[
+    {
+        "slug": "real-estate",
+        "name": "Real Estate",
+        "use_case": "Property Portals & Agent Sites",
+        "hero_title": "The Headless Real Estate CMS",
+        "description": "Launch lightning-fast property portals, agent microsites, and listing feeds with Ledger1CMS's predictive content engine.",
+        "meta_title": "Best Headless CMS for Real Estate | Ledger1CMS",
+        "meta_description": "Real Estate CMS for brokerages. Manage millions of listings, syndicate to portals, and generate agent sites instantly.",
+        "keywords": [
+            "Real Estate CMS",
+            "Property Management",
+            "Agent Sites"
+        ],
+        "subheading": "Scale listings, speed up load times, delight buyers & sellers",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Unified listing database",
+                    "Omnichannel syndication",
+                    "Virtual tour hosting"
+                ],
+                "analytics": [
+                    "Listing views",
+                    "Lead attribution"
+                ],
+                "ai_agents": [
+                    "Listing description writer",
+                    "SEO meta tag generator"
+                ]
+            },
+            "automation_playbooks": [
+                "New listing → publish to social",
+                "Sold status → archive listing"
+            ]
+        }
+    },
+    {
+        "slug": "healthcare",
+        "name": "Healthcare",
+        "use_case": "Patient Portals & Intranets",
+        "hero_title": "HIPAA-Compliant Content Hub",
+        "description": "Deliver secure, personalized patient experiences and provider directories with a CMS built for compliance.",
+        "meta_title": "Healthcare Headless CMS | Ledger1CMS",
+        "meta_description": "Healthcare CMS with HIPAA compliance, patient portals, and provider directories.",
+        "keywords": [
+            "Healthcare CMS",
+            "HIPAA Compliant",
+            "Patient Portal"
+        ],
+        "subheading": "Secure content, verified providers, trusted experiences",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "HIPAA-compliant storage",
+                    "Provider directory",
+                    "Audit logs"
+                ],
+                "analytics": [
+                    "Engagement by condition",
+                    "Patient journeys"
+                ],
+                "ai_agents": [
+                    "Medical term simplifier",
+                    "Compliance checker"
+                ]
+            },
+            "automation_playbooks": [
+                "New provider → verify credentials",
+                "Health alert → mass notify"
+            ]
+        }
+    },
+    {
+        "slug": "finance",
+        "name": "Financial Services",
+        "use_case": "Secure Banking Portals",
+        "hero_title": "FinTech Grade Digital Experience",
+        "description": "Power secure banking portals, advisor knowledge bases, and regulatory disclosures with an audit-ready CMS.",
+        "meta_title": "Financial Services CMS | Ledger1CMS",
+        "meta_description": "Secure CMS for banks and wealth management. SOC 2 compliant audit trails.",
+        "keywords": [
+            "Finance CMS",
+            "Banking DXP",
+            "Secure Content"
+        ],
+        "subheading": "Compliance first, customer experience always",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "SEC/FINRA archiving",
+                    "Approval workflows",
+                    "Document vaults"
+                ],
+                "analytics": [
+                    "Compliance reports",
+                    "Portal activity"
+                ],
+                "ai_agents": [
+                    "Risk scanner",
+                    "Market commentary summarizer"
+                ]
+            },
+            "automation_playbooks": [
+                "Market event → client update",
+                "Regulatory change → content flag"
+            ]
+        }
+    },
+    {
+        "slug": "ecommerce",
+        "name": "E-commerce",
+        "use_case": "Composable Commerce",
+        "hero_title": "Headless Commerce Engine",
+        "description": "Go beyond simple product pages. Build storytelling-driven commerce experiences that convert.",
+        "meta_title": "E-commerce Headless CMS | Ledger1CMS",
+        "meta_description": "CMS for Shopify & BigCommerce. Rich product storytelling and landing pages.",
+        "keywords": [
+            "E-commerce CMS",
+            "Headless Commerce",
+            "Product Storytelling"
+        ],
+        "subheading": "Storytelling that sells, performance that converts",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Shopify integration",
+                    "Shoppable blogs",
+                    "Edge caching"
+                ],
+                "analytics": [
+                    "Content attribution",
+                    "Heatmaps"
+                ],
+                "ai_agents": [
+                    "Product description gen",
+                    "Related product matcher"
+                ]
+            },
+            "automation_playbooks": [
+                "New product → launch post",
+                "Low stock → update banner"
+            ]
+        }
+    },
+    {
+        "slug": "saas",
+        "name": "SaaS",
+        "use_case": "Marketing Sites & Docs",
+        "hero_title": "The CMS for Growth Teams",
+        "description": "Manage your marketing site, documentation, and blog in one unified platform. Ship faster with Next.js.",
+        "meta_title": "SaaS Marketing CMS | Ledger1CMS",
+        "meta_description": "CMS for SaaS. Manage landing pages, docs, and changelogs with git flows.",
+        "keywords": [
+            "SaaS CMS",
+            "Docs Platform",
+            "Startup DXP"
+        ],
+        "subheading": "Ship marketing at the speed of product",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Visual builder",
+                    "Markdown docs",
+                    "Git versioning"
+                ],
+                "analytics": [
+                    "Pipeline generation",
+                    "Docs readability"
+                ],
+                "ai_agents": [
+                    "Blog drafter",
+                    "Docs gap finder"
+                ]
+            },
+            "automation_playbooks": [
+                "Deploy → changelog",
+                "New feature → webinar"
+            ]
+        }
+    },
+    {
+        "slug": "legal",
+        "name": "Legal",
+        "use_case": "Law Firm Knowledge Management",
+        "hero_title": "The Attorney's Digital Edge",
+        "description": "Streamline case studies, attorney bios, and client portals with a secure, professional CMS.",
+        "meta_title": "Legal Industry CMS | Ledger1CMS",
+        "meta_description": "CMS for law firms. Manage attorney profiles, practice areas, and secure client resources.",
+        "keywords": [
+            "Legal CMS",
+            "Law Firm Website",
+            "Knowledge Management"
+        ],
+        "subheading": "Professional presence, secure knowledge sharing",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Attorney bio management",
+                    "Practice area taxonomy",
+                    "Secure portals"
+                ],
+                "analytics": [
+                    "Bio engagement",
+                    "Content downloads"
+                ],
+                "ai_agents": [
+                    "Legal update summarizer",
+                    "Bio updater"
+                ]
+            },
+            "automation_playbooks": [
+                "New case study → practice area update",
+                "Regulatory alert → client blast"
+            ]
+        }
+    },
+    {
+        "slug": "automotive",
+        "name": "Automotive",
+        "use_case": "Dealership & Manufacturer Sites",
+        "hero_title": "Drive Digital Showrooms",
+        "description": "Manage vehicle inventory, configurators, and dealer networks with high-performance content delivery.",
+        "meta_title": "Automotive CMS | Ledger1CMS",
+        "meta_description": "Headless CMS for auto dealers and OEMs. Inventory integration and virtual showrooms.",
+        "keywords": [
+            "Automotive CMS",
+            "Dealer Website",
+            "Inventory Management"
+        ],
+        "subheading": "Accelerate your digital showroom experience",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Inventory feed sync",
+                    "Configurator assets",
+                    "Dealer locator"
+                ],
+                "analytics": [
+                    "Model interest heatmaps",
+                    "Lead forms"
+                ],
+                "ai_agents": [
+                    "Vehicle description writer",
+                    "Spec sheet generator"
+                ]
+            },
+            "automation_playbooks": [
+                "New model arrival → homepage takeover",
+                "Price drop → lead notify"
+            ]
+        }
+    },
+    {
+        "slug": "education",
+        "name": "Education",
+        "use_case": "University & School Websites",
+        "hero_title": "Campus-Wide Content Control",
+        "description": "Unify departmental sites, course catalogs, and alumni portals under one governance model.",
+        "meta_title": "Higher Education CMS | Ledger1CMS",
+        "meta_description": "CMS for Universities. Manage hundreds of departmental sites with shared branding and governance.",
+        "keywords": [
+            "Higher Ed CMS",
+            "University Website",
+            "Course Catalog"
+        ],
+        "subheading": "One campus, one voice, infinite possibilities",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Multi-site governance",
+                    "Course data sync",
+                    "Event calendars"
+                ],
+                "analytics": [
+                    "Enrollment funnel",
+                    "Alumni engagement"
+                ],
+                "ai_agents": [
+                    "Course description optimizer",
+                    "News aggregator"
+                ]
+            },
+            "automation_playbooks": [
+                "New semester → course update",
+                "Emergency → campus alert"
+            ]
+        }
+    },
+    {
+        "slug": "travel",
+        "name": "Travel & Tourism",
+        "use_case": "Destination Marketing",
+        "hero_title": "Inspire the Next Journey",
+        "description": "Showcase destinations with immersive media, itineraries, and booking engine integrations.",
+        "meta_title": "Travel Industry CMS | Ledger1CMS",
+        "meta_description": "Headless CMS for travel agencies and DMOs. Rich media support and itinerary building.",
+        "keywords": [
+            "Travel CMS",
+            "Tourism Marketing",
+            "Destination Guide"
+        ],
+        "subheading": " turn lookers into bookers with immersive content",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Rich media galleries",
+                    "Map integration",
+                    "Booking widgets"
+                ],
+                "analytics": [
+                    "Destination interest",
+                    "Booking conversion"
+                ],
+                "ai_agents": [
+                    "Itinerary builder",
+                    "Local tip generator"
+                ]
+            },
+            "automation_playbooks": [
+                "Season change → update imagery",
+                "Deal alert → push notification"
+            ]
+        }
+    },
+    {
+        "slug": "manufacturing",
+        "name": "Manufacturing",
+        "use_case": "Product Catalogs & Distributor Portals",
+        "hero_title": "Industrial Strength Content",
+        "description": "Manage complex product specs, CAD files, and distributor resources globally.",
+        "meta_title": "Manufacturing CMS | Ledger1CMS",
+        "meta_description": "CMS for manufacturers. Handle complex product data, datasheets, and distributor portals.",
+        "keywords": [
+            "Manufacturing CMS",
+            "Product Catalog",
+            "B2B Portal"
+        ],
+        "subheading": "Streamline technical data, empower distributors",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "PIM integration",
+                    "CAD file management",
+                    "Distributor login"
+                ],
+                "analytics": [
+                    "Spec sheet downloads",
+                    "Part search"
+                ],
+                "ai_agents": [
+                    "Spec comparison generator",
+                    "Manual summarizer"
+                ]
+            },
+            "automation_playbooks": [
+                "Product update → notify distributors",
+                "Discontinue → archive assets"
+            ]
+        }
+    },
+    {
+        "slug": "media",
+        "name": "Media & Entertainment",
+        "use_case": "Streaming & News Platforms",
+        "hero_title": "Content at Scale",
+        "description": "Publish breaking news and stream media to millions with edge-cached delivery.",
+        "meta_title": "Media CMS | Ledger1CMS",
+        "meta_description": "High-volume CMS for news and media. Fast publishing workflows and video management.",
+        "keywords": [
+            "News CMS",
+            "Media Platform",
+            "Video content"
+        ],
+        "subheading": "Deliver the story faster than anyone else",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Live blog editor",
+                    "Video encoding",
+                    "Paywall integration"
+                ],
+                "analytics": [
+                    "Real-time readership",
+                    "Video retention"
+                ],
+                "ai_agents": [
+                    "Headline optimizer",
+                    "Article summarizer"
+                ]
+            },
+            "automation_playbooks": [
+                "Breaking news → push alert",
+                "Video upload → transcode & publish"
+            ]
+        }
+    },
+    {
+        "slug": "nonprofit",
+        "name": "Non-Profit",
+        "use_case": "Donation & Impact Storytelling",
+        "hero_title": "Amplify Your Mission",
+        "description": "Tell compelling impact stories and drive donations with a CMS designed for advocacy.",
+        "meta_title": "Non-Profit CMS | Ledger1CMS",
+        "meta_description": "CMS for charities and NGOs. Donation integrations and impact storytelling tools.",
+        "keywords": [
+            "Nonprofit CMS",
+            "Charity Website",
+            "Donation Platform"
+        ],
+        "subheading": "Turn content into cause-driven action",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Donation form embedding",
+                    "Impact reporting",
+                    "Volunteer signup"
+                ],
+                "analytics": [
+                    "Donor conversion",
+                    "Campaign reach"
+                ],
+                "ai_agents": [
+                    "Grant proposal drafter",
+                    "Thank you note generator"
+                ]
+            },
+            "automation_playbooks": [
+                "Donation goal met → update progress bar",
+                "Campaign launch → email blast"
+            ]
+        }
+    },
+    {
+        "slug": "hospitality",
+        "name": "Hospitality",
+        "use_case": "Hotel & Restaurant Groups",
+        "hero_title": "Five-Star Digital Service",
+        "description": "Manage menus, room bookings, and location amenities across hotel chains and restaurant groups.",
+        "meta_title": "Hospitality CMS | Ledger1CMS",
+        "meta_description": "CMS for hotels and restaurants. Menu management, booking integration, and multi-location support.",
+        "keywords": [
+            "Hotel CMS",
+            "Restaurant Website",
+            "Menu Management"
+        ],
+        "subheading": "Guest experiences start before check-in",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Menu management",
+                    "Booking engine sync",
+                    "Event promo tools"
+                ],
+                "analytics": [
+                    "Table booking conversion",
+                    "Menu view heatmaps"
+                ],
+                "ai_agents": [
+                    "Menu description writer",
+                    "Review responder"
+                ]
+            },
+            "automation_playbooks": [
+                "Seasonal menu → update all sites",
+                "Room vacancy → promo offer"
+            ]
+        }
+    },
+    {
+        "slug": "construction",
+        "name": "Construction",
+        "use_case": "Project Portfolios & Bids",
+        "hero_title": "Build Your Digital Presence",
+        "description": "Showcase massive projects and manage bid documents securely.",
+        "meta_title": "Construction CMS | Ledger1CMS",
+        "meta_description": "CMS for construction firms. Project portfolios, bid management, and safety docs.",
+        "keywords": [
+            "Construction CMS",
+            "Builder Portfolio",
+            "Bid Management"
+        ],
+        "subheading": "Showcase your work, win more bids",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Project gallery",
+                    "Bid document portal",
+                    "Safety compliance docs"
+                ],
+                "analytics": [
+                    "Project view time",
+                    "Bid download tracking"
+                ],
+                "ai_agents": [
+                    "Project case study writer",
+                    "Safety bulletin generator"
+                ]
+            },
+            "automation_playbooks": [
+                "Project complete → add to portfolio",
+                "Bid due → reminder alert"
+            ]
+        }
+    },
+    {
+        "slug": "energy",
+        "name": "Energy & Utilities",
+        "use_case": "Customer Service & Outage Maps",
+        "hero_title": "Powering Customer Connections",
+        "description": "Deliver real-time outage info, usage reports, and sustainability data to millions.",
+        "meta_title": "Energy Utility CMS | Ledger1CMS",
+        "meta_description": "CMS for energy coops and utilities. Outage maps, customer alerts, and billing integration.",
+        "keywords": [
+            "Utility CMS",
+            "Energy Provider",
+            "Outage Map"
+        ],
+        "subheading": "Reliable information when it matters most",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Outage map integration",
+                    "Usage dashboard",
+                    "Bill pay portal"
+                ],
+                "analytics": [
+                    "Alert engagement",
+                    "Support deflection"
+                ],
+                "ai_agents": [
+                    "Outage update drafter",
+                    "Energy saving tip generator"
+                ]
+            },
+            "automation_playbooks": [
+                "Outage detected → banner alert",
+                "Bill due → sms reminder"
+            ]
+        }
+    },
+    {
+        "slug": "government",
+        "name": "Government",
+        "use_case": "Citizen Services Portals",
+        "hero_title": "Digital Democracy Platform",
+        "description": "Accessible, secure, and transparent content delivery for agencies and municipalities.",
+        "meta_title": "Government CMS | Ledger1CMS",
+        "meta_description": "CMS for local and federal government. ADA compliant, secure, and citizen-focused.",
+        "keywords": [
+            "Government CMS",
+            "Citizen Portal",
+            "ADA Compliance"
+        ],
+        "subheading": "Serve citizens better with modern digital tools",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "WCAG 2.1 compliance",
+                    "Document center",
+                    "Meeting minutes"
+                ],
+                "analytics": [
+                    "Service utilization",
+                    "Search trends"
+                ],
+                "ai_agents": [
+                    "Policy summarizer",
+                    "Form helper"
+                ]
+            },
+            "automation_playbooks": [
+                "Meeting scheduled → publish agenda",
+                "Emergency → community alert"
+            ]
+        }
+    },
+    {
+        "slug": "insurance",
+        "name": "Insurance",
+        "use_case": "Policyholder Portals & Claims",
+        "hero_title": "Trust & Transparency",
+        "description": "simplify complex policy info and streamline claims with a secure digital experience.",
+        "meta_title": "Insurance CMS | Ledger1CMS",
+        "meta_description": "CMS for insurance carriers. Policy management, claims portals, and agent resources.",
+        "keywords": [
+            "Insurance CMS",
+            "Claims Portal",
+            "Policy Management"
+        ],
+        "subheading": "Making insurance easier to understand and manage",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Policy doc generation",
+                    "Claims status tracker",
+                    "Agent finder"
+                ],
+                "analytics": [
+                    "Quote funnel",
+                    "Claims speed"
+                ],
+                "ai_agents": [
+                    "Coverage explainer",
+                    "Claim chat bot"
+                ]
+            },
+            "automation_playbooks": [
+                "Claim filed → status update",
+                "Renewal due → notification"
+            ]
+        }
+    },
+    {
+        "slug": "logistics",
+        "name": "Logistics",
+        "use_case": "Tracking & Fleet Management",
+        "hero_title": "Moving the World",
+        "description": "Real-time tracking portals and customer tools for shipping and logistics firms.",
+        "meta_title": "Logistics CMS | Ledger1CMS",
+        "meta_description": "CMS for shipping and logistics. Tracking integration, rate calculators, and fleet news.",
+        "keywords": [
+            "Logistics CMS",
+            "Supply Chain",
+            "Tracking Portal"
+        ],
+        "subheading": "Visibility and control for your supply chain",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Tracking API hook",
+                    "Rate calculator",
+                    "Service alerts"
+                ],
+                "analytics": [
+                    "Tracking lookups",
+                    "Quote requests"
+                ],
+                "ai_agents": [
+                    "Route update notifier",
+                    "Delay explainer"
+                ]
+            },
+            "automation_playbooks": [
+                "Shipment delayed → customer alert",
+                "Delivered → POD upload"
+            ]
+        }
+    },
+    {
+        "slug": "consulting",
+        "name": "Consulting",
+        "use_case": "Thought Leadership & Client Portals",
+        "hero_title": "Expertise on Display",
+        "description": "Showcase white papers, case studies, and partner profiles to win high-value contracts.",
+        "meta_title": "Consulting Firm CMS | Ledger1CMS",
+        "meta_description": "CMS for management consulting. Thought leadership publishing and secure client rooms.",
+        "keywords": [
+            "Consulting CMS",
+            "Thought Leadership",
+            "Client Portal"
+        ],
+        "subheading": "Demonstrate value, build trust, win business",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "White paper gate",
+                    "Expert profiles",
+                    "Project rooms"
+                ],
+                "analytics": [
+                    "Lead generation",
+                    "Content influence"
+                ],
+                "ai_agents": [
+                    "Insight extractor",
+                    "Proposal helper"
+                ]
+            },
+            "automation_playbooks": [
+                "New report → email clients",
+                "Project win → case study draft"
+            ]
+        }
+    },
+    {
+        "slug": "pharmaceuticals",
+        "name": "Pharmaceuticals",
+        "use_case": "R&D and Clinical Trial Sites",
+        "hero_title": "Science at Speed",
+        "description": "Manage clinical trial recruitment and drug info sites with strict regulatory compliance.",
+        "meta_title": "Pharma CMS | Ledger1CMS",
+        "meta_description": "CMS for biotech and pharma. FDA compliance features, trial recruitment, and HCP portals.",
+        "keywords": [
+            "Pharma CMS",
+            "Life Sciences",
+            "Clinical Trials"
+        ],
+        "subheading": "Accelerating the path from lab to life",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "FDA compliance workflows",
+                    "Trial locator",
+                    "HCP login"
+                ],
+                "analytics": [
+                    "Trial signups",
+                    "HCP engagement"
+                ],
+                "ai_agents": [
+                    "Protocol summarizer",
+                    "Patient FAQ bot"
+                ]
+            },
+            "automation_playbooks": [
+                "Trial phase change → update site",
+                "Safety alert → HCP blast"
+            ]
+        }
+    },
+    {
+        "slug": "venture-capital",
+        "name": "Venture Capital",
+        "use_case": "Portfolio Support & Deal Flow",
+        "hero_title": "Fueling Innovation",
+        "description": "Manage portfolio jobs, thesis content, and founder resources in a central hub.",
+        "meta_title": "VC Firm CMS | Ledger1CMS",
+        "meta_description": "CMS for venture capital. Portfolio job boards, founder platforms, and thesis publishing.",
+        "keywords": [
+            "VC CMS",
+            "Portfolio Platform",
+            "Founder Resources"
+        ],
+        "subheading": "More than just capital—a digital platform for growth",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Portfolio job board",
+                    "Founder resource library",
+                    "LP portal"
+                ],
+                "analytics": [
+                    "Job views",
+                    "Resource usage"
+                ],
+                "ai_agents": [
+                    "Deal memo drafter",
+                    "Market trend scanner"
+                ]
+            },
+            "automation_playbooks": [
+                "New investment → announce to network",
+                "Quarterly update → LP notify"
+            ]
+        }
+    },
+    {
+        "slug": "fitness",
+        "name": "Fitness",
+        "use_case": "Gyms & Online Coaching",
+        "hero_title": "Empower Movement",
+        "description": "Manage class schedules, trainer bios, and on-demand workout video libraries.",
+        "meta_title": "Fitness CMS | Ledger1CMS",
+        "meta_description": "CMS for gyms and personal trainers. Class booking, video libraries, and member progress.",
+        "keywords": [
+            "Fitness CMS",
+            "Gym Website",
+            "Workout Video Platform"
+        ],
+        "subheading": "Streamline operations, maximize member engagement",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Class scheduling",
+                    "Video VOD",
+                    "Member app sync"
+                ],
+                "analytics": [
+                    "Class attendance",
+                    "Video retention"
+                ],
+                "ai_agents": [
+                    "Workout plan generator",
+                    "Nutrition tipper"
+                ]
+            },
+            "automation_playbooks": [
+                "Class full → waitlist open",
+                "New video → member alert"
+            ]
+        }
+    },
+    {
+        "slug": "gaming",
+        "name": "Gaming",
+        "use_case": "Esports & Game Studios",
+        "hero_title": "Level Up Your Presence",
+        "description": "Engage fans with tournaments, patch notes, and community forums.",
+        "meta_title": "Gaming Industry CMS | Ledger1CMS",
+        "meta_description": "CMS for game studios and esports. Tournament brackets, patch notes, and fan wikis.",
+        "keywords": [
+            "Gaming CMS",
+            "Esports Platform",
+            "Game Studio"
+        ],
+        "subheading": "Build community around your games",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Tournament brackets",
+                    "Patch note versioning",
+                    "Wiki builder"
+                ],
+                "analytics": [
+                    "Fan engagement",
+                    "Twitch embed stats"
+                ],
+                "ai_agents": [
+                    "Match recap writer",
+                    "Strategy guide helper"
+                ]
+            },
+            "automation_playbooks": [
+                "New patch → publish notes",
+                "Tournament live → homepage takeover"
+            ]
+        }
+    },
+    {
+        "slug": "accounting",
+        "name": "Accounting",
+        "use_case": "CPA Firms & Client Portals",
+        "hero_title": "Precision and Trust",
+        "description": "Secure file exchange and tax resource centers for modern accounting firms.",
+        "meta_title": "Accounting CMS | Ledger1CMS",
+        "meta_description": "CMS for CPAs. Secure client portals, tax date calendars, and regulatory guides.",
+        "keywords": [
+            "Accounting CMS",
+            "CPA Website",
+            "Secure File Share"
+        ],
+        "subheading": "Modernize your firm's client experience",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Secure file drop",
+                    "Tax calendar",
+                    "Client dashboard"
+                ],
+                "analytics": [
+                    "Portal logins",
+                    "Resource downloads"
+                ],
+                "ai_agents": [
+                    "Tax update explainer",
+                    "Deadline reminder"
+                ]
+            },
+            "automation_playbooks": [
+                "Tax season → activate portal styling",
+                "Deadline near → auto-remind clients"
+            ]
+        }
+    },
+    {
+        "slug": "marketing-agency",
+        "name": "Marketing Agency",
+        "use_case": "Client Reporting & Portfolios",
+        "hero_title": "Showcase Your Creativity",
+        "description": "Dynamic portfolios and live client reporting dashboards to prove your ROI.",
+        "meta_title": "Marketing Agency CMS | Ledger1CMS",
+        "meta_description": "CMS for digital agencies. Dynamic case studies, client dashboards, and service catalogs.",
+        "keywords": [
+            "Agency CMS",
+            "Portfolio Builder",
+            "Client Reporting"
+        ],
+        "subheading": "Win pitches and retain clients with superior digital tools",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Dynamic portfolio filter",
+                    "Client report embed",
+                    "Service packages"
+                ],
+                "analytics": [
+                    "Case study views",
+                    "Lead quality"
+                ],
+                "ai_agents": [
+                    "Case study writer",
+                    "Trend report generator"
+                ]
+            },
+            "automation_playbooks": [
+                "New client → auto-create dashboard",
+                "Report ready → notify client"
+            ]
+        }
+    },
+    {
+        "slug": "event-planning",
+        "name": "Event Planning",
+        "use_case": "Conferences & Weddings",
+        "hero_title": "Unforgettable Digital Experiences",
+        "description": "Manage agendas, speaker bios, and registration for events of all sizes.",
+        "meta_title": "Event CMS | Ledger1CMS",
+        "meta_description": "CMS for event planners. Agenda management, speaker profiles, and ticketing integration.",
+        "keywords": [
+            "Event CMS",
+            "Conference Website",
+            "Wedding Planner"
+        ],
+        "subheading": "Seamless digital management for physical events",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Agenda builder",
+                    "Speaker management",
+                    "Ticketing sync"
+                ],
+                "analytics": [
+                    "Session interest",
+                    "Registration pacing"
+                ],
+                "ai_agents": [
+                    "Bio condenser",
+                    "Schedule optimizer"
+                ]
+            },
+            "automation_playbooks": [
+                "Speaker confirmed → publish profile",
+                "Event start → switch to live mode"
+            ]
+        }
+    },
+    {
+        "slug": "recruiting",
+        "name": "Recruiting",
+        "use_case": "Staffing Agencies",
+        "hero_title": "Connect Talent Faster",
+        "description": "High-volume job boards and candidate portals for modern staffing firms.",
+        "meta_title": "Recruiting CMS | Ledger1CMS",
+        "meta_description": "CMS for staffing agencies. Job boards, candidate portals, and ATS integration.",
+        "keywords": [
+            "Staffing CMS",
+            "Recruitment Website",
+            "Job Board"
+        ],
+        "subheading": "Fill roles faster with better candidate experiences",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Job feed sync",
+                    "Resume upload",
+                    "Client portal"
+                ],
+                "analytics": [
+                    "Application rate",
+                    "Job view source"
+                ],
+                "ai_agents": [
+                    "Job desc improver",
+                    "Candidate matcher"
+                ]
+            },
+            "automation_playbooks": [
+                "New req → publish to board",
+                "Placement made → generate success story"
+            ]
+        }
+    },
+    {
+        "slug": "architecture",
+        "name": "Architecture",
+        "use_case": "Visual Portfolios",
+        "hero_title": "Designed for Design",
+        "description": "Minimalist, high-performance portfolios for architects to showcase their vision.",
+        "meta_title": "Architecture CMS | Ledger1CMS",
+        "meta_description": "CMS for architects. High-res image galleries, project timelines, and minimalist design.",
+        "keywords": [
+            "Architecture Portfolio",
+            "Design Firm CMS",
+            "Project Gallery"
+        ],
+        "subheading": "Let your work speak for itself",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "4K image support",
+                    "Project filtering",
+                    "Press clipping archive"
+                ],
+                "analytics": [
+                    "Gallery dwell time",
+                    "Inquiry source"
+                ],
+                "ai_agents": [
+                    "Project description writer",
+                    "Award submission helper"
+                ]
+            },
+            "automation_playbooks": [
+                "Project finished → update portfolio",
+                "Press mention → add to news"
+            ]
+        }
+    },
+    {
+        "slug": "biotech",
+        "name": "Biotechnology",
+        "use_case": "Investor Relations & Science",
+        "hero_title": "Innovating Life",
+        "description": "Complex scientific data presentation and investor relations for biotech.",
+        "meta_title": "Biotech CMS | Ledger1CMS",
+        "meta_description": "CMS for biotech companies. Pipeline visualization, investor relations, and scientific pubs.",
+        "keywords": [
+            "Biotech CMS",
+            "Life Science Web",
+            "Investor Relations"
+        ],
+        "subheading": "Communicate complex science clearly",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Pipeline visualizer",
+                    "Pubmed integration",
+                    "IR portal"
+                ],
+                "analytics": [
+                    "Investor deck views",
+                    "News reads"
+                ],
+                "ai_agents": [
+                    "Science summarizer",
+                    "Press release drafter"
+                ]
+            },
+            "automation_playbooks": [
+                "Data release → update pipeline",
+                "New patent → news alert"
+            ]
+        }
+    },
+    {
+        "slug": "cybersecurity",
+        "name": "Cybersecurity",
+        "use_case": "Threat Intel & Marketing",
+        "hero_title": "Secure by Design",
+        "description": "Publish threat intelligence reports and trust center updates securely.",
+        "meta_title": "Cybersecurity Tech CMS | Ledger1CMS",
+        "meta_description": "CMS for security vendors. Threat blogs, trust centers, and technical marketing.",
+        "keywords": [
+            "Security CMS",
+            "Threat Intel",
+            "Trust Center"
+        ],
+        "subheading": "Build trust through transparency and expertise",
+        "static_sections": {
+            "features": {
+                "core": [
+                    "Trust center module",
+                    "CVE database sync",
+                    "Gated reports"
+                ],
+                "analytics": [
+                    "Report downloads",
+                    "Trust page visits"
+                ],
+                "ai_agents": [
+                    "Threat summary gen",
+                    "Advisory drafter"
+                ]
+            },
+            "automation_playbooks": [
+                "Zero-day → publish advisory",
+                "Status change → update trust center"
+            ]
+        }
+    }
+]

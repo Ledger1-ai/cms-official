@@ -1,0 +1,331 @@
+/* Mobile-First Responsive Utilities */
+
+/* =================================
+   GLOBAL MOBILE FOUNDATION
+   ================================= */
+
+/* Prevent page-level horizontal scroll while allowing vertical */
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: 100vw;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
+}
+
+/* Safe container that respects viewport */
+.mobile-safe-container {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Allow intentional horizontal scroll in specific containers */
+.horizontal-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* =================================
+   RESPONSIVE TABLE PATTERNS
+   ================================= */
+
+/* Convert tables to stacked cards on mobile */
+@media (max-width: 768px) {
+  .table-to-cards {
+    display: block;
+    overflow-x: visible;
+  }
+  
+  .table-to-cards thead {
+    display: none;
+  }
+  
+  .table-to-cards tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .table-to-cards tr {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .table-to-cards td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .table-to-cards td:last-child {
+    border-bottom: none;
+  }
+  
+  .table-to-cards td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    margin-right: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* =================================
+   TOUCH-FRIENDLY INTERACTIONS
+   ================================= */
+
+/* Minimum touch target size (44x44px per Apple/Google guidelines) */
+@media (max-width: 768px) {
+  .touch-target,
+  button,
+  a.button,
+  .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Ensure buttons have proper padding for touch */
+  button:not(.icon-only),
+  .btn:not(.icon-only) {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* =================================
+   TEXT & TYPOGRAPHY
+   ================================= */
+
+/* Safe text that won't cause overflow */
+.text-safe {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+
+/* Responsive text scaling */
+@media (max-width: 640px) {
+  .text-responsive-xl {
+    font-size: 1.5rem; /* text-2xl */
+    line-height: 2rem;
+  }
+  
+  .text-responsive-lg {
+    font-size: 1.125rem; /* text-lg */
+    line-height: 1.75rem;
+  }
+  
+  .text-responsive-base {
+    font-size: 0.875rem; /* text-sm */
+    line-height: 1.25rem;
+  }
+}
+
+/* =================================
+   RESPONSIVE GRID UTILITIES
+   ================================= */
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-grid-sm-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .responsive-grid-sm-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-grid-md-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .responsive-grid-md-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .responsive-grid-md-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid-lg-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .responsive-grid-lg-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* =================================
+   MOBILE SPACING UTILITIES
+   ================================= */
+
+/* Reduce padding on mobile for better space utilization */
+@media (max-width: 768px) {
+  .mobile-p-reduce {
+    padding: 0.75rem !important;
+  }
+  
+  .mobile-px-reduce {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  .mobile-py-reduce {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+}
+
+/* =================================
+   MODAL & OVERLAY UTILITIES
+   ================================= */
+
+/* Mobile-friendly modal sizing */
+@media (max-width: 768px) {
+  .modal-mobile-full {
+    width: 95vw;
+    max-width: 95vw;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-mobile-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    max-height: 85vh;
+    border-radius: 1rem 1rem 0 0;
+  }
+}
+
+/* =================================
+   FORM UTILITIES
+   ================================= */
+
+/* Ensure form inputs don't cause overflow */
+.form-mobile-safe input,
+.form-mobile-safe textarea,
+.form-mobile-safe select {
+  max-width: 100%;
+  font-size: 16px; /* Prevents zoom on iOS */
+}
+
+/* Stack form groups on mobile */
+@media (max-width: 640px) {
+  .form-group-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .form-group-stack > * {
+    width: 100%;
+  }
+}
+
+/* =================================
+   IMAGE & MEDIA UTILITIES
+   ================================= */
+
+/* Responsive images that don't overflow */
+.img-mobile-safe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Aspect ratio containers that respect mobile width */
+.aspect-mobile-safe {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* =================================
+   SCROLLBAR STYLING FOR MOBILE
+   ================================= */
+
+/* Hide scrollbar on intentional horizontal scroll containers on mobile */
+@media (max-width: 768px) {
+  .horizontal-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .horizontal-scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* =================================
+   UTILITY CLASSES
+   ================================= */
+
+/* Force hide on mobile */
+.mobile-hidden {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .mobile-hidden {
+    display: revert !important;
+  }
+}
+
+/* Show only on mobile */
+.mobile-only {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* Prevent text selection on touch (for better UX on buttons/controls) */
+.touch-no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Safe flex containers */
+.flex-mobile-safe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .flex-mobile-safe {
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+}
