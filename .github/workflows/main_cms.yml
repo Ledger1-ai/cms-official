@@ -52,6 +52,9 @@ jobs:
           # Copy @next/env directly from pnpm store (wildcard for version toggle)
           cp -r node_modules/.pnpm/@next+env*/node_modules/@next/env .next/standalone/node_modules/@next/
 
+          # Manually copy generated Prisma client
+          cp -r node_modules/.prisma .next/standalone/node_modules/
+
           mkdir deployment
           rsync -aL .next/standalone/ deployment/ || echo "Rsync: Some files could not be copied (likely broken symlinks)"
           cp -rL public deployment/public || true
