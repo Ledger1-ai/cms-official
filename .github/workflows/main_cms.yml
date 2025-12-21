@@ -72,8 +72,15 @@ jobs:
 
           mkdir deployment
           rsync -aL .next/standalone/ deployment/ || echo "Rsync: Some files could not be copied (likely broken symlinks)"
-          cp -rL public deployment/public || true
-          cp -rL .next/static deployment/.next/static || true
+
+          # Explicitly create destination directories to avoid ambiguity with 'cp'
+          mkdir -p deployment/public
+          mkdir -p deployment/.next/static
+
+          # Copy assets into the created directories
+          # Note: 'cp -r src/. dest/' puts contents of src into dest.
+          cp -rL public/. deployment/public/ || true
+          cp -rL .next/static/. deployment/.next/static/ || true
 
           cd deployment
           # Compress node_modules to tar.gz (flat archive) 
