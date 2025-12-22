@@ -3,9 +3,6 @@ import Imap from "imap";
 import { simpleParser, ParsedMail } from "mailparser";
 import { Readable } from "stream";
 import axios from "axios";
-// TLS workaround: disable certificate verification to avoid DEPTH_ZERO_SELF_SIGNED_CERT
-// WARNING: Do not leave this enabled in production without proper CA configuration.
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const imapConfig: Imap.Config = {
   user: process.env.IMAP_USER!,
@@ -34,12 +31,12 @@ export async function GET() {
     const debug = process.env.NODE_ENV !== "production";
     const payload = debug
       ? {
-          error: "Internal Server Error",
-          message: error?.message,
-          code: error?.code,
-          name: error?.name,
-          stack: error?.stack,
-        }
+        error: "Internal Server Error",
+        message: error?.message,
+        code: error?.code,
+        name: error?.name,
+        stack: error?.stack,
+      }
       : { error: "Internal Server Error" };
     return NextResponse.json(payload, { status: 500 });
   }
