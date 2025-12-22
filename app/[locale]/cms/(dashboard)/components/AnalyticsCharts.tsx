@@ -14,7 +14,7 @@ export default function AnalyticsCharts({ chartdata, topPages, kpiData, cities }
         <div className="space-y-6">
             <Grid numItems={1} numItemsSm={2} numItemsLg={3} className="gap-6">
                 {kpiData.map((item) => (
-                    <Card key={item.title} decoration="top" decorationColor="emerald" className="bg-white/5 backdrop-blur-lg ring-1 ring-white/10 shadow-xl border-none">
+                    <Card key={item.title} decoration="top" decorationColor="emerald" className="bg-[#0A0A0B] ring-1 ring-white/10 shadow-xl border-none">
                         <Text className="text-gray-400">{item.title}</Text>
                         <Flex justifyContent="start" alignItems="baseline" className="truncate space-x-3">
                             <Metric className="text-white">{item.metric}</Metric>
@@ -31,7 +31,7 @@ export default function AnalyticsCharts({ chartdata, topPages, kpiData, cities }
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="lg:col-span-2 space-y-6">
-                    <Card className="bg-white/5 backdrop-blur-lg ring-1 ring-white/10 shadow-xl border-none">
+                    <Card className="bg-[#0A0A0B] ring-1 ring-white/10 shadow-xl border-none">
                         <Title className="text-white">Traffic Trends</Title>
                         <Text className="text-gray-400">Daily unique visitors & page views</Text>
                         <AreaChart
@@ -45,7 +45,7 @@ export default function AnalyticsCharts({ chartdata, topPages, kpiData, cities }
                         />
                     </Card>
 
-                    <Card className="bg-white/5 backdrop-blur-lg ring-1 ring-white/10 shadow-xl border-none">
+                    <Card className="bg-[#0A0A0B] ring-1 ring-white/10 shadow-xl border-none">
                         <Title className="text-white">Geographics</Title>
                         <Text className="text-gray-400">Visitors by City</Text>
                         <div className="mt-6 flex flex-col sm:flex-row items-center justify-between">
@@ -67,7 +67,7 @@ export default function AnalyticsCharts({ chartdata, topPages, kpiData, cities }
                 </div>
 
                 <div className="space-y-6">
-                    <Card className="bg-white/5 backdrop-blur-lg ring-1 ring-white/10 shadow-xl border-none h-full">
+                    <Card className="bg-[#0A0A0B] ring-1 ring-white/10 shadow-xl border-none h-full">
                         <Title className="text-white">Top Pages</Title>
                         <Text className="text-gray-400">Most visited URLs this month</Text>
                         <BarList data={topPages} className="mt-4 stroke-emerald-500" color="emerald" />

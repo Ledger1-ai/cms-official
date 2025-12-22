@@ -190,7 +190,7 @@ export default async function MarketingFooter() {
                     <div className="flex flex-col items-center lg:items-start space-y-6 lg:w-1/4 lg:pr-8">
                         <Link href="/" className="flex items-center gap-2" aria-label="Ledger1 Home">
                             <Image
-                                src={footerSettings?.footerLogoUrl || "/ledger1-cms-logo.png"}
+                                src={footerSettings?.footerLogoUrl || "/ledger1-cms-wide-logo.webp"}
                                 alt="Ledger1CMS Logo"
                                 width={180}
                                 height={45}

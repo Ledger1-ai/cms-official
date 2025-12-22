@@ -2,9 +2,6 @@ import Link from "next/link";
 import { ArrowLeft, Video } from "lucide-react";
 import { prismadb } from "@/lib/prisma";
 import { notFound } from "next/navigation";
-import InteractiveBackground from "@/components/demo/InteractiveBackground";
-import DemoHeader from "@/components/demo/DemoHeader";
-import MarketingFooter from "../../components/MarketingFooter";
 import { SopSidebar } from "@/components/demo/SopSidebar";
 
 // Enhanced Manual Markdown Renderer (reusing from docs)
@@ -115,6 +112,8 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     };
 }
 
+import MarketingLayout from "@/components/marketing/MarketingLayout";
+
 export default async function SopDetailPage(props: { params: Promise<{ slug: string }> }) {
     const params = await props.params;
 
@@ -132,47 +131,41 @@ export default async function SopDetailPage(props: { params: Promise<{ slug: str
     if (!doc) notFound();
 
     return (
-        <div className="min-h-screen bg-[#020617] text-white selection:bg-blue-500/30 font-sans overflow-x-hidden">
-            <InteractiveBackground />
-            <div className="relative z-10">
-                <DemoHeader />
+        <MarketingLayout variant="default">
+            <main className="container mx-auto px-6 pt-12 pb-32">
+                <div className="flex flex-col lg:flex-row gap-12">
+                    {/* Left Sidebar */}
+                    <SopSidebar docs={allDocs} currentSlug={doc.slug} />
 
-                <main className="container mx-auto px-6 pt-12 pb-32">
-                    <div className="flex flex-col lg:flex-row gap-12">
-                        {/* Left Sidebar */}
-                        <SopSidebar docs={allDocs} currentSlug={doc.slug} />
-
-                        {/* Main Content */}
-                        <div className="flex-1 min-w-0">
-                            <article>
-                                <header className="mb-10">
-                                    <div className="flex items-center gap-2 text-sm text-blue-400 font-medium mb-4 uppercase tracking-wider">
-                                        <Link href="/sop" className="hover:text-white transition-colors">University</Link>
-                                        <span className="text-slate-600">/</span>
-                                        <span>{doc.category}</span>
-                                    </div>
-                                    <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-tight">{doc.title}</h1>
-                                </header>
-
-                                {doc.videoUrl && (
-                                    <div className="mb-10">
-                                        <div className="flex items-center gap-2 text-gray-400 mb-4">
-                                            <Video className="h-5 w-5 text-blue-400" />
-                                            <span className="font-medium">Video Tutorial</span>
-                                        </div>
-                                        <VideoEmbed url={doc.videoUrl} />
-                                    </div>
-                                )}
-
-                                <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 backdrop-blur-sm">
-                                    <MarkdownRenderer content={doc.content} />
+                    {/* Main Content */}
+                    <div className="flex-1 min-w-0">
+                        <article>
+                            <header className="mb-10">
+                                <div className="flex items-center gap-2 text-sm text-blue-400 font-medium mb-4 uppercase tracking-wider">
+                                    <Link href="/sop" className="hover:text-white transition-colors">University</Link>
+                                    <span className="text-slate-600">/</span>
+                                    <span>{doc.category}</span>
                                 </div>
-                            </article>
-                        </div>
+                                <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-tight">{doc.title}</h1>
+                            </header>
+
+                            {doc.videoUrl && (
+                                <div className="mb-10">
+                                    <div className="flex items-center gap-2 text-gray-400 mb-4">
+                                        <Video className="h-5 w-5 text-blue-400" />
+                                        <span className="font-medium">Video Tutorial</span>
+                                    </div>
+                                    <VideoEmbed url={doc.videoUrl} />
+                                </div>
+                            )}
+
+                            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 backdrop-blur-sm">
+                                <MarkdownRenderer content={doc.content} />
+                            </div>
+                        </article>
                     </div>
-                </main>
-                <MarketingFooter />
-            </div>
-        </div>
+                </div>
+            </main>
+        </MarketingLayout>
     );
 }

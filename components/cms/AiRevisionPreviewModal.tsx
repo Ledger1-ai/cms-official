@@ -160,7 +160,7 @@ export function AiRevisionPreviewModal({
                         {/* Main Content Area */}
                         <div className="flex-1 overflow-auto bg-black/50 p-6 custom-scrollbar">
                             {activeTab === "diff" ? (
-                                <div className="max-w-4xl mx-auto bg-[#0F0F10] border border-white/5 rounded-xl p-6 shadow-inner">
+                                <div className="max-w-4xl mx-auto bg-[#0A0A0B] border border-white/5 rounded-xl p-6 shadow-inner">
                                     {renderContentDiff()}
                                 </div>
                             ) : (

@@ -109,7 +109,7 @@ export function NanoBananaImageModal({
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="sm:max-w-[700px] bg-[#0F1115] border-white/10 text-white p-0 overflow-hidden gap-0">
+            <DialogContent className="sm:max-w-[700px] bg-[#0A0A0B] border-white/10 text-white p-0 overflow-hidden gap-0">
                 <div className="grid grid-cols-1 md:grid-cols-2 h-full min-h-[400px]">
                     {/* Preview Side */}
                     <div className="bg-black/50 p-6 flex items-center justify-center border-b md:border-b-0 md:border-r border-white/10 relative group">
@@ -119,7 +119,7 @@ export function NanoBananaImageModal({
                                     src={generatedImage}
                                     alt="Generated preview"
                                     fill
-                                    className="object-contain bg-slate-900"
+                                    className="object-contain bg-black"
                                     unoptimized
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
@@ -149,7 +149,7 @@ export function NanoBananaImageModal({
                                 <div className="relative">
                                     <textarea
                                         id="prompt"
-                                        className="w-full min-h-[100px] bg-slate-950 border-white/10 rounded-md p-3 text-sm focus:ring-yellow-500/50 focus:border-yellow-500 resize-none"
+                                        className="w-full min-h-[100px] bg-black border-white/10 rounded-md p-3 text-sm focus:ring-yellow-500/50 focus:border-yellow-500 resize-none"
                                         placeholder="Describe the image you want to generate..."
                                         value={prompt}
                                         onChange={(e) => setPrompt(e.target.value)}
@@ -164,7 +164,7 @@ export function NanoBananaImageModal({
                                         <label className="text-xs font-medium text-slate-400">SEO Metadata</label>
                                         <button
                                             onClick={() => setShowSeo(!showSeo)}
-                                            className={cn("text-[10px] px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors", showSeo && "bg-blue-900/50 text-blue-300")}
+                                            className={cn("text-[10px] px-2 py-1 rounded bg-black border border-white/10 hover:bg-white/5 text-slate-300 transition-colors", showSeo && "bg-blue-900/50 text-blue-300")}
                                         >
                                             {showSeo ? "Hide" : "Edit"}
                                         </button>
@@ -176,19 +176,19 @@ export function NanoBananaImageModal({
                                                 placeholder="Title"
                                                 value={seoData.title}
                                                 onChange={(e) => setSeoData({ ...seoData, title: e.target.value })}
-                                                className="h-8 text-xs bg-slate-950 border-white/10"
+                                                className="h-8 text-xs bg-black border-white/10"
                                             />
                                             <Input
                                                 placeholder="Alt Text"
                                                 value={seoData.altText}
                                                 onChange={(e) => setSeoData({ ...seoData, altText: e.target.value })}
-                                                className="h-8 text-xs bg-slate-950 border-white/10"
+                                                className="h-8 text-xs bg-black border-white/10"
                                             />
                                             <Input
                                                 placeholder="Short Description"
                                                 value={seoData.description}
                                                 onChange={(e) => setSeoData({ ...seoData, description: e.target.value })}
-                                                className="h-8 text-xs bg-slate-950 border-white/10"
+                                                className="h-8 text-xs bg-black border-white/10"
                                             />
                                         </div>
                                     )}

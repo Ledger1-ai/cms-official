@@ -1,4 +1,5 @@
 import IndustryPageContent from "./IndustryPageContent";
+import MarketingLayout from "@/components/marketing/MarketingLayout";
 
 export const metadata = {
     title: "Industries | Ledger1CMS Solutions",
@@ -6,5 +7,9 @@ export const metadata = {
 };
 
 export default function IndustriesPage() {
-    return <IndustryPageContent />;
+    return (
+        <MarketingLayout variant="blue">
+            <IndustryPageContent />
+        </MarketingLayout>
+    );
 }

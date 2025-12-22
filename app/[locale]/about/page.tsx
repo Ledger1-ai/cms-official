@@ -1,6 +1,3 @@
-import React from "react";
-import MarketingHeader from "../components/MarketingHeader";
-import MarketingFooter from "../components/MarketingFooter";
 import TeamVisualization from "../components/TeamVisualization";
 import Image from "next/image";
 import TeamMember from "../components/TeamMember";
@@ -11,7 +8,7 @@ export const metadata = {
     description: "Learn about Ledger1CMS, the AI-first CRM designed to automate sales and support for modern businesses.",
 };
 
-export const dynamic = "force-dynamic";
+import MarketingLayout from "@/components/marketing/MarketingLayout";
 
 export default async function AboutPage() {
     const groups = await prismadb.marketingTeamGroup.findMany({
@@ -22,9 +19,7 @@ export default async function AboutPage() {
     });
 
     return (
-        <div className="min-h-screen bg-[#0F0F1A] text-white font-sans selection:bg-primary/30">
-            <MarketingHeader />
-
+        <MarketingLayout variant="default">
             <main>
                 {/* Hero Section */}
                 <section className="py-20 md:py-32 text-center relative overflow-hidden">
@@ -169,12 +164,9 @@ export default async function AboutPage() {
                     </div>
                 </section>
             </main>
-
-            <MarketingFooter />
-        </div>
+        </MarketingLayout>
     );
 }
-
 
 function ValueCard({ title, description }: { title: string; description: string }) {
     return (

@@ -159,7 +159,7 @@ export default function TeamAdminPage() {
                 <Button
                     onClick={addGroup}
                     variant="outline"
-                    className="border-dashed border-white/20 hover:border-white/40 hover:bg-white/5 text-zinc-300 hover:text-white"
+                    className="border-dashed border-white/20 hover:border-white/40 hover:bg-white/5 text-slate-400 hover:text-white"
                 >
                     <Plus className="mr-2 h-4 w-4" /> Add Group
                 </Button>
@@ -168,13 +168,13 @@ export default function TeamAdminPage() {
             {/* Groups List */}
             <div className="space-y-8">
                 {groups.map((group, gIndex) => (
-                    <Card key={group.id || gIndex} className="bg-zinc-950/40 backdrop-blur-sm border-white/10 shadow-lg">
+                    <Card key={group.id || gIndex} className="bg-[#0A0A0B] backdrop-blur-sm border-white/10 shadow-lg">
                         <CardHeader className="p-4 border-b border-white/5 bg-white/5">
                             <div className="flex items-center justify-between gap-4">
                                 <div className="flex items-center gap-3 flex-1">
-                                    <GripVertical className="h-5 w-5 text-zinc-600 cursor-grab active:cursor-grabbing" />
+                                    <GripVertical className="h-5 w-5 text-slate-500 cursor-grab active:cursor-grabbing" />
                                     <Input
-                                        className="text-xl font-bold bg-transparent border-transparent hover:border-white/10 focus:border-blue-500 p-0 px-2 h-auto w-full text-white placeholder:text-zinc-600 focus-visible:ring-0 rounded-sm"
+                                        className="text-xl font-bold bg-transparent border-transparent hover:border-white/10 focus:border-blue-500 p-0 px-2 h-auto w-full text-white placeholder:text-slate-600 focus-visible:ring-0 rounded-sm"
                                         value={group.title}
                                         onChange={(e) => updateGroup(gIndex, "title", e.target.value)}
                                         placeholder="Group Title (e.g. Leadership)"
@@ -194,13 +194,13 @@ export default function TeamAdminPage() {
                             {/* Members Grid */}
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 {group.members.map((member, mIndex) => (
-                                    <div key={mIndex} className="group relative bg-zinc-900/50 border border-white/5 rounded-xl p-4 hover:border-white/20 transition-all">
+                                    <div key={mIndex} className="group relative bg-[#13151A] border border-white/5 rounded-xl p-4 hover:border-white/20 transition-all">
                                         <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                             <Button
                                                 size="icon"
                                                 variant="ghost"
                                                 onClick={() => removeMember(gIndex, mIndex)}
-                                                className="h-8 w-8 text-zinc-400 hover:text-red-400 hover:bg-white/10"
+                                                className="h-8 w-8 text-slate-400 hover:text-red-400 hover:bg-white/10"
                                             >
                                                 <Trash className="h-4 w-4" />
                                             </Button>
@@ -209,7 +209,7 @@ export default function TeamAdminPage() {
                                         <div className="space-y-3">
                                             {/* Avatar & Basic Info */}
                                             <div className="flex gap-3">
-                                                <div className="h-12 w-12 rounded-full overflow-hidden bg-zinc-800 flex-shrink-0 border border-white/10">
+                                                <div className="h-12 w-12 rounded-full overflow-hidden bg-black flex-shrink-0 border border-white/10">
                                                     {/* Standard img tag for preview to avoid Next.js Image complexity with external/dynamic urls if needed, though mostly internal */}
                                                     <img
                                                         src={member.imageSrc || "/placeholder.png"}
@@ -226,7 +226,7 @@ export default function TeamAdminPage() {
                                                         onChange={(e) => updateMember(gIndex, mIndex, "name", e.target.value)}
                                                     />
                                                     <Input
-                                                        className="h-6 text-xs text-zinc-400 bg-transparent border-transparent hover:border-white/10 p-1"
+                                                        className="h-6 text-xs text-slate-400 bg-transparent border-transparent hover:border-white/10 p-1"
                                                         placeholder="Role"
                                                         value={member.role}
                                                         onChange={(e) => updateMember(gIndex, mIndex, "role", e.target.value)}
@@ -239,7 +239,7 @@ export default function TeamAdminPage() {
                                                 <div className="flex items-center gap-2">
                                                     <ImageIcon className="h-3 w-3 text-zinc-500" />
                                                     <Input
-                                                        className="h-7 text-xs bg-zinc-900/50 border-white/10 text-zinc-300 placeholder:text-zinc-700 font-mono"
+                                                        className="h-7 text-xs bg-black/40 border-white/10 text-slate-300 placeholder:text-slate-600 font-mono"
                                                         placeholder="/images/team/..."
                                                         value={member.imageSrc}
                                                         onChange={(e) => updateMember(gIndex, mIndex, "imageSrc", e.target.value)}
@@ -248,7 +248,7 @@ export default function TeamAdminPage() {
                                                 <div className="flex items-center gap-2">
                                                     <Linkedin className="h-3 w-3 text-blue-400" />
                                                     <Input
-                                                        className="h-7 text-xs bg-zinc-900/50 border-white/10 text-zinc-300 placeholder:text-zinc-700 font-mono"
+                                                        className="h-7 text-xs bg-black/40 border-white/10 text-slate-300 placeholder:text-slate-600 font-mono"
                                                         placeholder="LinkedIn URL"
                                                         value={member.linkedin || ""}
                                                         onChange={(e) => updateMember(gIndex, mIndex, "linkedin", e.target.value)}
@@ -257,7 +257,7 @@ export default function TeamAdminPage() {
                                                 <div className="flex items-center gap-2">
                                                     <Twitter className="h-3 w-3 text-sky-400" />
                                                     <Input
-                                                        className="h-7 text-xs bg-zinc-900/50 border-white/10 text-zinc-300 placeholder:text-zinc-700 font-mono"
+                                                        className="h-7 text-xs bg-black/40 border-white/10 text-slate-300 placeholder:text-slate-600 font-mono"
                                                         placeholder="X (Twitter) URL"
                                                         value={member.twitter || ""}
                                                         onChange={(e) => updateMember(gIndex, mIndex, "twitter", e.target.value)}
@@ -271,7 +271,7 @@ export default function TeamAdminPage() {
                                 <Button
                                     onClick={() => addMember(gIndex)}
                                     variant="outline"
-                                    className="h-full min-h-[140px] border-dashed border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white flex flex-col gap-2"
+                                    className="h-full min-h-[140px] border-dashed border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex flex-col gap-2"
                                 >
                                     <Plus className="h-6 w-6" />
                                     <span>Add Team Member</span>

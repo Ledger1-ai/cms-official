@@ -3,6 +3,9 @@
 import { prismadb } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { hash } from "bcryptjs";
+import { logActivityInternal } from "@/actions/audit";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
 export async function getUsers(query?: string) {
     const where: any = {};
@@ -78,6 +81,21 @@ export async function upsertUser(data: any) {
             });
         }
 
+        const logSession = await getServerSession(authOptions);
+        logActivityInternal(
+            logSession?.user?.id || "system",
+            id ? "Updated User" : "Created User",
+            "Team Management",
+            `User ${updateData.email} was ${id ? "updated" : "created"}`,
+            {
+                email: updateData.email,
+                roleId: updateData.roleId,
+                status: updateData.userStatus
+            }
+        );
+
+
+
         revalidatePath("/cms/settings/team");
         return { success: true };
     } catch (error: any) {
@@ -98,6 +116,17 @@ export async function deleteUser(id: string) {
         // Delete = Hard Delete.
 
         await prismadb.users.delete({ where: { id } });
+
+        const logSession = await getServerSession(authOptions);
+        logActivityInternal(
+            logSession?.user?.id || "system",
+            "Deleted User",
+            "Team Management",
+            `User ${id} was permanently deleted`,
+            { userId: id }
+        );
+
+
         revalidatePath("/cms/settings/team");
         return { success: true };
     } catch (error: any) {
@@ -111,6 +140,17 @@ export async function toggleUserStatus(id: string, status: "ACTIVE" | "INACTIVE"
             where: { id },
             data: { userStatus: status }
         });
+
+        const logSession = await getServerSession(authOptions);
+        logActivityInternal(
+            logSession?.user?.id || "system",
+            "Updated User Status",
+            "Team Management",
+            `User ${id} status changed to ${status}`,
+            { userId: id, newStatus: status }
+        );
+
+
         revalidatePath("/cms/settings/team");
         return { success: true };
     } catch (error) {
@@ -200,6 +240,17 @@ export async function resetUserPassword(userId: string) {
             where: { id: userId },
             data: { password: hashedPassword }
         });
+
+        const logSession = await getServerSession(authOptions);
+        logActivityInternal(
+            logSession?.user?.id || "system",
+            "Reset User Password",
+            "Security",
+            `Admin reset password for user ${user.email}`,
+            { userId: user.id, email: user.email }
+        );
+
+
 
         // Dynamically import sendEmail to avoid top-level issues if any
         const sendEmail = (await import("@/lib/sendmail")).default;

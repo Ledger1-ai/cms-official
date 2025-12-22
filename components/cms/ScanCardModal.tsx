@@ -282,7 +282,7 @@ export function ScanCardModal({ isOpen, onClose, onScanComplete, initialFile }: 
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
-            <DialogContent className="sm:max-w-[500px] bg-[#0F1115] border border-white/10 text-white p-0 gap-0 overflow-hidden w-full h-[90vh] sm:h-auto flex flex-col">
+            <DialogContent className="sm:max-w-[500px] bg-[#0A0A0B] border border-white/10 text-white p-0 gap-0 overflow-hidden w-full h-[90vh] sm:h-auto flex flex-col">
                 {/* Header */}
                 <div className="p-4 border-b border-white/10 flex items-center justify-between bg-black/20">
                     <DialogTitle className="text-lg font-semibold flex items-center gap-2">
@@ -409,7 +409,7 @@ export function ScanCardModal({ isOpen, onClose, onScanComplete, initialFile }: 
                             </div>
 
                             {/* Controls */}
-                            <div className="p-4 bg-[#0F1115] border-t border-white/10 flex flex-col gap-4 z-30">
+                            <div className="p-4 bg-[#0A0A0B] border-t border-white/10 flex flex-col gap-4 z-30">
                                 {/* Zoom Slider */}
                                 <div className="flex items-center gap-4 px-2">
                                     <span className="text-xs text-slate-400">Zoom</span>

@@ -138,11 +138,11 @@ export default function SubscriptionClient() {
                     <p className="text-muted-foreground">Manage subscribers and notification preferences.</p>
                 </div>
                 <div className="flex items-center space-x-2">
-                    <Button variant="outline" onClick={() => setIsConfigOpen(true)}>
+                    <Button className="bg-black border border-white/10 hover:bg-white/5 text-slate-300 hover:text-white" onClick={() => setIsConfigOpen(true)}>
                         <Settings className="mr-2 h-4 w-4" />
                         Global Settings
                     </Button>
-                    <Button variant="outline" onClick={handleExport}>
+                    <Button className="bg-black border border-white/10 hover:bg-white/5 text-slate-300 hover:text-white" onClick={handleExport}>
                         <Download className="mr-2 h-4 w-4" />
                         Export CSV
                     </Button>
@@ -158,21 +158,21 @@ export default function SubscriptionClient() {
                     placeholder="Search subscribers..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="max-w-sm bg-zinc-950/50 border-white/10 text-white"
+                    className="max-w-sm bg-[#0A0A0B] border-white/10 text-white placeholder:text-slate-500"
                 />
             </div>
 
-            <Card className="bg-zinc-950/50 border-white/10">
+            <Card className="bg-[#0A0A0B] border-white/10">
                 <CardContent className="p-0">
                     <Table>
                         <TableHeader>
-                            <TableRow className="border-white/10 hover:bg-white/5">
-                                <TableHead className="text-zinc-400">Email</TableHead>
-                                <TableHead className="text-zinc-400">Name</TableHead>
-                                <TableHead className="text-zinc-400 text-center">Blog Updates</TableHead>
-                                <TableHead className="text-zinc-400 text-center">Career Alerts</TableHead>
-                                <TableHead className="text-zinc-400 text-right">Joined</TableHead>
-                                <TableHead className="text-zinc-400 text-right">Actions</TableHead>
+                            <TableRow className="border-white/10 hover:bg-white/5 bg-black/40">
+                                <TableHead className="text-slate-400">Email</TableHead>
+                                <TableHead className="text-slate-400">Name</TableHead>
+                                <TableHead className="text-slate-400 text-center">Blog Updates</TableHead>
+                                <TableHead className="text-slate-400 text-center">Career Alerts</TableHead>
+                                <TableHead className="text-slate-400 text-right">Joined</TableHead>
+                                <TableHead className="text-slate-400 text-right">Actions</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -185,7 +185,7 @@ export default function SubscriptionClient() {
                                 </TableRow>
                             ) : subscribers.length === 0 ? (
                                 <TableRow>
-                                    <TableCell colSpan={6} className="h-24 text-center text-zinc-500">
+                                    <TableCell colSpan={6} className="h-24 text-center text-slate-500">
                                         No subscribers found.
                                     </TableCell>
                                 </TableRow>
@@ -193,13 +193,13 @@ export default function SubscriptionClient() {
                                 subscribers.map((sub) => (
                                     <TableRow key={sub.id} className="border-white/10 hover:bg-white/5">
                                         <TableCell className="font-medium text-white">{sub.email}</TableCell>
-                                        <TableCell className="text-zinc-300">
+                                        <TableCell className="text-slate-300">
                                             {[sub.firstName, sub.lastName].filter(Boolean).join(" ") || "-"}
                                         </TableCell>
                                         <TableCell className="text-center">
                                             <Badge
                                                 variant={sub.subscribedToBlog ? "default" : "secondary"}
-                                                className={`cursor-pointer ${sub.subscribedToBlog ? "bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500/20" : "bg-zinc-800 text-zinc-500"}`}
+                                                className={`cursor-pointer ${sub.subscribedToBlog ? "bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500/20" : "bg-white/5 text-slate-500 hover:bg-white/10"}`}
                                                 onClick={() => handleToggle(sub.id, "subscribedToBlog")}
                                             >
                                                 {sub.subscribedToBlog ? "Active" : "Off"}
@@ -208,17 +208,17 @@ export default function SubscriptionClient() {
                                         <TableCell className="text-center">
                                             <Badge
                                                 variant={sub.subscribedToCareers ? "default" : "secondary"}
-                                                className={`cursor-pointer ${sub.subscribedToCareers ? "bg-blue-500/10 text-blue-500 hover:bg-blue-500/20" : "bg-zinc-800 text-zinc-500"}`}
+                                                className={`cursor-pointer ${sub.subscribedToCareers ? "bg-blue-500/10 text-blue-500 hover:bg-blue-500/20" : "bg-white/5 text-slate-500 hover:bg-white/10"}`}
                                                 onClick={() => handleToggle(sub.id, "subscribedToCareers")}
                                             >
                                                 {sub.subscribedToCareers ? "Active" : "Off"}
                                             </Badge>
                                         </TableCell>
-                                        <TableCell className="text-right text-zinc-400">
+                                        <TableCell className="text-right text-slate-400">
                                             {new Date(sub.createdAt).toLocaleDateString()}
                                         </TableCell>
                                         <TableCell className="text-right">
-                                            <Button variant="ghost" size="sm" onClick={() => handleDelete(sub.id)} className="h-8 w-8 p-0 text-zinc-500 hover:text-red-400">
+                                            <Button variant="ghost" size="sm" onClick={() => handleDelete(sub.id)} className="h-8 w-8 p-0 text-slate-500 hover:text-red-400">
                                                 <Trash className="h-4 w-4" />
                                             </Button>
                                         </TableCell>
@@ -233,10 +233,10 @@ export default function SubscriptionClient() {
             <SubscriptionConfigModal isOpen={isConfigOpen} onClose={() => setIsConfigOpen(false)} />
 
             <Dialog open={isAddOpen} onOpenChange={setIsAddOpen}>
-                <DialogContent className="bg-zinc-950 border-white/10 text-white">
+                <DialogContent className="bg-[#0A0A0B] border-white/10 text-white">
                     <DialogHeader>
                         <DialogTitle>Add Subscriber</DialogTitle>
-                        <DialogDescription className="text-zinc-400">
+                        <DialogDescription className="text-slate-400">
                             Manually add a new subscriber to the list.
                         </DialogDescription>
                     </DialogHeader>
@@ -247,7 +247,7 @@ export default function SubscriptionClient() {
                                 value={newEmail}
                                 onChange={e => setNewEmail(e.target.value)}
                                 placeholder="user@example.com"
-                                className="bg-zinc-900 border-white/10"
+                                className="bg-black border-white/10 focus-visible:ring-offset-0"
                             />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
@@ -257,7 +257,7 @@ export default function SubscriptionClient() {
                                     value={newFirstName}
                                     onChange={e => setNewFirstName(e.target.value)}
                                     placeholder="John"
-                                    className="bg-zinc-900 border-white/10"
+                                    className="bg-black border-white/10 focus-visible:ring-offset-0"
                                 />
                             </div>
                             <div className="space-y-2">
@@ -266,13 +266,13 @@ export default function SubscriptionClient() {
                                     value={newLastName}
                                     onChange={e => setNewLastName(e.target.value)}
                                     placeholder="Doe"
-                                    className="bg-zinc-900 border-white/10"
+                                    className="bg-black border-white/10 focus-visible:ring-offset-0"
                                 />
                             </div>
                         </div>
                     </div>
                     <DialogFooter>
-                        <Button variant="ghost" onClick={() => setIsAddOpen(false)}>Cancel</Button>
+                        <Button variant="ghost" onClick={() => setIsAddOpen(false)} className="hover:bg-white/5 hover:text-white">Cancel</Button>
                         <Button onClick={handleAdd} disabled={!newEmail || adding} className="bg-emerald-600 hover:bg-emerald-700 text-white">
                             {adding && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                             Add Subscriber

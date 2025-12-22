@@ -52,7 +52,7 @@ export default function DashboardHeader({ userName }: DashboardHeaderProps) {
                     {/* University Button */}
                     <Link href={`/${params?.locale}/cms/university`}>
                         <button
-                            className="relative p-2 rounded-full bg-slate-800 hover:bg-slate-700 border border-white/5 transition-all group"
+                            className="relative p-2 rounded-full bg-black hover:bg-white/5 border border-white/5 transition-all group"
                             title="University & SOPs"
                         >
                             <GraduationCap className="h-5 w-5 text-slate-400 group-hover:text-blue-400 transition-colors" />
@@ -62,7 +62,7 @@ export default function DashboardHeader({ userName }: DashboardHeaderProps) {
                     {/* Security Button */}
                     <Link href={`/${params?.locale}/cms/settings/security`}>
                         <button
-                            className="relative p-2 rounded-full bg-slate-800 hover:bg-slate-700 border border-white/5 transition-all group"
+                            className="relative p-2 rounded-full bg-black hover:bg-white/5 border border-white/5 transition-all group"
                             title="Security Settings"
                         >
                             <Shield className="h-5 w-5 text-slate-400 group-hover:text-red-400 transition-colors" />
@@ -72,7 +72,7 @@ export default function DashboardHeader({ userName }: DashboardHeaderProps) {
                     {/* Active Users Button */}
                     <button
                         onClick={() => setShowActiveUsers(true)}
-                        className="relative p-2 rounded-full bg-slate-800 hover:bg-slate-700 border border-white/5 transition-all group"
+                        className="relative p-2 rounded-full bg-black hover:bg-white/5 border border-white/5 transition-all group"
                         title="Active Users"
                     >
                         <Users className="h-5 w-5 text-slate-400 group-hover:text-white" />
@@ -84,7 +84,7 @@ export default function DashboardHeader({ userName }: DashboardHeaderProps) {
             {/* Clickable Analytics Stats Banner */}
             <button
                 onClick={() => setShowBlogAnalytics(true)}
-                className="w-full glass border border-[var(--glass-border)] rounded-xl p-4 flex items-center gap-4 hover:shadow-[0_12px_40px_hsla(191,65%,46%,0.28)] transition-all cursor-pointer group"
+                className="w-full bg-[#0A0A0B] border border-white/10 rounded-xl p-4 flex items-center gap-4 hover:shadow-[0_12px_40px_hsla(191,65%,46%,0.28)] transition-all cursor-pointer group"
                 title="View Blog Analytics"
             >
                 <div className="h-10 w-10 rounded-full bg-cyan-500/10 flex items-center justify-center border border-cyan-500/20 group-hover:bg-cyan-500/20 transition-all">

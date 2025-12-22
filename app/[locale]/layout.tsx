@@ -76,9 +76,9 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   const siteUrl = getSafeBaseUrl();
 
-  const title = seoConfig?.globalTitle || "Ledger1 CMS";
+  const title = seoConfig?.globalTitle || "Ledger1 CMS | The Intelligent Visual Builder";
   const description = seoConfig?.globalDescription || "";
-  const ogImage = seoConfig?.ogImage || "/ledger-og.png";
+  const ogImage = seoConfig?.ogImage || "/images/opengraph-image.png";
   const ogTitle = seoConfig?.ogTitle || title;
   const ogDescription = seoConfig?.ogDescription || description;
 
@@ -174,7 +174,7 @@ export default async function RootLayout(props: Props) {
         <AnalyticsTracker />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SessionProvider session={session}>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
               {children}
               {/* Team Suspension Check */}
               <SuspensionCheck />

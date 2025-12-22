@@ -8,7 +8,8 @@ export async function logActivityInternal(
     userId: string,
     action: string,
     resource: string,
-    details?: string
+    details?: string,
+    metadata?: Record<string, any>
 ) {
     try {
         await prismadb.systemActivity.create({
@@ -17,6 +18,7 @@ export async function logActivityInternal(
                 action,
                 resource,
                 details,
+                metadata,
             },
         });
     } catch (error) {
@@ -27,13 +29,14 @@ export async function logActivityInternal(
 export async function logActivity(
     action: string,
     resource: string,
-    details?: string
+    details?: string,
+    metadata?: Record<string, any>
 ) {
     try {
         const session = await getServerSession(authOptions);
         if (!session?.user?.id) return;
 
-        await logActivityInternal(session.user.id, action, resource, details);
+        await logActivityInternal(session.user.id, action, resource, details, metadata);
     } catch (error) {
         console.error("Failed to log activity:", error);
     }

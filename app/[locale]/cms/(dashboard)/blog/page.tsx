@@ -258,7 +258,7 @@ export default function BlogAdminPage() {
                     <div className="space-y-2">
                         <label className="text-sm font-medium">Title</label>
                         <input
-                            className="w-full p-2 border rounded bg-slate-950 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
+                            className="w-full p-2 border rounded bg-black/50 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
                             value={editingPost.title || ""}
                             onChange={(e) => setEditingPost({ ...editingPost, title: e.target.value })}
                         />
@@ -266,7 +266,7 @@ export default function BlogAdminPage() {
                     <div className="space-y-2">
                         <label className="text-sm font-medium">Slug</label>
                         <input
-                            className="w-full p-2 border rounded bg-slate-950 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
+                            className="w-full p-2 border rounded bg-black/50 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
                             value={editingPost.slug || ""}
                             onChange={(e) => setEditingPost({ ...editingPost, slug: e.target.value })}
                         />
@@ -274,7 +274,7 @@ export default function BlogAdminPage() {
                     <div className="space-y-2">
                         <label className="text-sm font-medium">Category</label>
                         <input
-                            className="w-full p-2 border rounded bg-slate-950 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
+                            className="w-full p-2 border rounded bg-black/50 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
                             value={editingPost.category || ""}
                             onChange={(e) => setEditingPost({ ...editingPost, category: e.target.value })}
                         />
@@ -283,7 +283,7 @@ export default function BlogAdminPage() {
                         <label className="text-sm font-medium">Cover Image URL</label>
                         <div className="flex gap-2">
                             <input
-                                className="flex-1 p-2 border rounded bg-slate-950 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
+                                className="flex-1 p-2 border rounded bg-black/50 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
                                 value={editingPost.coverImage || ""}
                                 onChange={(e) => setEditingPost({ ...editingPost, coverImage: e.target.value })}
                             />
@@ -296,7 +296,7 @@ export default function BlogAdminPage() {
                             </button>
                             <button
                                 onClick={() => setShowMediaPicker(true)}
-                                className="px-3 py-2 bg-slate-900 border border-white/10 rounded hover:bg-slate-800 text-slate-300 transition-colors"
+                                className="px-3 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 text-slate-300 transition-colors"
                                 title="Select from Media Library"
                             >
                                 <ImageIcon className="h-4 w-4" />
@@ -307,7 +307,7 @@ export default function BlogAdminPage() {
                     <div className="space-y-2">
                         <label className="text-sm font-medium">Author</label>
                         <input
-                            className="w-full p-2 border rounded bg-slate-950 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
+                            className="w-full p-2 border rounded bg-black/50 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
                             value={editingPost.author || ""}
                             onChange={(e) => setEditingPost({ ...editingPost, author: e.target.value })}
                         />
@@ -317,7 +317,7 @@ export default function BlogAdminPage() {
                             <input
                                 type="checkbox"
                                 id="shareToTwitter"
-                                className="rounded border-slate-600 bg-slate-800 text-blue-600 focus:ring-blue-500/50"
+                                className="rounded border-white/10 bg-white/5 text-blue-600 focus:ring-blue-500/50"
                                 checked={shareToTwitter}
                                 onChange={(e) => setShareToTwitter(e.target.checked)}
                             />
@@ -333,7 +333,7 @@ export default function BlogAdminPage() {
                     <div className="space-y-4 pt-4 border-t border-white/10 mt-auto">
                         <div className="flex items-center justify-between">
                             <label className="text-sm font-medium">Publish Settings</label>
-                            <span className="text-[10px] text-slate-500 bg-slate-900 px-2 py-1 rounded border border-white/5">
+                            <span className="text-[10px] text-slate-500 bg-white/5 px-2 py-1 rounded border border-white/5">
                                 Timezone: {Intl.DateTimeFormat().resolvedOptions().timeZone}
                             </span>
                         </div>
@@ -342,7 +342,7 @@ export default function BlogAdminPage() {
                             <input
                                 type="checkbox"
                                 id="schedulePost"
-                                className="rounded border-slate-600 bg-slate-800 text-blue-600 focus:ring-blue-500/50"
+                                className="rounded border-white/10 bg-white/5 text-blue-600 focus:ring-blue-500/50"
                                 checked={!!editingPost.publishedAt && new Date(editingPost.publishedAt) > new Date()}
                                 onChange={(e) => {
                                     if (e.target.checked) {
@@ -367,7 +367,7 @@ export default function BlogAdminPage() {
                                 <label className="text-xs text-slate-500 mb-1 block">Scheduled Date & Time</label>
                                 <input
                                     type="datetime-local"
-                                    className="w-full p-2 border rounded bg-slate-950 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
+                                    className="w-full p-2 border rounded bg-black/50 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors"
                                     value={editingPost.publishedAt ? new Date(editingPost.publishedAt).toLocaleString('sv').slice(0, 16).replace(' ', 'T') : ""}
                                     onChange={(e) => setEditingPost({ ...editingPost, publishedAt: new Date(e.target.value).toISOString() })}
                                 />
@@ -382,7 +382,7 @@ export default function BlogAdminPage() {
                 <div className="space-y-2">
                     <label className="text-sm font-medium">Excerpt</label>
                     <textarea
-                        className="w-full p-2 border rounded bg-slate-950 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors h-20"
+                        className="w-full p-2 border rounded bg-black/50 border-white/10 text-slate-200 placeholder:text-slate-500 hover:border-blue-500/50 focus:border-blue-500 transition-colors h-20"
                         value={editingPost.excerpt || ""}
                         onChange={(e) => setEditingPost({ ...editingPost, excerpt: e.target.value })}
                     />
@@ -402,7 +402,7 @@ export default function BlogAdminPage() {
                 {
                     showMediaPicker && (
                         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-                            <div className="bg-slate-950/90 backdrop-blur-2xl border border-white/10 rounded-xl w-full max-w-4xl h-[600px] flex flex-col shadow-2xl">
+                            <div className="bg-[#0A0A0B] backdrop-blur-2xl border border-white/10 rounded-xl w-full max-w-4xl h-[600px] flex flex-col shadow-2xl">
                                 <div className="flex items-center justify-between p-4 border-b border-white/10">
                                     <h3 className="text-lg font-bold text-white">Select Media</h3>
                                     <button onClick={() => setShowMediaPicker(false)} className="p-1 hover:bg-white/10 rounded">
@@ -420,7 +420,7 @@ export default function BlogAdminPage() {
                                                 }}
                                                 className="aspect-square relative group cursor-pointer border border-white/5 rounded-lg overflow-hidden hover:border-blue-500 hover:ring-2 hover:ring-blue-500/20"
                                             >
-                                                <NextImage src={item.url} alt={item.filename} fill className="object-contain bg-slate-900" unoptimized />
+                                                <NextImage src={item.url} alt={item.filename} fill className="object-contain bg-black" unoptimized />
                                                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
                                                     <span className="text-white text-xs font-medium bg-blue-600 px-2 py-1 rounded">Select</span>
                                                 </div>
@@ -458,11 +458,11 @@ export default function BlogAdminPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {posts.map((post) => (
-                    <div key={post.id} className="bg-slate-950/50 backdrop-blur-xl border border-white/10 rounded-lg p-6 space-y-4 hover:border-blue-500 transition-colors shadow-lg group relative overflow-hidden">
+                    <div key={post.id} className="bg-[#0A0A0B] backdrop-blur-xl border border-white/10 rounded-lg p-6 space-y-4 hover:border-blue-500 transition-colors shadow-lg group relative overflow-hidden">
 
                         {/* Image Preview / Generation Trigger */}
                         <div
-                            className="aspect-video w-full bg-slate-900 rounded-md overflow-hidden relative cursor-pointer border border-white/5 group-hover:border-blue-500/50 transition-colors"
+                            className="aspect-video w-full bg-black rounded-md overflow-hidden relative cursor-pointer border border-white/5 group-hover:border-blue-500/50 transition-colors"
                             onClick={(e) => {
                                 e.stopPropagation();
                                 openNanoBanana(post.title || "Blog post cover", post.id);
@@ -471,7 +471,7 @@ export default function BlogAdminPage() {
                         >
                             {post.coverImage ? (
                                 <>
-                                    <NextImage src={post.coverImage} alt={post.title} fill className="object-contain bg-slate-900" unoptimized />
+                                    <NextImage src={post.coverImage} alt={post.title} fill className="object-contain bg-black" unoptimized />
                                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
                                         <div className="flex items-center gap-2 text-white font-medium">
                                             <Sparkles className="h-4 w-4 text-yellow-400" />
@@ -480,7 +480,7 @@ export default function BlogAdminPage() {
                                     </div>
                                 </>
                             ) : (
-                                <div className="w-full h-full flex flex-col items-center justify-center text-slate-500 gap-2 hover:text-slate-300 transition-colors bg-slate-900/50">
+                                <div className="w-full h-full flex flex-col items-center justify-center text-slate-500 gap-2 hover:text-slate-300 transition-colors bg-white/5">
                                     <Sparkles className="h-8 w-8 opacity-20" />
                                     <span className="text-xs font-medium">Generate Image</span>
                                 </div>

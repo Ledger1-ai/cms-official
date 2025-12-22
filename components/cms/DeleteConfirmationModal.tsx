@@ -31,7 +31,7 @@ export function DeleteConfirmationModal({
 }: DeleteConfirmationModalProps) {
     return (
         <AlertDialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <AlertDialogContent className="bg-[#0A0A0B]/80 backdrop-blur-xl border border-white/10 text-white shadow-2xl max-w-md w-full p-6 rounded-2xl">
+            <AlertDialogContent className="bg-[#0A0A0B] backdrop-blur-xl border border-white/10 text-white shadow-2xl max-w-md w-full p-6 rounded-2xl">
                 <AlertDialogHeader className="space-y-3">
                     <div className="flex items-center gap-3">
                         <div className="h-10 w-10 rounded-full bg-red-500/10 flex items-center justify-center flex-shrink-0">

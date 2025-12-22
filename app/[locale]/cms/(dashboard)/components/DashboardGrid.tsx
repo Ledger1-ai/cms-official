@@ -132,7 +132,7 @@ export default function DashboardGrid({ enabledModules = [], isAdmin = false, un
                                 <div className={cn("absolute -right-20 -top-20 h-40 w-40 rounded-full blur-3xl opacity-20 transition-opacity group-hover:opacity-40", item.iconColor.replace("text-", "bg-"))} />
 
                                 <div className="flex items-start justify-between relative z-10">
-                                    <div className={cn("p-3 rounded-xl bg-slate-800 border border-white/5 shadow-inner", item.iconColor)}>
+                                    <div className={cn("p-3 rounded-xl bg-white/5 border border-white/5 shadow-inner", item.iconColor)}>
                                         <item.icon className="h-6 w-6" />
                                     </div>
 

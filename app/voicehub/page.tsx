@@ -18,8 +18,7 @@ import {
     Lock
 } from 'lucide-react';
 import * as Motion from 'framer-motion/client';
-import MarketingHeader from "../[locale]/components/MarketingHeader";
-import MarketingFooter from "../[locale]/components/MarketingFooter";
+import MarketingLayout from "@/components/marketing/MarketingLayout";
 
 export const metadata: Metadata = {
     title: 'VoiceHub - Real-Time AI Voice Conversations',
@@ -33,20 +32,12 @@ export const metadata: Metadata = {
 
 export default async function VoiceHubPage() {
     return (
-        <div className="min-h-screen bg-[#020617] text-white selection:bg-cyan-500/30 overflow-x-hidden font-sans">
-            {/* Standard Header */}
-            <MarketingHeader />
+        <MarketingLayout variant="blue">
 
             {/* 2. Massive Hero Section */}
             <section className="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden">
                 {/* Animated Background Elements */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" />
-                    <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px] mix-blend-screen" />
-
-                    {/* Subtle Particles */}
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150"></div>
-                </div>
+                <div className="absolute inset-0 overflow-hidden pointer-events-none" />
 
                 <div className="container max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-8">
@@ -346,8 +337,6 @@ export default async function VoiceHubPage() {
                 </div>
             </section>
 
-            {/* Standard Footer */}
-            <MarketingFooter />
-        </div>
+        </MarketingLayout>
     );
 }

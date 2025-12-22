@@ -55,7 +55,7 @@ export function SignUpModal({ open, onOpenChange }: SignUpModalProps) {
                         asChild
                         className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-lg shadow-emerald-500/20"
                     >
-                        <Link href="/register">
+                        <Link href="/create-account">
                             Create Free Account
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>

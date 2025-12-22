@@ -37,6 +37,7 @@ interface Activity {
     action: string;
     resource: string;
     details: string | null;
+    metadata: Record<string, any> | null;
     createdAt: Date;
     user: {
         name: string | null;
@@ -257,22 +258,38 @@ export default function ActivityList({ initialActivities }: ActivityListProps) {
                                                         {log.user?.name || "Unknown Identity"}
                                                     </p>
 
-                                                    {log.details && (
-                                                        <Tooltip>
+                                                    {(log.details || log.metadata) && (
+                                                        <Tooltip delayDuration={0}>
                                                             <TooltipTrigger asChild>
                                                                 <button className="p-1 rounded-full hover:bg-white/5 text-slate-500 hover:text-primary transition-all">
                                                                     <Info className="h-3.5 w-3.5" />
                                                                 </button>
                                                             </TooltipTrigger>
                                                             <TooltipContent side="top" className="bg-black border-primary/20 text-slate-200 p-4 rounded-xl max-w-sm shadow-2xl backdrop-blur-3xl">
-                                                                <div className="space-y-2">
-                                                                    <div className="flex items-center gap-2 border-b border-white/5 pb-2 mb-2">
+                                                                <div className="space-y-3">
+                                                                    <div className="flex items-center gap-2 border-b border-white/5 pb-2">
                                                                         <div className={cn("h-2 w-2 rounded-full", theme.color.replace("text-", "bg-"))} />
                                                                         <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Operation Details</span>
                                                                     </div>
-                                                                    <p className="text-sm leading-relaxed font-medium">
-                                                                        {log.details}
-                                                                    </p>
+
+                                                                    {log.details && (
+                                                                        <p className="text-sm leading-relaxed font-medium">
+                                                                            {log.details}
+                                                                        </p>
+                                                                    )}
+
+                                                                    {log.metadata && Object.keys(log.metadata).length > 0 && (
+                                                                        <div className="bg-white/5 rounded-lg p-2.5 space-y-1.5 mt-2 overflow-hidden">
+                                                                            {Object.entries(log.metadata).map(([key, value]) => (
+                                                                                <div key={key} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 text-xs font-mono border-b border-white/5 last:border-0 pb-1.5 last:pb-0">
+                                                                                    <span className="text-slate-500 shrink-0 select-none uppercase tracking-wider">{key}:</span>
+                                                                                    <span className="text-primary truncate">
+                                                                                        {typeof value === 'object' ? JSON.stringify(value) : String(value)}
+                                                                                    </span>
+                                                                                </div>
+                                                                            ))}
+                                                                        </div>
+                                                                    )}
                                                                 </div>
                                                             </TooltipContent>
                                                         </Tooltip>

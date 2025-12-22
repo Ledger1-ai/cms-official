@@ -262,11 +262,11 @@ export function SupportInboxModal({ isOpen, onClose }: SupportInboxModalProps) {
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="max-w-4xl h-[600px] bg-[#0F1115]/80 backdrop-blur-xl border border-cyan-500/20 text-cyan-50 p-0 overflow-hidden shadow-[0_0_50px_rgba(6,182,212,0.15)] rounded-2xl flex flex-col [&>button]:hidden">
+            <DialogContent className="max-w-4xl h-[600px] bg-[#0A0A0B] backdrop-blur-xl border border-white/10 text-cyan-50 p-0 overflow-hidden shadow-[0_0_50px_rgba(6,182,212,0.15)] rounded-2xl flex flex-col [&>button]:hidden">
                 <DialogTitle className="sr-only">Support Inbox</DialogTitle>
 
                 {/* Header */}
-                <div className="bg-cyan-950/30 border-b border-cyan-500/20 p-4 flex justify-between items-center">
+                <div className="bg-black/40 border-b border-white/10 p-4 flex justify-between items-center">
                     <div className="flex items-center gap-3">
                         <Mail className="h-5 w-5 text-cyan-400" />
                         <h2 className="text-lg font-bold tracking-wide text-white uppercase">Support Inbox</h2>
@@ -284,7 +284,7 @@ export function SupportInboxModal({ isOpen, onClose }: SupportInboxModalProps) {
 
                 <div className="flex flex-1 overflow-hidden">
                     {/* Ticket List */}
-                    <div className="w-1/3 border-r border-cyan-500/10 overflow-y-auto bg-black/20">
+                    <div className="w-1/3 border-r border-white/10 overflow-y-auto bg-black/20">
                         {loading ? (
                             <div className="flex justify-center p-8"><Loader2 className="animate-spin text-cyan-500" /></div>
                         ) : (
@@ -292,7 +292,7 @@ export function SupportInboxModal({ isOpen, onClose }: SupportInboxModalProps) {
                                 <div
                                     key={ticket.id}
                                     onClick={() => setSelectedTicket(ticket)}
-                                    className={`p-4 border-b border-white/5 cursor-pointer hover:bg-white/5 transition-colors ${selectedTicket?.id === ticket.id ? "bg-cyan-950/30 border-l-2 border-l-cyan-400" : ""}`}
+                                    className={`p-4 border-b border-white/5 cursor-pointer hover:bg-white/5 transition-colors ${selectedTicket?.id === ticket.id ? "bg-white/5 border-l-2 border-l-cyan-400" : ""}`}
                                 >
                                     <div className="flex justify-between items-start mb-1">
                                         <span className="font-bold text-sm text-white truncate max-w-[70%]">{ticket.name}</span>

@@ -4,12 +4,13 @@ import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Shield, LineChart, Zap, Clock, Target, TrendingUp, Globe, Lock, Workflow, BarChart3, Database, Wrench, PlugZap, DollarSign, Bot, CheckCircle2, FileText } from "lucide-react";
-import CmsWorkflowVisual from "@/components/visuals/CmsWorkflowVisual";
-import AiCapabilitiesVisual from "@/components/visuals/AiCapabilitiesVisual";
+import { CompareVoiceVisual } from "@/components/visuals/CompareVoiceVisual";
+import { CompareMediaSeoVisual } from "@/components/visuals/CompareMediaSeoVisual";
 import competitors from "@/data/competitors.json";
-import MarketingHeader from "@/app/[locale]/components/MarketingHeader";
-import MarketingFooter from "@/app/[locale]/components/MarketingFooter";
 import AgentInterface from "@/app/[locale]/components/AgentInterface";
+import fs from "fs";
+import path from "path";
+import Image from "next/image";
 import AnalyticsGraph from "@/app/[locale]/components/AnalyticsGraph";
 
 type Props = {
@@ -89,6 +90,24 @@ const STATIC = {
     ]
 };
 
+import MarketingLayout from "@/components/marketing/MarketingLayout";
+
+function getHeroImage(slug: string): string {
+    // Try the CMS-specific generated image first
+    const cmsImage = `compare-${slug}-cms.png`;
+    if (fs.existsSync(path.join(process.cwd(), "public", "images", cmsImage))) {
+        return `/images/${cmsImage}`;
+    }
+
+    // Fallback to standard name
+    const specificImage = `compare-${slug}.jpg`;
+    if (fs.existsSync(path.join(process.cwd(), "public", "images", specificImage))) {
+        return `/images/${specificImage}`;
+    }
+
+    return "/images/compare-hero.jpg";
+}
+
 export default async function CompetitorPage(props: Props) {
     const params = await props.params;
 
@@ -101,32 +120,55 @@ export default async function CompetitorPage(props: Props) {
         notFound();
     }
 
+    const heroImage = getHeroImage(competitor.slug);
+    console.log(`[CompetitorPage] Resolved image for ${competitor.slug}: ${heroImage}`);
+
     const primaryCta = { label: "Switch Now", url: "https://calendar.google.com/appointments/schedules/AcZssZ2Vduqr0QBnEAM50SeixE8a7kXuKt62zEFjQCQ8_xvoO6iF3hluVQHpaM6RYWMGB110_zM3MUF0" };
 
     return (
-        <div className="min-h-screen bg-[#0F0F1A] text-white font-sans selection:bg-primary/30">
-            <MarketingHeader />
+        <MarketingLayout variant="default">
 
             {/* Hero */}
             <section className="relative w-full py-20 md:py-32 overflow-hidden">
                 <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
+
+                {/* Hero Background Image */}
+                {/* Hero Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src={heroImage}
+                        alt={`${competitor.name} comparison background`}
+                        fill
+                        className="object-cover opacity-70"
+                        priority
+                    />
+                    {/* Drastically reduced gradient opacity to let image show through */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black/80" />
+                </div>
+
                 <div className="container px-4 md:px-6 relative z-10 text-center">
-                    <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm mb-6">
+                    <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm mb-6 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
                         <span>Better than {competitor.name}</span>
                     </div>
-                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-6">
-                        {competitor.comparison_title}
+                    {/* Refactored H1: Gradient on span to prevent block-level clipping. Increased padding for descenders. */}
+                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-6 drop-shadow-sm py-4 leading-relaxed text-white">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 pb-4">
+                            {competitor.comparison_title}
+                        </span>
                     </h1>
-                    <p className="mx-auto max-w-[800px] text-gray-400 md:text-xl leading-relaxed mb-8">
+                    <p className="mx-auto max-w-[800px] text-gray-300 md:text-xl leading-relaxed mb-8 drop-shadow-md">
                         {competitor.comparison_text}
                     </p>
                     <div className="flex justify-center gap-4">
                         <Link href={primaryCta.url} target="_blank">
-                            <Button size="lg" className="rounded-full bg-white text-slate-950 font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-purple-600 hover:to-green-500 hover:text-white hover:shadow-[0_0_50px_rgba(168,85,247,0.6)]">
+                            {/* EXPLICIT BUTTON STYLING */}
+                            <Button size="lg" className="rounded-full font-bold bg-[#06b6d4] text-white hover:bg-[#0891b2] shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] border-none">
                                 {primaryCta.label} <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
                         </Link>
                     </div>
+
+
                 </div>
             </section>
 
@@ -135,10 +177,10 @@ export default async function CompetitorPage(props: Props) {
                 <div className="container px-4 md:px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
                         <div className="relative h-[450px] w-full rounded-2xl overflow-hidden shadow-[0_0_100px_rgba(6,182,212,0.15)] border border-white/10 bg-black/50 backdrop-blur-xl">
-                            <AiCapabilitiesVisual />
+                            <CompareVoiceVisual />
                         </div>
                         <div className="relative h-[450px] w-full rounded-2xl overflow-hidden shadow-[0_0_100px_rgba(16,185,129,0.15)] border border-white/10 bg-black/50 backdrop-blur-xl">
-                            <CmsWorkflowVisual />
+                            <CompareMediaSeoVisual />
                         </div>
                     </div>
                 </div>
@@ -532,7 +574,6 @@ export default async function CompetitorPage(props: Props) {
                     </div>
                 </div>
             </section>
-            <MarketingFooter />
-        </div>
+        </MarketingLayout>
     );
 }

@@ -72,7 +72,18 @@ export const CMS_MODULES: CMSModule[] = [
             { label: "Templates", href: (l: string) => `/${l}/cms/landing/templates`, icon: "LayoutTemplate" }
         ]
     },
-    { slug: "subscriptions", href: (l: string) => `/${l}/cms/subscriptions`, icon: "Mail", label: "Subscriptions", section: "Content", color: "cyan" },
+    {
+        slug: "subscriptions",
+        href: (l: string) => `/${l}/cms/subscriptions`,
+        icon: "DollarSign",
+        label: "Subscriptions",
+        section: "Content",
+        color: "cyan",
+        options: [
+            { label: "Clients", href: (l: string) => `/${l}/cms/subscriptions/clients`, icon: "Users" },
+            { label: "Newsletter", href: (l: string) => `/${l}/cms/subscriptions/newsletter`, icon: "Mail" }
+        ]
+    },
     { slug: "footer", href: (l: string) => `/${l}/cms/footer`, icon: "Globe", label: "Footer", section: "Content", color: "lime" },
     { slug: "manage", href: (l: string) => `/${l}/cms/manage`, icon: "Users2", label: "Team Members", section: "Content", color: "yellow" },
     {

@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "react-hot-toast";
-import { Loader2, Trash, Save, ExternalLink, Eye, Plus, X } from "lucide-react";
+import { Loader2, Trash, Save, ExternalLink, Eye, Plus, X, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import axios from "axios";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -245,6 +245,9 @@ export function DocEditor({ id, locale, defaultType }: DocEditorProps) {
             {/* Toolbar Header */}
             <div className="h-16 border-b px-6 flex items-center justify-between bg-card/50 sticky top-0 z-10 backdrop-blur-md">
                 <div className="flex items-center gap-4">
+                    <Button variant="ghost" size="icon" onClick={() => router.push(`/cms/${defaultType}`)} className="mr-2 text-slate-400 hover:text-white">
+                        <ArrowLeft className="h-5 w-5" />
+                    </Button>
                     <Input
                         value={formData.title}
                         onChange={(e) => setFormData({ ...formData, title: e.target.value })}

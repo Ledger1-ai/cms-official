@@ -358,17 +358,17 @@ export default function MediaLibraryPage() {
                     </div>
                     <div className="flex items-center gap-2 md:gap-3 flex-wrap">
                         {/* Scope Toggle */}
-                        <div className="flex bg-slate-900 border border-white/10 rounded-lg p-1">
-                            <button onClick={() => setScope("mine")} className={cn("px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-2", scope === "mine" ? "bg-slate-800 text-white shadow-sm" : "text-slate-400 hover:text-white")}>
+                        <div className="flex bg-[#0A0A0B] border border-white/10 rounded-lg p-1">
+                            <button onClick={() => setScope("mine")} className={cn("px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-2", scope === "mine" ? "bg-white/10 text-white shadow-sm" : "text-slate-400 hover:text-white")}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
                                 My Files
                             </button>
-                            <button onClick={() => setScope("public")} className={cn("px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-2", scope === "public" ? "bg-slate-800 text-white shadow-sm" : "text-slate-400 hover:text-white")}>
+                            <button onClick={() => setScope("public")} className={cn("px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-2", scope === "public" ? "bg-white/10 text-white shadow-sm" : "text-slate-400 hover:text-white")}>
                                 <Globe className="h-3.5 w-3.5" /> Public
                             </button>
                             {/* Landing Pages - Admin Only */}
                             {isAdmin && (
-                                <button onClick={() => setScope("landing_pages")} className={cn("px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-2", scope === "landing_pages" ? "bg-slate-800 text-white shadow-sm" : "text-slate-400 hover:text-white")}>
+                                <button onClick={() => setScope("landing_pages")} className={cn("px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-2", scope === "landing_pages" ? "bg-white/10 text-white shadow-sm" : "text-slate-400 hover:text-white")}>
                                     <LayoutTemplate className="h-3.5 w-3.5" /> Pages
                                 </button>
                             )}
@@ -377,11 +377,11 @@ export default function MediaLibraryPage() {
                         <div className="hidden md:block h-6 w-px bg-white/10 mx-1" />
 
                         {/* View Toggle */}
-                        <div className="flex bg-slate-900 border border-white/10 rounded-lg p-1">
-                            <button onClick={() => setViewMode("grid")} className={cn("p-2 rounded-md transition-all", viewMode === "grid" ? "bg-slate-800 text-white shadow-sm" : "text-slate-400 hover:text-white")} title="Grid View">
+                        <div className="flex bg-[#0A0A0B] border border-white/10 rounded-lg p-1">
+                            <button onClick={() => setViewMode("grid")} className={cn("p-2 rounded-md transition-all", viewMode === "grid" ? "bg-white/10 text-white shadow-sm" : "text-slate-400 hover:text-white")} title="Grid View">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></svg>
                             </button>
-                            <button onClick={() => setViewMode("list")} className={cn("p-2 rounded-md transition-all", viewMode === "list" ? "bg-slate-800 text-white shadow-sm" : "text-slate-400 hover:text-white")} title="List View">
+                            <button onClick={() => setViewMode("list")} className={cn("p-2 rounded-md transition-all", viewMode === "list" ? "bg-white/10 text-white shadow-sm" : "text-slate-400 hover:text-white")} title="List View">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" x2="21" y1="6" y2="6" /><line x1="8" x2="21" y1="12" y2="12" /><line x1="8" x2="21" y1="18" y2="18" /><line x1="3" x2="3.01" y1="6" y2="6" /><line x1="3" x2="3.01" y1="12" y2="12" /><line x1="3" x2="3.01" y1="18" y2="18" /></svg>
                             </button>
                         </div>
@@ -425,7 +425,7 @@ export default function MediaLibraryPage() {
                 <div className="flex items-center gap-4 mb-6">
                     <div className="relative flex-1 max-w-md">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
-                        <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search assets..." className="w-full bg-slate-900/50 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50 transition-colors" />
+                        <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search assets..." className="w-full bg-[#0A0A0B] border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50 transition-colors" />
                     </div>
                 </div>
 
@@ -439,7 +439,7 @@ export default function MediaLibraryPage() {
                         </div>
                     ) : (
                         <div className="flex flex-col items-center gap-2">
-                            <div className="h-12 w-12 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <div className="h-12 w-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <Upload className="h-6 w-6 text-slate-400 group-hover:text-white" />
                             </div>
                             <p className="text-sm font-medium text-slate-300">
@@ -459,11 +459,11 @@ export default function MediaLibraryPage() {
                         {scope === "landing_pages" ? (
                             <div className="grid grid-cols-1 min-[450px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 pb-20">
                                 {landingPages.filter(p => p.title.toLowerCase().includes(search.toLowerCase())).map((page) => (
-                                    <div key={page.id} className="group relative aspect-video rounded-xl overflow-hidden cursor-pointer border border-white/5 bg-slate-900 hover:border-blue-500/50 transition-all flex flex-col" onClick={() => window.open(`/cms/landing/${page.id}`, '_blank')}>
-                                        <div className="flex-1 flex items-center justify-center bg-slate-950 relative">
+                                    <div key={page.id} className="group relative aspect-video rounded-xl overflow-hidden cursor-pointer border border-white/5 bg-[#0A0A0B] hover:border-blue-500/50 transition-all flex flex-col" onClick={() => window.open(`/cms/landing/${page.id}`, '_blank')}>
+                                        <div className="flex-1 flex items-center justify-center bg-black/50 relative">
                                             {page.thumbnail ? <NextImage src={page.thumbnail} alt={page.title} fill className="object-cover transition-transform group-hover:scale-105" unoptimized /> : <LayoutTemplate className="h-10 w-10 text-slate-700" />}
                                         </div>
-                                        <div className="p-3 bg-[#0F1115] border-t border-white/5 relative z-10">
+                                        <div className="p-3 bg-[#0A0A0B] border-t border-white/5 relative z-10">
                                             <p className="text-xs font-semibold text-white truncate">{page.title}</p>
                                             <p className="text-[10px] text-slate-500 mt-1 flex justify-between">
                                                 <span>{new Date(page.updatedAt).toLocaleDateString()}</span>
@@ -478,13 +478,13 @@ export default function MediaLibraryPage() {
                                 {media
                                     // STRICT FILTER: Check scope on client side too to avoid data leaks
                                     .map((item) => (
-                                        <div key={item.id} onClick={() => setSelectedItem(item)} className={cn("group relative aspect-square rounded-xl overflow-hidden cursor-pointer border transition-all bg-slate-900", selectedItem?.id === item.id ? "border-blue-500 ring-2 ring-blue-500/20 shadow-lg shadow-blue-500/10 z-10 scale-[1.02]" : "border-white/5 hover:border-white/20")}>
+                                        <div key={item.id} onClick={() => setSelectedItem(item)} className={cn("group relative aspect-square rounded-xl overflow-hidden cursor-pointer border transition-all bg-[#0A0A0B]", selectedItem?.id === item.id ? "border-blue-500 ring-2 ring-blue-500/20 shadow-lg shadow-blue-500/10 z-10 scale-[1.02]" : "border-white/5 hover:border-white/20")}>
                                             <div className="w-full h-full flex items-center justify-center p-2">
                                                 <MediaPreview url={item.url} alt={item.altText || item.filename} mimeType={item.mimeType} className="w-full h-full object-contain" />
                                             </div>
                                             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 pt-8 opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <p className="text-xs font-medium text-white truncate">{item.title || item.filename}</p>
-                                                <p className="text-[10px] text-slate-400 uppercase">{item.mimeType.split("/")[1]}</p>
+                                                <p className="text-xs text-slate-400 max-w-[90%] truncate mt-0.5">{item.mimeType.split("/")[1]}</p>
                                             </div>
                                             {item.isBusinessCard && (
                                                 <div className="absolute top-2 right-2 bg-emerald-500/90 text-white p-1 rounded-full shadow-lg">
@@ -495,7 +495,7 @@ export default function MediaLibraryPage() {
                                     ))}
                             </div>
                         ) : (
-                            <div className="bg-slate-900/50 border border-white/5 rounded-xl overflow-x-auto">
+                            <div className="bg-[#0A0A0B] border border-white/5 rounded-xl overflow-x-auto">
                                 <table className="w-full text-left text-sm">
                                     <thead className="bg-[#0A0A0B] text-slate-400 font-medium">
                                         <tr>
@@ -510,9 +510,9 @@ export default function MediaLibraryPage() {
                                         {media
                                             // STRICT FILTER: Check scope on client side too
                                             .map((item) => (
-                                                <tr key={item.id} onClick={() => setSelectedItem(item)} className={cn("cursor-pointer hover:bg-white/5 transition-colors", selectedItem?.id === item.id ? "bg-blue-500/10" : "")}>
+                                                <tr key={item.id} onClick={() => setSelectedItem(item)} className={cn("cursor-pointer hover:bg-white/5 transition-colors", selectedItem?.id === item.id ? "bg-white/5" : "")}>
                                                     <td className="px-4 py-3 flex items-center gap-3">
-                                                        <div className="h-10 w-10 rounded bg-slate-800 flex-shrink-0 overflow-hidden">
+                                                        <div className="h-10 w-10 rounded bg-[#0A0A0B] flex-shrink-0 overflow-hidden border border-white/10">
                                                             {item.mimeType.startsWith("image/") ? <div className="relative h-full w-full"><NextImage src={item.url} alt={item.filename} fill className="object-contain bg-black/20" unoptimized /></div> : <div className="h-full w-full flex items-center justify-center"><Type className="h-5 w-5 text-slate-500" /></div>}
                                                         </div>
                                                         <span className="text-slate-200 font-medium truncate max-w-[200px]">{item.filename}</span>
@@ -536,22 +536,22 @@ export default function MediaLibraryPage() {
 
             {/* Editing Sidebar (Right Panel) */}
             {selectedItem && (
-                <aside className="w-80 border-l border-white/10 bg-[#0F1115] h-full overflow-y-auto z-20 transition-all flex flex-col">
+                <aside className="w-80 border-l border-white/10 bg-[#0A0A0B] h-full overflow-y-auto z-20 transition-all flex flex-col">
                     <div className="p-6 space-y-6 flex-1">
                         <div className="flex items-start justify-between">
                             <h2 className="text-lg font-semibold text-white">Details</h2>
                             <button onClick={() => setSelectedItem(null)} className="p-1 hover:bg-white/10 rounded-md transition-colors"><X className="h-4 w-4 text-slate-400" /></button>
                         </div>
-                        <div className="aspect-video rounded-lg overflow-hidden bg-slate-900 border border-white/10 flex items-center justify-center group relative">
+                        <div className="aspect-video rounded-lg overflow-hidden bg-black border border-white/10 flex items-center justify-center group relative">
                             {selectedItem.mimeType.startsWith("video/") || selectedItem.filename.endsWith(".webm") ? <video src={selectedItem.url} controls className="w-full h-full object-contain" /> : <NextImage src={selectedItem.url} alt="Preview" fill className="object-contain" unoptimized />}
                             <a href={selectedItem.url} target="_blank" className="absolute top-2 right-2 p-1.5 bg-black/50 backdrop-blur rounded hover:bg-blue-600 text-white opacity-0 group-hover:opacity-100 transition-all"><Maximize2 className="h-3.5 w-3.5" /></a>
                         </div>
 
                         {/* --- SHOW RELATED IMAGES (BACK SIDE) --- */}
                         {relatedMedia.length > 0 && (
-                            <div className="bg-slate-900/50 rounded-lg p-3 border border-white/5">
+                            <div className="bg-[#0A0A0B] rounded-lg p-3 border border-white/5">
                                 <p className="text-xs font-semibold text-slate-400 mb-2">Related Media</p>
-                                <div className="flex gap-2 bg-slate-950 p-2 rounded border border-white/5 overflow-x-auto">
+                                <div className="flex gap-2 bg-black p-2 rounded border border-white/5 overflow-x-auto">
                                     {relatedMedia.map(rm => (
                                         <div key={rm.id} onClick={() => setSelectedItem(rm)} className="h-16 w-16 relative rounded overflow-hidden border border-white/10 cursor-pointer hover:border-blue-500">
                                             <NextImage src={rm.url} alt="Back" fill className="object-cover" unoptimized />
@@ -578,15 +578,15 @@ export default function MediaLibraryPage() {
                             <button onClick={() => updateMetadata(selectedItem.id, { isPublic: !selectedItem.isPublic })} className={cn("flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-md text-xs font-medium transition-colors border", selectedItem.isPublic ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/20" : "bg-red-500/10 text-red-400 border-red-500/20 hover:bg-red-500/20")}>
                                 {selectedItem.isPublic ? <Globe className="h-3.5 w-3.5" /> : <Lock className="h-3.5 w-3.5" />} {selectedItem.isPublic ? "Public" : "Private"}
                             </button>
-                            <button onClick={handleCopyUrl} className="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-md bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors border border-white/10 text-xs font-medium"><Copy className="h-3.5 w-3.5" /> URL</button>
+                            <button onClick={handleCopyUrl} className="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-md bg-white/5 text-slate-300 hover:bg-white/10 transition-colors border border-white/10 text-xs font-medium"><Copy className="h-3.5 w-3.5" /> URL</button>
                         </div>
                         <div className="space-y-4">
-                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><Type className="h-3 w-3" /> Title</label><input value={selectedItem.title || ""} onChange={(e) => updateMetadata(selectedItem.id, { title: e.target.value })} className="w-full bg-slate-900/50 border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50" placeholder="Media title..." /></div>
-                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><ImageIcon className="h-3 w-3" /> Alt Text</label><input value={selectedItem.altText || ""} onChange={(e) => updateMetadata(selectedItem.id, { altText: e.target.value })} className="w-full bg-slate-900/50 border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50" placeholder="Descriptive text..." /></div>
-                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><MoreVertical className="h-3 w-3" /> Caption</label><textarea value={selectedItem.caption || ""} onChange={(e) => updateMetadata(selectedItem.id, { caption: e.target.value })} className="w-full bg-slate-900/50 border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50 min-h-[60px]" placeholder="Caption..." /></div>
-                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400">Description</label><textarea value={selectedItem.description || ""} onChange={(e) => updateMetadata(selectedItem.id, { description: e.target.value })} className="w-full bg-slate-900/50 border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50 min-h-[80px]" placeholder="Internal notes..." /></div>
+                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><Type className="h-3 w-3" /> Title</label><input value={selectedItem.title || ""} onChange={(e) => updateMetadata(selectedItem.id, { title: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50" placeholder="Media title..." /></div>
+                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><ImageIcon className="h-3 w-3" /> Alt Text</label><input value={selectedItem.altText || ""} onChange={(e) => updateMetadata(selectedItem.id, { altText: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50" placeholder="Descriptive text..." /></div>
+                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><MoreVertical className="h-3 w-3" /> Caption</label><textarea value={selectedItem.caption || ""} onChange={(e) => updateMetadata(selectedItem.id, { caption: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50 min-h-[60px]" placeholder="Caption..." /></div>
+                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400">Description</label><textarea value={selectedItem.description || ""} onChange={(e) => updateMetadata(selectedItem.id, { description: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50 min-h-[80px]" placeholder="Internal notes..." /></div>
                         </div>
-                        <div className="bg-slate-900/50 rounded-lg p-4 space-y-2 text-xs text-slate-400 border border-white/5">
+                        <div className="bg-[#0A0A0B] rounded-lg p-4 space-y-2 text-xs text-slate-400 border border-white/5">
                             <div className="flex justify-between"><span>Size</span><span className="text-slate-300">{(selectedItem.size / 1024).toFixed(1)} KB</span></div>
                             <div className="flex justify-between"><span>Date</span><span className="text-slate-300">{new Date(selectedItem.createdAt).toLocaleDateString()}</span></div>
                         </div>

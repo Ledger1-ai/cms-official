@@ -15,14 +15,14 @@ interface DeleteUserDialogProps {
 export function DeleteUserDialog({ isOpen, onClose, onConfirm, loading, userName }: DeleteUserDialogProps) {
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="sm:max-w-md bg-zinc-950/95 backdrop-blur-xl border border-white/10 text-white shadow-2xl z-[99999]">
+            <DialogContent className="sm:max-w-md bg-[#0A0A0B] border border-white/10 text-white shadow-2xl z-[99999]">
                 <DialogHeader className="flex flex-col items-center gap-4 text-center sm:text-left">
                     <div className="h-12 w-12 rounded-full bg-red-500/10 flex items-center justify-center mb-2 mx-auto sm:mx-0">
                         <AlertTriangle className="h-6 w-6 text-red-500" />
                     </div>
                     <div className="w-full text-center sm:text-left">
                         <DialogTitle className="text-xl font-bold text-white mb-2">Delete User Account</DialogTitle>
-                        <DialogDescription className="text-zinc-400">
+                        <DialogDescription className="text-slate-400">
                             Are you sure you want to delete <span className="font-semibold text-white">{userName || "this user"}</span>?
                             This action cannot be undone and will permanently remove their access and data.
                         </DialogDescription>
@@ -34,7 +34,7 @@ export function DeleteUserDialog({ isOpen, onClose, onConfirm, loading, userName
                         variant="ghost"
                         onClick={onClose}
                         disabled={loading}
-                        className="w-full sm:w-auto hover:bg-white/5 text-zinc-400 hover:text-white border border-transparent hover:border-white/10"
+                        className="w-full sm:w-auto hover:bg-white/5 text-slate-400 hover:text-white border border-transparent hover:border-white/10"
                     >
                         Cancel
                     </Button>

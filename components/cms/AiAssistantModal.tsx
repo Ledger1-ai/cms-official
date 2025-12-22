@@ -72,7 +72,7 @@ export function AiAssistantModal({
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
             <DialogContent className="sm:max-w-[500px] p-0 !border-0 !bg-transparent !shadow-none !backdrop-blur-none outline-none ring-0 focus:ring-0 [&>button]:hidden">
-                <div className="bg-[#0A0A0B]/95 border border-white/10 p-8 rounded-3xl w-full shadow-2xl shadow-purple-500/10 relative overflow-hidden backdrop-blur-xl">
+                <div className="bg-[#0A0A0B] border border-white/10 p-8 rounded-3xl w-full shadow-2xl shadow-purple-500/10 relative overflow-hidden backdrop-blur-xl">
                     {/* Background Glow */}
                     <div className="absolute top-[-50px] right-[-50px] w-40 h-40 bg-blue-500/20 rounded-full blur-[60px] pointer-events-none" />
                     <div className="absolute bottom-[-50px] left-[-50px] w-40 h-40 bg-purple-500/20 rounded-full blur-[60px] pointer-events-none" />

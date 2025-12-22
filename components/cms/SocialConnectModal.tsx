@@ -74,7 +74,7 @@ export function SocialConnectModal({ isOpen, onClose, provider, isAvailable, use
                     </DialogDescription>
 
                     <div className="space-y-4">
-                        <div className="bg-slate-900/50 rounded-lg p-4 text-sm text-slate-400 border border-white/5">
+                        <div className="bg-black/50 rounded-lg p-4 text-sm text-slate-400 border border-white/5">
                             <h4 className="font-semibold text-white mb-2">Permissions Requested:</h4>
                             <ul className="list-disc list-inside space-y-1">
                                 <li>Read profile information</li>

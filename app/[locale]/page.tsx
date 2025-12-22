@@ -1,11 +1,10 @@
 import DemoPage from "@/components/demo/DemoPage";
-import MarketingFooter from "@/app/[locale]/components/MarketingFooter";
+import MarketingLayout from "@/components/marketing/MarketingLayout";
 
 export default function Page() {
     return (
-        <>
+        <MarketingLayout>
             <DemoPage />
-            <MarketingFooter />
-        </>
+        </MarketingLayout>
     );
 }

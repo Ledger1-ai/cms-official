@@ -69,13 +69,13 @@ export default function SubscriptionConfigModal({ isOpen, onClose }: ConfigModal
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="max-w-md bg-zinc-950 border-white/10 text-white">
+            <DialogContent className="max-w-md bg-[#0A0A0B] border-white/10 text-white">
                 <DialogHeader>
                     <DialogTitle className="flex items-center gap-2">
                         <Globe className="h-5 w-5 text-blue-500" />
                         Global Configuration
                     </DialogTitle>
-                    <DialogDescription className="text-zinc-400">
+                    <DialogDescription className="text-slate-400">
                         Manage system-wide notification settings.
                     </DialogDescription>
                 </DialogHeader>
@@ -87,9 +87,9 @@ export default function SubscriptionConfigModal({ isOpen, onClose }: ConfigModal
                 ) : (
                     <div className="space-y-6 py-4">
                         <div className="space-y-4">
-                            <h3 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">Features</h3>
+                            <h3 className="text-sm font-medium text-slate-400 uppercase tracking-wider">Features</h3>
 
-                            <div className="flex items-start space-x-3 rounded-lg border border-white/10 bg-zinc-900/50 p-4">
+                            <div className="flex items-start space-x-3 rounded-lg border border-white/10 bg-black/40 p-4">
                                 <Checkbox
                                     id="newsletter"
                                     checked={settings.newsletterEnabled}
@@ -97,13 +97,13 @@ export default function SubscriptionConfigModal({ isOpen, onClose }: ConfigModal
                                 />
                                 <div className="space-y-1">
                                     <Label htmlFor="newsletter" className="font-medium">Public Newsletter Signup</Label>
-                                    <p className="text-xs text-zinc-400">Show the email subscription form in the footer.</p>
+                                    <p className="text-xs text-slate-400">Show the email subscription form in the footer.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="space-y-4">
-                            <h3 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">Automated Alerts</h3>
+                            <h3 className="text-sm font-medium text-slate-400 uppercase tracking-wider">Automated Alerts</h3>
 
                             <div className="space-y-3">
                                 <div className="flex items-center space-x-3">
@@ -135,7 +135,7 @@ export default function SubscriptionConfigModal({ isOpen, onClose }: ConfigModal
                             <Input
                                 value={settings.ctaText}
                                 onChange={e => setSettings(s => ({ ...s, ctaText: e.target.value }))}
-                                className="bg-zinc-900 border-white/10"
+                                className="bg-black border-white/10 focus-visible:ring-offset-0"
                             />
                         </div>
 

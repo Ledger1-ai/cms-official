@@ -52,7 +52,7 @@ export function EmbedFormModal({ isOpen, onClose, formId, formTitle }: EmbedForm
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent hideClose className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-[calc(100%-2rem)] max-w-3xl max-h-[85vh] flex flex-col bg-[#09090b] border border-white/10 text-white p-0 shadow-2xl rounded-2xl outline-none">
+            <DialogContent hideClose className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-[calc(100%-2rem)] max-w-3xl max-h-[85vh] flex flex-col bg-[#0A0A0B] border border-white/10 text-white p-0 shadow-2xl rounded-2xl outline-none">
                 <DialogTitle className="sr-only">Embed Form</DialogTitle>
 
                 {/* Header - Fixed at top */}
@@ -69,12 +69,12 @@ export function EmbedFormModal({ isOpen, onClose, formId, formTitle }: EmbedForm
                 {/* Scrollable Content */}
                 <div className="p-6 space-y-6 overflow-y-auto">
                     {/* Tabs */}
-                    <div className="flex bg-slate-950 p-1 rounded-lg border border-white/10 w-fit">
+                    <div className="flex bg-black p-1 rounded-lg border border-white/10 w-fit">
                         <button
                             onClick={() => setTab("iframe")}
                             className={cn(
                                 "px-4 py-2 rounded-md text-sm font-medium transition-all",
-                                tab === "iframe" ? "bg-slate-800 text-white shadow" : "text-slate-400 hover:text-white"
+                                tab === "iframe" ? "bg-white/10 text-white shadow" : "text-slate-400 hover:text-white"
                             )}
                         >
                             iFrame Embed
@@ -83,7 +83,7 @@ export function EmbedFormModal({ isOpen, onClose, formId, formTitle }: EmbedForm
                             onClick={() => setTab("js")}
                             className={cn(
                                 "px-4 py-2 rounded-md text-sm font-medium transition-all",
-                                tab === "js" ? "bg-slate-800 text-white shadow" : "text-slate-400 hover:text-white"
+                                tab === "js" ? "bg-white/10 text-white shadow" : "text-slate-400 hover:text-white"
                             )}
                         >
                             JavaScript Snippet
@@ -109,7 +109,7 @@ export function EmbedFormModal({ isOpen, onClose, formId, formTitle }: EmbedForm
                                 {copied ? "Copied" : "Copy"}
                             </Button>
                         </div>
-                        <pre className="bg-[#0F1115] border border-white/10 rounded-xl p-6 overflow-x-auto text-sm font-mono text-slate-300 min-h-[200px] leading-relaxed whitespace-pre-wrap break-all">
+                        <pre className="bg-[#0A0A0B] border border-white/10 rounded-xl p-6 overflow-x-auto text-sm font-mono text-slate-300 min-h-[200px] leading-relaxed whitespace-pre-wrap break-all">
                             {tab === "iframe" ? iframeCode : jsCode}
                         </pre>
                     </div>

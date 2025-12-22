@@ -59,14 +59,14 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
             <DialogContent
                 className={cn(
-                    "bg-[#0F1115]/90 backdrop-blur-xl border border-cyan-500/20 text-cyan-50 p-0 overflow-hidden shadow-[0_0_50px_rgba(6,182,212,0.15)] rounded-2xl transition-all duration-300",
+                    "bg-[#0A0A0B] backdrop-blur-xl border border-white/10 text-cyan-50 p-0 overflow-hidden shadow-[0_0_50px_rgba(6,182,212,0.15)] rounded-2xl transition-all duration-300",
                     isExpanded ? "max-w-6xl h-[90vh]" : "max-w-3xl max-h-[85vh]"
                 )}
             >
                 <DialogTitle className="sr-only">Blog Analytics Dashboard</DialogTitle>
 
                 {/* Header */}
-                <div className="bg-cyan-950/30 border-b border-cyan-500/20 p-5 flex justify-between items-center relative overflow-hidden">
+                <div className="bg-black/40 border-b border-white/10 p-5 flex justify-between items-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
                     <div className="relative z-10">
                         <h2 className="text-xl font-bold tracking-widest text-cyan-400 font-mono flex items-center gap-2">
@@ -81,14 +81,14 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
                         <button
                             onClick={fetchStats}
                             disabled={refreshing}
-                            className="p-2 rounded-lg bg-cyan-900/30 border border-cyan-500/20 hover:border-cyan-500/50 transition-all"
+                            className="p-2 rounded-lg bg-black border border-white/10 hover:border-cyan-500/50 transition-all"
                             title="Refresh data"
                         >
                             <RefreshCw className={cn("h-4 w-4 text-cyan-400", refreshing && "animate-spin")} />
                         </button>
                         <button
                             onClick={() => setIsExpanded(!isExpanded)}
-                            className="p-2 rounded-lg bg-cyan-900/30 border border-cyan-500/20 hover:border-cyan-500/50 transition-all"
+                            className="p-2 rounded-lg bg-black border border-white/10 hover:border-cyan-500/50 transition-all"
                             title={isExpanded ? "Compact view" : "Expand view"}
                         >
                             {isExpanded ? (
@@ -117,7 +117,7 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
                                 {stats.kpiData.map((kpi, idx) => (
                                     <div
                                         key={idx}
-                                        className="bg-cyan-900/10 border border-cyan-500/20 p-4 rounded-xl relative overflow-hidden group hover:border-cyan-500/40 transition-all"
+                                        className="bg-black border border-white/10 p-4 rounded-xl relative overflow-hidden group hover:border-cyan-500/40 transition-all"
                                     >
                                         <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-40 transition-opacity text-cyan-400">
                                             {iconMap[kpi.icon]}
@@ -128,7 +128,7 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
                                         </div>
                                         <span className={cn(
                                             "text-xs font-mono mt-2 inline-block px-2 py-0.5 rounded-full",
-                                            kpi.deltaType === "increase" ? "bg-cyan-500/20 text-cyan-400" : "bg-slate-500/20 text-slate-400"
+                                            kpi.deltaType === "increase" ? "bg-cyan-500/20 text-cyan-400" : "bg-white/5 text-slate-400"
                                         )}>
                                             {kpi.delta}
                                         </span>
@@ -140,7 +140,7 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
                             <div className={cn("grid gap-6", isExpanded ? "grid-cols-1 lg:grid-cols-3" : "grid-cols-1 md:grid-cols-2")}>
                                 {/* Trend Chart */}
                                 <Card className={cn(
-                                    "bg-[#0F1115] ring-1 ring-cyan-500/20 shadow-sm border-none",
+                                    "bg-[#0A0A0B] ring-1 ring-white/10 shadow-sm border-none",
                                     isExpanded ? "lg:col-span-2" : "col-span-1 md:col-span-2"
                                 )}>
                                     <p className="text-sm font-mono text-cyan-600 mb-1">ENGAGEMENT_TREND</p>
@@ -163,7 +163,7 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
                                 </Card>
 
                                 {/* Share Distribution */}
-                                <Card className="bg-[#0F1115] ring-1 ring-cyan-500/20 shadow-sm border-none">
+                                <Card className="bg-[#0A0A0B] ring-1 ring-white/10 shadow-sm border-none">
                                     <p className="text-sm font-mono text-cyan-600 mb-1">SHARE_PLATFORMS</p>
                                     <p className="text-xs text-slate-500 mb-4">Distribution by network</p>
                                     {stats.sharePlatforms.length > 0 ? (
@@ -191,15 +191,15 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
                             </div>
 
                             {/* Top Posts Table */}
-                            <div className="bg-cyan-900/10 border border-cyan-500/20 rounded-xl overflow-hidden">
-                                <div className="p-4 border-b border-cyan-500/10">
+                            <div className="bg-black/40 border border-white/10 rounded-xl overflow-hidden">
+                                <div className="p-4 border-b border-white/10">
                                     <p className="text-sm font-mono text-cyan-600">TOP_PERFORMING_POSTS</p>
                                     <p className="text-xs text-slate-500">Ranked by total engagement</p>
                                 </div>
                                 {stats.topPosts.length > 0 ? (
                                     <div className="overflow-x-auto">
                                         <table className="w-full text-sm">
-                                            <thead className="bg-cyan-900/20">
+                                            <thead className="bg-white/5">
                                                 <tr>
                                                     <th className="text-left py-3 px-4 text-cyan-500 font-mono text-xs">#</th>
                                                     <th className="text-left py-3 px-4 text-cyan-500 font-mono text-xs">POST</th>
@@ -210,7 +210,7 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
                                             </thead>
                                             <tbody>
                                                 {stats.topPosts.map((post, idx) => (
-                                                    <tr key={idx} className="border-t border-cyan-500/10 hover:bg-cyan-500/5 transition-colors">
+                                                    <tr key={idx} className="border-t border-white/5 hover:bg-white/5 transition-colors">
                                                         <td className="py-3 px-4 text-slate-400 font-mono">{idx + 1}</td>
                                                         <td className="py-3 px-4">
                                                             <div className="text-white font-medium capitalize">{post.title}</div>
@@ -239,7 +239,7 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
                 </div>
 
                 {/* Footer */}
-                <div className="bg-black/40 p-4 text-center border-t border-cyan-900/30">
+                <div className="bg-black/80 p-4 text-center border-t border-white/10">
                     <p className="text-[10px] text-cyan-700 font-mono">
                         LEDGER1_ANALYTICS // BLOG ENGAGEMENT TRACKER // DATA REFRESHES ON OPEN
                     </p>

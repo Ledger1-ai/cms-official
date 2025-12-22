@@ -5,8 +5,6 @@ import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, MapPin, Clock, DollarSign, Briefcase } from "lucide-react";
-import MarketingHeader from "@/app/[locale]/components/MarketingHeader";
-import MarketingFooter from "@/app/[locale]/components/MarketingFooter";
 import { prismadb } from "@/lib/prisma";
 import Image from "next/image";
 
@@ -28,6 +26,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     };
 }
 
+import MarketingLayout from "@/components/marketing/MarketingLayout";
+
 export default async function JobPage(props: Props) {
     const params = await props.params;
     setRequestLocale(params.locale);
@@ -41,8 +41,7 @@ export default async function JobPage(props: Props) {
     }
 
     return (
-        <div className="min-h-screen bg-[#0F0F1A] text-white font-sans selection:bg-cyan-500/30">
-            <MarketingHeader />
+        <MarketingLayout variant="default">
 
             <main className="container mx-auto px-4 py-12 md:py-20 max-w-4xl">
                 <Link
@@ -119,8 +118,6 @@ export default async function JobPage(props: Props) {
                     </div>
                 </div>
             </main>
-
-            <MarketingFooter />
-        </div>
+        </MarketingLayout>
     );
 }

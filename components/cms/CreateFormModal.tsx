@@ -209,11 +209,11 @@ export function CreateFormModal({ isOpen, onClose, initialData }: CreateFormModa
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent hideClose className="max-w-6xl bg-[#09090b] border border-white/10 text-white p-0 overflow-hidden shadow-2xl rounded-2xl h-[90vh] flex flex-col">
+            <DialogContent hideClose className="max-w-6xl bg-[#0A0A0B] border border-white/10 text-white p-0 overflow-hidden shadow-2xl rounded-2xl h-[90vh] flex flex-col">
                 <DialogTitle className="sr-only">Create Form</DialogTitle>
 
                 {/* Header */}
-                <div className="p-4 border-b border-white/5 flex justify-between items-center bg-white/5 flex-shrink-0">
+                <div className="p-4 border-b border-white/5 flex justify-between items-center bg-black/40 flex-shrink-0">
                     <div>
                         <h2 className="text-lg font-bold text-white flex items-center gap-2">
                             <LayoutTemplate className="h-5 w-5 text-teal-400" />
@@ -265,7 +265,7 @@ export function CreateFormModal({ isOpen, onClose, initialData }: CreateFormModa
                     </div>
 
                     {/* Main Content Area */}
-                    <div className="flex-1 overflow-y-auto bg-[#0F1115] relative scroll-smooth">
+                    <div className="flex-1 overflow-y-auto bg-[#0A0A0B] relative scroll-smooth">
                         {/* AI Overlay Logs */}
                         {isGenerating && (
                             <div className="absolute top-4 right-4 z-50 w-80 pointer-events-none">
@@ -331,7 +331,7 @@ export function CreateFormModal({ isOpen, onClose, initialData }: CreateFormModa
 
                         {tab === "builder" && (
                             <div className="p-8 max-w-4xl mx-auto">
-                                <div className="flex justify-between items-center mb-8 sticky top-0 z-10 bg-[#0F1115]/95 backdrop-blur py-4 border-b border-white/5">
+                                <div className="flex justify-between items-center mb-8 sticky top-0 z-10 bg-[#0A0A0B]/95 backdrop-blur py-4 border-b border-white/5">
                                     <div>
                                         <h3 className="text-xl font-bold text-white">Form Canvas</h3>
                                         <p className="text-sm text-slate-400">{formData.content.fields.length} fields configured</p>
@@ -344,7 +344,7 @@ export function CreateFormModal({ isOpen, onClose, initialData }: CreateFormModa
                                 <div className="space-y-4 pb-20">
                                     {formData.content.fields.length === 0 && (
                                         <div className="text-center py-20 border-2 border-dashed border-white/5 rounded-2xl bg-white/[0.01]">
-                                            <div className="p-4 bg-slate-900/50 rounded-full w-fit mx-auto mb-4">
+                                            <div className="p-4 bg-black/50 rounded-full w-fit mx-auto mb-4">
                                                 <LayoutTemplate className="h-8 w-8 text-slate-500" />
                                             </div>
                                             <h3 className="text-lg font-medium text-slate-300 mb-1">Your canvas is empty</h3>
@@ -582,7 +582,7 @@ export function CreateFormModal({ isOpen, onClose, initialData }: CreateFormModa
                     </div>
                 </div>
 
-                <div className="p-4 border-t border-white/5 bg-[#09090b] flex justify-end gap-3 flex-shrink-0 z-20">
+                <div className="p-4 border-t border-white/5 bg-[#0A0A0B] flex justify-end gap-3 flex-shrink-0 z-20">
                     <Button variant="ghost" onClick={onClose} className="text-slate-400 hover:text-white hover:bg-white/5">Cancel</Button>
                     <Button variant="ghost" onClick={() => handleSave("DRAFT")} className="text-amber-400 hover:text-amber-300 hover:bg-amber-900/10 border border-transparent hover:border-amber-900/30">
                         Save as Draft

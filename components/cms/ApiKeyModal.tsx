@@ -128,7 +128,7 @@ export function ApiKeyModal({ isOpen, onClose, provider, currentStatus, onSucces
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="sm:max-w-md bg-[#0A0A0B]/95 backdrop-blur-2xl border-white/10 text-white shadow-2xl ring-1 ring-white/5">
+            <DialogContent className="sm:max-w-md bg-[#0A0A0B] backdrop-blur-2xl border-white/10 text-white shadow-2xl ring-1 ring-white/5">
                 <DialogHeader>
                     <DialogTitle className="text-xl font-bold text-white flex items-center gap-2">
                         <Key className="h-5 w-5 text-cyan-400" />

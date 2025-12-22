@@ -15,7 +15,15 @@ export async function saveLandingPage(id: string, data: any) {
         revalidatePath(`/cms/landing`);
         revalidatePath(`/landing`);
 
-        await logActivity("Update Landing Page", "Landing Page", `Updated content for page ID: ${id}`);
+        await logActivity(
+            "Update Landing Page",
+            "Landing Page",
+            `Updated content for page ID: ${id}`,
+            {
+                pageId: id,
+                sectionsCount: Array.isArray(data) ? data.length : (Array.isArray(data?.content) ? data.content.length : 0)
+            }
+        );
 
         return { success: true };
     } catch (error) {

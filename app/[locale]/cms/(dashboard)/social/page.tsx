@@ -60,7 +60,7 @@ interface SeoSettings {
 const defaultSeoSettings: SeoSettings = {
     globalTitle: "Ledger1 CMS | The Intelligent Visual Builder",
     globalDescription: "Build, scale, and manage your digital presence with the world's most powerful AI-assisted visual CMS.",
-    ogImage: "/social-preview.jpg?v=2",
+    ogImage: "/images/opengraph-image.png",
     ogTitle: "",
     ogDescription: "",
     twitterCard: "summary_large_image",
@@ -70,6 +70,8 @@ const defaultSeoSettings: SeoSettings = {
 
 import { useSearchParams } from "next/navigation";
 
+import { MediaPickerModal } from "@/components/cms/MediaPickerModal";
+
 export default function SocialAdminPage() {
     const [socialSettings, setSocialSettings] = useState<SocialSettings>(defaultSocialSettings);
     const [seoSettings, setSeoSettings] = useState<SeoSettings>(defaultSeoSettings);
@@ -77,15 +79,18 @@ export default function SocialAdminPage() {
     const searchParams = useSearchParams();
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
+    const [footerSettings, setFooterSettings] = useState({ footerLogoUrl: "" });
+    const [mediaPickerOpen, setMediaPickerOpen] = useState(false);
 
     const tabParam = searchParams.get("tab") || "profiles";
-    const [activeTab, setActiveTab] = useState(tabParam);
 
-    useEffect(() => {
-        if (tabParam && tabParam !== activeTab) {
-            setActiveTab(tabParam);
-        }
-    }, [tabParam, activeTab]);
+    const handleTabChange = (val: string) => {
+        // preserve current params if any (though here we might just want to set tab)
+        const params = new URLSearchParams(searchParams.toString());
+        params.set("tab", val);
+        router.push(`?${params.toString()}`, { scroll: false });
+        // Using scroll: false to prevent jumping to top
+    };
 
     useEffect(() => {
         fetchData();
@@ -114,6 +119,14 @@ export default function SocialAdminPage() {
                     faviconUrl: seoConfig.faviconUrl || "",
                 });
             }
+
+            // Fetch Footer Settings
+            const footerRes = await fetch("/api/footer");
+            const footerData = await footerRes.json();
+            if (footerData.settings) {
+                setFooterSettings({ footerLogoUrl: footerData.settings.footerLogoUrl || "" });
+            }
+
         } catch (error) {
             toast.error("Failed to load settings");
         } finally {
@@ -134,6 +147,15 @@ export default function SocialAdminPage() {
             // Save SEO Settings
             await updateSeoConfig(seoSettings);
 
+            // Save Footer Settings
+            await fetch("/api/footer", {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    settings: { footerLogoUrl: footerSettings.footerLogoUrl }
+                }),
+            });
+
             // Force immediate favicon update in browser
             if (seoSettings.faviconUrl) {
                 const links = document.querySelectorAll("link[rel*='icon']");
@@ -149,8 +171,6 @@ export default function SocialAdminPage() {
                     document.head.appendChild(link);
                 }
             }
-
-
 
             router.refresh();
             toast.success("Settings saved successfully!");
@@ -197,19 +217,19 @@ export default function SocialAdminPage() {
                 </Button>
             </div>
 
-            <Tabs defaultValue="profiles" value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-                <TabsList className="bg-zinc-900/50 border border-white/10 p-1">
-                    <TabsTrigger value="profiles" className="data-[state=active]:bg-zinc-800">Social Profiles</TabsTrigger>
+            <Tabs defaultValue="profiles" value={tabParam} onValueChange={handleTabChange} className="space-y-6">
+                <TabsList className="bg-[#0A0A0B] border border-white/10 p-1">
+                    <TabsTrigger value="profiles" className="data-[state=active]:bg-white/10">Social Profiles</TabsTrigger>
                     <TabsTrigger value="seo" className="data-[state=active]:bg-teal-900/50 data-[state=active]:text-teal-400">SEO & Sharing Cards</TabsTrigger>
                 </TabsList>
 
                 {/* --- TAB: PROFILES --- */}
                 <TabsContent value="profiles" className="space-y-8 animate-in fade-in-50 slide-in-from-bottom-2">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <Card className="bg-zinc-950/50 backdrop-blur-xl border-white/10 shadow-lg">
+                        <Card className="bg-[#0A0A0B] backdrop-blur-xl border-white/10 shadow-lg">
                             <CardHeader>
                                 <CardTitle className="text-xl text-white">Primary Platforms</CardTitle>
-                                <CardDescription className="text-zinc-400">Core social media presence.</CardDescription>
+                                <CardDescription className="text-slate-400">Core social media presence.</CardDescription>
                             </CardHeader>
                             <CardContent className="grid grid-cols-1 gap-5">
                                 <SocialInput icon={<FaXTwitter />} label="X (Twitter)" value={socialSettings.xTwitterUrl} onChange={v => setSocialSettings(prev => ({ ...prev, xTwitterUrl: v }))} placeholder="https://x.com/username" />
@@ -220,10 +240,10 @@ export default function SocialAdminPage() {
                                 <SocialInput icon={<FaYoutube />} label="YouTube" value={socialSettings.youtubeUrl} onChange={v => setSocialSettings(prev => ({ ...prev, youtubeUrl: v }))} placeholder="https://youtube.com/@channel" />
                             </CardContent>
                         </Card>
-                        <Card className="bg-zinc-950/50 backdrop-blur-xl border-white/10 shadow-lg">
+                        <Card className="bg-[#0A0A0B] backdrop-blur-xl border-white/10 shadow-lg">
                             <CardHeader>
                                 <CardTitle className="text-xl text-white">Extended Network</CardTitle>
-                                <CardDescription className="text-zinc-400">Additional communities and content platforms.</CardDescription>
+                                <CardDescription className="text-slate-400">Additional communities and content platforms.</CardDescription>
                             </CardHeader>
                             <CardContent className="grid grid-cols-1 gap-5">
                                 <SocialInput icon={<FaGithub />} label="GitHub" value={socialSettings.githubUrl} onChange={v => setSocialSettings(prev => ({ ...prev, githubUrl: v }))} placeholder="https://github.com/org" />
@@ -234,17 +254,17 @@ export default function SocialAdminPage() {
                         </Card>
 
                         {/* Contact & App Stores */}
-                        <Card className="bg-zinc-950/50 backdrop-blur-xl border-white/10 shadow-lg lg:col-span-2">
+                        <Card className="bg-[#0A0A0B] backdrop-blur-xl border-white/10 shadow-lg lg:col-span-2">
                             <CardHeader>
                                 <CardTitle className="text-xl text-white">Contact & Downloads</CardTitle>
-                                <CardDescription className="text-zinc-400">Direct contact channels and app links.</CardDescription>
+                                <CardDescription className="text-slate-400">Direct contact channels and app links.</CardDescription>
                             </CardHeader>
                             <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 <SocialInput icon={<FaEnvelope />} label="Support Email" value={socialSettings.emailSupport} onChange={v => setSocialSettings(prev => ({ ...prev, emailSupport: v }))} placeholder="support@domain.com" />
                                 <SocialInput icon={<FaEnvelope />} label="Sales Email" value={socialSettings.emailSales} onChange={v => setSocialSettings(prev => ({ ...prev, emailSales: v }))} placeholder="sales@domain.com" />
                                 <SocialInput icon={<FaPhone />} label="Phone Number" value={socialSettings.phoneNumber} onChange={v => setSocialSettings(prev => ({ ...prev, phoneNumber: v }))} placeholder="+1 (555) 123-4567" />
                                 <div className="pt-2 border-t border-white/10 mt-2 md:col-span-2">
-                                    <Label className="text-zinc-400 mb-3 block text-xs uppercase tracking-wider font-semibold">Mobile Apps</Label>
+                                    <Label className="text-slate-400 mb-3 block text-xs uppercase tracking-wider font-semibold">Mobile Apps</Label>
                                     <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
                                         <SocialInput icon={<FaAppStore />} label="App Store URL" value={socialSettings.appStoreUrl} onChange={v => setSocialSettings(prev => ({ ...prev, appStoreUrl: v }))} placeholder="https://apps.apple.com/app/id..." />
                                         <SocialInput icon={<FaGooglePlay />} label="Play Store URL" value={socialSettings.playStoreUrl} onChange={v => setSocialSettings(prev => ({ ...prev, playStoreUrl: v }))} placeholder="https://play.google.com/store/apps/details?id=..." />
@@ -260,11 +280,11 @@ export default function SocialAdminPage() {
                     <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
                         {/* Editor Column */}
                         <div className="xl:col-span-5 space-y-6">
-                            <Card className="bg-zinc-950/50 backdrop-blur-xl border-white/10 shadow-lg">
+                            <Card className="bg-[#0A0A0B] backdrop-blur-xl border-white/10 shadow-lg">
                                 <CardHeader className="flex flex-row items-center justify-between pb-2">
                                     <div className="space-y-1">
                                         <CardTitle className="text-xl text-white">Global Metadata</CardTitle>
-                                        <CardDescription className="text-zinc-400">Settings for Search Engines & Sharing.</CardDescription>
+                                        <CardDescription className="text-slate-400">Settings for Search Engines & Sharing.</CardDescription>
                                     </div>
                                     <Button variant="outline" size="sm" onClick={generateAiSeo} className="border-teal-500/30 text-teal-400 hover:bg-teal-950/50">
                                         <Sparkles className="h-3 w-3 mr-2" />
@@ -273,59 +293,88 @@ export default function SocialAdminPage() {
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <div className="space-y-2">
-                                        <Label className="text-zinc-300">Site Title</Label>
+                                        <Label className="text-slate-300">Site Title</Label>
                                         <Input
                                             value={seoSettings.globalTitle}
                                             onChange={e => setSeoSettings(p => ({ ...p, globalTitle: e.target.value }))}
-                                            className="bg-zinc-900/50 border-white/10"
+                                            className="bg-black/50 border-white/10"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <Label className="text-zinc-300">Site Description</Label>
+                                        <Label className="text-slate-300">Site Description</Label>
                                         <Textarea
                                             value={seoSettings.globalDescription}
                                             onChange={e => setSeoSettings(p => ({ ...p, globalDescription: e.target.value }))}
-                                            className="bg-zinc-900/50 border-white/10 min-h-[100px]"
+                                            className="bg-black/50 border-white/10 min-h-[100px]"
                                         />
                                     </div>
                                     <div className="pt-4 border-t border-white/10">
                                         <div className="space-y-2">
-                                            <Label className="text-zinc-300">Open Graph Image URL</Label>
+                                            <Label className="text-slate-300">Open Graph Image URL</Label>
                                             <div className="flex gap-2">
                                                 <Input
                                                     value={seoSettings.ogImage}
                                                     onChange={e => setSeoSettings(p => ({ ...p, ogImage: e.target.value }))}
-                                                    className="bg-zinc-900/50 border-white/10"
+                                                    className="bg-black/50 border-white/10"
                                                 />
-                                                <Button variant="secondary" size="icon" title="Upload Image (Mock)">
+                                                <Button
+                                                    variant="secondary"
+                                                    size="icon"
+                                                    title="Select Image from Library or Upload"
+                                                    onClick={() => setMediaPickerOpen(true)}
+                                                >
                                                     <ImageIcon className="h-4 w-4" />
                                                 </Button>
                                             </div>
-                                            <p className="text-xs text-zinc-500">Recommended: 1200x630px (1.91:1 ratio)</p>
+                                            <p className="text-xs text-slate-500">Recommended: 1200x630px (1.91:1 ratio)</p>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
 
-                            <Card className="bg-zinc-950/50 backdrop-blur-xl border-white/10 shadow-lg">
+                            <MediaPickerModal
+                                isOpen={mediaPickerOpen}
+                                onClose={() => setMediaPickerOpen(false)}
+                                onSelect={(url) => setSeoSettings(p => ({ ...p, ogImage: url }))}
+                            />
+
+
+                            <Card className="bg-[#0A0A0B] backdrop-blur-xl border-white/10 shadow-lg">
                                 <CardHeader>
                                     <CardTitle className="text-xl text-white">Platform Overrides</CardTitle>
                                 </CardHeader>
                                 <CardContent className="space-y-6">
                                     <div className="space-y-3">
-                                        <Label className="text-zinc-300 text-base font-medium">Favicon URL (BETA)</Label>
+                                        <Label className="text-slate-300 text-base font-medium">Footer Branding</Label>
+                                        <div className="flex flex-col gap-3">
+                                            <div className="flex gap-3">
+                                                <Input
+                                                    value={footerSettings.footerLogoUrl}
+                                                    onChange={e => setFooterSettings(p => ({ ...p, footerLogoUrl: e.target.value }))}
+                                                    placeholder="/ledger1-cms-logo.png"
+                                                    className="bg-black/50 border-white/10 flex-1 h-12"
+                                                />
+                                            </div>
+                                            <p className="text-xs text-slate-500">
+                                                This logo is used in the footer across the site. Leaving it empty may fallback to the default.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-3 pt-4 border-t border-white/5">
+                                        <Label className="text-slate-300 text-base font-medium">Favicon URL (BETA)</Label>
                                         <div className="flex flex-col gap-3">
                                             <div className="flex gap-3">
                                                 <Input
                                                     value={seoSettings.faviconUrl}
                                                     onChange={e => setSeoSettings(p => ({ ...p, faviconUrl: e.target.value }))}
                                                     placeholder="/favicon.ico or https://..."
-                                                    className="bg-zinc-900/50 border-white/10 flex-1 h-12"
+                                                    className="bg-black/50 border-white/10 flex-1 h-12"
                                                 />
                                             </div>
 
                                             {/* Enlarged Preview Box */}
-                                            <div className="flex items-center gap-4 bg-zinc-900/30 p-4 rounded-lg border border-white/5">
+                                            <div className="flex items-center gap-4 bg-black/30 p-4 rounded-lg border border-white/5">
                                                 <div className="h-24 w-24 bg-[#1e1e1e] rounded-xl overflow-hidden flex items-center justify-center border border-white/10 shrink-0 relative group shadow-xl" title="Browser Tab Preview">
                                                     {/* Browser Tab style header */}
                                                     <div className="absolute top-0 w-full h-4 bg-[#2d2d2d]" />
@@ -342,17 +391,17 @@ export default function SocialAdminPage() {
                                                             }}
                                                         />
                                                     ) : (
-                                                        <div className="h-12 w-12 bg-zinc-700/50 rounded-full mt-2" />
+                                                        <div className="h-12 w-12 bg-slate-700/50 rounded-full mt-2" />
                                                     )}
 
                                                     {/* Fallback for empty or broken image */}
-                                                    <span className="hidden absolute inset-0 flex items-center justify-center pt-2 text-2xl text-zinc-500 font-bold">
+                                                    <span className="hidden absolute inset-0 flex items-center justify-center pt-2 text-2xl text-slate-500 font-bold">
                                                         ?
                                                     </span>
                                                 </div>
                                                 <div className="space-y-1">
                                                     <p className="text-sm font-medium text-white">Browser Preview</p>
-                                                    <p className="text-xs text-zinc-400 leading-relaxed max-w-[200px]">
+                                                    <p className="text-xs text-slate-400 leading-relaxed max-w-[200px]">
                                                         This is how your icon will appear in browser tabs. Changes update immediately upon save.
                                                     </p>
                                                 </div>
@@ -361,9 +410,9 @@ export default function SocialAdminPage() {
                                     </div>
 
                                     <div className="space-y-2 pt-4 border-t border-white/5">
-                                        <Label className="text-zinc-300">Twitter Card Type</Label>
+                                        <Label className="text-slate-300">Twitter Card Type</Label>
                                         <select
-                                            className="w-full bg-zinc-900/50 border border-white/10 rounded-md p-2 text-sm text-white"
+                                            className="w-full bg-black/50 border border-white/10 rounded-md p-2 text-sm text-white"
                                             value={seoSettings.twitterCard}
                                             onChange={e => setSeoSettings(p => ({ ...p, twitterCard: e.target.value }))}
                                         >
@@ -372,21 +421,21 @@ export default function SocialAdminPage() {
                                         </select>
                                     </div>
                                     <div className="space-y-2">
-                                        <Label className="text-zinc-300">Twitter Specific Image</Label>
+                                        <Label className="text-slate-300">Twitter Specific Image</Label>
                                         <Input
                                             value={seoSettings.twitterImage}
                                             onChange={e => setSeoSettings(p => ({ ...p, twitterImage: e.target.value }))}
                                             placeholder="Leave empty to use Global OG Image"
-                                            className="bg-zinc-900/50 border-white/10"
+                                            className="bg-black/50 border-white/10"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <Label className="text-zinc-300">OG Specific Title (Optional)</Label>
+                                        <Label className="text-slate-300">OG Specific Title (Optional)</Label>
                                         <Input
                                             value={seoSettings.ogTitle}
                                             onChange={e => setSeoSettings(p => ({ ...p, ogTitle: e.target.value }))}
                                             placeholder="Overrides global title..."
-                                            className="bg-zinc-900/50 border-white/10"
+                                            className="bg-black/50 border-white/10"
                                         />
                                     </div>
                                 </CardContent>
@@ -396,12 +445,12 @@ export default function SocialAdminPage() {
                         {/* Preview Column */}
                         <div className="xl:col-span-7 space-y-6">
                             <div className="sticky top-6">
-                                <h3 className="text-lg font-medium text-zinc-400 mb-4 flex items-center gap-2">
+                                <h3 className="text-lg font-medium text-slate-400 mb-4 flex items-center gap-2">
                                     <Laptop className="h-4 w-4" /> Live Preview
                                 </h3>
 
                                 {/* Discord / Large Card Preview */}
-                                <div className="bg-[#313338] rounded-md p-4 max-w-[480px] mx-auto shadow-2xl border border-zinc-700/50 relative group">
+                                <div className="bg-[#313338] rounded-md p-4 max-w-[480px] mx-auto shadow-2xl border border-slate-700/50 relative group">
                                     <div className="absolute top-2 right-2 px-2 py-0.5 bg-indigo-500 text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity">Global / Discord</div>
                                     <div className="flex items-center gap-2 mb-2">
                                         <div className="h-8 w-8 bg-zinc-600 rounded-full"></div>
@@ -432,15 +481,15 @@ export default function SocialAdminPage() {
                                             </div>
                                         )}
                                     </div>
-                                    <p className="text-[10px] text-zinc-500 mt-2 text-right">Discord / Embed Style</p>
+                                    <p className="text-[10px] text-slate-500 mt-2 text-right">Discord / Embed Style</p>
                                 </div>
 
                                 {/* X / Twitter Preview */}
                                 <div className="mt-8 max-w-[480px] mx-auto relative group">
                                     <div className="absolute top-2 right-2 px-2 py-0.5 bg-black text-white border border-white/20 text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity z-10">X (Twitter)</div>
-                                    <div className="border border-zinc-800 rounded-2xl overflow-hidden bg-black">
+                                    <div className="border border-slate-800 rounded-2xl overflow-hidden bg-black">
                                         {(seoSettings.twitterImage || seoSettings.ogImage) && (
-                                            <div className="relative aspect-[1.91/1] w-full bg-zinc-900 border-b border-zinc-800">
+                                            <div className="relative aspect-[1.91/1] w-full bg-slate-900 border-b border-slate-800">
                                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                                 <img
                                                     src={seoSettings.twitterImage || seoSettings.ogImage}
@@ -450,24 +499,24 @@ export default function SocialAdminPage() {
                                             </div>
                                         )}
                                         <div className="p-3">
-                                            <div className="text-zinc-500 text-sm">ledger1.ai</div>
+                                            <div className="text-slate-500 text-sm">ledger1.ai</div>
                                             <div className="text-white text-[15px] font-medium leading-5 mt-0.5">
                                                 {seoSettings.ogTitle || seoSettings.globalTitle}
                                             </div>
-                                            <div className="text-zinc-500 text-[15px] leading-5 mt-0.5 line-clamp-2">
+                                            <div className="text-slate-500 text-[15px] leading-5 mt-0.5 line-clamp-2">
                                                 {seoSettings.ogDescription || seoSettings.globalDescription}
                                             </div>
                                         </div>
                                     </div>
-                                    <p className="text-[10px] text-zinc-500 mt-2 text-right">X (Twitter) Large Card</p>
+                                    <p className="text-[10px] text-slate-500 mt-2 text-right">X (Twitter) Large Card</p>
                                 </div>
 
                             </div>
                         </div>
-                    </div>
-                </TabsContent>
-            </Tabs>
-        </div>
+                    </div >
+                </TabsContent >
+            </Tabs >
+        </div >
     );
 }
 
@@ -476,18 +525,18 @@ function SocialInput({ icon, label, value, onChange, placeholder }: {
 }) {
     return (
         <div className="space-y-2">
-            <Label className="text-zinc-300 flex items-center gap-2 text-sm">
-                <span className="text-zinc-400 text-base">{icon}</span> {label}
+            <Label className="text-slate-300 flex items-center gap-2 text-sm">
+                <span className="text-slate-400 text-base">{icon}</span> {label}
             </Label>
             <div className="flex gap-2 relative">
                 <Input
-                    className="flex-1 bg-zinc-900/50 border-white/10 text-white placeholder:text-zinc-600 focus:border-blue-500 pl-3"
+                    className="flex-1 bg-black/50 border-white/10 text-white placeholder:text-slate-600 focus:border-blue-500 pl-3"
                     value={value}
                     onChange={e => onChange(e.target.value)}
                     placeholder={placeholder}
                 />
                 {value && (
-                    <a href={value} target="_blank" rel="noopener noreferrer" className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 hover:bg-white/10 rounded-md text-zinc-400 hover:text-white transition-colors">
+                    <a href={value} target="_blank" rel="noopener noreferrer" className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 hover:bg-white/10 rounded-md text-slate-400 hover:text-white transition-colors">
                         <ExternalLink className="h-4 w-4" />
                     </a>
                 )}

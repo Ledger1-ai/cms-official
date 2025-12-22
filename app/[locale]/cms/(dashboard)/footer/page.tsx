@@ -185,40 +185,40 @@ export default function FooterAdminPage() {
             />
 
             {/* Global Settings */}
-            <Card className="bg-zinc-950/50 backdrop-blur-xl border-white/10 shadow-2xl">
+            <Card className="bg-[#0A0A0B] backdrop-blur-xl border-white/10 shadow-2xl">
                 <CardHeader>
                     <CardTitle className="text-xl text-white">Global Settings</CardTitle>
-                    <CardDescription className="text-zinc-400">Default content and social links for the footer.</CardDescription>
+                    <CardDescription className="text-slate-400">Default content and social links for the footer.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                            <Label className="text-zinc-300">Tagline</Label>
+                            <Label className="text-slate-300">Tagline</Label>
                             <Input
-                                className="bg-zinc-900/50 border-white/10 text-white focus:border-blue-500 placeholder:text-zinc-600"
-                                value={settings.tagline}
+                                className="bg-black/50 border-white/10 text-white focus:border-blue-500 placeholder:text-slate-600"
+                                value={settings.tagline || ""}
                                 onChange={(e) => setSettings({ ...settings, tagline: e.target.value })}
                                 placeholder="e.g. Building the future..."
                             />
                         </div>
                         <div className="space-y-2">
-                            <Label className="text-zinc-300">Copyright Text</Label>
+                            <Label className="text-slate-300">Copyright Text</Label>
                             <Input
-                                className="bg-zinc-900/50 border-white/10 text-white focus:border-blue-500 placeholder:text-zinc-600"
-                                value={settings.copyrightText}
+                                className="bg-black/50 border-white/10 text-white focus:border-blue-500 placeholder:text-slate-600"
+                                value={settings.copyrightText || ""}
                                 onChange={(e) => setSettings({ ...settings, copyrightText: e.target.value })}
                                 placeholder="e.g. © 2024 Acme Inc."
                             />
                         </div>
                         <div className="space-y-2">
-                            <Label className="text-zinc-300">Footer Logo URL</Label>
+                            <Label className="text-slate-300">Footer Logo URL</Label>
                             <Input
-                                className="bg-zinc-900/50 border-white/10 text-white focus:border-blue-500 placeholder:text-zinc-600 font-mono"
-                                value={settings.footerLogoUrl}
+                                className="bg-black/50 border-white/10 text-white focus:border-blue-500 placeholder:text-slate-600 font-mono"
+                                value={settings.footerLogoUrl || ""}
                                 onChange={(e) => setSettings({ ...settings, footerLogoUrl: e.target.value })}
                                 placeholder="/ledger1-cms-logo.png"
                             />
-                            <p className="text-xs text-zinc-500">Path to the logo image (e.g. /public/logo.png or external URL)</p>
+                            <p className="text-xs text-slate-500">Path to the logo image (e.g. /public/logo.png or external URL)</p>
                         </div>
                     </div>
                 </CardContent>
@@ -234,7 +234,7 @@ export default function FooterAdminPage() {
                         onClick={handleRestoreDefaults}
                         variant="ghost"
                         disabled={restoring}
-                        className="text-zinc-400 hover:text-white"
+                        className="text-slate-400 hover:text-white"
                     >
                         {restoring ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <RotateCcw className="mr-2 h-4 w-4" />}
                         Restore Defaults
@@ -242,7 +242,7 @@ export default function FooterAdminPage() {
                     <Button
                         onClick={addSection}
                         variant="outline"
-                        className="border-dashed border-white/20 hover:border-white/40 hover:bg-white/5 text-zinc-300 hover:text-white"
+                        className="border-dashed border-white/20 hover:border-white/40 hover:bg-white/5 text-slate-300 hover:text-white"
                     >
                         <Plus className="mr-2 h-4 w-4" /> Add Section
                     </Button>
@@ -252,18 +252,18 @@ export default function FooterAdminPage() {
             {/* Sections Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {sections.map((section, sIndex) => (
-                    <Card key={section.id || sIndex} className="bg-zinc-950/40 backdrop-blur-sm border-white/10 hover:border-white/20 transition-all shadow-lg flex flex-col h-full">
+                    <Card key={section.id || sIndex} className="bg-[#0A0A0B] backdrop-blur-sm border-white/10 hover:border-white/20 transition-all shadow-lg flex flex-col h-full">
                         <CardHeader className="p-4 pb-2 space-y-0">
                             <div className="flex items-center justify-between gap-2">
                                 <div className="flex items-center gap-2 flex-1">
                                     {section.isBase ? (
                                         <Lock className="h-4 w-4 text-blue-500" />
                                     ) : (
-                                        <GripVertical className="h-4 w-4 text-zinc-600 cursor-grab active:cursor-grabbing" />
+                                        <GripVertical className="h-4 w-4 text-slate-600 cursor-grab active:cursor-grabbing" />
                                     )}
                                     <Input
-                                        className="h-8font-semibold text-lg bg-transparent border-transparent hover:border-white/10 focus:border-blue-500 p-0 px-2 h-auto w-full text-white placeholder:text-zinc-600 focus-visible:ring-0 rounded-sm"
-                                        value={section.title}
+                                        className="h-8 font-semibold text-lg bg-transparent border-transparent hover:border-white/10 focus:border-blue-500 p-0 px-2 h-auto w-full text-white placeholder:text-slate-600 focus-visible:ring-0 rounded-sm"
+                                        value={section.title || ""}
                                         onChange={(e) => updateSection(sIndex, "title", e.target.value)}
                                         placeholder="Section Title"
                                     />
@@ -286,15 +286,15 @@ export default function FooterAdminPage() {
                                     <div key={lIndex} className="flex gap-2 items-start group">
                                         <div className="flex-1 space-y-1.5">
                                             <Input
-                                                className="h-8 text-sm bg-zinc-900/50 border-white/10 text-white placeholder:text-zinc-600 focus:border-blue-500"
+                                                className="h-8 text-sm bg-black/40 border-white/10 text-white placeholder:text-slate-600 focus:border-blue-500"
                                                 placeholder="Link Text"
-                                                value={link.text}
+                                                value={link.text || ""}
                                                 onChange={(e) => updateLink(sIndex, lIndex, "text", e.target.value)}
                                             />
                                             <Input
-                                                className="h-7 text-xs bg-zinc-900/30 border-white/10 text-zinc-400 placeholder:text-zinc-700 focus:border-blue-500 font-mono"
+                                                className="h-7 text-xs bg-black/20 border-white/10 text-slate-400 placeholder:text-slate-700 focus:border-blue-500 font-mono"
                                                 placeholder="/path"
-                                                value={link.url}
+                                                value={link.url || ""}
                                                 onChange={(e) => updateLink(sIndex, lIndex, "url", e.target.value)}
                                             />
                                         </div>
@@ -302,7 +302,7 @@ export default function FooterAdminPage() {
                                             size="icon"
                                             variant="ghost"
                                             onClick={() => removeLink(sIndex, lIndex)}
-                                            className="h-8 w-8 text-zinc-600 hover:text-red-400 hover:bg-white/5 opacity-0 group-hover:opacity-100 transition-all"
+                                            className="h-8 w-8 text-slate-600 hover:text-red-400 hover:bg-white/5 opacity-0 group-hover:opacity-100 transition-all"
                                         >
                                             <Trash className="h-3.5 w-3.5" />
                                         </Button>
@@ -314,7 +314,7 @@ export default function FooterAdminPage() {
                                 onClick={() => addLink(sIndex)}
                                 variant="ghost"
                                 size="sm"
-                                className="w-full border border-dashed border-white/10 hover:border-white/20 hover:bg-white/5 text-zinc-400 hover:text-white"
+                                className="w-full border border-dashed border-white/10 hover:border-white/20 hover:bg-white/5 text-slate-400 hover:text-white"
                             >
                                 <Plus className="mr-2 h-3 w-3" /> Add Link
                             </Button>

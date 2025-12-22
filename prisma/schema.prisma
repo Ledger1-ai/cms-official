@@ -667,7 +667,7 @@ model SystemSeoConfig {
   globalTitle        String   @default("Ledger1 CMS | The Intelligent Visual Builder")
   globalDescription  String   @default("Build, scale, and manage your digital presence with the world's most powerful AI-assisted visual CMS.")
   globalKeywords     String[]
-  ogImage            String   @default("/social-preview.jpg?v=2")
+  ogImage            String   @default("/images/opengraph-image.png")
   ogTitle            String?
   ogDescription      String?
   twitterCard        String   @default("summary_large_image")
@@ -992,6 +992,7 @@ model SystemActivity {
   createdAt DateTime @default(now()) @db.Date
 
   user      Users    @relation(name: "UserSystemActivities", fields: [userId], references: [id])
+  metadata  Json?
 }
 
 
@@ -1132,6 +1133,17 @@ model City {
   // SEO & Content
   description  String?
   image_url    String?
+
+  // Coordinates for Globe
+  lat          Float?
+  lng          Float?
+
+  // Advanced Metadata
+  industries_focus  String[] @default([])
+  compliance        String[] @default([])
+  currencies        String[] @default([])
+  time_zone         String?
+  pricing_starting_at String? @default("$50")
 }
 
 enum AppCategory {
@@ -1231,4 +1243,24 @@ enum FormStatus {
   DRAFT
   ACTIVE
   ARCHIVED
+}
+
+
+model NewsletterSubscriber {
+  id        String           @id @default(auto()) @map("_id") @db.ObjectId
+  email     String           @unique
+  firstName String?
+  lastName  String?
+  subscribedToBlog    Boolean @default(true)
+  subscribedToCareers Boolean @default(true)
+  status    NewsletterStatus @default(SUBSCRIBED)
+  source    String?          @default("website")
+  createdAt DateTime         @default(now()) @db.Date
+  updatedAt DateTime         @updatedAt @db.Date
+}
+
+enum NewsletterStatus {
+  SUBSCRIBED
+  UNSUBSCRIBED
+  BOUNCED
 }

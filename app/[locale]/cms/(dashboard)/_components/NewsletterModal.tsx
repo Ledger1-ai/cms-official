@@ -113,7 +113,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
                         <Mail className="h-5 w-5 text-blue-500" />
                         Newsletter Management
                     </DialogTitle>
-                    <DialogDescription className="text-zinc-400">
+                    <DialogDescription className="text-slate-400">
                         Configure public signup and manage subscribers.
                     </DialogDescription>
                 </DialogHeader>
@@ -124,7 +124,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
                     </div>
                 ) : (
                     <Tabs defaultValue="subscribe" className="w-full">
-                        <TabsList className="grid w-full grid-cols-2 bg-zinc-900/50 border border-white/10">
+                        <TabsList className="grid w-full grid-cols-2 bg-black border border-white/10">
                             <TabsTrigger value="subscribe" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
                                 Subscribe User
                             </TabsTrigger>
@@ -134,17 +134,17 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
                         </TabsList>
 
                         <TabsContent value="subscribe" className="space-y-4 mt-4">
-                            <Card className="bg-zinc-950/50 border-white/10 shadow-none">
+                            <Card className="bg-[#0A0A0B] border-white/10 shadow-none">
                                 <CardHeader>
                                     <CardTitle className="text-base text-white">Add Subscriber</CardTitle>
-                                    <CardDescription className="text-zinc-400">Manually add a user to the newsletter list.</CardDescription>
+                                    <CardDescription className="text-slate-400">Manually add a user to the newsletter list.</CardDescription>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <div className="space-y-2">
-                                        <Label className="text-zinc-300">Email Address</Label>
+                                        <Label className="text-slate-300">Email Address</Label>
                                         <div className="flex gap-2">
                                             <Input
-                                                className="bg-zinc-900/50 border-white/10 text-white placeholder:text-zinc-600 focus:border-blue-500"
+                                                className="bg-black border-white/10 text-white placeholder:text-slate-600 focus:border-blue-500"
                                                 placeholder="user@example.com"
                                                 type="email"
                                                 value={newSubscriberEmail}
@@ -165,9 +165,9 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
                         </TabsContent>
 
                         <TabsContent value="config" className="space-y-4 mt-4">
-                            <Card className="bg-zinc-950/50 border-white/10 shadow-none">
+                            <Card className="bg-[#0A0A0B] border-white/10 shadow-none">
                                 <CardContent className="space-y-6 pt-6">
-                                    <div className="flex items-center space-x-3 rounded-lg border border-white/10 bg-zinc-900/50 p-4">
+                                    <div className="flex items-center space-x-3 rounded-lg border border-white/10 bg-black p-4">
                                         <Checkbox
                                             id="newsletter"
                                             checked={settings.newsletterEnabled}
@@ -178,15 +178,15 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
                                             <Label htmlFor="newsletter" className="text-base font-medium text-white cursor-pointer">
                                                 Enable Newsletter Signup
                                             </Label>
-                                            <p className="text-sm text-zinc-400">
+                                            <p className="text-sm text-slate-400">
                                                 Show the email subscription form in the footer.
                                             </p>
                                         </div>
                                     </div>
                                     <div className="space-y-2">
-                                        <Label className="text-zinc-300">CTA Button Text</Label>
+                                        <Label className="text-slate-300">CTA Button Text</Label>
                                         <Input
-                                            className="bg-zinc-900/50 border-white/10 text-white focus:border-blue-500 placeholder:text-zinc-600"
+                                            className="bg-black border-white/10 text-white focus:border-blue-500 placeholder:text-slate-600"
                                             value={settings.ctaText}
                                             onChange={e => setSettings(p => ({ ...p, ctaText: e.target.value }))}
                                             placeholder="Stay Updated"

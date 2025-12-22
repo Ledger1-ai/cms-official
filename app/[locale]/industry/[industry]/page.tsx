@@ -5,13 +5,21 @@ import { setRequestLocale } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Building2, Users, BarChart3, CheckCircle, Shield, LineChart, PlugZap, Bot, Target, Zap, Clock, TrendingUp, Globe, Lock, HeartHandshake, Workflow, Mail, MessageSquare, FileText, Database } from "lucide-react";
 import CmsWorkflowVisual from "@/components/visuals/CmsWorkflowVisual";
-import AiCapabilitiesVisual from "@/components/visuals/AiCapabilitiesVisual";
+import { AiCapabilitiesVisual } from "@/components/visuals/AiCapabilitiesVisual";
+import { AnalyticsDashboard } from "@/components/visuals/AnalyticsDashboard";
+import { ContentLifecycleVisual } from "@/components/visuals/ContentLifecycleVisual";
 import industries from "@/data/industries.json";
-import MarketingHeader from "@/app/[locale]/components/MarketingHeader";
-import MarketingFooter from "@/app/[locale]/components/MarketingFooter";
 import LeadGenDashboard from "@/app/[locale]/components/LeadGenDashboard";
 import AgentInterface from "@/app/[locale]/components/AgentInterface";
-import AnalyticsGraph from "@/app/[locale]/components/AnalyticsGraph";
+import fs from "fs";
+import path from "path";
+import Image from "next/image";
+
+// ... (inside the component)
+
+<div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-[0_0_100px_rgba(6,182,212,0.15)] border border-white/10 bg-black/50 backdrop-blur-xl flex items-center justify-center p-2">
+    <ContentLifecycleVisual />
+</div>
 
 type Props = {
     params: Promise<{ industry: string; locale: string }>;
@@ -84,6 +92,22 @@ const STATIC = {
     ]
 };
 
+import MarketingLayout from "@/components/marketing/MarketingLayout";
+
+function getHeroImage(slug: string): string {
+    // Try the CMS-specific generated image first
+    const cmsImage = `industry-${slug}-cms.png`;
+    if (fs.existsSync(path.join(process.cwd(), "public", "images", cmsImage))) {
+        return `/images/${cmsImage}`;
+    }
+
+    const specificImage = `industry-${slug}.jpg`;
+    if (fs.existsSync(path.join(process.cwd(), "public", "images", specificImage))) {
+        return `/images/${specificImage}`;
+    }
+    return "/images/industry-hero.jpg";
+}
+
 export default async function IndustryPage(props: Props) {
     const params = await props.params;
 
@@ -96,32 +120,53 @@ export default async function IndustryPage(props: Props) {
         notFound();
     }
 
+    const heroImage = getHeroImage(industry.slug);
     const primaryCta = { label: `Schedule ${industry.name} Demo`, url: "https://calendar.google.com/appointments/schedules/AcZssZ2Vduqr0QBnEAM50SeixE8a7kXuKt62zEFjQCQ8_xvoO6iF3hluVQHpaM6RYWMGB110_zM3MUF0" };
 
     return (
-        <div className="min-h-screen bg-[#0F0F1A] text-white font-sans selection:bg-primary/30">
-            <MarketingHeader />
+        <MarketingLayout variant="default">
 
             {/* Hero */}
             <section className="relative w-full py-20 md:py-32 overflow-hidden">
                 <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
+
+                {/* Hero Background Image */}
+                {/* Hero Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src={heroImage}
+                        alt={`${industry.name} content management background`}
+                        fill
+                        className="object-cover opacity-70"
+                        priority
+                    />
+                    {/* Drastically reduced gradient opacity to let image show through */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black/80" />
+                </div>
+
                 <div className="container px-4 md:px-6 relative z-10 text-center">
-                    <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm mb-6">
+                    <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm mb-6 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
                         <span>CMS for {industry.name}</span>
                     </div>
-                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-6">
-                        {industry.hero_title}
+                    {/* Refactored H1: Gradient on span to prevent block-level clipping. Increased padding for descenders. */}
+                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-6 drop-shadow-sm py-4 leading-relaxed text-white">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 pb-4">
+                            {industry.hero_title}
+                        </span>
                     </h1>
-                    <p className="mx-auto max-w-[800px] text-gray-400 md:text-xl leading-relaxed mb-8">
+                    <p className="mx-auto max-w-[800px] text-gray-300 md:text-xl leading-relaxed mb-8 drop-shadow-md">
                         {industry.description}
                     </p>
                     <div className="flex justify-center gap-4">
                         <Link href={primaryCta.url} target="_blank">
-                            <Button size="lg" className="rounded-full bg-white text-slate-950 font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-purple-600 hover:to-green-500 hover:text-white hover:shadow-[0_0_50px_rgba(168,85,247,0.6)]">
+                            {/* EXPLICIT BUTTON STYLING */}
+                            <Button size="lg" className="rounded-full font-bold bg-[#06b6d4] text-white hover:bg-[#0891b2] shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] border-none">
                                 {primaryCta.label} <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
                         </Link>
                     </div>
+
+
                 </div>
             </section>
 
@@ -166,8 +211,8 @@ export default async function IndustryPage(props: Props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-[0_0_100px_rgba(6,182,212,0.15)] border border-white/10 bg-black/50 backdrop-blur-xl">
-                            <CmsWorkflowVisual />
+                        <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-[0_0_100px_rgba(6,182,212,0.15)] border border-white/10 bg-black/50 backdrop-blur-xl flex items-center justify-center p-2">
+                            <ContentLifecycleVisual />
                         </div>
                     </div>
                 </div>
@@ -184,66 +229,8 @@ export default async function IndustryPage(props: Props) {
                         </p>
                     </div>
 
-                    <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-center">
-                        {/* Left: Agent Interface -> AI Visual */}
-                        <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-[0_0_100px_rgba(6,182,212,0.15)] border border-white/10 bg-black/50 backdrop-blur-xl">
-                            <AiCapabilitiesVisual />
-                        </div>
-
-                        {/* Right: Agent Descriptions */}
-                        <div className="space-y-6">
-                            <div className="bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                                        <Target className="w-5 h-5 text-blue-400" />
-                                    </div>
-                                    <h3 className="font-semibold">Content Personalization</h3>
-                                </div>
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    Instantly adapts landing pages and recommendations based on visitor behavior.
-                                    Routes users to the most relevant content clusters without manual tagging.
-                                </p>
-                            </div>
-
-                            <div className="bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
-                                        <TrendingUp className="w-5 h-5 text-green-400" />
-                                    </div>
-                                    <h3 className="font-semibold">SEO & Discoverability</h3>
-                                </div>
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    Automatically generates schema markup, meta tags, and internal linking structures.
-                                    Ensures your {industry.name} content ranks high for high-intent keywords.
-                                </p>
-                            </div>
-
-                            <div className="bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center">
-                                        <HeartHandshake className="w-5 h-5 text-amber-400" />
-                                    </div>
-                                    <h3 className="font-semibold">Localization Engine</h3>
-                                </div>
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    Translates and localizes content for global markets instantly.
-                                    Maintains brand voice while adapting cultural nuances for specific regions.
-                                </p>
-                            </div>
-
-                            <div className="bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
-                                        <Clock className="w-5 h-5 text-purple-400" />
-                                    </div>
-                                    <h3 className="font-semibold">Compliance Guardian</h3>
-                                </div>
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    Scans all published content for industry-specific compliance issues (HIPAA, FINRA, etc.)
-                                    before it goes live, protecting your brand reputation.
-                                </p>
-                            </div>
-                        </div>
+                    <div className="max-w-6xl mx-auto">
+                        <AiCapabilitiesVisual />
                     </div>
                 </div>
             </section>
@@ -296,8 +283,8 @@ export default async function IndustryPage(props: Props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="relative h-[450px] w-full rounded-2xl overflow-hidden shadow-[0_0_100px_rgba(16,185,129,0.15)] border border-white/10 bg-black/50 backdrop-blur-xl">
-                            <AnalyticsGraph />
+                        <div className="relative h-[450px] w-full rounded-2xl overflow-hidden shadow-[0_0_100px_rgba(16,185,129,0.15)] border border-white/10 bg-black/50 backdrop-blur-xl flex items-center justify-center p-2">
+                            <AnalyticsDashboard />
                         </div>
                     </div>
                 </div>
@@ -594,7 +581,6 @@ export default async function IndustryPage(props: Props) {
                     </div>
                 </div>
             </section>
-            <MarketingFooter />
-        </div>
+        </MarketingLayout>
     );
 }

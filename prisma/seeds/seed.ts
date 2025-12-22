@@ -207,7 +207,7 @@ async function main() {
   console.log("Docs & University content seeded successfully");
 
   // Seed Locations
-  // await seedLocations();
+  await seedLocations();
 
   console.log("-------- Seed DB completed --------");
 }

@@ -1,6 +1,4 @@
 import React from "react";
-import MarketingHeader from "../components/MarketingHeader";
-import MarketingFooter from "../components/MarketingFooter";
 import { CheckCircle2, Circle, Clock } from "lucide-react";
 
 export const metadata = {
@@ -8,10 +6,11 @@ export const metadata = {
     description: "See what we've built and what's coming next for Ledger1CMS.",
 };
 
+import MarketingLayout from "@/components/marketing/MarketingLayout";
+
 export default function RoadmapPage() {
     return (
-        <div className="min-h-screen bg-[#0F0F1A] text-white font-sans selection:bg-primary/30">
-            <MarketingHeader />
+        <MarketingLayout variant="default">
 
             <main className="py-20 md:py-32">
                 <div className="container mx-auto px-4 max-w-4xl">
@@ -79,9 +78,7 @@ export default function RoadmapPage() {
                     </div>
                 </div>
             </main>
-
-            <MarketingFooter />
-        </div>
+        </MarketingLayout>
     );
 }
 

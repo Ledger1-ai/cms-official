@@ -8,7 +8,7 @@ export default function FormBuilderAnimation() {
     return (
         <div className="relative w-full aspect-[4/3] bg-slate-900/90 rounded-xl border border-white/10 overflow-hidden shadow-2xl flex">
             {/* Sidebar */}
-            <div className="w-1/4 h-full border-r border-white/10 bg-white/5 p-3 flex flex-col gap-3">
+            <div className="hidden sm:flex w-1/4 h-full border-r border-white/10 bg-white/5 p-3 flex-col gap-3">
                 <div className="h-4 w-1/2 bg-white/10 rounded mb-2" />
                 {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="h-10 w-full bg-white/5 rounded border border-white/5 relative group cursor-grab active:cursor-grabbing">

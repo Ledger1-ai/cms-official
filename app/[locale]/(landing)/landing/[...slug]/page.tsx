@@ -10,6 +10,8 @@ interface PageProps {
     }>;
 }
 
+import MarketingLayout from "@/components/marketing/MarketingLayout";
+
 export default async function Page(props: PageProps) {
     const params = await props.params;
 
@@ -25,8 +27,8 @@ export default async function Page(props: PageProps) {
     }
 
     return (
-        <main className="min-h-screen bg-black">
+        <MarketingLayout variant="default">
             <Render config={puckConfig} data={page.content as Data} />
-        </main>
+        </MarketingLayout>
     );
 }

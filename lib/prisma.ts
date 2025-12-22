@@ -11,10 +11,10 @@ if (process.env.NODE_ENV === "production") {
   // Ensure prisma.config.ts is present and valid for connection to work.
   prisma = new PrismaClient();
 } else {
-  if (!global.cachedPrisma) {
-    global.cachedPrisma = new PrismaClient();
+  if (!(globalThis as any).cachedPrisma) {
+    (globalThis as any).cachedPrisma = new PrismaClient();
   }
-  prisma = global.cachedPrisma;
+  prisma = (globalThis as any).cachedPrisma;
 }
 
 export const prismadb = prisma;

@@ -46,10 +46,10 @@ export function SystemStatusModal({ isOpen, onClose }: SystemStatusModalProps) {
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="max-w-2xl bg-[#0F1115]/80 backdrop-blur-xl border border-cyan-500/20 text-cyan-50 p-0 overflow-hidden shadow-[0_0_50px_rgba(6,182,212,0.15)] rounded-2xl">
+            <DialogContent className="max-w-2xl bg-[#0A0A0B] backdrop-blur-xl border border-white/10 text-cyan-50 p-0 overflow-hidden shadow-[0_0_50px_rgba(6,182,212,0.15)] rounded-2xl">
                 <DialogTitle className="sr-only">System Status Board</DialogTitle>
                 {/* Header with sci-fi look */}
-                <div className="bg-cyan-950/30 border-b border-cyan-500/20 p-6 flex justify-between items-center relative overflow-hidden">
+                <div className="bg-black/40 border-b border-white/10 p-6 flex justify-between items-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
                     <div>
                         <h2 className="text-xl font-bold tracking-widest text-cyan-400 font-mono flex items-center gap-2">
@@ -69,7 +69,7 @@ export function SystemStatusModal({ isOpen, onClose }: SystemStatusModalProps) {
                     <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
 
                     {/* Metric Card 1 */}
-                    <div className="bg-cyan-900/10 border border-cyan-500/20 p-4 rounded-lg relative overflow-hidden group hover:border-cyan-500/50 transition-colors">
+                    <div className="bg-black border border-white/10 p-4 rounded-lg relative overflow-hidden group hover:border-cyan-500/50 transition-colors">
                         <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-40 transition-opacity">
                             <Globe className="h-12 w-12 text-cyan-400" />
                         </div>
@@ -83,7 +83,7 @@ export function SystemStatusModal({ isOpen, onClose }: SystemStatusModalProps) {
                     </div>
 
                     {/* Metric Card 2 */}
-                    <div className="bg-cyan-900/10 border border-cyan-500/20 p-4 rounded-lg relative overflow-hidden group hover:border-cyan-500/50 transition-colors">
+                    <div className="bg-black border border-white/10 p-4 rounded-lg relative overflow-hidden group hover:border-cyan-500/50 transition-colors">
                         <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-40 transition-opacity">
                             <Database className="h-12 w-12 text-cyan-400" />
                         </div>
@@ -97,7 +97,7 @@ export function SystemStatusModal({ isOpen, onClose }: SystemStatusModalProps) {
                     </div>
 
                     {/* Metric Card 3 */}
-                    <div className="bg-cyan-900/10 border border-cyan-500/20 p-4 rounded-lg relative overflow-hidden group hover:border-cyan-500/50 transition-colors">
+                    <div className="bg-black border border-white/10 p-4 rounded-lg relative overflow-hidden group hover:border-cyan-500/50 transition-colors">
                         <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-40 transition-opacity">
                             <Server className="h-12 w-12 text-cyan-400" />
                         </div>
@@ -111,7 +111,7 @@ export function SystemStatusModal({ isOpen, onClose }: SystemStatusModalProps) {
                     </div>
 
                     {/* Metric Card 4 */}
-                    <div className="bg-cyan-900/10 border border-cyan-500/20 p-4 rounded-lg relative overflow-hidden group hover:border-cyan-500/50 transition-colors">
+                    <div className="bg-black border border-white/10 p-4 rounded-lg relative overflow-hidden group hover:border-cyan-500/50 transition-colors">
                         <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-40 transition-opacity">
                             <Zap className="h-12 w-12 text-cyan-400" />
                         </div>
@@ -125,7 +125,7 @@ export function SystemStatusModal({ isOpen, onClose }: SystemStatusModalProps) {
                     </div>
                 </div>
 
-                <div className="bg-black/40 p-4 text-center border-t border-cyan-900/30">
+                <div className="bg-black/80 p-4 text-center border-t border-white/10">
                     <p className="text-[10px] text-cyan-700 font-mono">
                         LEDGER1_CORE // AUTOPILOT ENABLED // ALL SYSTEMS OPERATIONAL
                     </p>

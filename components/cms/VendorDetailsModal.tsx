@@ -200,23 +200,23 @@ export default function VendorDetailsModal({ isOpen, onClose, vendor, onUpdate }
                 {isEditing ? (
                     <div className="grid gap-6 py-4">
                         <div className="grid grid-cols-2 gap-4">
-                            <div className="space-y-2"><Label>Name</Label><Input value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="bg-slate-900/50 border-white/10" /></div>
-                            <div className="space-y-2"><Label>Title</Label><Input value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} className="bg-slate-900/50 border-white/10" /></div>
+                            <div className="space-y-2"><Label>Name</Label><Input value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="bg-black/50 border-white/10" /></div>
+                            <div className="space-y-2"><Label>Title</Label><Input value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} className="bg-black/50 border-white/10" /></div>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
-                            <div className="space-y-2"><Label>Email</Label><Input value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="bg-slate-900/50 border-white/10" /></div>
-                            <div className="space-y-2"><Label>Phone</Label><Input value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="bg-slate-900/50 border-white/10" /></div>
+                            <div className="space-y-2"><Label>Email</Label><Input value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="bg-black/50 border-white/10" /></div>
+                            <div className="space-y-2"><Label>Phone</Label><Input value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="bg-black/50 border-white/10" /></div>
                         </div>
-                        <div className="space-y-2"><Label>Website</Label><Input value={formData.website} onChange={(e) => setFormData({ ...formData, website: e.target.value })} className="bg-slate-900/50 border-white/10" /></div>
-                        <div className="space-y-2"><Label>Address</Label><Input value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} className="bg-slate-900/50 border-white/10" /></div>
+                        <div className="space-y-2"><Label>Website</Label><Input value={formData.website} onChange={(e) => setFormData({ ...formData, website: e.target.value })} className="bg-black/50 border-white/10" /></div>
+                        <div className="space-y-2"><Label>Address</Label><Input value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} className="bg-black/50 border-white/10" /></div>
                         <div className="grid grid-cols-2 gap-4">
-                            <div className="space-y-2"><Label>Industry</Label><Input value={formData.primary_industry} onChange={(e) => setFormData({ ...formData, primary_industry: e.target.value })} className="bg-slate-900/50 border-white/10" /></div>
+                            <div className="space-y-2"><Label>Industry</Label><Input value={formData.primary_industry} onChange={(e) => setFormData({ ...formData, primary_industry: e.target.value })} className="bg-black/50 border-white/10" /></div>
                         </div>
 
-                        <div className="p-4 bg-slate-900/50 rounded-lg border border-white/5 space-y-4">
+                        <div className="p-4 bg-black/50 rounded-lg border border-white/5 space-y-4">
                             <h3 className="text-sm font-semibold text-slate-400">External Links</h3>
-                            <div className="space-y-2"><Label className="text-xs">Angie's List URL</Label><Input value={formData.angies_list_url} onChange={(e) => setFormData({ ...formData, angies_list_url: e.target.value })} className="bg-black/20 border-white/10 h-8 text-xs" /></div>
-                            <div className="space-y-2"><Label className="text-xs">Google Reviews URL</Label><Input value={formData.google_reviews_url} onChange={(e) => setFormData({ ...formData, google_reviews_url: e.target.value })} className="bg-black/20 border-white/10 h-8 text-xs" /></div>
+                            <div className="space-y-2"><Label className="text-xs">Angie's List URL</Label><Input value={formData.angies_list_url} onChange={(e) => setFormData({ ...formData, angies_list_url: e.target.value })} className="bg-black border-white/10 h-8 text-xs" /></div>
+                            <div className="space-y-2"><Label className="text-xs">Google Reviews URL</Label><Input value={formData.google_reviews_url} onChange={(e) => setFormData({ ...formData, google_reviews_url: e.target.value })} className="bg-black border-white/10 h-8 text-xs" /></div>
                         </div>
 
                         <div className="flex justify-end gap-3 pt-4">
@@ -245,7 +245,7 @@ export default function VendorDetailsModal({ isOpen, onClose, vendor, onUpdate }
                                         {vendor.primary_industry}
                                     </span>
                                 ) : (
-                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-400 border border-white/5">
+                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-black text-slate-400 border border-white/5">
                                         Unclassified
                                     </span>
                                 )}
@@ -258,7 +258,7 @@ export default function VendorDetailsModal({ isOpen, onClose, vendor, onUpdate }
                         </div>
 
                         {/* Right Column: Contact Details */}
-                        <div className="space-y-6 bg-slate-900/30 p-6 rounded-xl border border-white/5">
+                        <div className="space-y-6 bg-black/30 p-6 rounded-xl border border-white/5">
                             <div>
                                 <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
                                     <Phone className="h-3.5 w-3.5" /> Phone
@@ -341,8 +341,8 @@ export default function VendorDetailsModal({ isOpen, onClose, vendor, onUpdate }
                             <Label className="text-xs text-slate-500">Review Links</Label>
                             {isEditing ? (
                                 <div className="space-y-2">
-                                    <Input value={formData.google_reviews_url} onChange={e => setFormData({ ...formData, google_reviews_url: e.target.value })} className="bg-white/5 border-white/10" placeholder="Google Reviews URL" />
-                                    <Input value={formData.angies_list_url} onChange={e => setFormData({ ...formData, angies_list_url: e.target.value })} className="bg-white/5 border-white/10" placeholder="Angie's List URL" />
+                                    <Input value={formData.google_reviews_url} onChange={e => setFormData({ ...formData, google_reviews_url: e.target.value })} className="bg-black border-white/10" placeholder="Google Reviews URL" />
+                                    <Input value={formData.angies_list_url} onChange={e => setFormData({ ...formData, angies_list_url: e.target.value })} className="bg-black border-white/10" placeholder="Angie's List URL" />
                                 </div>
                             ) : (
                                 <div className="flex flex-col gap-2">

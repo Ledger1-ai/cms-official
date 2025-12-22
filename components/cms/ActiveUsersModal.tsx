@@ -34,7 +34,7 @@ export function ActiveUsersModal({ isOpen, onClose }: ActiveUsersModalProps) {
     return (
         <>
             <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-                <DialogContent className="sm:max-w-md bg-[#0A0A0B]/80 backdrop-blur-xl border border-white/10 text-white p-0 overflow-hidden shadow-2xl">
+                <DialogContent className="sm:max-w-md bg-[#0A0A0B] backdrop-blur-xl border border-white/10 text-white p-0 overflow-hidden shadow-2xl">
                     <DialogHeader className="p-6 bg-white/5 border-b border-white/10">
                         <DialogTitle className="flex items-center gap-2 text-white">
                             <span className="relative flex h-3 w-3">

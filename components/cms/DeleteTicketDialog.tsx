@@ -27,7 +27,7 @@ export function DeleteTicketDialog({
 }: DeleteTicketDialogProps) {
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="sm:max-w-[425px] bg-[#0F1115]/90 backdrop-blur-xl border border-red-500/20 text-white shadow-[0_0_50px_rgba(239,68,68,0.15)] rounded-2xl p-0 overflow-hidden">
+            <DialogContent className="sm:max-w-[425px] bg-[#0A0A0B] backdrop-blur-xl border border-red-500/20 text-white shadow-[0_0_50px_rgba(239,68,68,0.15)] rounded-2xl p-0 overflow-hidden">
                 <div className="p-6 flex flex-col items-center text-center gap-4">
                     <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center border border-red-500/20 shadow-[0_0_30px_rgba(239,68,68,0.2)] mb-2">
                         <Trash2 className="h-8 w-8 text-red-500" />

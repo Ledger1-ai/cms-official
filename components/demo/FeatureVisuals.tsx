@@ -285,9 +285,9 @@ export const VISUAL_MAP: Record<string, React.ComponentType> = {
 
 export function VisualBuilderVisual() {
     return (
-        <div className="relative w-full h-full flex items-center justify-center p-8 bg-slate-950/50">
+        <div className="relative w-full h-full flex items-center justify-center p-4 lg:p-8 bg-slate-950/50">
             {/* Mock Editor Window */}
-            <div className="relative w-full max-w-sm aspect-[4/5] bg-slate-900 rounded-xl border border-white/10 shadow-2xl overflow-hidden flex flex-col">
+            <div className="relative w-full h-full bg-slate-900 rounded-xl border border-white/10 shadow-2xl overflow-hidden flex flex-col">
 
                 {/* Header */}
                 <div className="h-10 bg-slate-950 border-b border-white/5 flex items-center justify-between px-3 shrink-0 z-20">
@@ -303,14 +303,14 @@ export function VisualBuilderVisual() {
 
                 <div className="flex flex-1 overflow-hidden relative">
                     {/* Left Sidebar (Components) */}
-                    <div className="w-20 bg-slate-950 border-r border-white/5 flex flex-col items-center py-3 gap-3 shrink-0 z-10">
+                    <div className="w-16 lg:w-20 bg-slate-950 border-r border-white/5 flex flex-col items-center py-3 gap-3 shrink-0 z-10">
                         <div className="w-8 h-8 rounded-lg bg-slate-900 border border-white/5 flex items-center justify-center mb-2">
                             <Sparkles className="w-4 h-4 text-purple-400" />
                         </div>
 
                         {/* Draggable Component Icons */}
                         {["Hero", "Text", "Image", "Grid"].map((item, i) => (
-                            <div key={item} className="w-14 h-12 rounded bg-slate-900 border border-white/5 flex flex-col items-center justify-center gap-1 hover:border-purple-500/30 transition-colors group cursor-grab">
+                            <div key={item} className="w-12 h-10 lg:w-14 lg:h-12 rounded bg-slate-900 border border-white/5 flex flex-col items-center justify-center gap-1 hover:border-purple-500/30 transition-colors group cursor-grab">
                                 <div className={`w-6 h-1 rounded-full ${i === 0 ? 'bg-slate-600' : i === 1 ? 'bg-slate-700 w-4' : 'bg-slate-700'}`} />
                                 <span className="text-[8px] text-slate-500 group-hover:text-slate-300">{item}</span>
                             </div>
@@ -318,100 +318,135 @@ export function VisualBuilderVisual() {
                     </div>
 
                     {/* Canvas Area */}
-                    <div className="flex-1 bg-slate-900 p-4 relative overflow-hidden flex flex-col gap-3">
+                    <div className="flex-1 bg-slate-900 p-4 relative overflow-hidden flex flex-col gap-4">
                         {/* Dot Grid Background */}
                         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(#fff 1px, transparent 1px)", backgroundSize: "16px 16px" }} />
 
-                        {/* Mock Hero Block (Genius Styling) */}
+                        {/* Real Header Image - Full Width */}
                         <motion.div
-                            className="w-full h-24 bg-gradient-to-br from-purple-900/20 to-indigo-900/20 border border-purple-500/10 rounded-lg flex flex-col items-center justify-center gap-2 relative group p-3 shadow-lg transform transition-all hover:shadow-purple-500/10"
+                            className="w-full relative group rounded-lg overflow-hidden border border-transparent hover:border-purple-500/30 transition-colors shrink-0"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                         >
-                            {/* Realistic Header Content */}
-                            <div className="w-full flex items-center justify-between px-2 mb-1">
-                                <div className="w-8 h-1 bg-purple-400/30 rounded-full" />
-                                <div className="flex gap-1">
-                                    <div className="w-4 h-1 bg-white/10 rounded-full" />
-                                    <div className="w-4 h-1 bg-white/10 rounded-full" />
-                                </div>
+                            <div className="relative h-24 w-full">
+                                <Image
+                                    src="/visuals/nano-header-flat.png"
+                                    alt="Header"
+                                    fill
+                                    className="object-cover"
+                                    unoptimized
+                                />
                             </div>
-                            <div className="text-[8px] text-white font-medium tracking-tight">Modern Header v1</div>
-                            <div className="w-16 h-1 bg-purple-400/20 rounded-full" />
-
-                            <div className="opacity-0 group-hover:opacity-100 absolute -top-1.5 -right-1.5 bg-purple-600 text-white text-[7px] px-1.5 py-0.5 rounded-full shadow-lg font-medium transition-all scale-90 group-hover:scale-100">Header</div>
-                            <div className="absolute inset-0 border-2 border-transparent group-hover:border-purple-500/30 rounded-lg pointer-events-none transition-colors" />
+                            <div className="opacity-0 group-hover:opacity-100 absolute top-2 right-2 bg-purple-600 text-white text-[9px] px-2 py-0.5 rounded-full shadow-lg font-medium transition-all">Header</div>
                         </motion.div>
 
-                        {/* Mock Features Grid (Genius Styling) */}
+                        {/* Feature Cards Grid - Two Separate Images */}
+                        <div className="grid grid-cols-2 gap-4 w-full h-28 shrink-0">
+                            <motion.div
+                                className="w-full h-full relative group rounded-lg overflow-hidden border border-transparent hover:border-slate-500/30 transition-colors bg-slate-900/50"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                            >
+                                <Image
+                                    src="/visuals/nano-feature-card-1.png"
+                                    alt="Feature 1"
+                                    fill
+                                    className="object-cover"
+                                    unoptimized
+                                />
+                                <div className="opacity-0 group-hover:opacity-100 absolute top-2 right-2 bg-slate-700 text-white text-[9px] px-2 py-0.5 rounded-full shadow-lg font-medium transition-all">Card</div>
+                            </motion.div>
+
+                            <motion.div
+                                className="w-full h-full relative group rounded-lg overflow-hidden border border-transparent hover:border-slate-500/30 transition-colors bg-slate-900/50"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.4 }}
+                            >
+                                <Image
+                                    src="/visuals/nano-feature-card-2.png"
+                                    alt="Feature 2"
+                                    fill
+                                    className="object-cover"
+                                    unoptimized
+                                />
+                                <div className="opacity-0 group-hover:opacity-100 absolute top-2 right-2 bg-slate-700 text-white text-[9px] px-2 py-0.5 rounded-full shadow-lg font-medium transition-all">Card</div>
+                            </motion.div>
+                        </div>
+
+
+                        {/* Simulated Dragged Block - "Pricing Table" - True Drag & Drop */}
                         <motion.div
-                            className="w-full h-auto p-1 grid grid-cols-2 gap-2 group relative"
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                        >
-                            {[0, 1].map(i => (
-                                <div key={i} className="h-14 bg-white/5 border border-white/5 rounded-lg flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-colors">
-                                    <div className="w-4 h-4 rounded bg-white/5 flex items-center justify-center">
-                                        <div className="w-2 h-2 rounded-full bg-indigo-400/30" />
-                                    </div>
-                                    <div className="w-8 h-1 bg-white/10 rounded-full" />
-                                </div>
-                            ))}
-
-                            <div className="opacity-0 group-hover:opacity-100 absolute -top-1.5 -right-0 bg-slate-700 text-white text-[7px] px-1.5 py-0.5 rounded-full shadow-lg font-medium transition-all scale-90 group-hover:scale-100 z-10">Feature Grid</div>
-                            <div className="absolute inset-0 border-2 border-transparent group-hover:border-slate-500/30 rounded-lg pointer-events-none transition-colors" />
-                        </motion.div>
-
-
-                        {/* Drop Zone */}
-                        <motion.div
-                            className="w-full h-16 border-2 border-dashed border-purple-500/30 rounded-lg bg-purple-500/5 flex items-center justify-center"
-                            animate={{ borderColor: ["rgba(168,85,247,0.3)", "rgba(168,85,247,0.6)", "rgba(168,85,247,0.3)"] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                        >
-                            <span className="text-[9px] text-purple-400 font-medium">Drag component here</span>
-                        </motion.div>
-
-                        {/* Simulated Dragged Block */}
-                        <motion.div
-                            className="absolute z-50 w-28 h-8 bg-slate-800 rounded border-2 border-purple-500 shadow-2xl flex items-center justify-center gap-2 pointer-events-none"
-                            initial={{ x: -60, y: 120, scale: 0.8, opacity: 0 }}
+                            className="absolute z-50 w-32 h-10 bg-slate-800 rounded border-2 border-purple-500 shadow-2xl flex items-center justify-center gap-2 pointer-events-none"
                             animate={{
-                                x: [20, 80, 80, 20],
-                                y: [120, 180, 180, 120],
-                                scale: [1, 1, 1, 0],
-                                opacity: [1, 1, 0, 0]
+                                x: [20, 60, 100, 120, 120],
+                                y: [170, 175, 185, 195, 195],
+                                opacity: [1, 1, 1, 1, 0]
                             }}
-                            transition={{ duration: 3, repeat: Infinity, repeatDelay: 1 }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                repeatDelay: 4,
+                                times: [0, 0.3, 0.6, 0.9, 1],
+                                ease: "easeOut"
+                            }}
                         >
-                            <span className="text-[9px] text-white font-medium">Pricing Table</span>
-
-                            {/* Cursor */}
+                            <span className="text-[10px] text-white font-medium">Pricing Table</span>
                             <svg className="absolute -bottom-3 -right-3 w-4 h-4 fill-white drop-shadow-md" viewBox="0 0 24 24">
                                 <path d="M3 3L10.07 19.97L12.58 12.58L19.97 10.07L3 3Z" stroke="black" strokeWidth="1" />
                             </svg>
                         </motion.div>
 
-                        {/* Resulting Pricing Appears */}
+                        {/* Pricing Table - Appears Instantly on Drop */}
                         <motion.div
-                            className="w-full h-20 bg-slate-800/80 border border-slate-700/50 rounded-lg flex flex-col items-center justify-center gap-1.5 p-2"
-                            initial={{ height: 0, opacity: 0, padding: 0 }}
-                            animate={{ height: 80, opacity: 1, padding: 8 }}
-                            transition={{ duration: 0.5, delay: 2, repeat: Infinity, repeatDelay: 3.5 }}
+                            className="w-full bg-slate-900 border border-purple-500/40 rounded-lg overflow-hidden shrink-0 shadow-lg shadow-purple-500/20"
+                            animate={{
+                                height: ["0px", "0px", "0px", "80px", "80px", "0px"],
+                                opacity: [0, 0, 0, 1, 1, 0]
+                            }}
+                            transition={{
+                                duration: 6,
+                                repeat: Infinity,
+                                times: [0, 0.25, 0.33, 0.34, 0.85, 1],
+                                ease: "linear"
+                            }}
                         >
-                            <div className="flex gap-1.5 w-full justify-center">
-                                {["Starter", "Pro", "Biz"].map((plan, i) => (
-                                    <div key={i} className={`flex-1 rounded p-1 flex flex-col gap-0.5 items-center ${i === 1 ? 'bg-purple-900/20 border border-purple-500/30' : 'bg-slate-700/30'}`}>
-                                        <span className="text-[5px] text-slate-400 uppercase">{plan}</span>
-                                        <span className="text-[7px] text-white font-bold">{i === 1 ? '$29' : 'Free'}</span>
-                                        <div className="w-full h-0.5 bg-slate-600/50 rounded-full mt-0.5" />
-                                        <div className="w-2/3 h-0.5 bg-slate-600/50 rounded-full" />
+                            {/* Pricing Content - Shows Immediately */}
+                            <div className="grid grid-cols-3 gap-2 w-full p-2">
+                                {/* Free */}
+                                <div className="bg-slate-800/50 rounded-lg p-2 flex flex-col items-center border border-white/5">
+                                    <span className="text-[7px] text-slate-400 uppercase font-semibold tracking-wider">Free</span>
+                                    <span className="text-sm font-bold text-white mt-0.5">$0</span>
+                                    <div className="w-full space-y-0.5 mt-1">
+                                        <div className="h-0.5 bg-slate-700 rounded-full w-full" />
+                                        <div className="h-0.5 bg-slate-700 rounded-full w-3/4" />
                                     </div>
-                                ))}
+                                </div>
+
+                                {/* Basic */}
+                                <div className="bg-slate-800/50 rounded-lg p-2 flex flex-col items-center border border-white/5 relative">
+                                    <span className="text-[7px] text-slate-400 uppercase font-semibold tracking-wider">Basic</span>
+                                    <span className="text-sm font-bold text-white mt-0.5">$50</span>
+                                    <div className="w-full space-y-0.5 mt-1">
+                                        <div className="h-0.5 bg-slate-700 rounded-full w-full" />
+                                        <div className="h-0.5 bg-slate-700 rounded-full w-3/4" />
+                                    </div>
+                                </div>
+
+                                {/* Pro */}
+                                <div className="bg-purple-500/10 rounded-lg p-2 flex flex-col items-center border border-purple-500/30 relative">
+                                    <div className="absolute -top-1.5 bg-gradient-to-r from-cyan-400 to-purple-500 text-[5px] text-white font-bold px-1.5 py-0 rounded-full">POPULAR</div>
+                                    <span className="text-[7px] text-purple-200 uppercase font-semibold tracking-wider mt-0.5">Pro</span>
+                                    <span className="text-sm font-bold text-white mt-0.5">$800</span>
+                                    <div className="w-full space-y-0.5 mt-1">
+                                        <div className="h-0.5 bg-purple-400/20 rounded-full w-full" />
+                                        <div className="h-0.5 bg-purple-400/20 rounded-full w-3/4" />
+                                        <div className="h-0.5 bg-purple-400/20 rounded-full w-full" />
+                                    </div>
+                                </div>
                             </div>
-                            <span className="text-[7px] text-slate-500 mt-1">Pricing Table</span>
                         </motion.div>
 
                     </div>
@@ -602,24 +637,25 @@ export function IntegrationsVisual() {
                         return (
                             <motion.div
                                 key={i}
-                                className="absolute top-1/2 left-1/2 w-10 h-10 -ml-5 -mt-5 bg-slate-900 border border-white/10 rounded-xl flex items-center justify-center shadow-lg overflow-hidden p-1.5"
+                                className="absolute top-1/2 left-1/2 w-10 h-10 -ml-5 -mt-5 flex items-center justify-center pointer-events-none"
                                 style={{
                                     transform: `rotate(${angle}deg) translate(95px)`
                                 }}
                             >
                                 <motion.div
-                                    className="w-full h-full relative"
-                                    animate={{ rotate: -360 }}
+                                    className="w-full h-full bg-slate-900 border border-white/10 rounded-xl flex items-center justify-center shadow-lg overflow-hidden p-1.5 pointer-events-auto"
+                                    animate={{ rotate: [-angle, -angle - 360] }}
                                     transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                                    style={{ rotate: -angle }} // Initial correction
                                 >
-                                    <Image
-                                        src={icon.url}
-                                        alt={icon.name}
-                                        fill
-                                        className="object-contain"
-                                        unoptimized
-                                    />
+                                    <div className="w-full h-full relative">
+                                        <Image
+                                            src={icon.url}
+                                            alt={icon.name}
+                                            fill
+                                            className="object-contain"
+                                            unoptimized
+                                        />
+                                    </div>
                                 </motion.div>
                             </motion.div>
                         );
@@ -639,24 +675,25 @@ export function IntegrationsVisual() {
                         return (
                             <motion.div
                                 key={i}
-                                className="absolute top-1/2 left-1/2 w-12 h-12 -ml-6 -mt-6 bg-slate-900 border border-purple-500/20 rounded-xl flex items-center justify-center shadow-lg overflow-hidden p-1.5"
+                                className="absolute top-1/2 left-1/2 w-12 h-12 -ml-6 -mt-6 flex items-center justify-center p-1.5"
                                 style={{
                                     transform: `rotate(${angle}deg) translate(150px)`
                                 }}
                             >
                                 <motion.div
-                                    className="w-full h-full relative"
-                                    animate={{ rotate: 360 }}
+                                    className="w-full h-full bg-slate-900 border border-purple-500/20 rounded-xl flex items-center justify-center shadow-lg overflow-hidden"
+                                    animate={{ rotate: [-angle, -angle + 360] }}
                                     transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                                    style={{ rotate: -angle }} // Initial correction
                                 >
-                                    <Image
-                                        src={icon.url}
-                                        alt={icon.name}
-                                        fill
-                                        className={`object-contain rounded-lg ${icon.name === "WordPress" ? "brightness-0 invert" : ""}`}
-                                        unoptimized
-                                    />
+                                    <div className="w-full h-full relative">
+                                        <Image
+                                            src={icon.url}
+                                            alt={icon.name}
+                                            fill
+                                            className={`object-contain rounded-lg ${icon.name === "WordPress" ? "brightness-0 invert" : ""}`}
+                                            unoptimized
+                                        />
+                                    </div>
                                 </motion.div>
                             </motion.div>
                         );

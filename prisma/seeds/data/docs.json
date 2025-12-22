@@ -54,7 +54,7 @@
         "slug": "authentication",
         "category": "Security",
         "type": "docs",
-        "content": "# Authentication\n\n## Setup\nAuthentication is securely handled by **NextAuth.js**. The configuration is located in `app/api/auth/[...nextauth]/route.ts`.\n\n### Supported Providers\n1.  **Email/Password**: Uses `bcrypt` for password hashing.\n2.  **OAuth**: Built-in support for Google and GitHub. Configurable via `.env` variables:\n    - `GOOGLE_CLIENT_ID`\n    - `GOOGLE_CLIENT_SECRET`\n\n## Protecting Routes\n\n### Middleware\nWe use Next.js Middleware to protect the `/cms` dashboard routes. Any request to `/cms/*` without a valid session token is redirected to `/login`.\n\n```typescript\n// middleware.ts\nexport { auth as middleware } from \"./auth\"\n\nexport const config = {\n  matcher: [\"/cms/:path*\"],\n}\n```",
+        "content": "# Authentication\n\n## Setup\nAuthentication is securely handled by **NextAuth.js**. The configuration is located in `app/api/auth/[...nextauth]/route.ts`.\n\n### Supported Providers\n1.  **Email/Password**: Uses `bcrypt` for password hashing.\n2.  **OAuth**: Built-in support for Google and GitHub. Configurable via `.env` variables:\n    - `GOOGLE_CLIENT_ID`\n    - `GOOGLE_CLIENT_SECRET`\n\n## Protecting Routes\n\n### Proxy (Replacing Middleware)\nWe use a specialized `proxy.ts` (acting as middleware) to protect the `/cms` dashboard routes. Next.js 15+ middleware changes required this shift to ensure stable session handling.\n\nAny request to `/cms/*` without a valid session token is redirected to `/login`.\n\n```typescript\n// proxy.ts\nimport { auth } from \"./auth\"\n// ... validation logic\n```",
         "videoUrl": null,
         "resources": {},
         "order": 6
@@ -98,5 +98,35 @@
         "videoUrl": null,
         "resources": {},
         "order": 10
+    },
+    {
+        "title": "User & Team Management",
+        "slug": "user-team-management",
+        "category": "Core Concepts",
+        "type": "docs",
+        "content": "# User & Team Management\n\n## Role-Based Access Control (RBAC)\nLedger1CMS uses a defined set of roles to secure the system.\n- **Super Admin (Owner)**: Full access to everything, including security settings and billing. Cannot be deleted.\n- **Admin**: Full access to all modules, but cannot delete the Owner.\n- **Editor**: Access to Content modules (Blog, Media, Docs) and Activity Log.\n- **Viewer**: Read-only access to the Dashboard.\n\n## Module Management\n\n### Fine-grained Access\nAdmins can now toggle specific CMS modules for individual users, overriding their role defaults. This is useful for giving a \"Viewer\" access to just one specific tool, like the **Form Builder** or **Blog**.\n\n1. Go to **Team Members**.\n2. Click the **Edit** icon on a user.\n3. Select the **CMS Modules** tab.\n4. Toggle the desired modules on/off.\n\n## Security Features\n\n### Password Management\n- **Force Password Reset**: Admins can trigger a password reset for a user. The user will receive an email with instructions.\n- **Secure Password Generation**: When creating a user, the system can auto-generate a strong, secure password.\n\n### User Status\nUsers can be set to `ACTIVE`, `INACTIVE` (temp ban), or `PENDING`.",
+        "videoUrl": null,
+        "resources": {},
+        "order": 11
+    },
+    {
+        "title": "Form Builder",
+        "slug": "form-builder",
+        "category": "Features",
+        "type": "docs",
+        "content": "# Form Builder\n\n## Overview\nThe Form Builder module allows you to create high-converting lead capture forms, surveys, and contact forms without writing code. These forms can be embedded on your Landing Pages or shared via direct link.\n\n## Creating a Form\n1. Navigate to **Form Builder** in the sidebar.\n2. Click **Create New +**.\n3. Choose **AI Assistant** to describe your form, or start from scratch.\n\n### Field Types\n- **Text / Email / Phone**: Standard input fields with validation.\n- **Select / Checkbox**: Multiple choice options.\n- **File Upload**: Allow users to attach documents.\n\n## Integration\nForms automatically capture submissions to the CMS database. You can also connect them to:\n- **Email**: Receive notifications on new submissions.\n- **CRM**: Sync leads to Salesforce, HubSpot, etc. (via **Apps** module).",
+        "videoUrl": null,
+        "resources": {},
+        "order": 12
+    },
+    {
+        "title": "Universal Voice",
+        "slug": "universal-voice",
+        "category": "Features",
+        "type": "docs",
+        "content": "# Universal Voice Agent\n\n## Overview\nThe Universal Voice module enables a conversational AI agent capable of handling voice interactions. This can be used for customer support, sophisticated dictation, or interactive voice response (IVR) flows.\n\n## Beta Status\n> [!WARNING]\n> This feature is currently in **BETA**. It may require high-bandwidth connections and specific browser permissions (Microphone access).\n\n## Access Control\nDue to the experimental nature and potential costs associated with Voice AI (LLM tokens + Text-to-Speech generation), this module is **hidden by default**.\n\nTo enable it for a user:\n1. Go to **Team Members** > **Edit User**.\n2. In **CMS Modules**, toggle **Universal Voice** to ON.\n3. The user will now see the microphone icon in their sidebar.",
+        "videoUrl": null,
+        "resources": {},
+        "order": 13
     }
 ]

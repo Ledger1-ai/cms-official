@@ -96,7 +96,7 @@ export default function SubscriptionOverlay() {
                     <DialogTitle className="text-center text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
                         Stay in the inner circle
                     </DialogTitle>
-                    <DialogDescription className="text-center text-slate-400 text-base">
+                    <DialogDescription className="text-center text-slate-400 text-base leading-relaxed">
                         Get the latest insights on AI agents, career opportunities, and platform updates directly to your inbox.
                     </DialogDescription>
                 </DialogHeader>
@@ -138,10 +138,10 @@ export default function SubscriptionOverlay() {
                 <Button
                     onClick={handleSubscribe}
                     disabled={submitting || !email}
-                    variant="gradient"
-                    className="w-full h-11 font-bold text-white shadow-lg"
+                    variant="glow"
+                    className="w-full h-12 text-lg font-bold text-white shadow-xl shadow-purple-500/20"
                 >
-                    {submitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Subscribe Now"}
+                    {submitting ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : "Subscribe Now"}
                 </Button>
             </DialogContent>
         </Dialog>

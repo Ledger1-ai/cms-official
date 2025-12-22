@@ -1,6 +1,5 @@
 import SupportClient from "./SupportClient";
-import MarketingHeader from "../components/MarketingHeader";
-import MarketingFooter from "../components/MarketingFooter";
+import MarketingLayout from "@/components/marketing/MarketingLayout";
 
 export const metadata = {
     title: "Support - Ledger1CMS",
@@ -9,10 +8,8 @@ export const metadata = {
 
 export default function SupportPage() {
     return (
-        <div className="min-h-screen bg-[#0F0F1A] text-white font-sans selection:bg-primary/30">
-            <MarketingHeader />
+        <MarketingLayout variant="blue">
             <SupportClient />
-            <MarketingFooter />
-        </div>
+        </MarketingLayout>
     );
 }

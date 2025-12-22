@@ -270,7 +270,7 @@ export default function CareersAdminPage() {
                     <div className="space-y-2">
                         <label className="text-sm font-medium text-slate-300">Title</label>
                         <input
-                            className="w-full p-2 border rounded bg-slate-900 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
+                            className="w-full p-2 border rounded bg-black/50 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
                             value={editingJob.title || ""}
                             onChange={(e) => setEditingJob({ ...editingJob, title: e.target.value })}
                         />
@@ -279,7 +279,7 @@ export default function CareersAdminPage() {
                     <div className="space-y-2">
                         <label className="text-sm font-medium text-slate-300">Department</label>
                         <input
-                            className="w-full p-2 border rounded bg-slate-900 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
+                            className="w-full p-2 border rounded bg-black/50 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
                             value={editingJob.department || ""}
                             onChange={(e) => setEditingJob({ ...editingJob, department: e.target.value })}
                         />
@@ -287,7 +287,7 @@ export default function CareersAdminPage() {
                     <div className="space-y-2">
                         <label className="text-sm font-medium text-slate-300">Location</label>
                         <input
-                            className="w-full p-2 border rounded bg-slate-900 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
+                            className="w-full p-2 border rounded bg-black/50 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
                             value={editingJob.location || ""}
                             onChange={(e) => setEditingJob({ ...editingJob, location: e.target.value })}
                         />
@@ -295,7 +295,7 @@ export default function CareersAdminPage() {
                     <div className="space-y-2">
                         <label className="text-sm font-medium text-slate-300">Type</label>
                         <select
-                            className="w-full p-2 border rounded bg-slate-900 border-white/10 text-white focus:border-blue-500 transition-colors"
+                            className="w-full p-2 border rounded bg-black/50 border-white/10 text-white focus:border-blue-500 transition-colors"
                             value={editingJob.type || "Full-time"}
                             onChange={(e) => setEditingJob({ ...editingJob, type: e.target.value })}
                         >
@@ -308,7 +308,7 @@ export default function CareersAdminPage() {
                     <div className="space-y-2">
                         <label className="text-sm font-medium text-slate-300">Apply Link / Email</label>
                         <input
-                            className="w-full p-2 border rounded bg-slate-900 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
+                            className="w-full p-2 border rounded bg-black/50 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
                             value={editingJob.applyLink || ""}
                             onChange={(e) => setEditingJob({ ...editingJob, applyLink: e.target.value })}
                         />
@@ -319,7 +319,7 @@ export default function CareersAdminPage() {
                         <label className="text-sm font-medium text-slate-300">Cover Image</label>
                         <div className="flex gap-2">
                             <input
-                                className="flex-1 p-2 border rounded bg-slate-900 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
+                                className="flex-1 p-2 border rounded bg-black/50 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
                                 value={editingJob.coverImage || ""}
                                 readOnly // Make read-only to encourage using the selector
                                 placeholder="Select an image..."
@@ -347,7 +347,7 @@ export default function CareersAdminPage() {
                             id="active"
                             checked={editingJob.active ?? true}
                             onChange={(e) => setEditingJob({ ...editingJob, active: e.target.checked })}
-                            className="rounded border-slate-600 bg-slate-800 text-blue-600"
+                            className="rounded border-white/10 bg-white/5 text-blue-600"
                         />
                         <label htmlFor="active" className="text-sm font-medium text-slate-300">Active</label>
                     </div>
@@ -356,7 +356,7 @@ export default function CareersAdminPage() {
                 <div className="space-y-2">
                     <label className="text-sm font-medium text-slate-300">Summary</label>
                     <textarea
-                        className="w-full p-2 border rounded bg-slate-900 border-white/10 text-white placeholder:text-slate-500 h-24 focus:border-blue-500 transition-colors"
+                        className="w-full p-2 border rounded bg-black/50 border-white/10 text-white placeholder:text-slate-500 h-24 focus:border-blue-500 transition-colors"
                         value={editingJob.summary || ""}
                         onChange={(e) => setEditingJob({ ...editingJob, summary: e.target.value })}
                     />
@@ -415,160 +415,160 @@ export default function CareersAdminPage() {
 
                 <div className="flex items-center gap-4">
                     {/* View Toggle */}
-                    <div className="flex bg-slate-900 border border-white/10 rounded-lg p-1">
-                        <button
-                            onClick={() => setViewMode("grid")}
-                            className={cn("p-2 rounded-md transition-all", viewMode === "grid" ? "bg-slate-800 text-white shadow-sm" : "text-slate-400 hover:text-white")}
-                            title="Grid View"
-                        >
-                            <LayoutGrid className="h-4 w-4" />
-                        </button>
-                        <button
-                            onClick={() => setViewMode("list")}
-                            className={cn("p-2 rounded-md transition-all", viewMode === "list" ? "bg-slate-800 text-white shadow-sm" : "text-slate-400 hover:text-white")}
-                            title="List View"
-                        >
-                            <List className="h-4 w-4" />
-                        </button>
-                    </div>
-
-                    <Button
-                        onClick={() => setEditingJob({ active: true })}
-                        variant="gradient"
-                        className="px-4 py-2 rounded-md flex items-center gap-2"
+                    <button
+                        onClick={() => setViewMode("grid")}
+                        className={cn("p-2 rounded-md transition-all", viewMode === "grid" ? "bg-white/10 text-white shadow-sm" : "text-slate-400 hover:text-white")}
+                        title="Grid View"
                     >
-                        <Plus className="h-4 w-4" /> New Job
-                    </Button>
+                        <LayoutGrid className="h-4 w-4" />
+                    </button>
+                    <button
+                        onClick={() => setViewMode("list")}
+                        className={cn("p-2 rounded-md transition-all", viewMode === "list" ? "bg-white/10 text-white shadow-sm" : "text-slate-400 hover:text-white")}
+                        title="List View"
+                    >
+                        <List className="h-4 w-4" />
+                    </button>
                 </div>
+
+                <Button
+                    onClick={() => setEditingJob({ active: true })}
+                    variant="gradient"
+                    className="px-4 py-2 rounded-md flex items-center gap-2"
+                >
+                    <Plus className="h-4 w-4" /> New Job
+                </Button>
             </div>
 
-            {viewMode === "grid" ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {jobs.map((job) => (
-                        <div key={job.id} className="bg-slate-950/50 backdrop-blur-xl border border-white/10 rounded-xl p-6 space-y-5 hover:border-blue-500/50 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/10 group flex flex-col">
+            {
+                viewMode === "grid" ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {jobs.map((job) => (
+                            <div key={job.id} className="bg-[#0A0A0B] backdrop-blur-xl border border-white/10 rounded-xl p-6 space-y-5 hover:border-blue-500/50 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/10 group flex flex-col">
 
-                            {/* Image Preview - Fixed Aspect Ratio but Object Contain to prevent crop */}
-                            <div
-                                className="aspect-video w-full bg-slate-900/50 rounded-lg overflow-hidden relative cursor-pointer border border-white/5 group-hover:border-blue-500/30 transition-colors"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    openMediaSelector(job.id);
-                                }}
-                                title="Click to Change Image"
-                            >
-                                {job.coverImage ? (
-                                    <>
-                                        <NextImage
-                                            src={job.coverImage}
-                                            alt={job.title}
-                                            fill
-                                            className="object-contain bg-black/40"
-                                            unoptimized
-                                        />
-                                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                                            <div className="flex items-center gap-2 text-white font-medium">
-                                                <Upload className="h-4 w-4" />
-                                                <span>Change Image</span>
+                                {/* Image Preview - Fixed Aspect Ratio but Object Contain to prevent crop */}
+                                <div
+                                    className="aspect-video w-full bg-black rounded-lg overflow-hidden relative cursor-pointer border border-white/5 group-hover:border-blue-500/30 transition-colors"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        openMediaSelector(job.id);
+                                    }}
+                                    title="Click to Change Image"
+                                >
+                                    {job.coverImage ? (
+                                        <>
+                                            <NextImage
+                                                src={job.coverImage}
+                                                alt={job.title}
+                                                fill
+                                                className="object-contain bg-black/40"
+                                                unoptimized
+                                            />
+                                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                                <div className="flex items-center gap-2 text-white font-medium">
+                                                    <Upload className="h-4 w-4" />
+                                                    <span>Change Image</span>
+                                                </div>
                                             </div>
+                                        </>
+                                    ) : (
+                                        <div className="w-full h-full flex flex-col items-center justify-center text-slate-500 gap-2 hover:text-slate-300 transition-colors bg-white/5">
+                                            <ImageIcon className="h-8 w-8 opacity-20" />
+                                            <span className="text-xs font-medium">Add Cover Image</span>
                                         </div>
-                                    </>
-                                ) : (
-                                    <div className="w-full h-full flex flex-col items-center justify-center text-slate-500 gap-2 hover:text-slate-300 transition-colors bg-slate-900/50">
-                                        <ImageIcon className="h-8 w-8 opacity-20" />
-                                        <span className="text-xs font-medium">Add Cover Image</span>
-                                    </div>
-                                )}
-                            </div>
-
-                            <div className="flex-1 space-y-2">
-                                <div className="flex justify-between items-start">
-                                    <h3 className="text-xl font-bold text-white leading-tight group-hover:text-blue-400 transition-colors">{job.title}</h3>
-                                    <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <button onClick={() => setEditingJob(job)} className="p-1.5 hover:bg-white/10 rounded text-slate-400 hover:text-white transition-colors">
-                                            <Edit className="h-4 w-4" />
-                                        </button>
-                                        <button onClick={() => handleDeleteClick(job.id)} className="p-1.5 hover:bg-red-500/20 rounded text-slate-400 hover:text-red-400 transition-colors">
-                                            <Trash className="h-4 w-4" />
-                                        </button>
-                                    </div>
+                                    )}
                                 </div>
-                                <p className="text-sm text-slate-400">{job.department} • {job.location}</p>
-                            </div>
 
-                            <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                                <span className={cn("text-xs px-2.5 py-1 rounded-full border",
-                                    job.active
-                                        ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-                                        : "bg-slate-800 text-slate-400 border-white/5"
-                                )}>
-                                    {job.active ? "Active" : "Inactive"}
-                                </span>
-                                <span className="text-xs font-medium text-slate-500">{job.type}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            ) : (
-                <div className="bg-slate-900/50 border border-white/5 rounded-xl overflow-hidden">
-                    <table className="w-full text-left text-sm">
-                        <thead className="bg-[#0A0A0B] text-slate-400 font-medium">
-                            <tr>
-                                <th className="px-6 py-4 border-b border-white/5 w-[40%]">Position</th>
-                                <th className="px-6 py-4 border-b border-white/5">Department</th>
-                                <th className="px-6 py-4 border-b border-white/5">Location</th>
-                                <th className="px-6 py-4 border-b border-white/5">Type</th>
-                                <th className="px-6 py-4 border-b border-white/5">Status</th>
-                                <th className="px-6 py-4 border-b border-white/5 text-right">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-white/5">
-                            {jobs.map((job) => (
-                                <tr key={job.id} className="group hover:bg-white/5 transition-colors">
-                                    <td className="px-6 py-4">
-                                        <div className="flex items-center gap-3">
-                                            <div className="h-10 w-10 rounded bg-slate-800 flex-shrink-0 overflow-hidden border border-white/10">
-                                                {job.coverImage ? (
-                                                    <div className="relative h-full w-full">
-                                                        <NextImage src={job.coverImage} alt={job.title} fill className="object-cover" unoptimized />
-                                                    </div>
-                                                ) : (
-                                                    <div className="h-full w-full flex items-center justify-center">
-                                                        <ImageIcon className="h-4 w-4 text-slate-600" />
-                                                    </div>
-                                                )}
-                                            </div>
-                                            <span className="font-medium text-slate-200 group-hover:text-white transition-colors">{job.title}</span>
-                                        </div>
-                                    </td>
-                                    <td className="px-6 py-4 text-slate-400">{job.department}</td>
-                                    <td className="px-6 py-4 text-slate-400">{job.location}</td>
-                                    <td className="px-6 py-4 text-slate-400">{job.type}</td>
-                                    <td className="px-6 py-4">
-                                        <span className={cn("text-xs px-2 py-0.5 rounded-full inline-flex items-center gap-1.5",
-                                            job.active
-                                                ? "text-emerald-400"
-                                                : "text-slate-500"
-                                        )}>
-                                            <div className={cn("w-1.5 h-1.5 rounded-full", job.active ? "bg-emerald-400" : "bg-slate-500")} />
-                                            {job.active ? "Active" : "Inactive"}
-                                        </span>
-                                    </td>
-                                    <td className="px-6 py-4 text-right">
-                                        <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button onClick={() => setEditingJob(job)} className="p-1.5 hover:bg-blue-500/10 text-slate-400 hover:text-blue-400 rounded transition-colors">
+                                <div className="flex-1 space-y-2">
+                                    <div className="flex justify-between items-start">
+                                        <h3 className="text-xl font-bold text-white leading-tight group-hover:text-blue-400 transition-colors">{job.title}</h3>
+                                        <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <button onClick={() => setEditingJob(job)} className="p-1.5 hover:bg-white/10 rounded text-slate-400 hover:text-white transition-colors">
                                                 <Edit className="h-4 w-4" />
                                             </button>
-                                            <button onClick={() => handleDeleteClick(job.id)} className="p-1.5 hover:bg-red-500/10 text-slate-400 hover:text-red-400 rounded transition-colors">
+                                            <button onClick={() => handleDeleteClick(job.id)} className="p-1.5 hover:bg-red-500/20 rounded text-slate-400 hover:text-red-400 transition-colors">
                                                 <Trash className="h-4 w-4" />
                                             </button>
                                         </div>
-                                    </td>
+                                    </div>
+                                    <p className="text-sm text-slate-400">{job.department} • {job.location}</p>
+                                </div>
+
+                                <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+                                    <span className={cn("text-xs px-2.5 py-1 rounded-full border",
+                                        job.active
+                                            ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                                            : "bg-white/5 text-slate-400 border-white/5"
+                                    )}>
+                                        {job.active ? "Active" : "Inactive"}
+                                    </span>
+                                    <span className="text-xs font-medium text-slate-500">{job.type}</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="bg-[#0A0A0B] border border-white/5 rounded-xl overflow-hidden">
+                        <table className="w-full text-left text-sm">
+                            <thead className="bg-[#0A0A0B] text-slate-400 font-medium">
+                                <tr>
+                                    <th className="px-6 py-4 border-b border-white/5 w-[40%]">Position</th>
+                                    <th className="px-6 py-4 border-b border-white/5">Department</th>
+                                    <th className="px-6 py-4 border-b border-white/5">Location</th>
+                                    <th className="px-6 py-4 border-b border-white/5">Type</th>
+                                    <th className="px-6 py-4 border-b border-white/5">Status</th>
+                                    <th className="px-6 py-4 border-b border-white/5 text-right">Actions</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            )}
-        </div>
+                            </thead>
+                            <tbody className="divide-y divide-white/5">
+                                {jobs.map((job) => (
+                                    <tr key={job.id} className="group hover:bg-white/5 transition-colors">
+                                        <td className="px-6 py-4">
+                                            <div className="flex items-center gap-3">
+                                                <div className="h-10 w-10 rounded bg-white/5 flex-shrink-0 overflow-hidden border border-white/10">
+                                                    {job.coverImage ? (
+                                                        <div className="relative h-full w-full">
+                                                            <NextImage src={job.coverImage} alt={job.title} fill className="object-cover" unoptimized />
+                                                        </div>
+                                                    ) : (
+                                                        <div className="h-full w-full flex items-center justify-center">
+                                                            <ImageIcon className="h-4 w-4 text-slate-600" />
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <span className="font-medium text-slate-200 group-hover:text-white transition-colors">{job.title}</span>
+                                            </div>
+                                        </td>
+                                        <td className="px-6 py-4 text-slate-400">{job.department}</td>
+                                        <td className="px-6 py-4 text-slate-400">{job.location}</td>
+                                        <td className="px-6 py-4 text-slate-400">{job.type}</td>
+                                        <td className="px-6 py-4">
+                                            <span className={cn("text-xs px-2 py-0.5 rounded-full inline-flex items-center gap-1.5",
+                                                job.active
+                                                    ? "text-emerald-400"
+                                                    : "text-slate-500"
+                                            )}>
+                                                <div className={cn("w-1.5 h-1.5 rounded-full", job.active ? "bg-emerald-400" : "bg-slate-500")} />
+                                                {job.active ? "Active" : "Inactive"}
+                                            </span>
+                                        </td>
+                                        <td className="px-6 py-4 text-right">
+                                            <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <button onClick={() => setEditingJob(job)} className="p-1.5 hover:bg-blue-500/10 text-slate-400 hover:text-blue-400 rounded transition-colors">
+                                                    <Edit className="h-4 w-4" />
+                                                </button>
+                                                <button onClick={() => handleDeleteClick(job.id)} className="p-1.5 hover:bg-red-500/10 text-slate-400 hover:text-red-400 rounded transition-colors">
+                                                    <Trash className="h-4 w-4" />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )
+            }
+        </div >
     );
 }

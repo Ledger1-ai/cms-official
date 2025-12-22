@@ -15,14 +15,14 @@ interface ResetPasswordDialogProps {
 export function ResetPasswordDialog({ isOpen, onClose, onConfirm, loading, userName }: ResetPasswordDialogProps) {
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="sm:max-w-md bg-zinc-950/95 backdrop-blur-xl border border-white/10 text-white shadow-2xl z-[99999]">
+            <DialogContent className="sm:max-w-md bg-[#0A0A0B] border border-white/10 text-white shadow-2xl z-[99999]">
                 <DialogHeader className="flex flex-col items-center gap-4 text-center sm:text-left">
                     <div className="h-12 w-12 rounded-full bg-amber-500/10 flex items-center justify-center mb-2 mx-auto sm:mx-0">
                         <Lock className="h-6 w-6 text-amber-500" />
                     </div>
                     <div className="w-full text-center sm:text-left">
                         <DialogTitle className="text-xl font-bold text-white mb-2">Reset Password</DialogTitle>
-                        <DialogDescription className="text-zinc-400">
+                        <DialogDescription className="text-slate-400">
                             Are you sure you want to reset the password for <span className="font-semibold text-white">{userName || "this user"}</span>?
                             This will generate a new random password and email it to them immediately.
                         </DialogDescription>
@@ -34,7 +34,7 @@ export function ResetPasswordDialog({ isOpen, onClose, onConfirm, loading, userN
                         variant="ghost"
                         onClick={onClose}
                         disabled={loading}
-                        className="w-full sm:w-auto hover:bg-white/5 text-zinc-400 hover:text-white border border-transparent hover:border-white/10"
+                        className="w-full sm:w-auto hover:bg-white/5 text-slate-400 hover:text-white border border-transparent hover:border-white/10"
                     >
                         Cancel
                     </Button>

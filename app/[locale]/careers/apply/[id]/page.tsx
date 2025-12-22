@@ -1,8 +1,8 @@
-import MarketingHeader from "@/app/[locale]/components/MarketingHeader";
-import MarketingFooter from "@/app/[locale]/components/MarketingFooter";
 import { prismadb } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { ApplicationForm } from "./_components/ApplicationForm"; // Client form
+
+import MarketingLayout from "@/components/marketing/MarketingLayout";
 
 export default async function ApplyPage(props: { params: Promise<{ id: string }> }) {
     const params = await props.params;
@@ -13,8 +13,7 @@ export default async function ApplyPage(props: { params: Promise<{ id: string }>
     if (!job) notFound();
 
     return (
-        <div className="min-h-screen bg-[#0F0F1A] text-white font-sans selection:bg-primary/30 flex flex-col">
-            <MarketingHeader />
+        <MarketingLayout variant="default">
 
             <main className="flex-1 py-32 container mx-auto px-4 max-w-3xl">
                 <div className="mb-12 text-center">
@@ -36,8 +35,6 @@ export default async function ApplyPage(props: { params: Promise<{ id: string }>
                     </div>
                 </div>
             </main>
-
-            <MarketingFooter />
-        </div>
+        </MarketingLayout>
     );
 }

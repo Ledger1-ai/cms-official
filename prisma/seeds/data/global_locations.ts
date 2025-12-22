@@ -182,7 +182,23 @@ export const globalLocationData = [
             },
             {
                 name: "New York", slug: "new-york", cities: [
-                    { name: "New York City", slug: "new-york-city-ny", population: 8804190 }, { name: "Buffalo", slug: "buffalo-ny", population: 278349 }, { name: "Rochester", slug: "rochester-ny", population: 211328 }, { name: "Yonkers", slug: "yonkers-ny", population: 211569 }, { name: "Syracuse", slug: "syracuse-ny", population: 148620 }, { name: "Albany", slug: "albany-ny", population: 99224 }
+                    {
+                        name: "New York City",
+                        slug: "new-york-city-ny",
+                        population: 8804190,
+                        lat: 40.7128,
+                        lng: -74.0060,
+                        industries_focus: ["Finance", "SaaS", "Media", "Legal"],
+                        compliance: ["NYDFS", "SOC 2 Type II", "CCPA"],
+                        currencies: ["USD"],
+                        time_zone: "America/New_York",
+                        pricing_starting_at: "$800"
+                    },
+                    { name: "Buffalo", slug: "buffalo-ny", population: 278349, lat: 42.8864, lng: -78.8784 },
+                    { name: "Rochester", slug: "rochester-ny", population: 211328, lat: 43.1566, lng: -77.6088 },
+                    { name: "Yonkers", slug: "yonkers-ny", population: 211569, lat: 40.9312, lng: -73.8987 },
+                    { name: "Syracuse", slug: "syracuse-ny", population: 148620, lat: 43.0481, lng: -76.1474 },
+                    { name: "Albany", slug: "albany-ny", population: 99224, lat: 42.6526, lng: -73.7562 }
                 ]
             },
             {
@@ -326,7 +342,25 @@ export const globalLocationData = [
         regions: [
             {
                 name: "England", slug: "england", cities: [
-                    { name: "London", slug: "london-uk", population: 8982000 }, { name: "Birmingham", slug: "birmingham-uk", population: 1141817 }, { name: "Manchester", slug: "manchester-uk", population: 553230 }, { name: "Liverpool", slug: "liverpool-uk", population: 498042 }, { name: "Leeds", slug: "leeds-uk", population: 793139 }, { name: "Bristol", slug: "bristol-uk", population: 467099 }, { name: "Sheffield", slug: "sheffield-uk", population: 584000 }, { name: "Newcastle", slug: "newcastle-uk", population: 300000 }
+                    {
+                        name: "London",
+                        slug: "london-uk",
+                        population: 8982000,
+                        lat: 51.5074,
+                        lng: -0.1278,
+                        industries_focus: ["FinTech", "Global Retail", "Advertising"],
+                        compliance: ["GDPR", "UK-GDPR", "PECR"],
+                        currencies: ["GBP", "EUR"],
+                        time_zone: "Europe/London",
+                        pricing_starting_at: "$800"
+                    },
+                    { name: "Birmingham", slug: "birmingham-uk", population: 1141817, lat: 52.4862, lng: -1.8904 },
+                    { name: "Manchester", slug: "manchester-uk", population: 553230, lat: 53.4808, lng: -2.2426 },
+                    { name: "Liverpool", slug: "liverpool-uk", population: 498042, lat: 53.4084, lng: -2.9916 },
+                    { name: "Leeds", slug: "leeds-uk", population: 793139, lat: 53.8008, lng: -1.5491 },
+                    { name: "Bristol", slug: "bristol-uk", population: 467099, lat: 51.4545, lng: -2.5879 },
+                    { name: "Sheffield", slug: "sheffield-uk", population: 584000, lat: 53.3811, lng: -1.4701 },
+                    { name: "Newcastle", slug: "newcastle-uk", population: 300000, lat: 54.9783, lng: -1.6178 }
                 ]
             },
             {
@@ -351,7 +385,27 @@ export const globalLocationData = [
     { // Simplified structure for other countries with less clear "Region" drilldown data easily available
         country: "Japan", code: "JP", slug: "japan", name: "Japan",
         regions: [
-            { name: "Kanto", slug: "kanto", cities: [{ name: "Tokyo", native_name: "東京", slug: "tokyo", population: 13960000 }, { name: "Yokohama", native_name: "横浜", slug: "yokohama", population: 3725000 }, { name: "Kawasaki", native_name: "川崎", slug: "kawasaki", population: 1538000 }, { name: "Saitama", native_name: "さいたま", slug: "saitama", population: 1324000 }] },
+            {
+                name: "Kanto",
+                slug: "kanto",
+                cities: [
+                    {
+                        name: "Tokyo",
+                        native_name: "東京",
+                        slug: "tokyo",
+                        population: 13960000,
+                        lat: 35.6762,
+                        lng: 139.6503,
+                        industries_focus: ["Automotive", "Electronics", "Robotics"],
+                        compliance: ["APPI"],
+                        currencies: ["JPY", "USD"],
+                        time_zone: "Asia/Tokyo"
+                    },
+                    { name: "Yokohama", native_name: "横浜", slug: "yokohama", population: 3725000, lat: 35.4437, lng: 139.6367 },
+                    { name: "Kawasaki", native_name: "川崎", slug: "kawasaki", population: 1538000, lat: 35.5308, lng: 139.7029 },
+                    { name: "Saitama", native_name: "さいたま", slug: "saitama", population: 1324000, lat: 35.8617, lng: 139.6455 }
+                ]
+            },
             { name: "Kansai", slug: "kansai", cities: [{ name: "Osaka", native_name: "大阪", slug: "osaka", population: 2691000 }, { name: "Kyoto", native_name: "京都", slug: "kyoto", population: 1475000 }, { name: "Kobe", native_name: "神戸", slug: "kobe", population: 1525000 }] },
             { name: "Chubu", slug: "chubu", cities: [{ name: "Nagoya", native_name: "名古屋", slug: "nagoya", population: 2300000 }] },
             { name: "Kyushu", slug: "kyushu", cities: [{ name: "Fukuoka", native_name: "福岡", slug: "fukuoka", population: 1612000 }] },
@@ -438,22 +492,22 @@ export const globalLocationData = [
     },
     {
         country: "Mexico", code: "MX", slug: "mexico", name: "Mexico",
-        regions: [{ name: "Mexico City", slug: "mexico-city", cities: [{ name: "Mexico City", native_name: "Ciudad de México", slug: "mexico-city-mx", population: 9209944 }] },
-        { name: "Jalisco", slug: "jalisco", cities: [{ name: "Guadalajara", slug: "guadalajara", population: 1495000 }] },
-        { name: "Nuevo León", slug: "nuevo-leon", cities: [{ name: "Monterrey", slug: "monterrey", population: 1135000 }] }]
+        regions: [{ name: "Mexico City", slug: "mexico-city", cities: [{ name: "Mexico City", native_name: "Ciudad de México", slug: "mexico-city-mx", population: 9209944, lat: 19.4326, lng: -99.1332 }] },
+        { name: "Jalisco", slug: "jalisco", cities: [{ name: "Guadalajara", slug: "guadalajara", population: 1495000, lat: 20.6597, lng: -103.3496 }] },
+        { name: "Nuevo León", slug: "nuevo-leon", cities: [{ name: "Monterrey", slug: "monterrey", population: 1135000, lat: 25.6866, lng: -100.3161 }] }]
     },
     {
         country: "South Korea", code: "KR", slug: "south-korea", name: "South Korea",
-        regions: [{ name: "Seoul", slug: "seoul-cap", cities: [{ name: "Seoul", native_name: "서울", slug: "seoul", population: 9765000 }] },
-        { name: "Busan", slug: "busan-city", cities: [{ name: "Busan", native_name: "부산", slug: "busan", population: 3412000 }] },
-        { name: "Incheon", slug: "incheon-city", cities: [{ name: "Incheon", native_name: "인천", slug: "incheon", population: 2957000 }] }]
+        regions: [{ name: "Seoul", slug: "seoul-cap", cities: [{ name: "Seoul", native_name: "서울", slug: "seoul", population: 9765000, lat: 37.5665, lng: 126.9780 }] },
+        { name: "Busan", slug: "busan-city", cities: [{ name: "Busan", native_name: "부산", slug: "busan", population: 3412000, lat: 35.1796, lng: 129.0756 }] },
+        { name: "Incheon", slug: "incheon-city", cities: [{ name: "Incheon", native_name: "인천", slug: "incheon", population: 2957000, lat: 37.4563, lng: 126.7052 }] }]
     },
-    { country: "Russia", code: "RU", slug: "russia", name: "Russia", regions: [{ name: "Federal Cities", slug: "fed-cities", cities: [{ name: "Moscow", native_name: "Москва", slug: "moscow", population: 12506000 }, { name: "Saint Petersburg", native_name: "Санкт-Петербург", slug: "saint-petersburg", population: 5351000 }] }] },
-    { country: "Turkey", code: "TR", slug: "turkey", name: "Turkey", regions: [{ name: "Istanbul", slug: "istanbul-reg", cities: [{ name: "Istanbul", native_name: "İstanbul", slug: "istanbul", population: 15460000 }] }, { name: "Ankara", slug: "ankara-reg", cities: [{ name: "Ankara", slug: "ankara", population: 5663000 }] }] },
-    { country: "Indonesia", code: "ID", slug: "indonesia", name: "Indonesia", regions: [{ name: "Java", slug: "java", cities: [{ name: "Jakarta", slug: "jakarta", population: 10560000 }, { name: "Surabaya", slug: "surabaya", population: 2870000 }] }] },
-    { country: "Saudi Arabia", code: "SA", slug: "saudi-arabia", name: "Saudi Arabia", regions: [{ name: "Riyadh", slug: "riyadh-reg", cities: [{ name: "Riyadh", native_name: "الرياض", slug: "riyadh-city", population: 7000000 }] }, { name: "Makkah", slug: "makkah-reg", cities: [{ name: "Jeddah", native_name: "جدة", slug: "jeddah", population: 3976000 }] }] },
-    { country: "Netherlands", code: "NL", slug: "netherlands", name: "Netherlands", regions: [{ name: "North Holland", slug: "north-holland", cities: [{ name: "Amsterdam", slug: "amsterdam", population: 821752 }] }, { name: "South Holland", slug: "south-holland", cities: [{ name: "Rotterdam", slug: "rotterdam", population: 641326 }, { name: "The Hague", native_name: "Den Haag", slug: "the-hague", population: 537833 }] }] },
-    { country: "Switzerland", code: "CH", slug: "switzerland", name: "Switzerland", regions: [{ name: "Zurich", slug: "zurich-canton", cities: [{ name: "Zurich", native_name: "Zürich", slug: "zurich", population: 415000 }] }, { name: "Geneva", slug: "geneva-canton", cities: [{ name: "Geneva", native_name: "Genève", slug: "geneva", population: 201000 }] }] },
+    { country: "Russia", code: "RU", slug: "russia", name: "Russia", regions: [{ name: "Federal Cities", slug: "fed-cities", cities: [{ name: "Moscow", native_name: "Москва", slug: "moscow", population: 12506000, lat: 55.7558, lng: 37.6173 }, { name: "Saint Petersburg", native_name: "Санкт-Петербург", slug: "saint-petersburg", population: 5351000, lat: 59.9311, lng: 30.3609 }] }] },
+    { country: "Turkey", code: "TR", slug: "turkey", name: "Turkey", regions: [{ name: "Istanbul", slug: "istanbul-reg", cities: [{ name: "Istanbul", native_name: "İstanbul", slug: "istanbul", population: 15460000, lat: 41.0082, lng: 28.9784 }] }, { name: "Ankara", slug: "ankara-reg", cities: [{ name: "Ankara", slug: "ankara", population: 5663000, lat: 39.9334, lng: 32.8597 }] }] },
+    { country: "Indonesia", code: "ID", slug: "indonesia", name: "Indonesia", regions: [{ name: "Java", slug: "java", cities: [{ name: "Jakarta", slug: "jakarta", population: 10560000, lat: -6.2088, lng: 106.8456 }, { name: "Surabaya", slug: "surabaya", population: 2870000, lat: -7.2575, lng: 112.7521 }] }] },
+    { country: "Saudi Arabia", code: "SA", slug: "saudi-arabia", name: "Saudi Arabia", regions: [{ name: "Riyadh", slug: "riyadh-reg", cities: [{ name: "Riyadh", native_name: "الرياض", slug: "riyadh-city", population: 7000000, lat: 24.7136, lng: 46.6753 }] }, { name: "Makkah", slug: "makkah-reg", cities: [{ name: "Jeddah", native_name: "جدة", slug: "jeddah", population: 3976000, lat: 21.4858, lng: 39.1925 }] }] },
+    { country: "Netherlands", code: "NL", slug: "netherlands", name: "Netherlands", regions: [{ name: "North Holland", slug: "north-holland", cities: [{ name: "Amsterdam", slug: "amsterdam", population: 821752, lat: 52.3676, lng: 4.9041 }] }, { name: "South Holland", slug: "south-holland", cities: [{ name: "Rotterdam", slug: "rotterdam", population: 641326, lat: 51.9225, lng: 4.4792 }, { name: "The Hague", native_name: "Den Haag", slug: "the-hague", population: 537833, lat: 52.0705, lng: 4.3007 }] }] },
+    { country: "Switzerland", code: "CH", slug: "switzerland", name: "Switzerland", regions: [{ name: "Zurich", slug: "zurich-canton", cities: [{ name: "Zurich", native_name: "Zürich", slug: "zurich", population: 415000, lat: 47.3769, lng: 8.5417 }] }, { name: "Geneva", slug: "geneva-canton", cities: [{ name: "Geneva", native_name: "Genève", slug: "geneva", population: 201000, lat: 46.2044, lng: 6.1432 }] }] },
     { country: "Sweden", code: "SE", slug: "sweden", name: "Sweden", regions: [{ name: "Stockholm", slug: "stockholm-county", cities: [{ name: "Stockholm", slug: "stockholm", population: 975000 }] }] },
     { country: "Poland", code: "PL", slug: "poland", name: "Poland", regions: [{ name: "Masovian", slug: "masovian", cities: [{ name: "Warsaw", native_name: "Warszawa", slug: "warsaw", population: 1790000 }] }] },
     { country: "Argentina", code: "AR", slug: "argentina", name: "Argentina", regions: [{ name: "Buenos Aires", slug: "buenos-aires-reg", cities: [{ name: "Buenos Aires", slug: "buenos-aires", population: 2890000 }] }] },

@@ -7,7 +7,7 @@ import {
   Droppable,
   Draggable,
   DropResult,
-} from "react-beautiful-dnd";
+} from "@hello-pangea/dnd";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState, useMemo } from "react";
 import { Check, EyeIcon, Pencil, PlusCircle, PlusIcon } from "lucide-react";
@@ -410,7 +410,7 @@ const Kanban = (props: any) => {
                   key={section.id}
                 >
                   <Droppable key={section.id} droppableId={section.id} isDropDisabled={false} isCombineEnabled={false} ignoreContainerClipping={false}>
-                    {(provided) => (
+                    {(provided: any) => (
                       <div
                         ref={provided.innerRef}
                         {...provided.droppableProps}
@@ -572,10 +572,10 @@ const Kanban = (props: any) => {
                                         task.priority === "normal"
                                           ? `text-yellow-500`
                                           : task.priority === "high"
-                                          ? `text-red-500`
-                                          : task.priority === "low"
-                                          ? `text-green-500`
-                                          : `text-slate-600`
+                                            ? `text-red-500`
+                                            : task.priority === "low"
+                                              ? `text-green-500`
+                                              : `text-slate-600`
                                       }
                                     >
                                       Priority: {task.priority}

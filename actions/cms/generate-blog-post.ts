@@ -59,6 +59,20 @@ export async function generateBlogPost(topic: string) {
             temperature: isReasoningModel(model.modelId) ? undefined : 1,
         });
 
+        // Log Activity
+        const { logActivityInternal } = await import("@/actions/audit");
+        await logActivityInternal(
+            userId,
+            "Generated Blog Post",
+            "Content AI",
+            `Generated draft for topic: "${topic}"`,
+            {
+                title: object.title,
+                category: object.category,
+                slug: object.slug
+            }
+        );
+
         return object;
     } catch (error: any) {
         console.error("Error generating blog post:", {

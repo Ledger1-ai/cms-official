@@ -1,17 +1,15 @@
 import React from "react";
-import MarketingHeader from "../components/MarketingHeader";
-import MarketingFooter from "../components/MarketingFooter";
 
 export const metadata = {
     title: "Changelog - Ledger1CMS",
     description: "See what's new in Ledger1CMS.",
 };
 
+import MarketingLayout from "@/components/marketing/MarketingLayout";
+
 export default function ChangelogPage() {
     return (
-        <div className="min-h-screen bg-[#0F0F1A] text-white font-sans selection:bg-primary/30">
-            <MarketingHeader />
-
+        <MarketingLayout variant="default">
             <main className="py-20 md:py-32">
                 <div className="container mx-auto px-4 max-w-4xl">
                     <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-12 text-center">
@@ -24,9 +22,9 @@ export default function ChangelogPage() {
                             date="December 1, 2025"
                             version="v2.1.0"
                             title="New AI Agents & Mobile App"
-                            description="We've completely overhauled our autonomous agents with improved reasoning capabilities. Plus, the new mobile app is now available on iOS and Android."
+                            description="We&apos;ve completely overhauled our autonomous agents with improved reasoning capabilities. Plus, the new mobile app is now available on iOS and Android."
                             changes={[
-                                "Added 'Agent Smith' for customer support",
+                                "Added &apos;Agent Smith&apos; for customer support",
                                 "Released iOS and Android mobile apps",
                                 "Improved dashboard load times by 40%",
                                 "Fixed issue with email sync",
@@ -42,7 +40,7 @@ export default function ChangelogPage() {
                             changes={[
                                 "Customizable widgets for dashboard",
                                 "Export reports to PDF and CSV",
-                                "New 'Sales Velocity' metric",
+                                "New &apos;Sales Velocity&apos; metric",
                             ]}
                         />
 
@@ -62,9 +60,7 @@ export default function ChangelogPage() {
                     </div>
                 </div>
             </main>
-
-            <MarketingFooter />
-        </div>
+        </MarketingLayout>
     );
 }
 

@@ -70,7 +70,7 @@ export default function MarketingHeader() {
                         {/* Logo */}
                         <Link className="flex items-center justify-center z-50 relative" href="/" aria-label="Ledger1CMS Home">
                             <Image
-                                src="/ledger1-cms-logo.png"
+                                src="/ledger1-cms-wide-logo.webp"
                                 alt="Ledger1CMS Logo"
                                 width={180}
                                 height={50}
@@ -99,7 +99,7 @@ export default function MarketingHeader() {
                                     Login
                                 </Button>
                             </Link>
-                            <Link href="/register">
+                            <Link href="/create-account">
                                 <Button variant="glow" size={isScrolled ? "sm" : "default"} className="px-6">
                                     Get Started
                                 </Button>
@@ -137,7 +137,7 @@ export default function MarketingHeader() {
                                     Login
                                 </Button>
                             </Link>
-                            <Link href="/register" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                            <Link href="/create-account" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
                                 <Button variant="glow" className="w-full text-lg h-12">
                                     Get Started
                                 </Button>

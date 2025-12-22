@@ -105,7 +105,7 @@ export function AppConnectModal({ isOpen, onClose, app, onSuccess }: AppConnectM
                                 value={shopUrl}
                                 onChange={(e) => setShopUrl(e.target.value)}
                                 placeholder="my-store.myshopify.com"
-                                className="pl-4 bg-slate-900/50 border-white/10 text-white placeholder:text-slate-500 focus:border-emerald-500/50"
+                                className="pl-4 bg-black border-white/10 text-white placeholder:text-slate-500 focus:border-emerald-500/50"
                             />
                         </div>
                         <p className="text-xs text-slate-500">
@@ -125,7 +125,7 @@ export function AppConnectModal({ isOpen, onClose, app, onSuccess }: AppConnectM
                             value={shopUrl}
                             onChange={(e) => setShopUrl(e.target.value)}
                             placeholder="https://example.com"
-                            className="bg-slate-900/50 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500/50"
+                            className="bg-black border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500/50"
                         />
                     </div>
                     <div className="space-y-2">
@@ -135,7 +135,7 @@ export function AppConnectModal({ isOpen, onClose, app, onSuccess }: AppConnectM
                             onChange={(e) => setApiKey(e.target.value)}
                             type="password"
                             placeholder="ck_..."
-                            className="bg-slate-900/50 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500/50"
+                            className="bg-black border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500/50"
                         />
                     </div>
                     <div className="space-y-2">
@@ -145,10 +145,10 @@ export function AppConnectModal({ isOpen, onClose, app, onSuccess }: AppConnectM
                             onChange={(e) => setApiSecret(e.target.value)}
                             type="password"
                             placeholder="cs_..."
-                            className="bg-slate-900/50 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500/50"
+                            className="bg-black border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500/50"
                         />
                     </div>
-                    <div className="bg-slate-900/50 p-3 rounded text-xs text-slate-500 border border-white/5">
+                    <div className="bg-black p-3 rounded text-xs text-slate-500 border border-white/5">
                         <p className="flex items-center gap-1 mb-1 font-semibold text-slate-300">
                             <Lock className="h-3 w-3" /> API Permissions
                         </p>

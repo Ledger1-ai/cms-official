@@ -102,12 +102,12 @@ export function MediaSelectorModal({ isOpen, onClose, onSelect }: MediaSelectorM
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
             <DialogContent className="max-w-4xl w-full p-0 bg-[#0A0A0B] border border-white/10 text-white h-[80vh] flex flex-col overflow-hidden">
-                <div className="p-4 border-b border-white/10 flex justify-between items-center bg-slate-900/50">
+                <div className="p-4 border-b border-white/10 flex justify-between items-center bg-black/50">
                     <DialogTitle>Select Media</DialogTitle>
                     <button onClick={onClose} className="p-1 hover:bg-white/10 rounded-full"><X className="h-5 w-5" /></button>
                 </div>
 
-                <div className="flex border-b border-white/5 bg-slate-900/30">
+                <div className="flex border-b border-white/5 bg-black/30">
                     <button
                         onClick={() => setActiveTab("library")}
                         className={cn(
@@ -136,7 +136,7 @@ export function MediaSelectorModal({ isOpen, onClose, onSelect }: MediaSelectorM
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
                                 placeholder="Search..."
-                                className="w-full bg-slate-950 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-200 focus:border-blue-500/50 outline-none"
+                                className="w-full bg-black border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-200 focus:border-blue-500/50 outline-none"
                             />
                         </div>
 
@@ -153,7 +153,7 @@ export function MediaSelectorModal({ isOpen, onClose, onSelect }: MediaSelectorM
                                             onSelect(item.url);
                                             onClose();
                                         }}
-                                        className="group relative aspect-square bg-slate-900 rounded-lg overflow-hidden cursor-pointer border border-white/5 hover:border-blue-500 transition-all hover:scale-[1.02]"
+                                        className="group relative aspect-square bg-black rounded-lg overflow-hidden cursor-pointer border border-white/5 hover:border-blue-500 transition-all hover:scale-[1.02]"
                                     >
                                         <div className="w-full h-full p-2 flex items-center justify-center relative">
                                             {item.mimeType.startsWith("image") ? (
@@ -185,7 +185,7 @@ export function MediaSelectorModal({ isOpen, onClose, onSelect }: MediaSelectorM
                         <div
                             {...getRootProps()}
                             className={cn(
-                                "border-2 border-dashed border-white/10 rounded-2xl p-12 text-center transition-all cursor-pointer group max-w-xl w-full bg-slate-900/20",
+                                "border-2 border-dashed border-white/10 rounded-2xl p-12 text-center transition-all cursor-pointer group max-w-xl w-full bg-black/20",
                                 isDragActive ? "border-blue-500/50 bg-blue-500/5 text-blue-400" : "hover:border-white/20 hover:bg-white/5",
                                 uploading && "pointer-events-none opacity-50"
                             )}
@@ -198,7 +198,7 @@ export function MediaSelectorModal({ isOpen, onClose, onSelect }: MediaSelectorM
                                 </div>
                             ) : (
                                 <div className="flex flex-col items-center gap-4">
-                                    <div className="h-16 w-16 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <div className="h-16 w-16 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                                         <Upload className="h-8 w-8 text-slate-400 group-hover:text-white" />
                                     </div>
                                     <div className="space-y-1">

@@ -71,7 +71,6 @@ export async function seedLocations() {
             if (!regionData.cities) continue;
 
             for (const cityData of regionData.cities) {
-                // console.log(`    Processing City: ${cityData.name}`);
                 await retry(() => prisma.city.upsert({
                     where: { slug: cityData.slug },
                     update: {
@@ -80,6 +79,13 @@ export async function seedLocations() {
                         population: cityData.population,
                         country_code: country.code,
                         region_id: region.id,
+                        lat: cityData.lat,
+                        lng: cityData.lng,
+                        industries_focus: cityData.industries_focus || [],
+                        compliance: cityData.compliance || [],
+                        currencies: cityData.currencies || [],
+                        time_zone: cityData.time_zone,
+                        pricing_starting_at: cityData.pricing_starting_at,
                     },
                     create: {
                         name: cityData.name,
@@ -88,6 +94,13 @@ export async function seedLocations() {
                         population: cityData.population,
                         country_code: country.code,
                         region_id: region.id,
+                        lat: cityData.lat,
+                        lng: cityData.lng,
+                        industries_focus: cityData.industries_focus || [],
+                        compliance: cityData.compliance || [],
+                        currencies: cityData.currencies || [],
+                        time_zone: cityData.time_zone,
+                        pricing_starting_at: cityData.pricing_starting_at,
                     },
                 }));
             }

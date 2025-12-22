@@ -1,8 +1,5 @@
 import Link from "next/link";
 import { ArrowLeft, Video } from "lucide-react";
-import MarketingFooter from "../../components/MarketingFooter";
-import DemoHeader from "@/components/demo/DemoHeader";
-import InteractiveBackground from "@/components/demo/InteractiveBackground";
 import DocsSidebar from "../../components/DocsSidebar";
 import { prismadb } from "@/lib/prisma";
 import { notFound } from "next/navigation";
@@ -119,6 +116,8 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     };
 }
 
+import MarketingLayout from "@/components/marketing/MarketingLayout";
+
 export default async function DocDetailPage(props: { params: Promise<{ slug: string }> }) {
     const params = await props.params;
     const doc = await prismadb.docArticle.findUnique({
@@ -128,47 +127,40 @@ export default async function DocDetailPage(props: { params: Promise<{ slug: str
     if (!doc) notFound();
 
     return (
-        <div className="min-h-screen bg-[#020617] text-white selection:bg-blue-500/30 font-sans overflow-x-hidden">
-            <InteractiveBackground />
-            <div className="relative z-10 flex flex-col min-h-screen">
-                <DemoHeader />
+        <MarketingLayout variant="default">
+            <div className="container mx-auto px-6 flex flex-1 pt-8 pb-32 gap-10">
+                {/* Desktop Sidebar */}
+                <DocsSidebar currentSlug={doc.slug} />
 
-                <div className="container mx-auto px-6 flex flex-1 pt-8 pb-32 gap-10">
-                    {/* Desktop Sidebar */}
-                    <DocsSidebar currentSlug={doc.slug} />
+                <main className="flex-1 max-w-4xl min-w-0">
+                    <Link href="/docs" className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors lg:hidden">
+                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Documentation
+                    </Link>
 
-                    <main className="flex-1 max-w-4xl min-w-0">
-                        <Link href="/docs" className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors lg:hidden">
-                            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Documentation
-                        </Link>
-
-                        <article>
-                            <header className="mb-10">
-                                <div className="flex items-center gap-2 text-sm text-primary font-medium mb-4 uppercase tracking-wider">
-                                    <span>{doc.category}</span>
-                                </div>
-                                <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">{doc.title}</h1>
-                            </header>
-
-                            {doc.videoUrl && (
-                                <div className="mb-10">
-                                    <div className="flex items-center gap-2 text-gray-400 mb-4">
-                                        <Video className="h-5 w-5 text-primary" />
-                                        <span className="font-medium">Video Tutorial</span>
-                                    </div>
-                                    <VideoEmbed url={doc.videoUrl} />
-                                </div>
-                            )}
-
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 backdrop-blur-sm">
-                                <MarkdownRenderer content={doc.content} />
+                    <article>
+                        <header className="mb-10">
+                            <div className="flex items-center gap-2 text-sm text-primary font-medium mb-4 uppercase tracking-wider">
+                                <span>{doc.category}</span>
                             </div>
-                        </article>
-                    </main>
-                </div>
+                            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">{doc.title}</h1>
+                        </header>
 
-                <MarketingFooter />
+                        {doc.videoUrl && (
+                            <div className="mb-10">
+                                <div className="flex items-center gap-2 text-gray-400 mb-4">
+                                    <Video className="h-5 w-5 text-primary" />
+                                    <span className="font-medium">Video Tutorial</span>
+                                </div>
+                                <VideoEmbed url={doc.videoUrl} />
+                            </div>
+                        )}
+
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 backdrop-blur-sm">
+                            <MarkdownRenderer content={doc.content} />
+                        </div>
+                    </article>
+                </main>
             </div>
-        </div>
+        </MarketingLayout>
     );
 }

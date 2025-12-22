@@ -53,7 +53,7 @@ export function LoginComponent() {
 
   const router = useRouter();
   const locale = useLocale();
-  const dashboardPath = `/${locale}/dashboard`;
+  const dashboardPath = `/${locale}/cms`;
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -125,7 +125,6 @@ export function LoginComponent() {
         redirect: false,
         email: normalizedEmail,
         password: data.password,
-        callbackUrl: process.env.NEXT_PUBLIC_APP_URL,
       });
       //console.log(status, "status");
       if (status?.error) {
@@ -146,7 +145,7 @@ export function LoginComponent() {
         toast({
           description: "Login successful.",
         });
-        router.replace(dashboardPath);
+        window.location.href = dashboardPath;
       }
     } catch (error: any) {
       console.log(error);

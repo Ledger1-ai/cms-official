@@ -70,7 +70,7 @@ export default function AdminSettingsPage() {
             </div>
 
             <Tabs defaultValue={canManageTeam ? "team" : "profile"} className="w-full">
-                <TabsList className="bg-slate-900 border border-white/10 mb-8">
+                <TabsList className="bg-[#0A0A0B] border border-white/10 mb-8">
                     <TabsTrigger value="profile">My Profile</TabsTrigger>
                     {canManageTeam && <TabsTrigger value="team">User Management</TabsTrigger>}
                     {canManageTeam && <TabsTrigger value="roles">Role Management</TabsTrigger>}
@@ -147,7 +147,7 @@ function ProfileSettings() {
     }
 
     return (
-        <div className="bg-slate-950/50 backdrop-blur-xl border border-white/10 rounded-lg p-6 max-w-2xl space-y-6">
+        <div className="bg-[#0A0A0B] backdrop-blur-xl border border-white/10 rounded-lg p-6 max-w-2xl space-y-6">
             <h2 className="text-xl font-semibold mb-4 flex items-center gap-2 text-white">
                 <User className="h-5 w-5 text-blue-500" /> Your Profile
             </h2>
@@ -159,7 +159,7 @@ function ProfileSettings() {
                 <div>
                     <label className="block text-sm font-medium mb-1 text-slate-300">Display Name</label>
                     <input
-                        className="w-full p-2 border rounded-md bg-slate-900 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
+                        className="w-full p-2 border rounded-md bg-black/50 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
                         placeholder="Enter your name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -171,7 +171,7 @@ function ProfileSettings() {
                     <label className="block text-sm font-medium mb-1 text-slate-300">New Password</label>
                     <input
                         type="password"
-                        className="w-full p-2 border rounded-md bg-slate-900 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
+                        className="w-full p-2 border rounded-md bg-black/50 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors"
                         placeholder="••••••••"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -185,7 +185,7 @@ function ProfileSettings() {
                             <Globe className="h-4 w-4" /> Timezone
                         </label>
                         <select
-                            className="w-full p-2 border rounded-md bg-slate-900 border-white/10 text-white focus:border-blue-500 transition-colors"
+                            className="w-full p-2 border rounded-md bg-black/50 border-white/10 text-white focus:border-blue-500 transition-colors"
                             value={timezone}
                             onChange={(e) => setTimezone(e.target.value)}
                         >
@@ -200,7 +200,7 @@ function ProfileSettings() {
                             <MapPin className="h-4 w-4" /> Region
                         </label>
                         <select
-                            className="w-full p-2 border rounded-md bg-slate-900 border-white/10 text-white focus:border-blue-500 transition-colors"
+                            className="w-full p-2 border rounded-md bg-black/50 border-white/10 text-white focus:border-blue-500 transition-colors"
                             value={region}
                             onChange={(e) => setRegion(e.target.value)}
                         >
@@ -229,7 +229,7 @@ function ProfileSettings() {
                 </p>
                 <a
                     href={`mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'support@ledger1.ai'}?subject=Password Reset Request&body=Please reset my password for the CMS.`}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm rounded-md transition-colors border border-white/10"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 text-white text-sm rounded-md transition-colors border border-white/10"
                 >
                     <Mail className="h-4 w-4" /> Request Password Reset
                 </a>
@@ -336,8 +336,8 @@ function ProfilePhotoUpload() {
     };
 
     return (
-        <div className="flex items-center gap-4 p-4 bg-slate-900/50 rounded-lg border border-white/5">
-            <div className="h-16 w-16 rounded-full bg-slate-800 border border-white/10 overflow-hidden flex items-center justify-center shrink-0">
+        <div className="flex items-center gap-4 p-4 bg-[#0A0A0B] rounded-lg border border-white/5">
+            <div className="h-16 w-16 rounded-full bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center shrink-0">
                 {avatar ? (
                     <div className="relative h-full w-full">
                         <NextImage src={avatar} alt="Avatar" fill className="object-cover" unoptimized />

@@ -9,7 +9,7 @@ interface BrandedLoaderProps {
 
 export function BrandedLoader({ variant = "fullscreen" }: BrandedLoaderProps) {
     const containerClasses = variant === "fullscreen"
-        ? "fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-md"
+        ? "fixed inset-0 z-[100] flex items-center justify-center bg-[#020617] backdrop-blur-md"
         : "relative flex items-center justify-center w-full h-full p-8";
 
     return (
@@ -31,14 +31,14 @@ export function BrandedLoader({ variant = "fullscreen" }: BrandedLoaderProps) {
                 <motion.div
                     animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="relative z-10 p-6 glass rounded-2xl border border-white/10"
+                    className="relative z-10 p-6"
                 >
                     <div className="relative w-48 h-12">
                         <Image
                             src="/ledger1-loader-text.png"
                             alt="Loading..."
                             fill
-                            className="object-contain drop-shadow-[0_0_15px_rgba(77,191,217,0.5)]"
+                            className="object-contain drop-shadow-[0_0_25px_rgba(77,191,217,0.8)]"
                             priority
                         />
                     </div>

@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import MarketingHeader from "@/app/[locale]/components/MarketingHeader";
@@ -17,14 +17,36 @@ import DemoPuckEditor from "./DemoPuckEditor";
 import { DEMO_FEATURES } from "./demo-data";
 import { VISUAL_MAP } from "./FeatureVisuals";
 import { Button } from "@/components/ui/button";
+import { DesktopOnlyModal } from "@/components/modals/DesktopOnlyModal";
 
 
 export default function DemoPage() {
     const [mode, setMode] = useState<"landing" | "builder">("landing");
+    const [isMobile, setIsMobile] = useState(false);
+    const [showDesktopModal, setShowDesktopModal] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 1024);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const handleStartDemo = () => {
+        if (isMobile) {
+            setShowDesktopModal(true);
+        } else {
+            setMode("builder");
+        }
+    };
 
     return (
         <div className="min-h-screen bg-slate-950 text-white font-sans selection:bg-purple-500/30 overflow-x-hidden relative">
             <InteractiveBackground />
+
+            <DesktopOnlyModal open={showDesktopModal} onOpenChange={setShowDesktopModal} />
 
             <AnimatePresence mode="wait">
                 {mode === "landing" ? (
@@ -71,7 +93,7 @@ export default function DemoPage() {
 
                                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                                             <Button
-                                                onClick={() => setMode("builder")}
+                                                onClick={handleStartDemo}
                                                 variant="glow"
                                                 className="h-16 px-12 text-lg"
                                             >
@@ -104,7 +126,7 @@ export default function DemoPage() {
                                                 Drag, drop, and customize every pixel. Our visual editor gives marketers the power to build beautiful pages while maintaining code-perfect output.
                                             </p>
                                             <Button
-                                                onClick={() => setMode("builder")}
+                                                onClick={handleStartDemo}
                                                 variant="outline"
                                                 className="border-blue-500/30 text-blue-300 hover:bg-blue-500/10 hover:text-blue-200"
                                             >
@@ -141,7 +163,7 @@ export default function DemoPage() {
                                                     {DEMO_FEATURES[0].description} Just describe what you want, and watch Genius Mode architect your entire page structure, copy, and layout instantly.
                                                 </p>
                                                 <Button
-                                                    onClick={() => setMode("builder")}
+                                                    onClick={handleStartDemo}
                                                     className="bg-purple-600 text-white rounded-full px-8 py-6 text-lg shadow-lg shadow-purple-500/25 transition-all duration-300 hover:bg-purple-500 hover:scale-105 hover:shadow-[0_0_50px_rgba(168,85,247,0.6)]"
                                                 >
                                                     Start Genius Mode

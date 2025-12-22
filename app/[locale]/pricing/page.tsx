@@ -1,8 +1,5 @@
-
-import MarketingFooter from "@/app/[locale]/components/MarketingFooter";
-import MarketingHeader from "@/app/[locale]/components/MarketingHeader";
-import InteractiveBackground from "@/components/marketing/InteractiveBackground";
 import PricingContent from "@/components/marketing/PricingContent";
+import MarketingLayout from "@/components/marketing/MarketingLayout";
 
 export const metadata = {
     title: "Pricing - Ledger1 CMS",
@@ -11,11 +8,8 @@ export const metadata = {
 
 export default function PricingPage() {
     return (
-        <div className="relative min-h-screen bg-slate-950 text-white overflow-hidden selection:bg-purple-500/30">
-            <InteractiveBackground />
-            <MarketingHeader />
+        <MarketingLayout variant="gold">
             <PricingContent />
-            <MarketingFooter />
-        </div>
+        </MarketingLayout>
     );
 }
