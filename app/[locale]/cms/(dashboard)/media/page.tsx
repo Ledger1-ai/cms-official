@@ -90,10 +90,17 @@ export default function MediaLibraryPage() {
         try {
             setLoading(true);
             const res = await fetch(`/api/media?search=${search}&scope=${scope}`);
+
+            if (!res.ok) {
+                const errData = await res.json().catch(() => ({}));
+                throw new Error(errData.error || `Error ${res.status}: ${res.statusText}`);
+            }
+
             const data = await res.json();
             setMedia(data.items || []);
         } catch (error) {
-            toast.error("Failed to load media");
+            console.error(error);
+            toast.error(error instanceof Error ? error.message : "Failed to load media");
         } finally {
             setLoading(false);
         }

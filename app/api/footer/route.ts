@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prismadb } from "@/lib/prisma";
 import { logActivity } from "@/actions/audit";
+import { handleApiError } from "@/lib/api-error";
 
 // Base section titles that should always exist
 const BASE_SECTIONS = ["Products", "Company", "Legal"];
@@ -34,8 +35,7 @@ export async function GET() {
 
         return NextResponse.json({ settings, sections });
     } catch (error) {
-        console.error("[FOOTER_GET]", error);
-        return new NextResponse("Internal Error", { status: 500 });
+        return handleApiError(error, "FOOTER_GET");
     }
 }
 

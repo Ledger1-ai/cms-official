@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { prismadb } from "@/lib/prisma";
 import { logActivity } from "@/actions/audit";
+import { handleApiError } from "@/lib/api-error";
 
 export async function GET(req: Request) {
     try {
@@ -10,8 +11,7 @@ export async function GET(req: Request) {
         });
         return NextResponse.json(jobs);
     } catch (error) {
-        console.error("[CAREERS_GET]", error);
-        return new NextResponse("Internal Error", { status: 500 });
+        return handleApiError(error, "CAREERS_GET");
     }
 }
 

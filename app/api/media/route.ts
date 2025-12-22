@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prismadb } from "@/lib/prisma";
 import { logActivity } from "@/lib/cms/audit";
+import { handleApiError } from "@/lib/api-error";
 
 export async function POST(req: Request) {
     try {
@@ -41,8 +42,7 @@ export async function POST(req: Request) {
 
         return NextResponse.json(mediaItem);
     } catch (error) {
-        console.error("[MEDIA_POST]", error);
-        return new NextResponse("Internal Error", { status: 500 });
+        return handleApiError(error, "MEDIA_POST");
     }
 }
 
@@ -102,8 +102,7 @@ export async function GET(req: Request) {
 
         return NextResponse.json({ items, total, totalPages: Math.ceil(total / limit) });
     } catch (error) {
-        console.error("[MEDIA_GET]", error);
-        return new NextResponse("Internal Error", { status: 500 });
+        return handleApiError(error, "MEDIA_GET");
     }
 }
 

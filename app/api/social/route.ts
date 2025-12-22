@@ -4,6 +4,7 @@ import { prismadb } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { logActivity } from "@/actions/audit";
+import { handleApiError } from "@/lib/api-error";
 
 // GET - Fetch social settings (public)
 export async function GET() {
@@ -22,8 +23,7 @@ export async function GET() {
 
         return NextResponse.json(settings);
     } catch (error) {
-        console.log("[SOCIAL_GET]", error);
-        return new NextResponse("Internal Error", { status: 500 });
+        return handleApiError(error, "SOCIAL_GET");
     }
 }
 
