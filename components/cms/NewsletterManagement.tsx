@@ -23,7 +23,7 @@ export function NewsletterManagement() {
         setLoading(true);
         try {
             const data = await getNewsletterSubscribers(searchQuery);
-            setSubscribers(data);
+            setSubscribers(data || []);
         } catch (error) {
             toast.error("Failed to load subscribers");
         } finally {
