@@ -29,9 +29,9 @@ function getGoogleCredentials(): { clientId: string; clientSecret: string } {
 
 export const authOptions: NextAuthOptions = {
   debug: true, // Enable NextAuth debugging
-  //trustHost: true, // Trust the host header (useful for proxies) - CAUSES TYPE ERROR usually, check types first. 
-  // Actually NextAuthOptions type might not have trustHost in v4 types visibly? It does.
-  // safer to just use debug first.
+  //Trust the host header (useful for proxies)
+  // @ts-ignore
+  trustHost: true,
   secret: process.env.JWT_SECRET,
   //adapter: PrismaAdapter(prismadb),
   session: {
