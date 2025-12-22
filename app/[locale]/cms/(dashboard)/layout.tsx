@@ -20,7 +20,11 @@ export default async function AdminDashboardLayout({
     const { locale } = await params;
     const session = await getServerSession(authOptions);
 
-    if (!session) {
+    console.log(`[Layout Debug] Checking session for locale ${locale}`);
+    if (session) {
+        console.log(`[Layout Debug] Session found: ${session.user?.email}`);
+    } else {
+        console.log(`[Layout Debug] No session found in layout, redirecting to login`);
         return redirect(`/${locale}/cms/login`);
     }
 
