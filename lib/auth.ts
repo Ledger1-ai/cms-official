@@ -38,6 +38,20 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
 
+  // Force secure cookies in production to fix Azure/Proxy mismatch
+  // This ensures getServerSession looks for __Secure-next-auth.session-token
+  cookies: {
+    sessionToken: {
+      name: process.env.NODE_ENV === 'production' ? `__Secure-next-auth.session-token` : `next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production'
+      }
+    }
+  },
+
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID!,
