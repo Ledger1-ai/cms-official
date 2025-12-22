@@ -41,7 +41,9 @@ const authMiddleware = withAuth(
                 // Note: Check for locale prefixes too? 
                 // /en/cms/dashboard -> path includes /cms
                 // /cms/dashboard -> path includes /cms
-                const isCmsRoute = path.includes("/cms") && !path.includes("/cms/login");
+                // const isCmsRoute = path.includes("/cms") && !path.includes("/cms/login");
+                // DISABLE MIDDLEWARE AUTH FOR CMS - Let Layout handle it to avoid Proxy Cookie issues
+                const isCmsRoute = false;
 
                 // API routes: All API routes (except the public ones above) require token
                 const isApiRoute = path.startsWith("/api");
