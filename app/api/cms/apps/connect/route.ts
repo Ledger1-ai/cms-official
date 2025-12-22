@@ -5,6 +5,8 @@ import { prismadb } from "@/lib/prisma";
 import { logActivityInternal } from "@/actions/audit";
 import { encryptApiKey } from "@/lib/encryption/api-keys";
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: Request) {
     try {
         const session = await getServerSession(authOptions);

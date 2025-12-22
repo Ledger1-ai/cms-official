@@ -58,5 +58,11 @@
     "name": "openai",
     "enabled": true,
     "position": 10
+  },
+  {
+    "v": 0,
+    "name": "faq",
+    "enabled": true,
+    "position": 11
   }
 ]

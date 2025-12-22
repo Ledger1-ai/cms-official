@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { LayoutDashboard, FileText, Briefcase, BookOpen, Settings, Globe, Users, Share2, Image as ImageIcon, Shield, Activity, GraduationCap, Mail, Contact2, LayoutTemplate, Grid, List, PlusCircle, Tags, Folder, Scan, Layout, ShoppingCart, PenTool, Wrench, Brain, User, File, Mic, Users2, FileInput, Search, LayoutTemplate as LucideLayoutTemplate, UserCheck, Loader2, Sparkles, Plus, DollarSign } from "lucide-react";
+import { LayoutDashboard, FileText, Briefcase, BookOpen, Settings, Globe, Users, Share2, Image as ImageIcon, Shield, Activity, GraduationCap, Mail, Contact2, LayoutTemplate, Grid, List, PlusCircle, Tags, Folder, Scan, Layout, ShoppingCart, PenTool, Wrench, Brain, User, File, Mic, Users2, FileInput, Search, LayoutTemplate as LucideLayoutTemplate, UserCheck, Loader2, Sparkles, Plus, DollarSign, HelpCircle } from "lucide-react";
 import NewsletterModal from "./NewsletterModal";
 import { cn } from "@/lib/utils";
 import {
@@ -14,7 +14,7 @@ import {
 
 // Icon mapping matching layout.tsx
 export const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
-    LayoutDashboard, FileText, Briefcase, BookOpen, Settings, Globe, Users, Share2, ImageIcon, Shield, Activity, GraduationCap, Mail, Contact2, LayoutTemplate, Grid, List, PlusCircle, Tags, Folder, Scan, Layout, ShoppingCart, PenTool, Wrench, Brain, User, File, Mic, Users2, FileInput, Search, DollarSign
+    LayoutDashboard, FileText, Briefcase, BookOpen, Settings, Globe, Users, Share2, ImageIcon, Shield, Activity, GraduationCap, Mail, Contact2, LayoutTemplate, Grid, List, PlusCircle, Tags, Folder, Scan, Layout, ShoppingCart, PenTool, Wrench, Brain, User, File, Mic, Users2, FileInput, Search, DollarSign, HelpCircle
 };
 
 export interface NavModule {

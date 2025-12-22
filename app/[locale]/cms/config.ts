@@ -28,7 +28,6 @@ export const CMS_MODULES: CMSModule[] = [
         color: "pink",
         options: [
             { label: "All Posts", href: (l: string) => `/${l}/cms/blog`, icon: "List" },
-            { label: "Create New", href: (l: string) => `/${l}/cms/blog/new`, icon: "PlusCircle" },
             { label: "Categories", href: (l: string) => `/${l}/cms/blog/categories`, icon: "Tags" }
         ]
     },
@@ -42,6 +41,18 @@ export const CMS_MODULES: CMSModule[] = [
         options: [
             { label: "All Positions", href: (l: string) => `/${l}/cms/careers`, icon: "List" },
             { label: "Create New", href: (l: string) => `/${l}/cms/careers`, icon: "PlusCircle" },
+        ]
+    },
+    {
+        slug: "faq",
+        href: (l: string) => `/${l}/cms/faq`,
+        icon: "HelpCircle",
+        label: "FAQ Manager",
+        section: "Content",
+        color: "teal",
+        options: [
+            { label: "All FAQs", href: (l: string) => `/${l}/cms/faq`, icon: "List" },
+            { label: "Create New", href: (l: string) => `/${l}/cms/faq/new`, icon: "PlusCircle" }
         ]
     },
     { slug: "docs", href: (l: string) => `/${l}/cms/docs`, icon: "BookOpen", label: "Documentation", section: "Content", color: "blue" },

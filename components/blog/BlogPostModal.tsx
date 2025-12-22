@@ -80,21 +80,25 @@ export function BlogPostModal({ post, isOpen, onClose }: BlogPostModalProps) {
                                 <ArrowRight className={cn("h-5 w-5 transition-transform duration-300", isImageVisible ? "-rotate-90" : "rotate-90")} />
                             </button>
 
-                            <Button
-                                onClick={() => setIsShareModalOpen(true)}
-                                size="icon"
-                                className="bg-black/50 hover:bg-black/70 text-white/70 hover:text-white rounded-full transition-colors backdrop-blur-md"
-                                title="Share Post"
-                            >
-                                <Share2 className="h-5 w-5" />
-                            </Button>
-
                             <button
                                 onClick={onClose}
                                 className="p-2 bg-black/50 hover:bg-black/70 rounded-full text-white/70 hover:text-white transition-colors backdrop-blur-md"
                             >
                                 <X className="h-5 w-5" />
                             </button>
+                        </div>
+
+                        {/* Social Share - Moved to Top Left */}
+                        <div className="absolute top-0 left-0 p-4 z-10">
+                            <Button
+                                onClick={() => setIsShareModalOpen(true)}
+                                size="sm"
+                                className="bg-black/50 hover:bg-black/70 text-white border border-white/10 rounded-full transition-all backdrop-blur-md gap-2 pl-3 pr-4"
+                                title="Share Post"
+                            >
+                                <Share2 className="h-4 w-4" />
+                                <span className="text-xs font-bold uppercase tracking-wider">Share</span>
+                            </Button>
                         </div>
 
                         <SocialShareModal

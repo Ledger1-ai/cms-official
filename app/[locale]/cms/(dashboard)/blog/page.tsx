@@ -445,6 +445,21 @@ export default function BlogAdminPage() {
                 onImageSelect={handleImageSelect}
             />
 
+            {/* Navigation Tabs */}
+            <div className="flex items-center gap-1 border-b border-white/10 pb-1 mb-6">
+                <button
+                    className="px-4 py-2 text-sm font-medium border-b-2 border-blue-500 text-white"
+                >
+                    All Posts
+                </button>
+                <a
+                    href="/en/cms/blog/categories"
+                    className="px-4 py-2 text-sm font-medium border-b-2 border-transparent text-slate-400 hover:text-white hover:border-white/20 transition-colors"
+                >
+                    Categories
+                </a>
+            </div>
+
             <div className="flex items-center justify-between">
                 <h1 className="text-3xl font-bold text-white">Blog Management</h1>
                 <Button

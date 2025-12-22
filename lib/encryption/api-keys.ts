@@ -3,9 +3,8 @@ import crypto from 'crypto';
 // Use environment variable for encryption key, fallback to a default (CHANGE IN PRODUCTION!)
 const ENCRYPTION_KEY = process.env.API_KEY_ENCRYPTION_KEY;
 
-if (!ENCRYPTION_KEY) {
-    throw new Error('CRITICAL: API_KEY_ENCRYPTION_KEY is missing from environment variables.');
-}
+// Removed top-level throw to prevent build failures. 
+// Validation happens inside the functions.
 const ALGORITHM = 'aes-256-cbc';
 const IV_LENGTH = 16;
 
@@ -19,8 +18,12 @@ export function encryptApiKey(apiKey: string): string {
         throw new Error('API key cannot be empty');
     }
 
+    if (!ENCRYPTION_KEY) {
+        throw new Error('CRITICAL: API_KEY_ENCRYPTION_KEY is missing from environment variables.');
+    }
+
     // Ensure the encryption key is 32 bytes for AES-256
-    const key = crypto.scryptSync(ENCRYPTION_KEY!, 'salt', 32);
+    const key = crypto.scryptSync(ENCRYPTION_KEY, 'salt', 32);
 
     // Generate a random initialization vector
     const iv = crypto.randomBytes(IV_LENGTH);
@@ -57,8 +60,12 @@ export function decryptApiKey(encryptedApiKey: string): string {
         const iv = Buffer.from(ivHex, 'hex');
         const encrypted = Buffer.from(encryptedHex, 'hex');
 
+        if (!ENCRYPTION_KEY) {
+            throw new Error('CRITICAL: API_KEY_ENCRYPTION_KEY is missing from environment variables.');
+        }
+
         // Derive the same key used for encryption
-        const key = crypto.scryptSync(ENCRYPTION_KEY!, 'salt', 32);
+        const key = crypto.scryptSync(ENCRYPTION_KEY, 'salt', 32);
 
         // Create decipher and decrypt
         const decipher = crypto.createDecipheriv(ALGORITHM, key, iv);
