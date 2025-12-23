@@ -615,9 +615,9 @@ export function IntegrationsVisual() {
     ];
 
     const OUTER_ICONS = [
-        { name: "OpenAI", url: "https://avatars.githubusercontent.com/u/14957082?s=48&v=4" },
+        { name: "OpenAI", url: "/icons/openai.png" },
         { name: "Shopify", url: "/icons/shopify.png" },
-        { name: "Gemini", url: "https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" },
+        { name: "Gemini", url: "/icons/gemini.svg" },
         { name: "WordPress", url: "/icons/wordpress.png" },
         { name: "Anthropic", url: "/icons/claude.png" },
         { name: "WooCommerce", url: "/icons/woocommerce.png" },

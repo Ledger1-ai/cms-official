@@ -69,7 +69,8 @@ const nextConfig = {
       'recharts'
     ],
     // CSS optimization - inline critical CSS and defer the rest
-    optimizeCss: true,
+    // Disabled to prevent massive HTML bloat (358KB) which delays TTFB
+    optimizeCss: false,
   },
   // Add preconnect headers for external resources
   async headers() {
