@@ -268,10 +268,10 @@ export default function DemoPage({ footer }: DemoPageProps) {
                                             </div>
                                         </div>
                                         <div className="order-1 lg:order-2 h-[400px] bg-slate-950/50 rounded-2xl border border-green-500/10 overflow-hidden relative">
-                                            {VISUAL_COMPONENTS["HeadlessVisual"] && (
+                                            {VISUAL_COMPONENTS["IntegrationsVisual"] && (
                                                 <div className="absolute inset-0">
                                                     {(() => {
-                                                        const Visual = VISUAL_COMPONENTS["HeadlessVisual"];
+                                                        const Visual = VISUAL_COMPONENTS["IntegrationsVisual"];
                                                         return <Visual />;
                                                     })()}
                                                 </div>

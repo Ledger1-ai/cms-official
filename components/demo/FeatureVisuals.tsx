@@ -404,7 +404,7 @@ export function VisualBuilderVisual() {
 
                         {/* Simulated Dragged Block - "Pricing Table" - True Drag & Drop */}
                         <motion.div
-                            className="absolute z-50 w-32 h-10 bg-slate-800 rounded border-2 border-purple-500 shadow-2xl flex items-center justify-center gap-2 pointer-events-none"
+                            className="hidden md:flex absolute z-50 w-32 h-10 bg-slate-800 rounded border-2 border-purple-500 shadow-2xl items-center justify-center gap-2 pointer-events-none"
                             animate={{
                                 x: [20, 60, 100, 120, 120],
                                 y: [170, 175, 185, 195, 195],
