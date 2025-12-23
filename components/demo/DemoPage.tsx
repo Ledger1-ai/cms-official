@@ -87,16 +87,14 @@ export default function DemoPage({ footer }: DemoPageProps) {
                                     <section className="text-center max-w-5xl mx-auto mb-32 relative">
                                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] -z-10" />
 
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 20 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.8 }}
-                                        >
+                                        {/* Hero content - renders immediately, CSS handles fade-in */}
+                                        <div className="animate-[fadeIn_0.8s_ease-out_forwards]">
                                             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
                                                 <Sparkles className="w-4 h-4 text-purple-400" />
                                                 <span className="text-sm font-medium text-purple-200">The Future of Content is Headless</span>
                                             </div>
 
+                                            {/* LCP Element - H1 renders immediately */}
                                             <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-8 leading-tight">
                                                 <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-slate-400">
                                                     The World&apos;s Most Powerful
@@ -128,7 +126,7 @@ export default function DemoPage({ footer }: DemoPageProps) {
                                                     View Documentation
                                                 </Button>
                                             </div>
-                                        </motion.div>
+                                        </div>
                                     </section>
 
                                     {/* Feature 1: Visual Builder */}

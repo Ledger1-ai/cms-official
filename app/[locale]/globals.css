@@ -45,6 +45,19 @@
   }
 }
 
+/* Pure CSS fade-in for LCP-critical content (no JS dependency) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .dropBox {
   @apply flex flex-col overflow-hidden items-start justify-center text-xs p-2 m-2 rounded-md border border-slate-300 shadow-md;
 }
