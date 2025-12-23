@@ -29,10 +29,10 @@ const items = [
         type: "link"
     },
     {
-        slug: "docs",
-        title: "Documentation",
-        description: "Help docs & guides",
-        href: "/cms/docs",
+        slug: "university",
+        title: "Docs",
+        description: "SOPs & Training",
+        href: "/cms/university",
         icon: BookOpen,
         gradient: "from-emerald-500/20 via-emerald-500/5 to-transparent border-emerald-500/20 hover:border-emerald-500/50",
         iconColor: "text-emerald-400",
@@ -169,9 +169,21 @@ export default function DashboardGrid({ enabledModules = [], isAdmin = false, un
                         );
                     } else {
                         return (
-                            <button key={idx} onClick={() => setActiveModal(item.action!)} className="block w-full text-left h-full cursor-pointer appearance-none">
+                            <div
+                                key={idx}
+                                onClick={() => setActiveModal(item.action!)}
+                                className="block w-full text-left h-full cursor-pointer appearance-none"
+                                role="button"
+                                tabIndex={0}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                        e.preventDefault();
+                                        setActiveModal(item.action!);
+                                    }
+                                }}
+                            >
                                 {CardContent}
-                            </button>
+                            </div>
                         );
                     }
                 })}
