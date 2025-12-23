@@ -60,6 +60,7 @@ export default function DemoHeader({ onStartDemo }: { onStartDemo?: () => void }
                             width={192}
                             height={48}
                             className="w-full h-full object-contain brightness-0 invert drop-shadow-lg transition-all group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+                            sizes="(max-width: 768px) 160px, 192px"
                         />
                     </div>
                 </Link>

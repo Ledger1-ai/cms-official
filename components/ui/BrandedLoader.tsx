@@ -40,6 +40,7 @@ export function BrandedLoader({ variant = "fullscreen" }: BrandedLoaderProps) {
                             fill
                             className="object-contain drop-shadow-[0_0_25px_rgba(77,191,217,0.8)]"
                             priority
+                            sizes="(max-width: 768px) 192px, 192px"
                         />
                     </div>
                 </motion.div>

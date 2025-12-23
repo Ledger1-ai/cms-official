@@ -677,7 +677,8 @@ export function IntegrationsVisual() {
                                             alt={icon.name}
                                             fill
                                             className="object-contain"
-                                            unoptimized
+                                            sizes="24px"
+                                            unoptimized={icon.url.endsWith('.svg')}
                                         />
                                     </div>
                                 </motion.div>

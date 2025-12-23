@@ -76,6 +76,8 @@ export default function MarketingHeader() {
                                 height={50}
                                 className={cn("object-contain transition-all duration-300", isScrolled ? "h-8 w-auto" : "h-10 w-auto", "brightness-200 contrast-125")}
                                 priority
+                                sizes="(max-width: 768px) 140px, 180px"
+                                quality={85}
                             />
                         </Link>
 

@@ -18,7 +18,8 @@ import {
 // Defer below-fold components
 const GlassCard = dynamic(() => import("./GlassCard"), { ssr: true });
 import { DEMO_FEATURES } from "./demo-data";
-import { VISUAL_MAP } from "./FeatureVisuals";
+// REMOVED static import of VISUAL_MAP to save 43KB initial bundle size
+// import { VISUAL_MAP } from "./FeatureVisuals";
 import { Button } from "@/components/ui/button";
 import { DesktopOnlyModal } from "@/components/modals/DesktopOnlyModal";
 
@@ -32,11 +33,32 @@ const DemoPuckEditor = dynamic(() => import("./DemoPuckEditor"), {
     ssr: false
 });
 
+// Dynamic imports for Feature Visuals (Lazy load 43KB chunk)
+const AiLandingVisual = dynamic(() => import("./FeatureVisuals").then(mod => mod.AiLandingVisual));
+const AiBlogVisual = dynamic(() => import("./FeatureVisuals").then(mod => mod.AiBlogVisual));
+const HeadlessVisual = dynamic(() => import("./FeatureVisuals").then(mod => mod.HeadlessVisual));
+const VisualBuilderVisual = dynamic(() => import("./FeatureVisuals").then(mod => mod.VisualBuilderVisual));
+const IntegrationsVisual = dynamic(() => import("./FeatureVisuals").then(mod => mod.IntegrationsVisual));
+
+const VISUAL_COMPONENTS: Record<string, React.ComponentType> = {
+    AiLandingVisual,
+    AiBlogVisual,
+    HeadlessVisual,
+    VisualBuilderVisual,
+    IntegrationsVisual,
+    // Map legacy keys if needed, or update usage sites
+    GeniusVisual: AiLandingVisual, // Mapping "Genius" feature to Landing visual
+};
+
 // Defer InteractiveBackground to after first paint
 const InteractiveBackground = dynamic(() => import("./InteractiveBackground"), {
     ssr: false,
     loading: () => <div className="fixed inset-0 z-0 bg-[#020617]" />
 });
+
+// Start Component Definition
+
+
 
 interface DemoPageProps {
     footer: React.ReactNode;
@@ -152,10 +174,10 @@ export default function DemoPage({ footer }: DemoPageProps) {
                                             </Button>
                                         </div>
                                         <div className="order-1 lg:order-2 h-[400px] lg:h-[500px] bg-slate-900/50 rounded-2xl border border-white/5 overflow-hidden shadow-2xl relative group">
-                                            {VISUAL_MAP["VisualBuilderVisual"] && (
+                                            {VISUAL_COMPONENTS["VisualBuilderVisual"] && (
                                                 <div className="absolute inset-0">
                                                     {(() => {
-                                                        const Visual = VISUAL_MAP["VisualBuilderVisual"];
+                                                        const Visual = VISUAL_COMPONENTS["VisualBuilderVisual"];
                                                         return <Visual />;
                                                     })()}
                                                 </div>
@@ -188,10 +210,10 @@ export default function DemoPage({ footer }: DemoPageProps) {
                                                 </Button>
                                             </div>
                                             <div className="order-1 h-[400px] bg-slate-950/50 rounded-2xl border border-purple-500/10 overflow-hidden relative">
-                                                {VISUAL_MAP["GeniusVisual"] && (
+                                                {VISUAL_COMPONENTS["AiLandingVisual"] && (
                                                     <div className="absolute inset-0">
                                                         {(() => {
-                                                            const Visual = VISUAL_MAP["GeniusVisual"];
+                                                            const Visual = VISUAL_COMPONENTS["AiLandingVisual"];
                                                             return <Visual />;
                                                         })()}
                                                     </div>
@@ -245,11 +267,11 @@ export default function DemoPage({ footer }: DemoPageProps) {
                                                 ))}
                                             </div>
                                         </div>
-                                        <div className="order-1 lg:order-2 h-[400px] bg-slate-900/50 rounded-2xl border border-white/5 overflow-hidden shadow-2xl relative">
-                                            {VISUAL_MAP["IntegrationsVisual"] && (
+                                        <div className="order-1 lg:order-2 h-[400px] bg-slate-950/50 rounded-2xl border border-green-500/10 overflow-hidden relative">
+                                            {VISUAL_COMPONENTS["HeadlessVisual"] && (
                                                 <div className="absolute inset-0">
                                                     {(() => {
-                                                        const Visual = VISUAL_MAP["IntegrationsVisual"];
+                                                        const Visual = VISUAL_COMPONENTS["HeadlessVisual"];
                                                         return <Visual />;
                                                     })()}
                                                 </div>
