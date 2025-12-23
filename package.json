@@ -166,7 +166,6 @@
       "@swc/core",
       "aws-crt",
       "bcrypt",
-      "canvas",
       "cypress",
       "esbuild",
       "prisma",

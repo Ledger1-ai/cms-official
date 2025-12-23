@@ -55,7 +55,7 @@ export function ContentLifecycleVisual() {
                     </div>
                     {/* Downward Stream Connector */}
                     <div className="absolute -bottom-10 left-1/2 w-[1px] h-10 bg-gradient-to-b from-cyan-500/50 to-transparent overflow-hidden">
-                        <div className={`absolute top-0 left-1/2 w-1.5 h-4 bg-cyan-400 rounded-full -translate-x-1/2 shadow-[0_0_10px_#22d3ee] transition-all duration-[1500ms] ease-in ${stage === 'INGEST' ? 'top-[120%] opacity-100' : '-top-full opacity-0'}`} />
+                        <div className={`absolute top-0 left-1/2 w-1.5 h-4 bg-cyan-400 rounded-full -translate-x-1/2 shadow-[0_0_10px_#22d3ee] transition-all duration-1500 ease-in ${stage === 'INGEST' ? 'top-[120%] opacity-100' : '-top-full opacity-0'}`} />
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@ export function ContentLifecycleVisual() {
                     </div>
                     {/* Downward Stream Connector */}
                     <div className="absolute -bottom-10 left-1/2 w-[1px] h-10 bg-gradient-to-b from-purple-500/50 to-transparent overflow-hidden">
-                        <div className={`absolute top-0 left-1/2 w-1.5 h-4 bg-purple-400 rounded-full -translate-x-1/2 shadow-[0_0_10px_#c084fc] transition-all duration-[1500ms] ease-in delay-100 ${stage === 'INGEST' ? 'top-[120%] opacity-100' : '-top-full opacity-0'}`} />
+                        <div className={`absolute top-0 left-1/2 w-1.5 h-4 bg-purple-400 rounded-full -translate-x-1/2 shadow-[0_0_10px_#c084fc] transition-all duration-1500 ease-in delay-100 ${stage === 'INGEST' ? 'top-[120%] opacity-100' : '-top-full opacity-0'}`} />
                     </div>
                 </div>
 
@@ -85,7 +85,7 @@ export function ContentLifecycleVisual() {
                     </div>
                     {/* Downward Stream Connector */}
                     <div className="absolute -bottom-10 left-1/2 w-[1px] h-10 bg-gradient-to-b from-pink-500/50 to-transparent overflow-hidden">
-                        <div className={`absolute top-0 left-1/2 w-1.5 h-4 bg-pink-400 rounded-full -translate-x-1/2 shadow-[0_0_10px_#ec4899] transition-all duration-[1500ms] ease-in delay-200 ${stage === 'INGEST' ? 'top-[120%] opacity-100' : '-top-full opacity-0'}`} />
+                        <div className={`absolute top-0 left-1/2 w-1.5 h-4 bg-pink-400 rounded-full -translate-x-1/2 shadow-[0_0_10px_#ec4899] transition-all duration-1500 ease-in delay-200 ${stage === 'INGEST' ? 'top-[120%] opacity-100' : '-top-full opacity-0'}`} />
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@ export function ContentLifecycleVisual() {
                 {/* Deployment Beam */}
                 <div className="absolute -top-16 left-1/2 h-16 w-0.5 -translate-x-1/2 overflow-hidden">
                     <div className={`w-full h-full bg-emerald-500 transition-all duration-500 ${stage === 'DEPLOY' ? 'opacity-100 shadow-[0_0_20px_#10b981]' : 'opacity-20'}`} />
-                    <div className={`absolute top-0 left-0 w-full h-1/2 bg-white blur-[2px] transition-all duration-[1000ms] ease-out ${stage === 'DEPLOY' ? 'translate-y-[200%]' : '-translate-y-full'}`} />
+                    <div className={`absolute top-0 left-0 w-full h-1/2 bg-white blur-[2px] transition-all duration-1000 ease-out ${stage === 'DEPLOY' ? 'translate-y-[200%]' : '-translate-y-full'}`} />
                 </div>
 
                 <div className={`bg-[#0F172A]/90 border rounded-xl p-4 backdrop-blur-md relative overflow-hidden transition-all duration-500 ${stage === 'DEPLOY' ? 'border-emerald-400 shadow-[0_0_50px_rgba(16,185,129,0.2)] scale-[1.02]' : 'border-emerald-500/30'}`}>
@@ -146,7 +146,7 @@ export function ContentLifecycleVisual() {
 
                     {/* Progress Bar - Fills on DEPLOY */}
                     <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden mb-4">
-                        <div className={`h-full bg-gradient-to-r from-emerald-500 to-cyan-400 transition-all duration-[1500ms] ease-out ${stage === 'DEPLOY' ? 'w-full' : 'w-0'}`} />
+                        <div className={`h-full bg-gradient-to-r from-emerald-500 to-cyan-400 transition-all duration-1500 ease-out ${stage === 'DEPLOY' ? 'w-full' : 'w-0'}`} />
                     </div>
 
                     {/* Channels - Light up sequentially */}

@@ -162,6 +162,10 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      // Custom transition durations to avoid arbitrary value warnings
+      transitionDuration: {
+        '1500': '1500ms',
+      },
     },
   },
   //tremor - Reduced safelist to only colors Tremor actually uses
