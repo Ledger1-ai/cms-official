@@ -458,33 +458,26 @@ body::-webkit-scrollbar-corner {
 */
 @layer base {
 
-  input,
-  textarea,
-  select {
-    background-color: rgba(9, 9, 11, 0.5) !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
-    color: white !important;
+  /* Shared glass input style - applied via class to allow overrides */
+  .glass-input {
+    background-color: rgba(9, 9, 11, 0.5);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: white;
   }
 
   /* Fix Webkit Autofill white background by injecting dark shadow */
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  textarea:-webkit-autofill,
-  textarea:-webkit-autofill:hover,
-  textarea:-webkit-autofill:focus,
-  select:-webkit-autofill,
-  select:-webkit-autofill:hover,
-  select:-webkit-autofill:focus {
+  /* Fix Webkit Autofill for glass inputs */
+  .glass-input:-webkit-autofill,
+  .glass-input:-webkit-autofill:hover,
+  .glass-input:-webkit-autofill:focus {
     -webkit-text-fill-color: white !important;
     -webkit-box-shadow: 0 0 0 1000px #09090b inset !important;
     transition: background-color 5000s ease-in-out 0s;
     caret-color: white !important;
   }
 
-  /* Placeholder text color */
-  input::placeholder,
-  textarea::placeholder {
+  /* Placeholder text color for glass inputs */
+  .glass-input::placeholder {
     color: rgba(255, 255, 255, 0.4) !important;
   }
 }

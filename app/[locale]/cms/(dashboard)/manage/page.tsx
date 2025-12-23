@@ -209,14 +209,21 @@ export default function TeamAdminPage() {
                                         <div className="space-y-3">
                                             {/* Avatar & Basic Info */}
                                             <div className="flex gap-3">
-                                                <div className="h-12 w-12 rounded-full overflow-hidden bg-black flex-shrink-0 border border-white/10">
-                                                    {/* Standard img tag for preview to avoid Next.js Image complexity with external/dynamic urls if needed, though mostly internal */}
-                                                    <img
-                                                        src={member.imageSrc || "/placeholder.png"}
-                                                        alt="Preview"
-                                                        className="h-full w-full object-cover"
-                                                        onError={(e) => { e.currentTarget.src = "https://ui-avatars.com/api/?name=" + (member.name || "User"); }}
-                                                    />
+                                                <div className="h-12 w-12 rounded-full overflow-hidden bg-black flex-shrink-0 border border-white/10 relative group-hover:border-white/30 transition-colors">
+                                                    {member.imageSrc ? (
+                                                        <img
+                                                            src={member.imageSrc}
+                                                            alt={member.name}
+                                                            className="h-full w-full object-cover"
+                                                            onError={(e) => {
+                                                                e.currentTarget.style.display = 'none';
+                                                                e.currentTarget.parentElement?.querySelector('.fallback-initials')?.classList.remove('hidden');
+                                                            }}
+                                                        />
+                                                    ) : null}
+                                                    <div className={`fallback-initials absolute inset-0 flex items-center justify-center bg-zinc-900 text-white font-medium ${member.imageSrc ? 'hidden' : ''}`}>
+                                                        {member.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                                                    </div>
                                                 </div>
                                                 <div className="space-y-1 flex-1 min-w-0 pr-8">
                                                     <Input

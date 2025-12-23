@@ -10,11 +10,15 @@ interface MarketingLayoutProps {
     className?: string;
 }
 
-export default function MarketingLayout({
+import { prismadb } from "@/lib/prisma";
+
+export default async function MarketingLayout({
     children,
     variant = "default",
     className
 }: MarketingLayoutProps) {
+    const socialSettings = await prismadb.socialSettings.findFirst();
+
     return (
         <div className={cn(
             "min-h-screen text-white selection:bg-purple-500/30 font-sans overflow-x-hidden relative",
@@ -23,7 +27,7 @@ export default function MarketingLayout({
             <InteractiveBackground variant={variant} />
 
             <div className="relative z-10 flex flex-col min-h-screen">
-                <MarketingHeader />
+                <MarketingHeader socialSettings={socialSettings} />
 
                 <main className="flex-grow">
                     {children}

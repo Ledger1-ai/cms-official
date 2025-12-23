@@ -121,37 +121,37 @@ export default function DashboardGrid({ enabledModules = [], isAdmin = false, un
 
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-2 xl:grid-cols-3 gap-3 md:gap-6 mb-8">
                 {visibleItems.map((item, idx) => {
                     const CardContent = (
                         <div className="relative h-full">
                             <div className={cn(
-                                "h-full p-6 rounded-2xl bg-[#0A0A0B] border border-white/5 hover:border-white/10 transition-all duration-300 relative overflow-hidden group hover:shadow-2xl hover:shadow-black/50",
+                                "h-full p-3 md:p-6 rounded-xl md:rounded-2xl bg-[#0A0A0B] border border-white/5 hover:border-white/10 transition-all duration-300 relative overflow-hidden group hover:shadow-2xl hover:shadow-black/50 flex flex-col items-center md:items-start text-center md:text-left justify-center md:justify-start aspect-square md:aspect-auto",
                             )}>
-                                {/* Gradient Blob Background */}
-                                <div className={cn("absolute -right-20 -top-20 h-40 w-40 rounded-full blur-3xl opacity-20 transition-opacity group-hover:opacity-40", item.iconColor.replace("text-", "bg-"))} />
+                                {/* Gradient Blob Background - Desktop Only */}
+                                <div className={cn("hidden md:block absolute -right-20 -top-20 h-40 w-40 rounded-full blur-3xl opacity-20 transition-opacity group-hover:opacity-40", item.iconColor.replace("text-", "bg-"))} />
 
-                                <div className="flex items-start justify-between relative z-10">
-                                    <div className={cn("p-3 rounded-xl bg-white/5 border border-white/5 shadow-inner", item.iconColor)}>
-                                        <item.icon className="h-6 w-6" />
+                                <div className="flex flex-col md:flex-row items-center md:items-start justify-between relative z-10 w-full gap-2 md:gap-0">
+                                    <div className={cn("p-2 md:p-3 rounded-lg md:rounded-xl bg-white/5 border border-white/5 shadow-inner mb-1 md:mb-0", item.iconColor)}>
+                                        <item.icon className="h-5 w-5 md:h-6 md:w-6" />
                                     </div>
 
                                     {/* Notification Badge for Support Inbox */}
                                     {item.slug === "support" && unreadSupportCount > 0 && (
-                                        <div className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold h-5 min-w-[20px] px-1 flex items-center justify-center rounded-full border border-[#0A0A0B] shadow-lg animate-pulse z-20">
+                                        <div className="absolute top-0 right-0 md:-top-1 md:-right-1 bg-red-500 text-white text-[9px] md:text-[10px] font-bold h-4 w-4 md:h-5 md:min-w-[20px] px-1 flex items-center justify-center rounded-full border border-[#0A0A0B] shadow-lg animate-pulse z-20">
                                             {unreadSupportCount > 99 ? '99+' : unreadSupportCount}
                                         </div>
                                     )}
 
-                                    {/* Arrow icon shown for links */}
+                                    {/* Arrow icon shown for links - Desktop Only */}
                                     {item.type === "link" && (
-                                        <ArrowRight className="h-4 w-4 text-slate-600 group-hover:text-white transition-colors -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100" />
+                                        <ArrowRight className="hidden md:block h-4 w-4 text-slate-600 group-hover:text-white transition-colors -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100" />
                                     )}
                                 </div>
 
-                                <div className="mt-5 relative z-10">
-                                    <h3 className="text-lg font-bold text-white group-hover:tracking-wide transition-all duration-300">{item.title}</h3>
-                                    <p className="text-sm text-slate-400 mt-1 font-medium">{item.description}</p>
+                                <div className="mt-1 md:mt-5 relative z-10 w-full">
+                                    <h3 className="text-[10px] md:text-lg font-bold text-slate-300 md:text-white group-hover:tracking-wide transition-all duration-300 leading-tight md:leading-normal truncate w-full px-1 md:px-0">{item.title}</h3>
+                                    <p className="hidden md:block text-sm text-slate-400 mt-1 font-medium">{item.description}</p>
                                 </div>
 
                                 {/* Shine Effect */}

@@ -550,67 +550,73 @@ export default function MediaLibraryPage() {
             </div>
 
             {/* Editing Sidebar (Right Panel) */}
+            {/* Editing Sidebar (Right Panel) */}
             {selectedItem && (
-                <aside className="w-80 border-l border-white/10 bg-[#0A0A0B] h-full overflow-y-auto z-20 transition-all flex flex-col">
-                    <div className="p-6 space-y-6 flex-1">
-                        <div className="flex items-start justify-between">
-                            <h2 className="text-lg font-semibold text-white">Details</h2>
-                            <button onClick={() => setSelectedItem(null)} className="p-1 hover:bg-white/10 rounded-md transition-colors"><X className="h-4 w-4 text-slate-400" /></button>
-                        </div>
-                        <div className="aspect-video rounded-lg overflow-hidden bg-black border border-white/10 flex items-center justify-center group relative">
-                            {selectedItem.mimeType.startsWith("video/") || selectedItem.filename.endsWith(".webm") ? <video src={selectedItem.url} controls className="w-full h-full object-contain" /> : <NextImage src={selectedItem.url} alt="Preview" fill className="object-contain" unoptimized />}
-                            <a href={selectedItem.url} target="_blank" className="absolute top-2 right-2 p-1.5 bg-black/50 backdrop-blur rounded hover:bg-blue-600 text-white opacity-0 group-hover:opacity-100 transition-all"><Maximize2 className="h-3.5 w-3.5" /></a>
-                        </div>
+                <div className="fixed inset-0 z-50 md:static md:z-auto md:w-80 flex justify-end md:block">
+                    {/* Backdrop for mobile */}
+                    <div className="absolute inset-0 bg-black/80 backdrop-blur-sm md:hidden" onClick={() => setSelectedItem(null)} />
 
-                        {/* --- SHOW RELATED IMAGES (BACK SIDE) --- */}
-                        {relatedMedia.length > 0 && (
-                            <div className="bg-[#0A0A0B] rounded-lg p-3 border border-white/5">
-                                <p className="text-xs font-semibold text-slate-400 mb-2">Related Media</p>
-                                <div className="flex gap-2 bg-black p-2 rounded border border-white/5 overflow-x-auto">
-                                    {relatedMedia.map(rm => (
-                                        <div key={rm.id} onClick={() => setSelectedItem(rm)} className="h-16 w-16 relative rounded overflow-hidden border border-white/10 cursor-pointer hover:border-blue-500">
-                                            <NextImage src={rm.url} alt="Back" fill className="object-cover" unoptimized />
-                                        </div>
-                                    ))}
+                    <aside className="w-full sm:w-80 border-l border-white/10 bg-[#0A0A0B] h-full overflow-y-auto z-50 transition-all flex flex-col relative animate-in slide-in-from-right duration-300 md:animate-none shadow-2xl md:shadow-none">
+                        <div className="p-6 space-y-6 flex-1">
+                            <div className="flex items-start justify-between">
+                                <h2 className="text-lg font-semibold text-white">Details</h2>
+                                <button onClick={() => setSelectedItem(null)} className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors md:p-1 md:bg-transparent md:rounded-md"><X className="h-5 w-5 text-slate-400 md:h-4 md:w-4" /></button>
+                            </div>
+                            <div className="aspect-video rounded-lg overflow-hidden bg-black border border-white/10 flex items-center justify-center group relative">
+                                {selectedItem.mimeType.startsWith("video/") || selectedItem.filename.endsWith(".webm") ? <video src={selectedItem.url} controls className="w-full h-full object-contain" /> : <NextImage src={selectedItem.url} alt="Preview" fill className="object-contain" unoptimized />}
+                                <a href={selectedItem.url} target="_blank" className="absolute top-2 right-2 p-1.5 bg-black/50 backdrop-blur rounded hover:bg-blue-600 text-white opacity-0 group-hover:opacity-100 transition-all"><Maximize2 className="h-3.5 w-3.5" /></a>
+                            </div>
+
+                            {/* --- SHOW RELATED IMAGES (BACK SIDE) --- */}
+                            {relatedMedia.length > 0 && (
+                                <div className="bg-[#0A0A0B] rounded-lg p-3 border border-white/5">
+                                    <p className="text-xs font-semibold text-slate-400 mb-2">Related Media</p>
+                                    <div className="flex gap-2 bg-black p-2 rounded border border-white/5 overflow-x-auto">
+                                        {relatedMedia.map(rm => (
+                                            <div key={rm.id} onClick={() => setSelectedItem(rm)} className="h-16 w-16 relative rounded overflow-hidden border border-white/10 cursor-pointer hover:border-blue-500">
+                                                <NextImage src={rm.url} alt="Back" fill className="object-cover" unoptimized />
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
 
-                        {/* VCMS Specific Actions */}
-                        {selectedItem.isBusinessCard ? (
-                            <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg">
-                                <p className="text-xs text-emerald-400 font-semibold flex items-center gap-2 mb-2"><UserCheck className="h-3 w-3" /> Vendor ID</p>
-                                <p className="text-[10px] text-slate-400 font-mono break-all">{selectedItem.vendorId || "Processing..."}</p>
-                                <Button size="sm" variant="outline" className="w-full mt-2 h-7 text-xs" onClick={() => window.open(`/cms/contacts`, '_blank')}>View Contact</Button>
-                            </div>
-                        ) : (
-                            <button onClick={() => setShowAiModal(true)} className={cn("w-full py-3 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm transition-all shadow-lg shadow-purple-900/20", "bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white hover:shadow-purple-500/20 hover:scale-[1.02]")}>
-                                <Sparkles className="h-5 w-5" /> Improve Task with AI
-                            </button>
-                        )}
+                            {/* VCMS Specific Actions */}
+                            {selectedItem.isBusinessCard ? (
+                                <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg">
+                                    <p className="text-xs text-emerald-400 font-semibold flex items-center gap-2 mb-2"><UserCheck className="h-3 w-3" /> Vendor ID</p>
+                                    <p className="text-[10px] text-slate-400 font-mono break-all">{selectedItem.vendorId || "Processing..."}</p>
+                                    <Button size="sm" variant="outline" className="w-full mt-2 h-7 text-xs" onClick={() => window.open(`/cms/contacts`, '_blank')}>View Contact</Button>
+                                </div>
+                            ) : (
+                                <button onClick={() => setShowAiModal(true)} className={cn("w-full py-3 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm transition-all shadow-lg shadow-purple-900/20", "bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white hover:shadow-purple-500/20 hover:scale-[1.02]")}>
+                                    <Sparkles className="h-5 w-5" /> Improve Task with AI
+                                </button>
+                            )}
 
-                        <div className="flex items-center gap-2">
-                            <button onClick={() => updateMetadata(selectedItem.id, { isPublic: !selectedItem.isPublic })} className={cn("flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-md text-xs font-medium transition-colors border", selectedItem.isPublic ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/20" : "bg-red-500/10 text-red-400 border-red-500/20 hover:bg-red-500/20")}>
-                                {selectedItem.isPublic ? <Globe className="h-3.5 w-3.5" /> : <Lock className="h-3.5 w-3.5" />} {selectedItem.isPublic ? "Public" : "Private"}
-                            </button>
-                            <button onClick={handleCopyUrl} className="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-md bg-white/5 text-slate-300 hover:bg-white/10 transition-colors border border-white/10 text-xs font-medium"><Copy className="h-3.5 w-3.5" /> URL</button>
+                            <div className="flex items-center gap-2">
+                                <button onClick={() => updateMetadata(selectedItem.id, { isPublic: !selectedItem.isPublic })} className={cn("flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-md text-xs font-medium transition-colors border", selectedItem.isPublic ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/20" : "bg-red-500/10 text-red-400 border-red-500/20 hover:bg-red-500/20")}>
+                                    {selectedItem.isPublic ? <Globe className="h-3.5 w-3.5" /> : <Lock className="h-3.5 w-3.5" />} {selectedItem.isPublic ? "Public" : "Private"}
+                                </button>
+                                <button onClick={handleCopyUrl} className="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-md bg-white/5 text-slate-300 hover:bg-white/10 transition-colors border border-white/10 text-xs font-medium"><Copy className="h-3.5 w-3.5" /> URL</button>
+                            </div>
+                            <div className="space-y-4">
+                                <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><Type className="h-3 w-3" /> Title</label><input value={selectedItem.title || ""} onChange={(e) => updateMetadata(selectedItem.id, { title: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50" placeholder="Media title..." /></div>
+                                <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><ImageIcon className="h-3 w-3" /> Alt Text</label><input value={selectedItem.altText || ""} onChange={(e) => updateMetadata(selectedItem.id, { altText: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50" placeholder="Descriptive text..." /></div>
+                                <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><MoreVertical className="h-3 w-3" /> Caption</label><textarea value={selectedItem.caption || ""} onChange={(e) => updateMetadata(selectedItem.id, { caption: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50 min-h-[60px]" placeholder="Caption..." /></div>
+                                <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400">Description</label><textarea value={selectedItem.description || ""} onChange={(e) => updateMetadata(selectedItem.id, { description: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50 min-h-[80px]" placeholder="Internal notes..." /></div>
+                            </div>
+                            <div className="bg-[#0A0A0B] rounded-lg p-4 space-y-2 text-xs text-slate-400 border border-white/5">
+                                <div className="flex justify-between"><span>Size</span><span className="text-slate-300">{(selectedItem.size / 1024).toFixed(1)} KB</span></div>
+                                <div className="flex justify-between"><span>Date</span><span className="text-slate-300">{new Date(selectedItem.createdAt).toLocaleDateString()}</span></div>
+                            </div>
+                            <div className="pt-4 border-t border-white/10 text-center"><p className="text-[10px] text-slate-600">ID: {selectedItem.id}</p></div>
                         </div>
-                        <div className="space-y-4">
-                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><Type className="h-3 w-3" /> Title</label><input value={selectedItem.title || ""} onChange={(e) => updateMetadata(selectedItem.id, { title: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50" placeholder="Media title..." /></div>
-                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><ImageIcon className="h-3 w-3" /> Alt Text</label><input value={selectedItem.altText || ""} onChange={(e) => updateMetadata(selectedItem.id, { altText: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50" placeholder="Descriptive text..." /></div>
-                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400 flex items-center gap-2"><MoreVertical className="h-3 w-3" /> Caption</label><textarea value={selectedItem.caption || ""} onChange={(e) => updateMetadata(selectedItem.id, { caption: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50 min-h-[60px]" placeholder="Caption..." /></div>
-                            <div className="space-y-1.5"><label className="text-xs font-medium text-slate-400">Description</label><textarea value={selectedItem.description || ""} onChange={(e) => updateMetadata(selectedItem.id, { description: e.target.value })} className="w-full bg-[#0A0A0B] border border-white/10 rounded-md px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50 min-h-[80px]" placeholder="Internal notes..." /></div>
+                        <div className="p-4 border-t border-white/10">
+                            <button onClick={() => handleDelete(selectedItem)} className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-md bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:text-red-300 transition-colors text-sm font-medium"><Trash className="h-4 w-4" /> Delete Asset</button>
                         </div>
-                        <div className="bg-[#0A0A0B] rounded-lg p-4 space-y-2 text-xs text-slate-400 border border-white/5">
-                            <div className="flex justify-between"><span>Size</span><span className="text-slate-300">{(selectedItem.size / 1024).toFixed(1)} KB</span></div>
-                            <div className="flex justify-between"><span>Date</span><span className="text-slate-300">{new Date(selectedItem.createdAt).toLocaleDateString()}</span></div>
-                        </div>
-                        <div className="pt-4 border-t border-white/10 text-center"><p className="text-[10px] text-slate-600">ID: {selectedItem.id}</p></div>
-                    </div>
-                    <div className="p-4 border-t border-white/10">
-                        <button onClick={() => handleDelete(selectedItem)} className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-md bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:text-red-300 transition-colors text-sm font-medium"><Trash className="h-4 w-4" /> Delete Asset</button>
-                    </div>
-                </aside>
+                    </aside>
+                </div>
             )}
         </div>
     );

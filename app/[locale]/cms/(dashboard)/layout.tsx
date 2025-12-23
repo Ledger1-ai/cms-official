@@ -85,7 +85,7 @@ export default async function AdminDashboardLayout({
             />
 
             {/* Main Content */}
-            <main className="flex-1 overflow-auto relative z-10 pb-20 md:pb-0">
+            <main className="flex-1 overflow-x-hidden overflow-y-auto relative z-10 pb-20 md:pb-0">
                 {children}
             </main>
         </div>

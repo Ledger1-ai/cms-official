@@ -75,9 +75,11 @@ export default function FeaturesContent() {
                                 </li>
                             ))}
                         </ul>
-                        <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-200 mt-4 rounded-full px-8">
-                            Start Building
-                        </Button>
+                        <Link href="/create-account">
+                            <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-200 mt-4 rounded-full px-8">
+                                Start Building
+                            </Button>
+                        </Link>
                     </div>
 
                     <div className="flex-1 relative">

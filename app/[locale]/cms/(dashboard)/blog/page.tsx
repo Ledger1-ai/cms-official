@@ -230,25 +230,25 @@ export default function BlogAdminPage() {
                     onRevise={handleAiRevise}
                 />
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <h1 className="text-2xl font-bold">{editingPost.id ? "Edit Post" : "New Post"}</h1>
-                    <div className="flex gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                         {/* ... buttons ... */}
                         <button
                             onClick={() => openAiModal("create")}
-                            className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 flex items-center gap-2 mr-2"
+                            className="px-3 py-2 md:px-4 bg-purple-600 text-white rounded hover:bg-purple-700 flex items-center gap-2 text-xs md:text-sm"
                         >
-                            <Sparkles className="h-4 w-4" /> Create AI
+                            <Sparkles className="h-3 w-3 md:h-4 md:w-4" /> <span className="hidden sm:inline">Create AI</span><span className="sm:hidden">Create</span>
                         </button>
                         <button
                             onClick={() => openAiModal("revise")}
-                            className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 flex items-center gap-2 mr-2"
+                            className="px-3 py-2 md:px-4 bg-indigo-600 text-white rounded hover:bg-indigo-700 flex items-center gap-2 text-xs md:text-sm"
                         >
-                            <Sparkles className="h-4 w-4" /> Revise AI
+                            <Sparkles className="h-3 w-3 md:h-4 md:w-4" /> <span className="hidden sm:inline">Revise AI</span><span className="sm:hidden">Revise</span>
                         </button>
-                        <button onClick={() => setEditingPost(null)} className="px-4 py-2 border rounded hover:bg-gray-100 dark:hover:bg-slate-800">Cancel</button>
-                        <Button onClick={handleSave} disabled={saving} variant="gradient" className="px-4 py-2 flex items-center gap-2">
-                            {saving && <Loader2 className="h-4 w-4 animate-spin" />} Save
+                        <button onClick={() => setEditingPost(null)} className="px-3 py-2 md:px-4 border rounded hover:bg-gray-100 dark:hover:bg-slate-800 text-xs md:text-sm">Cancel</button>
+                        <Button onClick={handleSave} disabled={saving} variant="gradient" className="px-3 py-2 md:px-4 flex items-center gap-2 text-xs md:text-sm">
+                            {saving && <Loader2 className="h-3 w-3 md:h-4 md:w-4 animate-spin" />} Save
                         </Button>
                     </div>
                 </div>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useRouter, useSearchParams, usePathname, useParams } from "next/navigation";
 import { Loader2, Lock, AlertCircle, Info, Mail } from "lucide-react";
 import NextImage from "next/image";
 import { toast } from "sonner";
@@ -29,8 +29,8 @@ export default function AdminLoginPage() {
 
     const error = searchParams.get("error");
 
-    // Extract locale from pathname (e.g., /en/admin/login -> en)
-    const locale = pathname.split("/")[1] || "en";
+    const params = useParams();
+    const locale = (params?.locale as string) || "en";
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
