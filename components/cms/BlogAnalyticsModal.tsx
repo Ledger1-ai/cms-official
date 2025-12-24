@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { MousePointerClick, Share2, FileText, TrendingUp, Maximize2, Minimize2, RefreshCw } from "lucide-react";
+import { MousePointerClick, Share2, FileText, TrendingUp, Maximize2, Minimize2, RefreshCw, X } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
 import { getBlogStats } from "@/actions/analytics/get-blog-stats";
 import { Card, AreaChart, DonutChart, Legend } from "@tremor/react";
@@ -66,40 +66,45 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
                 <DialogTitle className="sr-only">Blog Analytics Dashboard</DialogTitle>
 
                 {/* Header */}
-                <div className="bg-black/40 border-b border-white/10 p-5 flex justify-between items-center relative overflow-hidden">
+                <div className="bg-black/40 border-b border-white/10 p-4 md:p-5 flex flex-col md:flex-row justify-between items-start md:items-center relative overflow-hidden gap-4 md:gap-0">
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-                    <div className="relative z-10">
-                        <h2 className="text-xl font-bold tracking-widest text-cyan-400 font-mono flex items-center gap-2">
-                            <TrendingUp className="h-5 w-5" />
+
+                    <div className="relative z-10 w-full md:w-auto">
+                        <h2 className="text-lg md:text-xl font-bold tracking-widest text-cyan-400 font-mono flex items-center gap-2">
+                            <TrendingUp className="h-4 w-4 md:h-5 md:w-5" />
                             BLOG_ANALYTICS
                         </h2>
-                        <p className="text-xs text-cyan-600/80 font-mono mt-1">
+                        <p className="text-[10px] md:text-xs text-cyan-600/80 font-mono mt-1 w-full truncate">
                             CTR & SHARE TRACKING // 30-DAY WINDOW
                         </p>
                     </div>
-                    <div className="flex items-center gap-3 relative z-10">
-                        <button
-                            onClick={fetchStats}
-                            disabled={refreshing}
-                            className="p-2 rounded-lg bg-black border border-white/10 hover:border-cyan-500/50 transition-all"
-                            title="Refresh data"
-                        >
-                            <RefreshCw className={cn("h-4 w-4 text-cyan-400", refreshing && "animate-spin")} />
-                        </button>
-                        <button
-                            onClick={() => setIsExpanded(!isExpanded)}
-                            className="p-2 rounded-lg bg-black border border-white/10 hover:border-cyan-500/50 transition-all"
-                            title={isExpanded ? "Compact view" : "Expand view"}
-                        >
-                            {isExpanded ? (
-                                <Minimize2 className="h-4 w-4 text-cyan-400" />
-                            ) : (
-                                <Maximize2 className="h-4 w-4 text-cyan-400" />
-                            )}
-                        </button>
-                        <div className="flex items-center gap-2">
-                            <span className="block h-2 w-2 bg-cyan-500 rounded-full animate-pulse shadow-[0_0_10px_#06b6d4]"></span>
-                            <span className="text-xs font-mono text-cyan-400">LIVE</span>
+
+                    <div className="flex items-center justify-between w-full md:w-auto gap-2 md:gap-3 relative z-10">
+                        <div className="flex items-center gap-2 md:gap-3">
+                            <button
+                                onClick={fetchStats}
+                                disabled={refreshing}
+                                className="p-1.5 md:p-2 rounded-lg bg-black border border-white/10 hover:border-cyan-500/50 transition-all group"
+                                title="Refresh data"
+                            >
+                                <RefreshCw className={cn("h-3.5 w-3.5 md:h-4 md:w-4 text-cyan-400 group-hover:rotate-180 transition-transform duration-500", refreshing && "animate-spin")} />
+                            </button>
+                            <button
+                                onClick={() => setIsExpanded(!isExpanded)}
+                                className="p-1.5 md:p-2 rounded-lg bg-black border border-white/10 hover:border-cyan-500/50 transition-all hidden md:flex"
+                                title={isExpanded ? "Compact view" : "Expand view"}
+                            >
+                                {isExpanded ? (
+                                    <Minimize2 className="h-3.5 w-3.5 md:h-4 md:w-4 text-cyan-400" />
+                                ) : (
+                                    <Maximize2 className="h-3.5 w-3.5 md:h-4 md:w-4 text-cyan-400" />
+                                )}
+                            </button>
+                        </div>
+
+                        <div className="flex items-center gap-2 bg-black/50 px-2 py-1 rounded-full border border-white/5 md:border-none md:bg-transparent md:p-0">
+                            <span className="block h-1.5 w-1.5 md:h-2 md:w-2 bg-cyan-500 rounded-full animate-pulse shadow-[0_0_10px_#06b6d4]"></span>
+                            <span className="text-[10px] md:text-xs font-mono text-cyan-400">LIVE</span>
                         </div>
                     </div>
                 </div>
@@ -244,6 +249,7 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
                         LEDGER1_ANALYTICS // BLOG ENGAGEMENT TRACKER // DATA REFRESHES ON OPEN
                     </p>
                 </div>
+
             </DialogContent>
         </Dialog>
     );

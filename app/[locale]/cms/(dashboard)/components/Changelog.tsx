@@ -127,7 +127,7 @@ export default function Changelog() {
                                         <div key={activity.id} className="relative flex gap-5 group">
                                             {/* Vertical Timeline Node */}
                                             <div className="relative z-10 flex-shrink-0">
-                                                <div className="h-10 w-10 rounded-full bg-black border border-white/10 shadow-lg flex items-center justify-center overflow-hidden group-hover:border-primary/30 transition-all duration-500">
+                                                <div className="relative h-10 w-10 rounded-full bg-black border border-white/10 shadow-lg flex items-center justify-center overflow-hidden group-hover:border-primary/30 transition-all duration-500">
                                                     {activity.user.avatar ? (
                                                         <NextImage
                                                             src={activity.user.avatar}

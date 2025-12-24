@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 interface FooterLink {
     id?: string;
@@ -46,6 +47,7 @@ export default function FooterAdminPage() {
 
     const [sectionToDelete, setSectionToDelete] = useState<number | null>(null);
     const [restoring, setRestoring] = useState(false);
+    const [confirmRestoreOpen, setConfirmRestoreOpen] = useState(false);
 
     useEffect(() => {
         fetchData();
@@ -227,22 +229,23 @@ export default function FooterAdminPage() {
             <Separator className="bg-white/10" />
 
             {/* Sections Header */}
-            <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-white">Footer Sections</h2>
-                <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <h2 className="text-xl font-bold text-white">Footer Sections</h2>
+                <div className="flex gap-2 w-full sm:w-auto">
                     <Button
-                        onClick={handleRestoreDefaults}
+                        onClick={() => setConfirmRestoreOpen(true)}
                         variant="ghost"
                         disabled={restoring}
-                        className="text-slate-400 hover:text-white"
+                        className="text-slate-400 hover:text-white flex-1 sm:flex-none justify-center"
                     >
-                        {restoring ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <RotateCcw className="mr-2 h-4 w-4" />}
-                        Restore Defaults
+                        {restoring ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <RotateCcw className="sm:mr-2 h-4 w-4" />}
+                        <span className="sr-only sm:not-sr-only">Restore Defaults</span>
+                        <span className="sm:hidden ml-2">Reset</span>
                     </Button>
                     <Button
                         onClick={addSection}
                         variant="outline"
-                        className="border-dashed border-white/20 hover:border-white/40 hover:bg-white/5 text-slate-300 hover:text-white"
+                        className="border-dashed border-white/20 hover:border-white/40 hover:bg-white/5 text-slate-300 hover:text-white flex-1 sm:flex-none justify-center"
                     >
                         <Plus className="mr-2 h-4 w-4" /> Add Section
                     </Button>
@@ -322,6 +325,39 @@ export default function FooterAdminPage() {
                     </Card>
                 ))}
             </div>
+
+            <Dialog open={confirmRestoreOpen} onOpenChange={setConfirmRestoreOpen}>
+                <DialogContent className="bg-[#0A0A0B] backdrop-blur-xl border border-white/10 text-white shadow-2xl max-w-md rounded-2xl p-6">
+                    <DialogTitle className="text-lg font-bold text-white flex items-center gap-2">
+                        <RotateCcw className="h-5 w-5 text-cyan-400" />
+                        Restore Default Sections?
+                    </DialogTitle>
+                    <DialogDescription className="text-slate-400 text-sm mt-2">
+                        Are you sure you want to restore the footer sections to their defaults? All custom sections and links will be replaced.
+                        <br /><br />
+                        <span className="text-red-400 font-medium bg-red-500/10 px-2 py-0.5 rounded text-xs border border-red-500/20">This action cannot be undone.</span>
+                    </DialogDescription>
+                    <div className="flex justify-end gap-3 mt-6">
+                        <Button
+                            variant="ghost"
+                            onClick={() => setConfirmRestoreOpen(false)}
+                            className="text-slate-300 hover:text-white hover:bg-white/5"
+                        >
+                            Cancel
+                        </Button>
+                        <Button
+                            onClick={() => {
+                                handleRestoreDefaults();
+                                setConfirmRestoreOpen(false);
+                            }}
+                            className="bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 hover:text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all"
+                        >
+                            {restoring ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+                            Confirm Restore
+                        </Button>
+                    </div>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 }

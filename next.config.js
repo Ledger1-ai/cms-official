@@ -46,6 +46,7 @@ const nextConfig = {
         hostname: "avatars.githubusercontent.com",
       },
     ],
+    qualities: [75, 85],
   },
   env: {
     NEXT_PUBLIC_APP_VERSION: require("./package.json").version,
