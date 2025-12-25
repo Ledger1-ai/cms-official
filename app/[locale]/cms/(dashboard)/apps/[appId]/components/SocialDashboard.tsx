@@ -2,9 +2,10 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, Heart, Repeat2, BarChart2, PenSquare, ArrowRight } from "lucide-react";
+import { MessageSquare, Heart, Repeat2, BarChart2, PenSquare, ArrowRight, Loader2, Users } from "lucide-react";
 import { useState } from "react";
 import { AppConfigModal } from "@/components/cms/apps/AppConfigModal";
+import { useAppConnection, useAppDashboardData } from "@/hooks/useAppConnection";
 
 interface SocialDashboardProps {
     appId: string;
@@ -13,12 +14,42 @@ interface SocialDashboardProps {
     iconUrl: string;
 }
 
+interface SocialData {
+    profile: {
+        id: string;
+        name: string;
+        handle: string;
+        avatarUrl?: string;
+        followersCount: number;
+        followingCount: number;
+    };
+    metrics: {
+        impressions7d: number;
+        engagementRate: number;
+        postsCount: number;
+    };
+    recentPosts: Array<{
+        id: string;
+        content: string;
+        likes: number;
+        comments: number;
+        shares: number;
+        createdAt: string;
+    }>;
+}
+
 export function SocialDashboard({ appId, appName, accentColor, iconUrl }: SocialDashboardProps) {
     const [isConfigOpen, setIsConfigOpen] = useState(false);
+    const { isConnected, isLoading: connectionLoading } = useAppConnection(appId);
+    const { data, isLoading: dataLoading, refetch } = useAppDashboardData<SocialData>(appId, isConnected);
 
-    // Placeholder 'connected' state logic
-    // In real app, check DB. For now, zero-state default as requested.
-    const isConnected = false;
+    if (connectionLoading) {
+        return (
+            <div className="flex items-center justify-center h-[60vh]">
+                <Loader2 className="w-8 h-8 animate-spin text-slate-400" />
+            </div>
+        );
+    }
 
     if (!isConnected) {
         return (
@@ -63,14 +94,21 @@ export function SocialDashboard({ appId, appName, accentColor, iconUrl }: Social
         );
     }
 
+    const isLoading = dataLoading || !data;
+
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
-                <div>
-                    <h2 className="text-2xl font-bold text-white">Broadcast Hub</h2>
-                    <p className="text-slate-400">Manage your {appName} presence</p>
+                <div className="flex items-center gap-4">
+                    {data?.profile.avatarUrl && (
+                        <img src={data.profile.avatarUrl} alt={data.profile.name} className="w-12 h-12 rounded-full" />
+                    )}
+                    <div>
+                        <h2 className="text-2xl font-bold text-white">{data?.profile.name || appName}</h2>
+                        <p className="text-slate-400">{data?.profile.handle || `Manage your ${appName} presence`}</p>
+                    </div>
                 </div>
-                <Button className="text-white" style={{ backgroundColor: accentColor }}>
+                <Button className="text-white" style={{ backgroundColor: accentColor }} onClick={() => refetch()}>
                     <PenSquare className="w-4 h-4 mr-2" />
                     New Post
                 </Button>
@@ -79,11 +117,13 @@ export function SocialDashboard({ appId, appName, accentColor, iconUrl }: Social
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <Card className="bg-[#1A1B1E] border-white/10 text-white">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium text-slate-400">Total Followers</CardTitle>
-                        <BarChart2 className="h-4 w-4 text-slate-400" />
+                        <CardTitle className="text-sm font-medium text-slate-400">Followers</CardTitle>
+                        <Users className="h-4 w-4 text-slate-400" />
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">--</div>
+                        <div className="text-2xl font-bold">
+                            {isLoading ? "--" : data.profile.followersCount.toLocaleString()}
+                        </div>
                     </CardContent>
                 </Card>
                 <Card className="bg-[#1A1B1E] border-white/10 text-white">
@@ -92,7 +132,9 @@ export function SocialDashboard({ appId, appName, accentColor, iconUrl }: Social
                         <BarChart2 className="h-4 w-4 text-slate-400" />
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">--</div>
+                        <div className="text-2xl font-bold">
+                            {isLoading ? "--" : data.metrics.impressions7d.toLocaleString()}
+                        </div>
                     </CardContent>
                 </Card>
                 <Card className="bg-[#1A1B1E] border-white/10 text-white">
@@ -101,7 +143,20 @@ export function SocialDashboard({ appId, appName, accentColor, iconUrl }: Social
                         <Heart className="h-4 w-4 text-slate-400" />
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">--%</div>
+                        <div className="text-2xl font-bold">
+                            {isLoading ? "--%" : `${data.metrics.engagementRate}%`}
+                        </div>
+                    </CardContent>
+                </Card>
+                <Card className="bg-[#1A1B1E] border-white/10 text-white">
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle className="text-sm font-medium text-slate-400">Posts</CardTitle>
+                        <MessageSquare className="h-4 w-4 text-slate-400" />
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">
+                            {isLoading ? "--" : data.metrics.postsCount}
+                        </div>
                     </CardContent>
                 </Card>
             </div>
@@ -110,10 +165,33 @@ export function SocialDashboard({ appId, appName, accentColor, iconUrl }: Social
                 <CardHeader>
                     <CardTitle>Recent Posts</CardTitle>
                 </CardHeader>
-                <CardContent className="text-center py-10 text-slate-500 text-sm">
-                    No posts found in the last 30 days.
+                <CardContent>
+                    {isLoading ? (
+                        <div className="flex items-center justify-center py-10 text-slate-500">
+                            <Loader2 className="w-5 h-5 animate-spin mr-2" /> Loading...
+                        </div>
+                    ) : data.recentPosts.length > 0 ? (
+                        <div className="space-y-4">
+                            {data.recentPosts.map((post) => (
+                                <div key={post.id} className="p-4 bg-white/5 rounded-lg border border-white/10">
+                                    <p className="text-sm text-white line-clamp-2">{post.content}</p>
+                                    <div className="flex items-center gap-4 mt-2 text-xs text-slate-500">
+                                        <span className="flex items-center gap-1"><Heart className="w-3 h-3" /> {post.likes}</span>
+                                        <span className="flex items-center gap-1"><MessageSquare className="w-3 h-3" /> {post.comments}</span>
+                                        <span className="flex items-center gap-1"><Repeat2 className="w-3 h-3" /> {post.shares}</span>
+                                        <span className="ml-auto">{new Date(post.createdAt).toLocaleDateString()}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="text-center py-10 text-slate-500 text-sm">
+                            No posts found in the last 30 days.
+                        </div>
+                    )}
                 </CardContent>
             </Card>
         </div>
     );
 }
+

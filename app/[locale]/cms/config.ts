@@ -165,11 +165,7 @@ export const CMS_MODULES: CMSModule[] = [
         icon: "Grid",
         label: "Apps & Plugins",
         section: "System",
-        color: "emerald",
-        options: [
-            { label: "App Marketplace", href: (l: string) => `/${l}/cms/apps`, icon: "Grid" },
-            { label: "Connected Apps", href: (l: string) => `/${l}/cms/apps?filter=connected`, icon: "CheckCircle" }
-        ]
+        color: "emerald"
     },
     {
         slug: "security",

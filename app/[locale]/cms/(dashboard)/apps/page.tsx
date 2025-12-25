@@ -442,7 +442,7 @@ const CATEGORIES = [
     { id: "Commerce", label: "Commerce", icon: ShoppingCart },
     { id: "AI & Data", label: "AI & Data", icon: Brain },
     { id: "Social", label: "Social", icon: Share2 },
-    { id: "Web3", label: "Web3", icon: Grid },
+    { id: "Web3", label: "Base/Farcaster", icon: Grid },
     { id: "Utility", label: "Utility", icon: SlidersHorizontal },
     { id: "Security", label: "Security", icon: Shield },
 ];

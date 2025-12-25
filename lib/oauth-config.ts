@@ -64,5 +64,30 @@ export const OAUTH_PROVIDERS: Record<string, OAuthProviderConfig> = {
         tokenUrl: "https://graph.facebook.com/v18.0/oauth/access_token",
         scope: "pages_show_list,pages_read_engagement,pages_manage_posts",
         responseType: "code"
+    },
+    "youtube": {
+        authUrl: "https://accounts.google.com/o/oauth2/v2/auth",
+        tokenUrl: "https://oauth2.googleapis.com/token",
+        scope: "https://www.googleapis.com/auth/youtube.readonly",
+        responseType: "code",
+        extraParams: { access_type: "offline", prompt: "consent" }
+    },
+    "pinterest": {
+        authUrl: "https://www.pinterest.com/oauth/",
+        tokenUrl: "https://api.pinterest.com/v5/oauth/token",
+        scope: "user_accounts:read",
+        responseType: "code"
+    },
+    "tiktok": {
+        authUrl: "https://www.tiktok.com/v2/auth/authorize/",
+        tokenUrl: "https://open.tiktokapis.com/v2/oauth/token/",
+        scope: "user.info.basic",
+        responseType: "code"
+    },
+    "snapchat": {
+        authUrl: "https://accounts.snapchat.com/login/oauth2/authorize",
+        tokenUrl: "https://accounts.snapchat.com/login/oauth2/access_token",
+        scope: "snapchat-marketing-api",
+        responseType: "code"
     }
 };

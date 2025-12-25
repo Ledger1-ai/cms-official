@@ -1,6 +1,6 @@
 "use client";
 
-import { FileText, Briefcase, BookOpen, Globe, Share2, Users, ArrowRight, Activity, Mail, Image as ImageIcon, Settings, Radio, Brain, PenTool, FileInput } from "lucide-react";
+import { Grid, Briefcase, BookOpen, Globe, Share2, Users, ArrowRight, Activity, Mail, Image as ImageIcon, Settings, Radio, Brain, PenTool, FileInput } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { SystemStatusModal } from "@/components/cms/SystemStatusModal";
@@ -31,13 +31,13 @@ export interface DashboardItem {
 
 const items: DashboardItem[] = [
     {
-        slug: "blog",
-        title: "Blog",
-        description: "Manage blog posts",
-        href: "/cms/blog",
-        icon: FileText,
-        gradient: "from-blue-500/20 via-blue-500/5 to-transparent border-blue-500/20 hover:border-blue-500/50",
-        iconColor: "text-blue-400",
+        slug: "dashboard", // Visible to all dashboard users
+        title: "App Marketplace",
+        description: "Browse & install apps",
+        href: "/cms/apps",
+        icon: Grid,
+        gradient: "from-emerald-500/20 via-emerald-500/5 to-transparent border-emerald-500/20 hover:border-emerald-500/50",
+        iconColor: "text-emerald-400",
         type: "link"
     },
     {

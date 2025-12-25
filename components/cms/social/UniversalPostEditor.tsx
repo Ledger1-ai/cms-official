@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -8,11 +8,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
 import { createScheduledPost } from "@/actions/cms/scheduled-posts";
+import { getConnectedSocials } from "@/actions/cms/get-connected-socials";
+import { ConnectedSocialProfile, PLATFORM_TO_PROVIDER_MAP } from "@/lib/social-utils";
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 import {
     Loader2,
     Image as ImageIcon,
@@ -20,7 +28,8 @@ import {
     Calendar as CalendarIcon,
     Sparkles,
     Check,
-    ChevronDown
+    ChevronDown,
+    Link as LinkIcon
 } from "lucide-react";
 import {
     FaXTwitter,
@@ -40,7 +49,7 @@ const PLATFORMS = [
     { id: "facebook", name: "Facebook", icon: FaFacebook, color: "hover:text-blue-600" },
     { id: "instagram", name: "Instagram", icon: FaInstagram, color: "hover:text-pink-500" },
     { id: "youtube", name: "YouTube", icon: FaYoutube, color: "hover:text-red-500" },
-    { id: "web3", name: "Web3 (Base/Farcaster)", icon: null, color: "hover:text-violet-400" }, // Custom Icon logic
+    { id: "web3", name: "Base/Farcaster", icon: null, color: "hover:text-violet-400" }, // Custom Icon logic
 ];
 
 interface UniversalPostEditorProps {
@@ -66,7 +75,44 @@ export function UniversalPostEditor({ onPostSuccess }: UniversalPostEditorProps)
     // Preview
     const [previewPlatform, setPreviewPlatform] = useState("web3");
 
+    // Connected Accounts State
+    const [connectedProfiles, setConnectedProfiles] = useState<ConnectedSocialProfile[]>([]);
+    const [isLoadingConnections, setIsLoadingConnections] = useState(true);
+
+    // Fetch connected accounts on mount
+    useEffect(() => {
+        async function fetchConnections() {
+            try {
+                const profiles = await getConnectedSocials();
+                setConnectedProfiles(profiles);
+            } catch (error) {
+                console.error("Failed to fetch connected socials:", error);
+            } finally {
+                setIsLoadingConnections(false);
+            }
+        }
+        fetchConnections();
+    }, []);
+
+    // Check if a platform is connected
+    const isPlatformConnected = (platformId: string): boolean => {
+        const providerId = PLATFORM_TO_PROVIDER_MAP[platformId];
+        return connectedProfiles.some(p => p.providerId === providerId);
+    };
+
+    // Get profile for a platform
+    const getProfileForPlatform = (platformId: string): ConnectedSocialProfile | undefined => {
+        const providerId = PLATFORM_TO_PROVIDER_MAP[platformId];
+        return connectedProfiles.find(p => p.providerId === providerId);
+    };
+
     const togglePlatform = (id: string) => {
+        // Don't allow selecting unconnected platforms
+        if (!isPlatformConnected(id) && !isLoadingConnections) {
+            toast.error(`Connect ${PLATFORMS.find(p => p.id === id)?.name} in the App Marketplace first`);
+            return;
+        }
+
         setSelectedPlatforms(prev => {
             const next = prev.includes(id)
                 ? prev.filter(p => p !== id)
@@ -203,29 +249,43 @@ export function UniversalPostEditor({ onPostSuccess }: UniversalPostEditorProps)
                         </div>
 
                         {/* Platform Toggles */}
-                        <div className="flex flex-wrap gap-2">
-                            {PLATFORMS.map(p => {
-                                const isSelected = selectedPlatforms.includes(p.id);
-                                const Icon = p.icon;
-                                return (
-                                    <button
-                                        key={p.id}
-                                        onClick={() => togglePlatform(p.id)}
-                                        className={cn(
-                                            "flex items-center gap-2 px-3 py-2 rounded-lg border text-sm font-medium transition-all duration-200",
-                                            isSelected
-                                                ? "bg-white/10 border-white/20 text-white shadow-lg shadow-white/5"
-                                                : "bg-[#111] border-white/5 text-slate-500 hover:bg-white/5",
-                                            isSelected && p.color
-                                        )}
-                                    >
-                                        {Icon ? <Icon className="w-4 h-4" /> : <span className="text-lg leading-none">⚡️</span>}
-                                        {p.name.split(" ")[0]}
-                                        {isSelected && <Check className="w-3 h-3 ml-1" />}
-                                    </button>
-                                );
-                            })}
-                        </div>
+                        <TooltipProvider>
+                            <div className="flex flex-wrap gap-2">
+                                {PLATFORMS.map(p => {
+                                    const isSelected = selectedPlatforms.includes(p.id);
+                                    const isConnected = isPlatformConnected(p.id) || isLoadingConnections;
+                                    const Icon = p.icon;
+                                    return (
+                                        <Tooltip key={p.id}>
+                                            <TooltipTrigger asChild>
+                                                <button
+                                                    onClick={() => togglePlatform(p.id)}
+                                                    disabled={!isConnected && !isLoadingConnections}
+                                                    className={cn(
+                                                        "flex items-center gap-2 px-3 py-2 rounded-lg border text-sm font-medium transition-all duration-200",
+                                                        !isConnected && "opacity-40 cursor-not-allowed grayscale",
+                                                        isSelected && isConnected
+                                                            ? "bg-white/10 border-white/20 text-white shadow-lg shadow-white/5"
+                                                            : "bg-[#111] border-white/5 text-slate-500 hover:bg-white/5",
+                                                        isSelected && isConnected && p.color
+                                                    )}
+                                                >
+                                                    {Icon ? <Icon className="w-4 h-4" /> : <span className="text-lg leading-none">⚡️</span>}
+                                                    {p.name.split(" ")[0]}
+                                                    {isSelected && isConnected && <Check className="w-3 h-3 ml-1" />}
+                                                    {!isConnected && !isLoadingConnections && <LinkIcon className="w-3 h-3 ml-1 text-amber-400" />}
+                                                </button>
+                                            </TooltipTrigger>
+                                            {!isConnected && !isLoadingConnections && (
+                                                <TooltipContent side="bottom" className="bg-black border-white/10 text-white">
+                                                    <p className="text-xs">Connect in App Marketplace →</p>
+                                                </TooltipContent>
+                                            )}
+                                        </Tooltip>
+                                    );
+                                })}
+                            </div>
+                        </TooltipProvider>
                     </div>
 
                     {/* Editor Area */}
@@ -393,8 +453,10 @@ export function UniversalPostEditor({ onPostSuccess }: UniversalPostEditorProps)
 
                 {/* Preview Tabs */}
                 <div className="flex gap-1 bg-[#0A0A0B] p-1 rounded-lg border border-white/10 overflow-x-auto no-scrollbar">
-                    {selectedPlatforms.length === 0 && <span className="text-xs text-slate-500 p-2">Select a platform to preview</span>}
-                    {selectedPlatforms.map(pid => {
+                    {selectedPlatforms.filter(pid => isPlatformConnected(pid)).length === 0 && (
+                        <span className="text-xs text-slate-500 p-2">Connect a platform to preview</span>
+                    )}
+                    {selectedPlatforms.filter(pid => isPlatformConnected(pid)).map(pid => {
                         const p = PLATFORMS.find(x => x.id === pid);
                         if (!p) return null;
                         return (
@@ -418,6 +480,7 @@ export function UniversalPostEditor({ onPostSuccess }: UniversalPostEditorProps)
                         platform={previewPlatform}
                         content={content}
                         attachments={attachments}
+                        profile={getProfileForPlatform(previewPlatform)}
                     />
                 </div>
             </div>
@@ -433,10 +496,22 @@ export function UniversalPostEditor({ onPostSuccess }: UniversalPostEditorProps)
 
 // --- SUB-COMPONENTS for Previews ---
 
-function PreviewCard({ platform, content, attachments }: { platform: string, content: string, attachments: string[] }) {
+interface PreviewCardProps {
+    platform: string;
+    content: string;
+    attachments: string[];
+    profile?: ConnectedSocialProfile;
+}
+
+function PreviewCard({ platform, content, attachments, profile }: PreviewCardProps) {
     if (!platform) return <div className="text-slate-500">No platform selected</div>;
 
     const p = PLATFORMS.find(x => x.id === platform) || PLATFORMS[5]; // Default to Web3 if not found
+
+    // Display values with fallbacks
+    const displayName = profile?.profileName || "Your Name";
+    const displayHandle = profile?.profileHandle || `${platform}_handle`;
+    const displayAvatar = profile?.profileAvatarUrl;
 
     // Generic Wrapper Style
     return (
@@ -444,12 +519,21 @@ function PreviewCard({ platform, content, attachments }: { platform: string, con
             {/* Header Mockup */}
             <div className="p-3 flex items-center gap-2 border-b border-gray-100">
                 <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden relative">
-                    {/* Placeholder Avatar */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-gray-300 to-gray-100" />
+                    {displayAvatar ? (
+                        <Image
+                            src={displayAvatar}
+                            alt="Profile"
+                            fill
+                            className="object-cover"
+                            unoptimized
+                        />
+                    ) : (
+                        <div className="absolute inset-0 bg-gradient-to-tr from-gray-300 to-gray-100" />
+                    )}
                 </div>
                 <div className="flex-1 leading-tight">
-                    <div className="font-bold text-sm">Your Name</div>
-                    <div className="text-xs text-gray-500">@{platform}_handle • now</div>
+                    <div className="font-bold text-sm">{displayName}</div>
+                    <div className="text-xs text-gray-500">@{displayHandle} • now</div>
                 </div>
                 {p.icon && <p.icon className="text-gray-400" />}
             </div>

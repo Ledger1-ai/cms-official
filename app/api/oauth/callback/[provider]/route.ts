@@ -4,6 +4,59 @@ import { authOptions } from "@/lib/auth";
 import { prismadb } from "@/lib/prisma";
 import { OAUTH_PROVIDERS } from "@/lib/oauth-config";
 
+// Profile fetching configuration per provider
+const PROFILE_ENDPOINTS: Record<string, { url: string; extractProfile: (data: any) => { name: string; handle: string; avatar: string } }> = {
+    "x_social": {
+        url: "https://api.twitter.com/2/users/me?user.fields=profile_image_url,username,name",
+        extractProfile: (data: any) => ({
+            name: data.data?.name || "",
+            handle: data.data?.username || "",
+            avatar: data.data?.profile_image_url?.replace("_normal", "_400x400") || ""
+        })
+    },
+    "linkedin": {
+        url: "https://api.linkedin.com/v2/me?projection=(id,localizedFirstName,localizedLastName,profilePicture(displayImage~:playableStreams))",
+        extractProfile: (data: any) => ({
+            name: `${data.localizedFirstName || ""} ${data.localizedLastName || ""}`.trim(),
+            handle: data.id || "",
+            avatar: data.profilePicture?.["displayImage~"]?.elements?.[0]?.identifiers?.[0]?.identifier || ""
+        })
+    },
+    "meta_suite": {
+        url: "https://graph.facebook.com/me?fields=id,name,picture.type(large)",
+        extractProfile: (data: any) => ({
+            name: data.name || "",
+            handle: data.id || "",
+            avatar: data.picture?.data?.url || ""
+        })
+    }
+};
+
+async function fetchUserProfile(provider: string, accessToken: string): Promise<{ name: string; handle: string; avatar: string } | null> {
+    const config = PROFILE_ENDPOINTS[provider];
+    if (!config) return null;
+
+    try {
+        const res = await fetch(config.url, {
+            headers: {
+                "Authorization": `Bearer ${accessToken}`,
+                "Accept": "application/json"
+            }
+        });
+
+        if (!res.ok) {
+            console.warn(`Profile fetch failed for ${provider}:`, await res.text());
+            return null;
+        }
+
+        const data = await res.json();
+        return config.extractProfile(data);
+    } catch (error) {
+        console.error(`Error fetching profile for ${provider}:`, error);
+        return null;
+    }
+}
+
 export async function GET(
     req: NextRequest,
     { params }: { params: Promise<{ provider: string }> }
@@ -100,12 +153,21 @@ export async function GET(
             throw new Error(tokens.error_description || tokens.error || "Token exchange failed");
         }
 
-        // 4. Update Database with Real Tokens
+        // 4. Fetch User Profile (if supported)
+        const profile = await fetchUserProfile(provider, tokens.access_token);
+
+        // 5. Update Database with Real Tokens + Profile
         await prismadb.appConnection.update({
             where: { id: connection.id },
             data: {
                 isActive: true,
                 updatedAt: new Date(),
+                // Store profile metadata
+                ...(profile && {
+                    profileName: profile.name,
+                    profileHandle: profile.handle,
+                    profileAvatarUrl: profile.avatar
+                }),
                 credentials: {
                     ...credentials, // Keep ID/Secret
                     simulated: false, // Ensure we mark as REAL
@@ -118,7 +180,7 @@ export async function GET(
             }
         });
 
-        // 5. Cleanup Cookies & Redirect
+        // 6. Cleanup Cookies & Redirect
         const response = NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}/cms/apps?success=${provider}`);
         response.cookies.delete("oauth_state");
         response.cookies.delete("oauth_verifier");
@@ -130,3 +192,4 @@ export async function GET(
         return NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}/cms/apps?error=authexchange_failed&provider=${provider}`);
     }
 }
+

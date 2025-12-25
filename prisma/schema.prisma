@@ -1181,6 +1181,11 @@ model AppConnection {
   
   config      Json?
   
+  // Social Profile Metadata (populated after OAuth)
+  profileName       String?
+  profileHandle     String?
+  profileAvatarUrl  String?
+  
   isActive    Boolean     @default(true)
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt @db.Date

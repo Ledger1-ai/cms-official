@@ -1,99 +1,69 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Wallet, Split, Box, ArrowUpRight, ArrowDownRight, Zap } from "lucide-react";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { Wallet, ArrowLeftRight, Package, ArrowRight, RefreshCw, Loader2 } from "lucide-react";
+import { useState } from "react";
+import { AppConfigModal } from "@/components/cms/apps/AppConfigModal";
+import { useAppConnection, useAppDashboardData } from "@/hooks/useAppConnection";
+
+interface SurgeData {
+    balance: { total: number; currency: string };
+    splits: { active: number };
+    inventory: { total: number };
+}
 
 export function SurgeDashboard() {
+    const [isConfigOpen, setIsConfigOpen] = useState(false);
+    const { isConnected, isLoading: connectionLoading } = useAppConnection("surge");
+    const { data, isLoading: dataLoading, refetch } = useAppDashboardData<SurgeData>("surge", isConnected);
+
+    if (connectionLoading) {
+        return <div className="flex items-center justify-center h-[60vh]"><Loader2 className="w-8 h-8 animate-spin text-slate-400" /></div>;
+    }
+
+    if (!isConnected) {
+        return (
+            <div className="flex flex-col items-center justify-center h-[60vh] text-center space-y-6 animate-in fade-in duration-700">
+                <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-3xl flex items-center justify-center border border-cyan-500/30">
+                    <Wallet className="w-10 h-10 text-cyan-400" />
+                </div>
+                <div className="max-w-md space-y-2">
+                    <h2 className="text-2xl font-bold text-white">Connect Surge</h2>
+                    <p className="text-slate-400">Link your Surge account for crypto payments, revenue splits, and inventory sync.</p>
+                </div>
+                <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white hover:opacity-90" onClick={() => setIsConfigOpen(true)}>
+                    Connect Wallet <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+                <AppConfigModal isOpen={isConfigOpen} onClose={() => setIsConfigOpen(false)} app={{ id: "surge", name: "Surge", icon: "https://cdn.simpleicons.org/ethereum/627EEA", description: "Crypto commerce.", category: "Commerce", status: "active", connected: false, author: "Surge", rating: 4.8, installs: "100K+", updatedAt: "Just now" }} />
+            </div>
+        );
+    }
+
+    const isLoading = dataLoading || !data;
+
     return (
         <div className="space-y-6">
-            {/* Header Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <Card className="bg-black border-white/10 text-white col-span-2">
-                    <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-medium text-slate-400">Total Balance (Est. USD)</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-4xl font-bold font-mono tracking-tight">$0.00</div>
-                        <div className="flex gap-4 mt-4">
-                            <Button size="sm" className="bg-[#00FFA3] text-black hover:bg-[#00FFA3]/80">
-                                <ArrowDownRight className="w-4 h-4 mr-2" />
-                                Withdraw
-                            </Button>
-                            <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                                <ArrowUpRight className="w-4 h-4 mr-2" />
-                                Deposit
-                            </Button>
-                        </div>
-                    </CardContent>
+            <div className="flex items-center justify-between">
+                <div><h2 className="text-2xl font-bold text-white">Crypto Commerce</h2><p className="text-slate-400">Payments, splits, and inventory</p></div>
+                <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white hover:opacity-90" onClick={() => refetch()}>
+                    <RefreshCw className={`w-4 h-4 mr-2 ${dataLoading ? 'animate-spin' : ''}`} /> Sync
+                </Button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <Card className="bg-[#1A1B1E] border-white/10 text-white">
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2"><CardTitle className="text-sm font-medium text-slate-400">Total Balance</CardTitle><Wallet className="h-4 w-4 text-slate-400" /></CardHeader>
+                    <CardContent><div className="text-2xl font-bold">{isLoading ? "--" : `$${data.balance?.total?.toLocaleString() || 0}`}</div></CardContent>
                 </Card>
-
-                <Card className="bg-black border-white/10 text-white">
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium text-slate-400">Active Splits</CardTitle>
-                        <Split className="h-4 w-4 text-[#00FFA3]" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">--</div>
-                        <p className="text-xs text-slate-500 mt-1">No active contracts</p>
-                    </CardContent>
+                <Card className="bg-[#1A1B1E] border-white/10 text-white">
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2"><CardTitle className="text-sm font-medium text-slate-400">Active Splits</CardTitle><ArrowLeftRight className="h-4 w-4 text-slate-400" /></CardHeader>
+                    <CardContent><div className="text-2xl font-bold">{isLoading ? "--" : data.splits?.active || 0}</div></CardContent>
                 </Card>
-
-                <Card className="bg-black border-white/10 text-white">
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium text-slate-400">Inventory Items</CardTitle>
-                        <Box className="h-4 w-4 text-[#00FFA3]" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">--</div>
-                        <p className="text-xs text-slate-500 mt-1">Syncing...</p>
-                    </CardContent>
+                <Card className="bg-[#1A1B1E] border-white/10 text-white">
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2"><CardTitle className="text-sm font-medium text-slate-400">Inventory Items</CardTitle><Package className="h-4 w-4 text-slate-400" /></CardHeader>
+                    <CardContent><div className="text-2xl font-bold">{isLoading ? "--" : data.inventory?.total || 0}</div></CardContent>
                 </Card>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Asset Allocation Chart */}
-                <Card className="bg-black border-white/10 text-white col-span-1">
-                    <CardHeader>
-                        <CardTitle>Asset Allocation</CardTitle>
-                    </CardHeader>
-                    <CardContent className="h-[250px] flex items-center justify-center text-slate-500 text-sm">
-                        No assets found
-                    </CardContent>
-                </Card>
-
-                {/* Recent Activity */}
-                <Card className="bg-black border-white/10 text-white col-span-2">
-                    <CardHeader className="flex flex-row items-center justify-between">
-                        <CardTitle>Activity Ledger</CardTitle>
-                        <Button variant="ghost" size="sm" className="text-[#00FFA3] hover:text-[#00FFA3]/80 hover:bg-transparent">
-                            View All
-                        </Button>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="flex flex-col items-center justify-center py-10 text-slate-500 text-sm border border-dashed border-white/10 rounded-xl">
-                            No recent transactions
-                        </div>
-                    </CardContent>
-                </Card>
-            </div>
-
-            {/* Split Contract Preview */}
-            <Card className="bg-black border-white/10 text-white">
-                <CardHeader>
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <Split className="w-5 h-5 text-[#00FFA3]" />
-                            <CardTitle>Active Splits</CardTitle>
-                        </div>
-                        <Button variant="outline" size="sm">Manage Contracts</Button>
-                    </div>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-sm text-slate-500">No split contracts configured.</p>
-                </CardContent>
-            </Card>
         </div>
     );
 }
