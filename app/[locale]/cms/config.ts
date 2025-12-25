@@ -30,6 +30,7 @@ export const CMS_MODULES: CMSModule[] = [
             { label: "Categories", href: (l: string) => `/${l}/cms/blog/categories`, icon: "Tags" }
         ]
     },
+
     {
         slug: "careers",
         href: (l: string) => `/${l}/cms/careers`,
@@ -97,6 +98,18 @@ export const CMS_MODULES: CMSModule[] = [
         ]
     },
     {
+        slug: "coupons",
+        href: (l: string) => `/${l}/cms/coupons`,
+        icon: "Ticket",
+        label: "Coupons",
+        section: "Content",
+        color: "amber",
+        options: [
+            { label: "All Coupons", href: (l: string) => `/${l}/cms/coupons`, icon: "List" },
+            { label: "Create New", href: (l: string) => `/${l}/cms/coupons?action=new`, icon: "PlusCircle" }
+        ]
+    },
+    {
         slug: "subscriptions",
         href: (l: string) => `/${l}/cms/subscriptions`,
         icon: "DollarSign",
@@ -133,6 +146,18 @@ export const CMS_MODULES: CMSModule[] = [
         hidden: true
     },
     {
+        slug: "broadcast",
+        href: (l: string) => `/${l}/cms/apps?tab=broadcast`,
+        icon: "Radio",
+        label: "Broadcast Studio",
+        section: "Content",
+        color: "indigo",
+        options: [
+            { label: "Studio", href: (l: string) => `/${l}/cms/apps?tab=broadcast`, icon: "Radio" },
+            { label: "Calendar", href: (l: string) => `/${l}/cms/apps?tab=broadcast&view=calendar`, icon: "Calendar" }
+        ]
+    },
+    {
         slug: "apps",
         href: (l: string) => `/${l}/cms/apps`,
         icon: "Grid",
@@ -140,22 +165,31 @@ export const CMS_MODULES: CMSModule[] = [
         section: "System",
         color: "emerald",
         options: [
-            { label: "E-Commerce", href: (l: string) => `/${l}/cms/apps?tab=ecommerce`, icon: "ShoppingCart" },
-            { label: "Base Broadcast", href: (l: string) => `/${l}/cms/apps?tab=broadcast`, icon: "Radio" },
-            { label: "Publishing", href: (l: string) => `/${l}/cms/apps?tab=publishing`, icon: "PenTool" },
-            { label: "Utility", href: (l: string) => `/${l}/cms/apps?tab=utility`, icon: "Wrench" }
+            { label: "App Marketplace", href: (l: string) => `/${l}/cms/apps`, icon: "Grid" },
+            { label: "Connected Apps", href: (l: string) => `/${l}/cms/apps?filter=connected`, icon: "CheckCircle" }
+        ]
+    },
+    {
+        slug: "security",
+        href: (l: string) => `/${l}/cms/apps?category=security`,
+        icon: "ShieldCheck",
+        label: "Security & Firewall",
+        section: "System",
+        color: "slate",
+        options: [
+            { label: "Cloudflare", href: (l: string) => `/${l}/cms/apps/cloudflare`, icon: "Cloud" },
+            { label: "Wordfence", href: (l: string) => `/${l}/cms/apps/wordfence`, icon: "Shield" }
         ]
     },
     {
         slug: "integrations",
         href: (l: string) => `/${l}/cms/oauth`,
         icon: "Shield",
-        label: "Integrations",
+        label: "AI Integrations",
         section: "System",
         color: "red",
         options: [
-            { label: "AI Models", href: (l: string) => `/${l}/cms/oauth?tab=ai`, icon: "Brain" },
-            { label: "Social", href: (l: string) => `/${l}/cms/oauth?tab=social`, icon: "Share2" },
+            { label: "AI Models BYOK", href: (l: string) => `/${l}/cms/oauth?tab=ai`, icon: "Brain" },
             { label: "System Config", href: (l: string) => `/${l}/cms/oauth?tab=system`, icon: "Settings" }
         ]
     },

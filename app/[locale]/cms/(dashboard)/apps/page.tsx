@@ -1,466 +1,728 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import NextImage from "next/image";
-import { toast } from "sonner";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { useRouter, useSearchParams } from "next/navigation";
-import { Loader2, CheckCircle, ShieldCheck, ShoppingCart, Globe, Wrench, Share2 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useSession } from "next-auth/react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { AppConnectModal } from "@/components/cms/AppConnectModal";
-import { BasePostEditor } from "@/components/cms/apps/BasePostEditor";
-import { BasePostHistory } from "@/components/cms/apps/BasePostHistory";
-import { AppDisconnectModal } from "@/components/cms/AppDisconnectModal";
-import { BroadcastConnectModal } from "@/components/cms/BroadcastConnectModal";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Radio } from "lucide-react";
+import { Search, ShoppingCart, Rocket, Shield, Brain, Sparkles, Filter, SlidersHorizontal, Grid, Radio, Share2 } from "lucide-react";
+import { AppMarketplaceItem, AppItem } from "@/components/cms/apps/AppMarketplaceItem";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { UniversalPostEditor } from "@/components/cms/social/UniversalPostEditor";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import useEmblaCarousel from "embla-carousel-react";
+// @ts-ignore
+import Autoplay from "embla-carousel-autoplay";
+import { AppConfigModal } from "@/components/cms/apps/AppConfigModal";
+import { AppDisconnectModal } from "@/components/cms/apps/AppDisconnectModal";
 
-interface AppIntegration {
-    id: string;
-    providerId: string;
-    category: "ECOMMERCE" | "PUBLISHING" | "UTILITY";
-    name: string;
-    icon: string;
-    description: string;
-    status: "active" | "coming_soon";
-    connected: boolean;
-    config?: any;
-}
+// Mock Data
+const MOCK_APPS: AppItem[] = [
+    {
+        id: "surge",
+        name: "Surge",
+        description: "The preferred payment solution for your CMS. Accept crypto and fiat with instant reconciliation.",
+        icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/ethereum-eth-icon.png", // Using ETH icon as placeholder for Surge
+        author: "BasaltHQ",
+        rating: 5.0,
+        installs: "10k+ Merchants", // Custom Label Logic needed or just string
+        status: "active",
+        connected: false,
+        category: "Commerce",
+        updatedAt: "Just now"
+    },
+    {
+        id: "shopify",
+        name: "Shopify",
+        description: "Seamlessly sync products requiring e-commerce functionality directly from your Shopify store.",
+        icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/shopify-icon.png",
+        author: "Shopify Inc.",
+        rating: 4.8,
+        installs: "2M+",
+        status: "active",
+        connected: false,
+        category: "Commerce",
+        updatedAt: "2 days ago"
+    },
+    {
+        id: "woocommerce",
+        name: "WooCommerce",
+        description: "The most popular e-commerce platform for WordPress. Sync products and orders.",
+        icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/woocommerce-icon.png",
+        author: "Automattic",
+        rating: 4.5,
+        installs: "5M+",
+        status: "active",
+        connected: false,
+        category: "Commerce",
+        updatedAt: "1 week ago"
+    },
+    {
+        id: "wordpress",
+        name: "WordPress Publisher",
+        description: "Publish your CMS content directly to any WordPress site via XML-RPC or REST API.",
+        icon: "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
+        author: "CMS Core",
+        rating: 4.9,
+        installs: "10k+",
+        status: "active",
+        connected: true,
+        category: "Marketing",
+        updatedAt: "Yesterday"
+    },
+    {
+        id: "yoast",
+        name: "Yoast SEO",
+        description: "Improve your site's SEO with advanced analysis and tools.",
+        icon: "https://avatars.githubusercontent.com/u/4690436?v=4",
+        author: "Team Yoast",
+        rating: 4.7,
+        installs: "1M+",
+        status: "coming_soon",
+        connected: false,
+        category: "Marketing",
+        updatedAt: "Coming Soon"
+    },
+    {
+        id: "hubspot",
+        name: "HubSpot CRM",
+        description: "Sync contacts and forms directly to your HubSpot CRM.",
+        icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/hubspot-icon.png",
+        author: "HubSpot",
+        rating: 4.6,
+        installs: "800k+",
+        status: "active",
+        connected: false,
+        category: "Marketing",
+        updatedAt: "1 day ago"
+    },
+    {
+        id: "slack",
+        name: "Slack Notifications",
+        description: "Get notified in Slack when new content is published or forms are submitted.",
+        icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/slack-icon.png",
+        author: "Slack",
+        rating: 4.9,
+        installs: "2M+",
+        status: "active",
+        connected: false,
+        category: "Utility",
+        updatedAt: "Just now"
+    },
+    {
+        id: "google-analytics",
+        name: "Google Analytics 4",
+        description: "Deep integration with GA4 for content performance metrics.",
+        icon: "https://cdn.simpleicons.org/googleanalytics/E37400",
+        author: "Google",
+        rating: 4.5,
+        installs: "10M+",
+        status: "active",
+        connected: false,
+        category: "AI & Data",
+        updatedAt: "1 week ago"
+    },
+    {
+        id: "algolia",
+        name: "Algolia Search",
+        description: "Superfast, relevant search for your CMS content.",
+        icon: "https://cdn.simpleicons.org/algolia/003DFF",
+        author: "Algolia",
+        rating: 4.8,
+        installs: "50k+",
+        status: "coming_soon",
+        connected: false,
+        category: "Utility",
+        updatedAt: "Coming Soon"
+    },
+    {
+        id: "intercom",
+        name: "Intercom Messenger",
+        description: "Add the Intercom messenger to your site with one click.",
+        icon: "https://cdn.simpleicons.org/intercom/000000",
+        author: "Intercom",
+        rating: 4.7,
+        installs: "300k+",
+        status: "active",
+        connected: false,
+        category: "Marketing",
+        updatedAt: "3 days ago"
+    },
+    {
+        id: "zapier",
+        name: "Zapier Automation",
+        description: "Connect your CMS to 5,000+ apps. Automate workflows when content is published.",
+        icon: "https://cdn.simpleicons.org/zapier/FF4F00",
+        author: "Zapier",
+        rating: 4.8,
+        installs: "500k+",
+        status: "active",
+        connected: false,
+        category: "Utility",
+        updatedAt: "3 days ago"
+    },
+    {
+        id: "mailchimp",
+        name: "Mailchimp",
+        description: "Send newsletters and manage subscribers directly from your dashboard.",
+        icon: "https://cdn.simpleicons.org/mailchimp/FFE01B",
+        author: "Intuit",
+        rating: 4.4,
+        installs: "800k+",
+        status: "coming_soon",
+        connected: false,
+        category: "Marketing",
+        updatedAt: "Coming Soon"
+    },
+    {
+        id: "stripe",
+        name: "Stripe Payments",
+        description: "Accept payments securely with the global standard for online payments.",
+        icon: "https://cdn.simpleicons.org/stripe/635BFF",
+        author: "Stripe",
+        rating: 4.9,
+        installs: "3M+",
+        status: "active",
+        connected: false,
+        category: "Commerce",
+        updatedAt: "1 day ago"
+    },
+    {
+        id: "openai",
+        name: "Nano Banana AI",
+        description: "Draft content, generate images, and optimize SEO with our proprietary AI model.",
+        icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/chatgpt-icon.png",
+        author: "Ledger1 AI",
+        rating: 5.0,
+        installs: "Internal",
+        status: "active",
+        connected: true,
+        category: "AI & Data",
+        updatedAt: "Hourly"
+    },
+    {
+        id: "x_social",
+        name: "X (Twitter)",
+        description: "Auto-post updates and analyze social sentiment.",
+        icon: "https://cdn.simpleicons.org/x/white",
+        author: "X Corp",
+        rating: 4.2,
+        installs: "10M+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Daily"
+    },
+    {
+        id: "linkedin",
+        name: "LinkedIn",
+        description: "Professional network publishing and analytics.",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg",
+        author: "Microsoft",
+        rating: 4.6,
+        installs: "5M+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Weekly"
+    },
+    {
+        id: "meta_suite",
+        name: "Meta Suite",
+        description: "Instagram and Facebook cross-posting and management.",
+        icon: "https://cdn.simpleicons.org/meta/0081FB",
+        author: "Meta",
+        rating: 4.3,
+        installs: "15M+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Daily"
+    },
+    {
+        id: "youtube",
+        name: "YouTube",
+        description: "Video hosting, streaming, and community engagement.",
+        icon: "https://cdn.simpleicons.org/youtube/white",
+        author: "Google",
+        rating: 4.8,
+        installs: "2B+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Daily"
+    },
+    {
+        id: "reddit",
+        name: "Reddit",
+        description: "Dive into anything. Community discussions and threads.",
+        icon: "https://cdn.simpleicons.org/reddit/FF4500",
+        author: "Reddit Inc.",
+        rating: 4.5,
+        installs: "500M+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Hourly"
+    },
+    {
+        id: "discord",
+        name: "Discord",
+        description: "Chat, voice, and video for communities and friends.",
+        icon: "https://cdn.simpleicons.org/discord/5865F2",
+        author: "Discord Inc.",
+        rating: 4.7,
+        installs: "300M+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Now"
+    },
+    {
+        id: "tiktok",
+        name: "TikTok",
+        description: "Short-form mobile video. Trends start here.",
+        icon: "https://cdn.simpleicons.org/tiktok/white",
+        author: "ByteDance",
+        rating: 4.9,
+        installs: "1B+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Daily"
+    },
+    {
+        id: "pinterest",
+        name: "Pinterest",
+        description: "Visual discovery engine for finding ideas like recipes and style.",
+        icon: "https://cdn.simpleicons.org/pinterest/E60023",
+        author: "Pinterest",
+        rating: 4.6,
+        installs: "400M+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Weekly"
+    },
+    {
+        id: "twitch",
+        name: "Twitch",
+        description: "Live streaming platform for gamers and creators.",
+        icon: "https://cdn.simpleicons.org/twitch/9146FF",
+        author: "Amazon",
+        rating: 4.4,
+        installs: "100M+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Live"
+    },
+    {
+        id: "telegram",
+        name: "Telegram",
+        description: "Pure instant messaging — simple, fast, secure, and synced.",
+        icon: "https://cdn.simpleicons.org/telegram/26A5E4",
+        author: "Telegram FZ-LLC",
+        rating: 4.7,
+        installs: "700M+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Now"
+    },
+    {
+        id: "snapchat",
+        name: "Snapchat",
+        description: "Share the moment with friends and family.",
+        icon: "https://cdn.simpleicons.org/snapchat/FFFC00",
+        author: "Snap Inc.",
+        rating: 4.5,
+        installs: "500M+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Daily"
+    },
+    {
+        id: "threads",
+        name: "Threads",
+        description: "Say more with Threads — Instagram’s text-based conversation app.",
+        icon: "https://cdn.simpleicons.org/threads/white",
+        author: "Meta",
+        rating: 4.1,
+        installs: "100M+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Hourly"
+    },
+    {
+        id: "whatsapp_business",
+        name: "WhatsApp",
+        description: "Connect with your customers on their favorite messaging app.",
+        icon: "https://cdn.simpleicons.org/whatsapp/25D366",
+        author: "Meta",
+        rating: 4.8,
+        installs: "2B+",
+        status: "active",
+        connected: false,
+        category: "Social",
+        updatedAt: "Now"
+    },
+    {
+        id: "farcaster",
+        name: "Farcaster",
+        description: "Sufficiently decentralized social network. Sync your casts.",
+        icon: "https://github.com/farcasterxyz.png",
+        author: "Merkle Manufactory",
+        rating: 4.9,
+        installs: "150k+",
+        status: "active",
+        connected: true,
+        category: "Web3",
+        updatedAt: "Hourly"
+    },
+    {
+        id: "zora",
+        name: "Zora",
+        description: "Mint and collect on the Zora network. Universal media registry.",
+        icon: "https://avatars.githubusercontent.com/u/60056322?s=200&v=4",
+        author: "Zora",
+        rating: 4.8,
+        installs: "50k+",
+        status: "active",
+        connected: false,
+        category: "Web3",
+        updatedAt: "Daily"
+    },
+    {
+        id: "base_app",
+        name: "Base App",
+        description: "On-chain capabilities powered by Base, secured by Ethereum.",
+        icon: "https://avatars.githubusercontent.com/u/108554348?s=200&v=4",
+        author: "Coinbase",
+        rating: 5.0,
+        installs: "1M+",
+        status: "active",
+        connected: true,
+        category: "Web3",
+        updatedAt: "Now"
+    },
+    {
+        id: "wordfence",
+        name: "Wordfence Security",
+        description: "Firewall and malware scanner specially built for your CMS.",
+        icon: "https://ps.w.org/wordfence/assets/icon-256x256.png",
+        author: "Defiant",
+        rating: 4.8,
+        installs: "4M+",
+        status: "active",
+        connected: false,
+        category: "Security",
+        updatedAt: "2 days ago"
+    },
+    {
+        id: "cloudflare",
+        name: "Cloudflare",
+        description: "Global CDN, DDoS protection, and security suite.",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Cloudflare_Logo.svg",
+        author: "Cloudflare",
+        rating: 4.9,
+        installs: "10M+",
+        status: "active",
+        connected: false,
+        category: "Security",
+        updatedAt: "Active"
+    }
+];
+
+const CATEGORIES = [
+    { id: "all", label: "All Apps", icon: Sparkles },
+    { id: "Marketing", label: "Marketing", icon: Rocket },
+    { id: "Commerce", label: "Commerce", icon: ShoppingCart },
+    { id: "AI & Data", label: "AI & Data", icon: Brain },
+    { id: "Social", label: "Social", icon: Share2 },
+    { id: "Web3", label: "Web3", icon: Grid },
+    { id: "Utility", label: "Utility", icon: SlidersHorizontal },
+    { id: "Security", label: "Security", icon: Shield },
+];
 
 export default function AppsPage() {
-    const { data: session } = useSession();
-    const router = useRouter();
     const searchParams = useSearchParams();
-    const [activeTab, setActiveTab] = useState("ecommerce");
+    const router = useRouter();
+    // Use tab param to control view: "store" | "broadcast"
+    const currentTab = searchParams.get("tab") === "broadcast" ? "broadcast" : "store";
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedApp, setSelectedApp] = useState<AppIntegration | null>(null);
-    const [refreshTrigger, setRefreshTrigger] = useState(0);
+    // Initialize state with MOCK_APPS to allow local mutations (disconnecting)
+    const [apps, setApps] = useState<AppItem[]>(MOCK_APPS);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("all");
 
-    // Broadcast Settings State
-    const [broadcastConnectOpen, setBroadcastConnectOpen] = useState(false);
-    const [baseConfig, setBaseConfig] = useState({
-        neynarApiKey: "",
-        signerUuid: "",
-        zoraPrivateKey: ""
+    // Modal States
+    const [selectedApp, setSelectedApp] = useState<AppItem | null>(null); // For Config
+    const [isConfigOpen, setIsConfigOpen] = useState(false);
+
+    const [disconnectApp, setDisconnectApp] = useState<AppItem | null>(null); // For Disconnect
+    const [isDisconnectOpen, setIsDisconnectOpen] = useState(false);
+
+    // Filter Logic
+    const filteredApps = apps.filter(app => {
+        const matchesSearch = app.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            app.description.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCategory = selectedCategory === "all" || app.category === selectedCategory;
+        return matchesSearch && matchesCategory;
     });
 
-    const isBroadcastConnected = !!(baseConfig.neynarApiKey && baseConfig.signerUuid);
-
-    useEffect(() => {
-        // Check for tab param
-        const tab = searchParams.get("tab");
-        if (tab) setActiveTab(tab);
-        else setActiveTab("broadcast"); // Default to broadcast
-
-        // Fetch existing keys for placeholder/check
-        fetch("/api/social").then(res => res.json()).then(data => {
-            setBaseConfig({
-                neynarApiKey: data.neynarApiKey || data.baseApiKey || "",
-                signerUuid: data.baseSignerUuid || "",
-                zoraPrivateKey: data.zoraPrivateKey || ""
-            });
-        });
-    }, [searchParams]);
-
-
-
-    const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-
-    const [apps, setApps] = useState<AppIntegration[]>([
-        {
-            id: "shopify",
-            providerId: "shopify",
-            category: "ECOMMERCE",
-            name: "Shopify",
-            icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/shopify-icon.png",
-            description: "Sync your store products, blogs, and pages effortlessly.",
-            status: "active",
-            connected: false,
-        },
-        {
-            id: "woocommerce",
-            providerId: "woocommerce",
-            category: "ECOMMERCE",
-            name: "WooCommerce",
-            icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/woocommerce-icon.png",
-            description: "Connect your WordPress store via REST API.",
-            status: "active",
-            connected: false,
-        },
-        {
-            id: "bigcommerce",
-            providerId: "bigcommerce",
-            category: "ECOMMERCE",
-            name: "BigCommerce",
-            icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/bigcommerce-icon.png",
-            description: "Enterprise e-commerce logic and content sync.",
-            status: "active",
-            connected: false,
-        },
-        // Publishing
-        {
-            id: "wordpress",
-            providerId: "wordpress",
-            category: "PUBLISHING",
-            name: "WordPress",
-            icon: "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
-            description: "Publish articles to self-hosted WordPress sites.",
-            status: "active",
-            connected: false,
-        },
-        {
-            id: "medium",
-            providerId: "medium",
-            category: "PUBLISHING",
-            name: "Medium",
-            icon: "https://cdn.simpleicons.org/medium/000000",
-            description: "Syndicate your best content to Medium's network.",
-            status: "active",
-            connected: false,
-        },
-        // Utility
-        {
-            id: "zapier",
-            providerId: "zapier",
-            category: "UTILITY",
-            name: "Zapier",
-            icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/zapier-icon.png",
-            description: "Trigger automations when content is published.",
-            status: "active",
-            connected: false,
-        },
-    ]);
-
-    useEffect(() => {
-        const fetchConnections = async () => {
-            try {
-                const res = await fetch("/api/cms/apps/connections");
-                if (res.ok) {
-                    const data = await res.json();
-                    const connectedMap = new Set(data.connections.map((c: any) => c.providerId));
-
-                    setApps(prev => prev.map(app => ({
-                        ...app,
-                        connected: connectedMap.has(app.providerId)
-                    })));
-                }
-            } catch (error) {
-                console.error("Failed to fetch app connections", error);
-            }
-        };
-
-        fetchConnections();
-    }, [refreshTrigger]);
-
-    const handleConfigure = (app: AppIntegration) => {
-        setSelectedApp(app);
-        setIsModalOpen(true);
+    const handleTabChange = (val: string) => {
+        const params = new URLSearchParams(searchParams.toString());
+        if (val === "store") {
+            params.delete("tab");
+        } else {
+            params.set("tab", val);
+        }
+        router.push(`?${params.toString()}`, { scroll: false });
     };
 
-    // Disconnect Logic
-    const [isDisconnectModalOpen, setIsDisconnectModalOpen] = useState(false);
-    const [appToDisconnect, setAppToDisconnect] = useState<AppIntegration | null>(null);
-
-    const handleDisconnectRequest = (app: AppIntegration) => {
-        setAppToDisconnect(app);
-        setIsDisconnectModalOpen(true);
-    };
-
-    const tabDetails: Record<string, { title: string; description: string; gradient: string }> = {
-        broadcast: {
-            title: "Broadcast Command Center",
-            description: "Publish updates to Farcaster, Base, and other social networks directly from your CMS.",
-            gradient: "from-blue-400 via-blue-300 to-cyan-300"
-        },
-        ecommerce: {
-            title: "E-Commerce Integrations",
-            description: "Connect your store to sync products, manage inventory, and process orders centrally.",
-            gradient: "from-emerald-400 via-green-300 to-lime-300"
-        },
-        publishing: {
-            title: "Content Publishing",
-            description: "Syndicate your content to external platforms like WordPress and Medium.",
-            gradient: "from-amber-200 via-orange-300 to-rose-400"
-        },
-        utility: {
-            title: "Utility & Automation",
-            description: "Enhance your workflow with automation tools, analytics, and infrastructure connections.",
-            gradient: "from-violet-400 via-purple-300 to-fuchsia-300"
+    const handleConfigure = (id: string) => {
+        const app = apps.find(a => a.id === id);
+        if (app) {
+            setSelectedApp(app);
+            setIsConfigOpen(true);
         }
     };
 
-    const currentTab = tabDetails[activeTab] || tabDetails.ecommerce;
+    const handleDisconnectRequest = (id: string) => {
+        const app = apps.find(a => a.id === id);
+        if (app) {
+            setDisconnectApp(app);
+            setIsDisconnectOpen(true);
+        }
+    };
+
+    const confirmDisconnect = () => {
+        if (disconnectApp) {
+            setApps(prev => prev.map(a => a.id === disconnectApp.id ? { ...a, connected: false } : a));
+            setIsDisconnectOpen(false);
+            setDisconnectApp(null);
+        }
+    };
 
     return (
         <div className="p-4 md:p-8 max-w-7xl mx-auto space-y-8">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div className="space-y-2">
-                    <h1 className={cn(
-                        "text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r",
-                        currentTab.gradient
-                    )}>
-                        {currentTab.title}
-                    </h1>
-                    <p className="text-slate-400 max-w-2xl">
-                        {currentTab.description}
-                    </p>
-                </div>
-
-                {/* View Toggle */}
-                {activeTab !== "broadcast" && (
-                    <div className="flex bg-slate-900 border border-white/10 rounded-lg p-1">
-                        <button
-                            onClick={() => setViewMode("grid")}
-                            className={cn(
-                                "p-2 rounded-md transition-all",
-                                viewMode === "grid" ? "bg-white/10 text-white" : "text-slate-500 hover:text-slate-300"
-                            )}
-                        >
-                            <div className="grid grid-cols-2 gap-0.5 w-4 h-4">
-                                <div className="bg-current rounded-[1px]" />
-                                <div className="bg-current rounded-[1px]" />
-                                <div className="bg-current rounded-[1px]" />
-                                <div className="bg-current rounded-[1px]" />
-                            </div>
-                        </button>
-                        <button
-                            onClick={() => setViewMode("list")}
-                            className={cn(
-                                "p-2 rounded-md transition-all",
-                                viewMode === "list" ? "bg-white/10 text-white" : "text-slate-500 hover:text-slate-300"
-                            )}
-                        >
-                            <div className="flex flex-col gap-0.5 w-4 h-4 justify-center">
-                                <div className="bg-current h-0.5 w-full rounded-full" />
-                                <div className="bg-current h-0.5 w-full rounded-full" />
-                                <div className="bg-current h-0.5 w-full rounded-full" />
-                            </div>
-                        </button>
-                    </div>
-                )}
-            </div>
-
-            <Tabs value={activeTab} className="w-full" onValueChange={setActiveTab}>
-                <TabsList className="inline-flex h-auto bg-[#0A0A0B] border border-white/10 rounded-lg p-1 flex-wrap gap-1 mb-8">
-                    <TabsTrigger
-                        value="broadcast"
-                        className="px-2 sm:px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-sm"
-                    >
-                        <Radio className="w-3.5 h-3.5 hidden sm:block" />
-                        Broadcast
-                    </TabsTrigger>
-                    <TabsTrigger
-                        value="ecommerce"
-                        className="px-2 sm:px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-sm"
-                    >
-                        <ShoppingCart className="w-3.5 h-3.5 hidden sm:block" />
-                        E-Commerce
-                    </TabsTrigger>
-                    <TabsTrigger
-                        value="publishing"
-                        className="px-2 sm:px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-sm"
-                    >
-                        <Globe className="w-3.5 h-3.5 hidden sm:block" />
-                        Publishing
-                    </TabsTrigger>
-                    <TabsTrigger
-                        value="utility"
-                        className="px-2 sm:px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-sm"
-                    >
-                        <Wrench className="w-3.5 h-3.5 hidden sm:block" />
-                        Utility
-                    </TabsTrigger>
-                </TabsList>
-
-                <div className="mt-8">
-                    <TabsContent value="broadcast" className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        {!isBroadcastConnected ? (
-                            <div className="flex flex-col items-center justify-center py-20 bg-[#0A0A0B]/50 border border-white/5 rounded-2xl text-center">
-                                <div className="w-20 h-20 bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
-                                    <Radio className="w-10 h-10 text-blue-400" />
-                                </div>
-                                <h3 className="text-2xl font-bold text-white mb-2">Connect Broadcast Hub</h3>
-                                <p className="text-slate-400 max-w-md mb-8">
-                                    Connect your Farcaster, Base, and Zora accounts to start broadcasting updates directly from your CMS.
-                                </p>
-                                <Button
-                                    onClick={() => setBroadcastConnectOpen(true)}
-                                    size="lg"
-                                    className="bg-blue-600 hover:bg-blue-500 text-white rounded-full px-8 text-base shadow-lg shadow-blue-500/20"
-                                >
-                                    <span className="w-2 h-2 rounded-full bg-white mr-2 animate-pulse" />
-                                    Connect Services
-                                </Button>
-                            </div>
-                        ) : (
-                            <>
-                                <div className="flex justify-end mb-4">
-                                    <Button
-                                        variant="outline"
-                                        onClick={() => setBroadcastConnectOpen(true)}
-                                        className="border-white/10 hover:bg-white/5 text-xs h-8"
-                                    >
-                                        <Wrench className="w-3 h-3 mr-2" />
-                                        Manage Keys
-                                    </Button>
-                                </div>
-
-                                <BasePostEditor onPostSuccess={() => setRefreshTrigger(prev => prev + 1)} />
-
-                                <div className="pt-8 border-t border-white/5">
-                                    <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-200 to-slate-400 mb-6">
-                                        Broadcast History
-                                    </h3>
-                                    <BasePostHistory refreshTrigger={refreshTrigger} />
-                                </div>
-                            </>
-                        )}
-                    </TabsContent>
-                    {["ecommerce", "publishing", "utility"].map((tab) => (
-                        <TabsContent key={tab} value={tab} className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                            <div className={cn(
-                                "grid gap-6",
-                                viewMode === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"
-                            )}>
-                                {apps.filter(app => app.category.toLowerCase() === tab).map((app) => (
-                                    <AppCard
-                                        key={app.id}
-                                        app={app}
-                                        viewMode={viewMode}
-                                        onConfigure={() => handleConfigure(app)}
-                                        onDisconnect={() => handleDisconnectRequest(app)}
-                                    />
-                                ))}
-                            </div>
-                        </TabsContent>
-                    ))}
-                </div>
-            </Tabs>
-
-            <BroadcastConnectModal
-                isOpen={broadcastConnectOpen}
-                onClose={() => setBroadcastConnectOpen(false)}
-                onSuccess={() => setRefreshTrigger(prev => prev + 1)}
-                initialConfig={baseConfig}
+            <AppConfigModal
+                isOpen={isConfigOpen}
+                onClose={() => setIsConfigOpen(false)}
+                app={selectedApp}
             />
 
-            <div className="bg-slate-900/30 p-4 border border-white/5 rounded-lg text-center mt-12">
-                <p className="text-xs text-slate-500 flex items-center justify-center gap-1.5">
-                    <ShieldCheck className="h-3 w-3" />
-                    All connections are encrypted with 256-bit AES protection.
-                </p>
+            <AppDisconnectModal
+                isOpen={isDisconnectOpen}
+                onClose={() => setIsDisconnectOpen(false)}
+                onConfirm={confirmDisconnect}
+                app={disconnectApp}
+            />
+
+            {/* VIEW TOGGLE */}
+            <div className="flex justify-center mb-8">
+                <div className="bg-[#0A0A0B] p-1 rounded-xl border border-white/10 inline-flex shadow-lg backdrop-blur-md">
+                    <button
+                        onClick={() => handleTabChange("store")}
+                        className={cn(
+                            "flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300",
+                            currentTab === "store"
+                                ? "bg-[#1C1C1E] text-white shadow-xl translate-y-[-1px] border border-white/5"
+                                : "text-slate-400 hover:text-white hover:bg-white/5"
+                        )}
+                    >
+                        <Grid className="w-4 h-4" />
+                        App Marketplace
+                    </button>
+                    <button
+                        onClick={() => handleTabChange("broadcast")}
+                        className={cn(
+                            "flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300",
+                            currentTab === "broadcast"
+                                ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-xl translate-y-[-1px]"
+                                : "text-slate-400 hover:text-white hover:bg-white/5"
+                        )}
+                    >
+                        <Radio className="w-4 h-4" />
+                        Broadcast Studio
+                    </button>
+                </div>
             </div>
 
-            {
-                selectedApp && isModalOpen && (
-                    <AppConnectModal
-                        isOpen={isModalOpen}
-                        onClose={() => setIsModalOpen(false)}
-                        app={selectedApp}
-                        onSuccess={() => setRefreshTrigger(prev => prev + 1)}
-                    />
-                )
-            }
-            {
-                appToDisconnect && isDisconnectModalOpen && (
-                    <AppDisconnectModal
-                        isOpen={isDisconnectModalOpen}
-                        onClose={() => setIsDisconnectModalOpen(false)}
-                        app={appToDisconnect}
-                        onSuccess={() => setRefreshTrigger(prev => prev + 1)}
-                    />
-                )
-            }
-        </div >
+            {currentTab === "store" ? (
+                <div className="space-y-8 animate-in fade-in-50 slide-in-from-bottom-4 duration-500">
+                    {/* HERO CAROUSEL */}
+                    <HeroCarousel />
+
+                    {/* SEARCH & FILTER BAR */}
+                    <div className="flex flex-col md:flex-row gap-4 items-center justify-between sticky top-4 z-20 bg-[#000]/80 backdrop-blur-xl p-4 rounded-2xl border border-white/10 shadow-xl transition-all duration-300">
+                        <div className="relative w-full md:w-64 group transition-all duration-300 ease-in-out">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 group-focus-within:text-blue-400 group-hover:text-slate-400 transition-colors" />
+                            <Input
+                                placeholder="Search apps..."
+                                className="pl-10 bg-[#1A1B1E] border-white/10 h-10 rounded-xl focus:ring-2 focus:ring-blue-500/50 transition-all placeholder:text-transparent group-hover:placeholder:text-slate-500 focus:placeholder:text-slate-500"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
+                        </div>
+                        <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-0 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                            {CATEGORIES.map(cat => {
+                                const Icon = cat.icon;
+                                return (
+                                    <button
+                                        key={cat.id}
+                                        onClick={() => setSelectedCategory(cat.id)}
+                                        className={cn(
+                                            "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all",
+                                            selectedCategory === cat.id
+                                                ? "bg-white text-black shadow-lg scale-105"
+                                                : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white"
+                                        )}
+                                    >
+                                        <Icon className="w-4 h-4" />
+                                        {cat.label}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* APPS GRID */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        {filteredApps.length > 0 ? (
+                            filteredApps.map(app => (
+                                <AppMarketplaceItem
+                                    key={app.id}
+                                    app={app}
+                                    onConfigure={() => handleConfigure(app.id)}
+                                    onDisconnect={() => handleDisconnectRequest(app.id)}
+                                />
+                            ))
+                        ) : (
+                            <div className="col-span-full py-20 text-center text-slate-500">
+                                <div className="inline-flex p-4 rounded-full bg-white/5 mb-4">
+                                    <Search className="w-8 h-8 opacity-50" />
+                                </div>
+                                <p className="text-lg">No apps found matching "{searchQuery}"</p>
+                                <Button variant="link" onClick={() => { setSearchQuery(""); setSelectedCategory("all") }} className="text-blue-400">
+                                    Clear filters
+                                </Button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            ) : (
+                <div className="animate-in fade-in-50 slide-in-from-right-4 duration-500">
+                    <div className="mb-6 flex flex-col items-center text-center">
+                        <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 mb-4">
+                            <Radio className="w-8 h-8 text-indigo-400" />
+                        </div>
+                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Universal Broadcast Studio</h2>
+                        <p className="text-slate-400 max-w-lg">
+                            Create, schedule, and publish content across all your social/web3 channels from one powerful interface.
+                        </p>
+                    </div>
+                    <UniversalPostEditor />
+                </div>
+            )}
+        </div>
     );
 }
 
-function AppCard({ app, viewMode, onConfigure, onDisconnect }: { app: AppIntegration, viewMode: "grid" | "list", onConfigure: () => void, onDisconnect: () => void }) {
+function HeroCarousel() {
+    const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000 })]);
+
+    const slides = [
+        {
+            id: 1,
+            badge: "PREFERRED PAYMENT",
+            title: (
+                <>
+                    Accept payments with <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">Surge</span>
+                </>
+            ),
+            desc: "The official payment partner of Ledger1 CMS. Crypto, Fiat, and Instant Reconciliation for modern merchants.",
+            bg: "bg-gradient-to-r from-emerald-900 via-teal-900 to-slate-900",
+            button: "Connect Wallet",
+            glow: "bg-emerald-500/30"
+        },
+        {
+            id: 2,
+            badge: "FEATURED AI",
+            title: (
+                <>
+                    Supercharge with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Nano Banana</span>
+                </>
+            ),
+            desc: "Generate blog posts, optimize SEO, and create stunning visuals automatically. The most powerful AI assistant, now native.",
+            bg: "bg-gradient-to-r from-blue-900 via-indigo-900 to-violet-900",
+            button: "Install Plugin",
+            glow: "bg-blue-500/30"
+        },
+        {
+            id: 3,
+            badge: "ANALYTICS",
+            title: (
+                <>
+                    Deep Insights with <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">Google Analytics 4</span>
+                </>
+            ),
+            desc: "Understand your audience like never before. Real-time tracking, conversion events, and user journey mapping.",
+            bg: "bg-gradient-to-r from-orange-900 via-amber-900 to-slate-900",
+            button: "Connect Account",
+            glow: "bg-orange-500/30"
+        },
+        {
+            id: 4,
+            badge: "WEB3 NATIVE",
+            title: (
+                <>
+                    Build on-chain with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">Base</span>
+                </>
+            ),
+            desc: "Secure, low-cost, builder-friendly Ethereum L2. The perfect home for your on-chain content.",
+            bg: "bg-gradient-to-r from-blue-900 via-cyan-900 to-slate-900",
+            button: "Start Building",
+            glow: "bg-blue-500/30"
+        }
+    ];
+
     return (
-        <div className={cn(
-            "relative group bg-[#0A0A0B]/80 backdrop-blur-xl border rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 flex",
-            viewMode === "grid" ? "flex-col h-full" : "flex-row items-center gap-6",
-            app.connected
-                ? "border-emerald-500/50 shadow-[0_0_30px_-10px_rgba(16,185,129,0.3)] hover:shadow-[0_0_40px_-5px_rgba(16,185,129,0.4)]"
-                : "border-white/10 hover:border-emerald-500/30 hover:shadow-emerald-500/10",
-            app.status === "coming_soon" && "opacity-60 grayscale-[0.5]"
-        )}>
-            {/* Header / Icon */}
-            <div className={cn("flex justify-between items-start", viewMode === "grid" ? "mb-4 w-full" : "mb-0 shrink-0")}>
-                <div className="relative h-16 w-16 rounded-2xl overflow-hidden shadow-lg border border-white/10 group-hover:border-white/20 transition-colors bg-white p-2">
-                    <NextImage
-                        src={app.icon}
-                        alt={app.name}
-                        fill
-                        className="object-contain"
-                        unoptimized
-                    />
-                </div>
-                {viewMode === "grid" && (
-                    <div className={cn(
-                        "px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-wider flex items-center gap-1.5 transition-colors",
-                        app.connected
-                            ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shadow-[0_0_10px_-2px_rgba(16,185,129,0.4)]"
-                            : app.status === "coming_soon"
-                                ? "bg-slate-800 text-slate-500 border border-white/5"
-                                : "bg-slate-800 text-slate-400 border border-white/5"
-                    )}>
-                        {app.connected ? (
-                            <><CheckCircle className="h-3 w-3" /> Connected</>
-                        ) : app.status === "coming_soon" ? (
-                            "Coming Soon"
-                        ) : (
-                            "Not Connected"
-                        )}
-                    </div>
-                )}
-            </div>
+        <div className="overflow-hidden rounded-3xl border border-white/10 shadow-2xl relative group" ref={emblaRef}>
+            <div className="flex">
+                {slides.map((slide) => (
+                    <div key={slide.id} className="flex-[0_0_100%] min-w-0 relative min-h-[300px] flex items-center">
+                        <div className={cn("absolute inset-0", slide.bg)}>
+                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100"></div>
+                        </div>
 
-            {/* Content Body */}
-            <div className={cn("flex-grow", viewMode === "list" && "flex items-center justify-between w-full gap-8")}>
-                <div className={cn(viewMode === "list" ? "flex-1" : "")}>
-                    <h3 className="text-xl font-bold text-slate-100 mb-2 flex items-center gap-2">
-                        {app.name}
-                    </h3>
-                    <p className="text-sm text-slate-400 mb-6 line-clamp-2">
-                        {app.description}
-                    </p>
-                </div>
+                        <div className="relative z-10 p-8 md:p-12 max-w-2xl">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-white/80 text-xs font-bold mb-4 backdrop-blur-md">
+                                <Sparkles className="w-3 h-3" /> {slide.badge}
+                            </div>
+                            <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+                                {slide.title}
+                            </h1>
+                            <p className="text-lg text-white/70 mb-8 leading-relaxed max-w-lg">
+                                {slide.desc}
+                            </p>
+                            <div className="flex gap-4">
+                                <Button className="bg-white text-black hover:bg-slate-200 font-bold px-8 h-12 rounded-full shadow-lg transition-transform hover:scale-105">
+                                    {slide.button}
+                                </Button>
+                                <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 h-12 rounded-full px-8 backdrop-blur-sm">
+                                    Learn More
+                                </Button>
+                            </div>
+                        </div>
 
-                {/* Action Button */}
-                <div className={cn(viewMode === "list" ? "shrink-0 w-48" : "w-full mt-auto")}>
-                    <div className="flex gap-2 w-full">
-                        {app.connected ? (
-                            <Button
-                                onClick={onDisconnect}
-                                className="w-full bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/20 shadow-none transition-all"
-                            >
-                                Disconnect
-                            </Button>
-                        ) : (
-                            <Button
-                                onClick={onConfigure}
-                                disabled={app.status === "coming_soon"}
-                                variant={(!app.connected && app.status !== "coming_soon") ? "gradient" : "default"}
-                                className={cn(
-                                    "w-full rounded-lg font-semibold transition-all",
-                                    app.connected
-                                        ? "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-white/5"
-                                        : app.status === "coming_soon"
-                                            ? "bg-slate-800/50 text-slate-500 cursor-not-allowed border border-white/5"
-                                            : ""
-                                )}
-                            >
-                                {app.status === "coming_soon" ? "Coming Soon" : "Connect"}
-                            </Button>
-                        )}
+                        {/* Decorative Element */}
+                        <div className={cn("absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-3xl -mr-20 opacity-50", slide.glow)}></div>
                     </div>
-                </div>
+                ))}
             </div>
         </div>
     );

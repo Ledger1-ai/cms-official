@@ -78,6 +78,12 @@ export default async function DocsPage() {
                             <p className="text-slate-400 mb-4">Explore the internal API endpoints and usage.</p>
                             <span className="text-sm font-bold text-purple-400 flex items-center group-hover:translate-x-1 transition-transform">Browse API <ArrowRight className="w-4 h-4 ml-2" /></span>
                         </Link>
+                        <Link href="/docs/apps-integrations" className="p-8 rounded-3xl bg-slate-900/40 border border-white/5 backdrop-blur-md hover:bg-slate-800/50 transition-all duration-300 cursor-pointer group block">
+                            <Terminal className="w-10 h-10 text-orange-400 mb-4 group-hover:scale-110 transition-transform" />
+                            <h3 className="text-xl font-bold text-white mb-2">Apps & Integrations</h3>
+                            <p className="text-slate-400 mb-4">Learn how to connect, configure, and manage third-party tools.</p>
+                            <span className="text-sm font-bold text-orange-400 flex items-center group-hover:translate-x-1 transition-transform">Manage Apps <ArrowRight className="w-4 h-4 ml-2" /></span>
+                        </Link>
                     </div>
 
                     <h2 className="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">Browse All Articles</h2>

@@ -20,6 +20,8 @@ import { SessionProvider } from "@/app/providers/SessionProvider";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import SubscriptionOverlay from "@/app/[locale]/components/SubscriptionOverlay";
+import { AnalyticsScript } from "@/components/cms/plugins/AnalyticsScript";
+import { IntercomProvider } from "@/components/cms/plugins/IntercomProvider";
 
 // Optimized font loading with display swap for faster text rendering
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -193,6 +195,10 @@ export default async function RootLayout(props: Props) {
       <body className={inter.className + " min-h-screen"} suppressHydrationWarning>
         <NextTopLoader color="#2563EB" showSpinner={false} />
         <AnalyticsTracker />
+        {/* Universal Plugins Injection */}
+        <AnalyticsScript />
+        <IntercomProvider />
+        {/* End Universal Plugins Injection */}
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SessionProvider session={session}>
             <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>

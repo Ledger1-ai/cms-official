@@ -161,11 +161,13 @@ export function MediaPickerModal({ isOpen, onClose, onSelect }: MediaPickerModal
                                             }}
                                             className="group relative aspect-square rounded-lg overflow-hidden border border-white/5 bg-black/20 hover:border-indigo-500/50 hover:ring-1 hover:ring-indigo-500/50 transition-all"
                                         >
-                                            <img
-                                                src={item.url}
-                                                alt={item.filename}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                            />
+                                            <div className="w-full h-full relative">
+                                                <img
+                                                    src={item.url}
+                                                    alt={item.filename}
+                                                    className="absolute inset-0 w-full h-full object-contain p-1 bg-black/40 group-hover:scale-105 transition-transform duration-500"
+                                                />
+                                            </div>
                                             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                                 <Check className="h-8 w-8 text-white drop-shadow-md" />
                                             </div>

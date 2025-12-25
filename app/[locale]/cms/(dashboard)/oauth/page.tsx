@@ -381,46 +381,13 @@ export default function IntegrationsPage() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div className="space-y-2">
                     <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                        System Integrations
+                        AI Integrations
                     </h1>
                     <p className="text-slate-400 max-w-2xl">
                         {activeTab === "ai" && "Manage your AI models. Bring your own keys (BYOK) for full control."}
-                        {activeTab === "social" && "Connect and manage your social media accounts for unified publishing and analytics."}
-                        {activeTab === "system" && "Configure global system settings and defaults for your AI and social integrations."}
+                        {activeTab === "system" && "Configure global system settings and defaults for your AI integrations."}
                     </p>
                 </div>
-                {/* View Toggle - Hidden on System Config */}
-                {activeTab !== "system" && (
-                    <div className="flex bg-slate-900 border border-white/10 rounded-lg p-1">
-                        <button
-                            onClick={() => setViewMode("grid")}
-                            className={cn(
-                                "p-2 rounded-md transition-all",
-                                viewMode === "grid" ? "bg-white/10 text-white" : "text-slate-500 hover:text-slate-300"
-                            )}
-                        >
-                            <div className="grid grid-cols-2 gap-0.5 w-4 h-4">
-                                <div className="bg-current rounded-[1px]" />
-                                <div className="bg-current rounded-[1px]" />
-                                <div className="bg-current rounded-[1px]" />
-                                <div className="bg-current rounded-[1px]" />
-                            </div>
-                        </button>
-                        <button
-                            onClick={() => setViewMode("list")}
-                            className={cn(
-                                "p-2 rounded-md transition-all",
-                                viewMode === "list" ? "bg-white/10 text-white" : "text-slate-500 hover:text-slate-300"
-                            )}
-                        >
-                            <div className="flex flex-col gap-0.5 w-4 h-4 justify-center">
-                                <div className="bg-current h-0.5 w-full rounded-full" />
-                                <div className="bg-current h-0.5 w-full rounded-full" />
-                                <div className="bg-current h-0.5 w-full rounded-full" />
-                            </div>
-                        </button>
-                    </div>
-                )}
             </div>
 
             <Tabs value={activeTab} className="w-full" onValueChange={setActiveTab}>
@@ -432,14 +399,6 @@ export default function IntegrationsPage() {
                         <Brain className="w-3.5 h-3.5 hidden sm:block" />
                         <span className="sm:hidden">AI Models</span>
                         <span className="hidden sm:inline">AI Models (BYOK)</span>
-                    </TabsTrigger>
-                    <TabsTrigger
-                        value="social"
-                        className="px-2 sm:px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-sm"
-                    >
-                        <Share2 className="w-3.5 h-3.5 hidden sm:block" />
-                        <span className="sm:hidden">Social</span>
-                        <span className="hidden sm:inline">Social Integrations</span>
                     </TabsTrigger>
                     <TabsTrigger
                         value="system"
@@ -463,23 +422,6 @@ export default function IntegrationsPage() {
                                     integration={integration}
                                     viewMode={viewMode}
                                     onConfigure={() => handleConfigure(integration)}
-                                />
-                            ))}
-                        </div>
-                    </TabsContent>
-
-                    <TabsContent value="social" className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <div className={cn(
-                            "grid gap-6",
-                            viewMode === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"
-                        )}>
-                            {integrations.filter(i => i.type === "social").map((integration) => (
-                                <IntegrationCard
-                                    key={integration.id}
-                                    integration={integration}
-                                    viewMode={viewMode}
-                                    onConfigure={() => handleConfigure(integration)}
-                                    onDisconnect={() => handleDisconnect(integration)}
                                 />
                             ))}
                         </div>
@@ -510,20 +452,6 @@ export default function IntegrationsPage() {
                         configuration: selectedProvider.configuration
                     }}
                     onSuccess={() => setRefreshTrigger(prev => prev + 1)}
-                />
-            )}
-
-            {/* Social Connect Modal */}
-            {selectedProvider && isSocialModalOpen && (
-                <SocialConnectModal
-                    isOpen={isSocialModalOpen}
-                    onClose={() => setIsSocialModalOpen(false)}
-                    provider={{
-                        ...selectedProvider,
-                        authId: getAuthProviderId(selectedProvider.id)
-                    }}
-                    isAvailable={!!availableProviders[getAuthProviderId(selectedProvider.id)]}
-                    userId={session?.user?.id}
                 />
             )}
         </div>
@@ -611,30 +539,21 @@ function IntegrationCard({ integration, viewMode, onConfigure, onDisconnect }: {
                 {/* Action Button */}
                 <div className={cn(viewMode === "list" ? "shrink-0 w-48" : "w-full mt-auto")}>
                     <div className="flex gap-2 w-full">
-                        {integration.connected && integration.type === "social" && onDisconnect ? (
-                            <Button
-                                onClick={onDisconnect}
-                                className="w-full bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/20 shadow-none transition-all"
-                            >
-                                Disconnect
-                            </Button>
-                        ) : (
-                            <Button
-                                onClick={onConfigure}
-                                disabled={integration.status === "coming_soon"}
-                                variant={(!integration.connected && integration.status !== "coming_soon") ? "gradient" : "default"}
-                                className={cn(
-                                    "w-full rounded-lg font-semibold transition-all",
-                                    integration.connected
-                                        ? "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-white/5"
-                                        : integration.status === "coming_soon"
-                                            ? "bg-slate-800/50 text-slate-500 cursor-not-allowed border border-white/5"
-                                            : ""
-                                )}
-                            >
-                                {integration.status === "coming_soon" ? "Coming Soon" : integration.connected ? "Update Configuration" : "Connect"}
-                            </Button>
-                        )}
+                        <Button
+                            onClick={onConfigure}
+                            disabled={integration.status === "coming_soon"}
+                            variant={(!integration.connected && integration.status !== "coming_soon") ? "gradient" : "default"}
+                            className={cn(
+                                "w-full rounded-lg font-semibold transition-all",
+                                integration.connected
+                                    ? "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-white/5"
+                                    : integration.status === "coming_soon"
+                                        ? "bg-slate-800/50 text-slate-500 cursor-not-allowed border border-white/5"
+                                        : ""
+                            )}
+                        >
+                            {integration.status === "coming_soon" ? "Coming Soon" : integration.connected ? "Update Configuration" : "Connect"}
+                        </Button>
                     </div>
                 </div>
 

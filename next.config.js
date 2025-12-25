@@ -49,6 +49,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "*.plesk.page",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org",
+      },
+      {
+        protocol: "https",
+        hostname: "ps.w.org",
+      }
     ],
     formats: ['image/avif', 'image/webp'],
     qualities: [75, 85],

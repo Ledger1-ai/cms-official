@@ -1,7 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Loader2, Save, ExternalLink, Sparkles, Image as ImageIcon, Laptop, Smartphone } from "lucide-react";
@@ -17,6 +16,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getSeoConfig, updateSeoConfig, generateAiMetadata } from "@/actions/cms/seo-actions";
+import { MediaPickerModal } from "@/components/cms/MediaPickerModal";
 
 // --- Types ---
 interface SocialSettings {
@@ -68,10 +68,6 @@ const defaultSeoSettings: SeoSettings = {
     faviconUrl: "",
 };
 
-import { useSearchParams } from "next/navigation";
-
-import { MediaPickerModal } from "@/components/cms/MediaPickerModal";
-
 export default function SocialAdminPage() {
     const [socialSettings, setSocialSettings] = useState<SocialSettings>(defaultSocialSettings);
     const [seoSettings, setSeoSettings] = useState<SeoSettings>(defaultSeoSettings);
@@ -85,11 +81,9 @@ export default function SocialAdminPage() {
     const tabParam = searchParams.get("tab") || "profiles";
 
     const handleTabChange = (val: string) => {
-        // preserve current params if any (though here we might just want to set tab)
         const params = new URLSearchParams(searchParams.toString());
         params.set("tab", val);
         router.push(`?${params.toString()}`, { scroll: false });
-        // Using scroll: false to prevent jumping to top
     };
 
     useEffect(() => {
@@ -137,17 +131,14 @@ export default function SocialAdminPage() {
     const handleSave = async () => {
         setSaving(true);
         try {
-            // Save Social Settings
             await fetch("/api/social", {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(socialSettings),
             });
 
-            // Save SEO Settings
             await updateSeoConfig(seoSettings);
 
-            // Save Footer Settings
             await fetch("/api/footer", {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
@@ -156,13 +147,11 @@ export default function SocialAdminPage() {
                 }),
             });
 
-            // Force immediate favicon update in browser
             if (seoSettings.faviconUrl) {
                 const links = document.querySelectorAll("link[rel*='icon']");
                 links.forEach(link => {
                     (link as HTMLLinkElement).href = seoSettings.faviconUrl;
                 });
-                // If no link exists (rare), create one
                 if (links.length === 0) {
                     const link = document.createElement('link');
                     link.type = 'image/x-icon';
@@ -217,7 +206,7 @@ export default function SocialAdminPage() {
                 </Button>
             </div>
 
-            <Tabs defaultValue="profiles" value={tabParam} onValueChange={handleTabChange} className="space-y-6">
+            <Tabs defaultValue="profiles" value={tabParam || "profiles"} onValueChange={handleTabChange} className="space-y-6">
                 <TabsList className="inline-flex h-auto bg-[#0A0A0B] border border-white/10 rounded-lg p-1 flex-wrap gap-1 mb-6">
                     <TabsTrigger value="profiles" className="px-2 sm:px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-sm">Social Profiles</TabsTrigger>
                     <TabsTrigger value="seo" className="px-2 sm:px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-sm">SEO & Sharing Cards</TabsTrigger>
@@ -544,4 +533,3 @@ function SocialInput({ icon, label, value, onChange, placeholder }: {
         </div>
     );
 }
-
