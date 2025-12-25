@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Connecting a New App Integration",
+        "slug": "sop-connecting-app",
+        "category": "App Management",
+        "type": "university",
+        "order": 1,
+        "content": "# SOP: Connecting a New App Integration\n\n## Purpose\nTo ensure secure and correct configuration of third-party applications within the Ledger1CMS App Marketplace.\n\n## Prerequisites\n- **Admin Access**: User must have `ADMIN` or `OWNER` role.\n- **Credentials**: Access to the admin account of the target app (e.g., Shopify Admin, Facebook Business Manager).\n\n## Procedure\n\n1. **Pre-Check**\n   - Verify that the service you are connecting is on a paid/active tier if required (e.g., Twitter Enterprise, HubSpot Professional).\n   - Ensure you have the necessary API Keys or Admin Login credentials ready.\n\n2. **Initiate Connection**\n   - Navigate to `/cms/apps`.\n   - Locate the App Card.\n   - Click **Connect**.\n\n3. **Authorization**\n   - **For OAuth Apps** (Google, Meta, Slack, Stripe):\n     - A popup window will appear.\n     - Login to the service ensuring you select the correct corporate account (not personal).\n     - Grant all requested permissions.\n     - *Troubleshooting*: If the popup closes immediately, disable ad-blockers.\n   - **For API Key Apps** (SendGrid, Algolia, OpenAI):\n     - Copy the API Key from the provider dashboard.\n     - Paste into the modal field.\n     - *Security*: Double-check that you are not pasting extra whitespace.\n\n4. **Configuration**\n   - After connection, click the **Gear Icon** (Configure) on the app card.\n   - Set specific settings (e.g., \"Default Currency\", \"Sync Frequency\", \"Target Channel\").\n   - Click **Save Config**.\n\n5. **Verification**\n   - Perform a test action (e.g., send a test email, sync one product, post a test tweet).\n   - Check the **Activity Log** for a success message."
+    },
+    {
+        "title": "Managing API Keys & Security",
+        "slug": "sop-api-key-security",
+        "category": "Security Protocols",
+        "type": "university",
+        "order": 2,
+        "content": "# SOP: Managing API Keys & Security\n\n## Purpose\nStandardize the handling of sensitive credentials to prevent leaks and unauthorized access.\n\n## Storage Policy\n- **Never** share API keys via Slack, Email, or unclear text.\n- **Always** use a password manager (1Password / Vault) to share keys with the team.\n- **CMS Storage**: The CMS encrypts keys at rest. Trust the system storage rather than keeping local text files.\n\n## Key Rotation\nAPI Keys should be rotated (regenerated) periodically or immediately if a staff member with access leaves.\n\n### Procedure for Rotation\n1. **Generate New Key**: Go to the provider (e.g., OpenAI) and generate a new key.\n2. **Update CMS**: Go to `/cms/apps` > Select App > Configure > Paste New Key > Save.\n3. **Test**: Verify functionality.\n4. **Revoke Old Key**: Go back to the provider and delete the old key.\n\n## OAuth Token Maintenance\nSome platforms (Meta, LinkedIn) have tokens that expire every 60 days.\n- **Monitoring**: Watch for \"Token Expired\" alerts in the Dashboard.\n- **Refresh**: Simply click **Disconnect** and then **Connect** again to refresh the OAuth session. Configuration is usually preserved."
+    },
+    {
+        "title": "Troubleshooting App Sync Failures",
+        "slug": "sop-troubleshooting-sync",
+        "category": "Troubleshooting",
+        "type": "university",
+        "order": 3,
+        "content": "# SOP: Troubleshooting App Sync Failures\n\n## Purpose\nDiagnose and resolve issues when data fails to sync between CMS and external apps.\n\n## Diagnosis Steps\n\n1. **Check Activity Log**\n   - Go to **System > Activity Log**.\n   - Filter by the specific App name (e.g., \"Shopify\").\n   - Look for `ERROR` or `FAILED` status entries.\n   - Read the detailed error message (hover over the info icon).\n\n2. **Common Error Codes**\n   - `401 Unauthorized` / `403 Forbidden`: Credentials are invalid or expired. **Action**: Re-connect the app.\n   - `429 Too Many Requests`: API rate limit hit. **Action**: Wait 15 minutes and retry. lowering sync frequency in config if possible.\n   - `500 Server Error`: Issue on the provider's side. **Action**: Check the provider's Status Page (e.g., status.shopify.com).\n\n3. **Test Connection**\n   - Try to perform a minimal action (e.g., \"Fetch Balance\" or \"List Products\").\n   - If this fails, the connection is broken.\n\n4. **Review Webhooks**\n   - For incoming data (e.g., Shopify Orders), ensure Webhooks are registered.\n   - Go to App Configuration and check \"Webhook Status\".\n   - If \"Inactive\", click \"Register Webhooks\"."
+    }
+]

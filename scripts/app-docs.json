@@ -1,0 +1,50 @@
+[
+    {
+        "title": "App Marketplace Overview",
+        "slug": "app-marketplace-overview",
+        "category": "App Integrations",
+        "type": "docs",
+        "order": 1,
+        "content": "# App Marketplace Overview\n\n## Introduction\nThe **App Marketplace** is your command center for connecting Ledger1CMS with the external tools, platforms, and networks you rely on. From e-commerce engines to social media giants and blockchain networks, managing these connections centrally allows for: \n- **Unified Content Distribution**: Push content to multiple channels at once.\n- **Centralized Analytics**: Pull data from Google, Socials, and Stores into one dashboard.\n- **Automated Workflows**: Trigger actions in Zapier, Slack, or CRMs based on CMS events.\n\n## Browsing Apps\nNavigate to **Apps** in the sidebar. You can filter apps by category:\n- **Marketing**: SEO, Email, CRM.\n- **Commerce**: Stores and Payments.\n- **Social**: Broadcast channels.\n- **Web3**: On-chain publishing.\n- **Utility**: Automation and messy tasks.\n- **Security**: Firewalls and CDN.\n\n## Connecting an App\n1. Finds the app card in the marketplace.\n2. Click **Connect** (or **Configure** if already active).\n3. You will be prompted to either:\n    - **OAuth Login**: Redirects you to the provider (e.g., Google, Facebook) to authorize access.\n    - **API Key**: Asks you to paste an API Key/Secret from the provider.\n\n## Managing Connections\nActive connections show a green status indicator. You can **Disconnect** an app at any time, which will revoke access tokens and stop any sync processes."
+    },
+    {
+        "title": "E-Commerce Integrations",
+        "slug": "ecommerce-integrations",
+        "category": "App Integrations",
+        "type": "docs",
+        "order": 2,
+        "content": "# E-Commerce Integrations\n\nConnect your store to synchronize products, orders, and handle payments.\n\n## Supported Platforms\n\n### Surge (Crypto Payments)\n**Surge** is the preferred payment processor for Ledger1CMS, enabling instant crypto settlements.\n- **Setup**: Click Connect and link your merchant wallet.\n- **Features**: Accepts ETH, BTC, SOL, USDC. Auto-converts to stablecoins.\n\n### Shopify\nSync your Shopify inventory to use products within CMS Landing Pages.\n- **Setup**: Provide your `Shop URL` and `Admin API Access Token`.\n- **Scope**: Read-only access to Products and Collections is required.\n\n### WooCommerce\nConnect your WordPress-based store.\n- **Setup**: Enter your Store URL, Consumer Key, and Consumer Secret.\n- **Tip**: Ensure your WordPress site has the REST API enabled.\n\n### Stripe\nAccept fiat payments for subscriptions or invoices.\n- **Setup**: Login via Stripe Connect.\n- **Mode**: Supports both Test and Live modes."
+    },
+    {
+        "title": "Social Media & Broadcast",
+        "slug": "social-media-integrations",
+        "category": "App Integrations",
+        "type": "docs",
+        "order": 3,
+        "content": "# Social Media Integrations\n\nThe **Broadcast Studio** relies on these connections to publish content to your audience.\n\n## Meta Suite (Facebook & Instagram)\n- **Connection**: Uses OAuth 2.0. You must have a \"Business Account\" linked to your Page/Instagram Professional account.\n- **Features**: Post images, reels, and stories.\n- **Expiration**: Tokens expire every 60 days and must be refreshed.\n\n## X (Twitter)\n- **Connection**: OAuth 2.0.\n- **Tiers**: Free API access is limited. For high-volume posting, an Enterprise API key may be required.\n\n## LinkedIn\n- **Connection**: OAuth 2.0.\n- **Target**: Supports publishing to Personal profiles and Company Pages.\n\n## Video Platforms\n\n### YouTube\n- **Permissions**: Requires `youtube.upload` scope.\n- **Shorts**: Videos under 60s are auto-detected as Shorts.\n\n### TikTok\n- **Direct Publish**: Push videos directly to your feed.\n- **Privacy**: You can set default privacy (Public/Private/Friends) in the config.\n\n### Twitch\n- **Stream Key**: Connect to display live status on your site.\n\n## Messaging Apps\nUse these for notifications and community alerts.\n- **WhatsApp Business**: Requires a Meta Developer App with the WhatsApp API product enabled.\n- **Telegram**: Requires a Bot Token (created via @BotFather).\n- **Discord**: Uses a Webhook URL for channel updates.\n- **Slack**: Connects to a specific channel for team notifications."
+    },
+    {
+        "title": "Web3 & Blockchain",
+        "slug": "web3-integrations",
+        "category": "App Integrations",
+        "type": "docs",
+        "order": 4,
+        "content": "# Web3 Integrations\n\nPublish content on-chain and manage decentralized identity.\n\n## Farcaster\nThe primary \"decentralized social\" layer for Ledger1CMS.\n- **Signer Request**: Connecting Farcaster requires approving a \"Signer Request\" in your mobile Warpcast app.\n- **Hub**: We use a dedicated Neynar Hub for reliable delivery.\n\n## Base (Coinbase L2)\nInteracts with the Base blockchain.\n- **Capabilities**: Deploy simplified NFT contracts for blog posts.\n\n## Zora\nUniversal Media Registry.\n- **Minting**: Automatically turn uploaded media into Zora mints.\n- **Config**: Requires a wallet connection to sign the metadata."
+    },
+    {
+        "title": "Marketing & Utility Apps",
+        "slug": "marketing-utility-integrations",
+        "category": "App Integrations",
+        "type": "docs",
+        "order": 5,
+        "content": "# Marketing & Utility Integrations\n\n## CRM & Email\n\n### HubSpot\n- **Sync**: Pushes new form leads to HubSpot Contacts.\n- **Tracking**: Adds HubSpot tracking pixel to your public pages.\n\n### Mailchimp\n- **Newsletter**: Syncs CMS subscribers to a specific Mailchimp Audience list.\n\n### Intercom\n- **Widget**: Automatically injects the Intercom Messenger chat widget on your site.\n\n## Analytics\n\n### Google Analytics 4 (GA4)\n- **Measurement ID**: Enter your `G-XXXXXXXX` ID to enable tracking.\n- **Events**: Page views and form submissions are tracked automatically.\n\n### Algolia\n- **Search**: Replaces the default DB search with Algolia's instant search index.\n- **Keys**: Requires Application ID, Search API Key, and Admin API Key (for indexing).\n\n## Automation\n\n### Zapier\n- **Triggers**: \"New Form Submission\", \"New Order\", \"New Customer\".\n- **Actions**: \"Create Blog Post\", \"Update Inventory\".\n\n### Slack\n- **Notifications**: Get real-time alerts for system events in your team Slack."
+    },
+    {
+        "title": "Security & Infrastructure",
+        "slug": "security-infrastructure",
+        "category": "App Integrations",
+        "type": "docs",
+        "order": 6,
+        "content": "# Security & Infrastructure\n\n## Cloudflare\n- **CDN & WAF**: Connect your Cloudflare account to manage cache purging and DNS settings directly from the CMS.\n- **API Token**: Requires a token with Zone.DNS and Zone.Cache permissions.\n\n## Wordfence\n- **Firewall**: Enterprise-grade WAF rules for your CMS.\n- **Scan**: Automated malware scanning for uploaded files.\n- **Blocking**: Automatically blocks IPs with suspicious behavior."
+    }
+]
