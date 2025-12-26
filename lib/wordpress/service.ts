@@ -229,7 +229,7 @@ export class WordPressService {
 
     // XML-RPC Fallback Implementation
     // XML-RPC bypasses header-stripping because it sends credentials in the BODY.
-    private async xmlRpcCall(methodName: string, params: any[]): Promise<any> {
+    public async xmlRpcCall(methodName: string, params: any[]): Promise<any> {
         const creds = await this.getCredentials();
         const url = `${creds.url}/xmlrpc.php`;
 
@@ -348,6 +348,7 @@ export class WordPressService {
     }
 
     // Scrape the full rendered HTML from a WordPress page URL
+    // Returns both HTML content and extracted CSS for background parsing
     async scrapePageHtml(pageUrl: string): Promise<string> {
         try {
             // Simple fetch - complex headers trigger Plesk WAF 428 error
@@ -362,7 +363,7 @@ export class WordPressService {
             // Get base URL for fixing relative paths
             const baseUrl = new URL(pageUrl).origin;
 
-            // Extract inline styles from <head>
+            // Extract inline styles from <head> for background analysis
             let inlineStyles = '';
             const styleRegex = /<style[^>]*>([\s\S]*?)<\/style>/gi;
             let styleMatch;
@@ -371,6 +372,10 @@ export class WordPressService {
                     inlineStyles += styleMatch[1];
                 }
             }
+            
+            // Store CSS for later use in background extraction
+            this.lastScrapedCSS = inlineStyles;
+            console.log(`[WP_SCRAPE] Extracted ${inlineStyles.length} chars of CSS`);
 
             // Try to get the main content area ONLY (not header, footer, sidebar)
             let contentHtml = '';
@@ -408,10 +413,9 @@ export class WordPressService {
             // Clean and fix the HTML
             contentHtml = this.cleanScrapedHtml(contentHtml, baseUrl);
 
-            // Wrap with inline styles if we captured any
-            if (inlineStyles) {
-                contentHtml = `<style>${inlineStyles}</style>${contentHtml}`;
-            }
+            // INJECT embedded styles from section-bg elements for background extraction
+            // This allows the parser to see background colors applied via CSS
+            contentHtml = this.injectInlineBackgroundStyles(contentHtml, inlineStyles);
 
             return contentHtml;
 
@@ -419,6 +423,71 @@ export class WordPressService {
             console.error('[WP_SCRAPE_ERROR]', error);
             throw error;
         }
+    }
+
+    // Store last scraped CSS for reference
+    private lastScrapedCSS: string = '';
+    
+    // Get last scraped CSS (for external tools)
+    getLastScrapedCSS(): string {
+        return this.lastScrapedCSS;
+    }
+
+    // Inject inline background styles from CSS into HTML elements
+    private injectInlineBackgroundStyles(html: string, css: string): string {
+        if (!css) return html;
+        
+        // Parse CSS rules for section backgrounds
+        const bgRules: Map<string, string> = new Map();
+        
+        // Match CSS rules like: .section-xyz { background: #color }
+        const ruleRegex = /\.([a-zA-Z0-9_-]+section[a-zA-Z0-9_-]*)\s*\{[^}]*background(?:-color)?\s*:\s*([^;}\s]+)/gi;
+        let match;
+        while ((match = ruleRegex.exec(css)) !== null) {
+            const className = match[1];
+            const bgColor = match[2].trim();
+            if (bgColor && !bgColor.includes('teal') && !bgColor.includes('cyan')) {
+                bgRules.set(className, bgColor);
+            }
+        }
+        
+        // Also match ID-based rules: #section-xyz { background: #color }
+        const idRuleRegex = /#([a-zA-Z0-9_-]*section[a-zA-Z0-9_-]*)\s*\{[^}]*background(?:-color)?\s*:\s*([^;}\s]+)/gi;
+        while ((match = idRuleRegex.exec(css)) !== null) {
+            const id = match[1];
+            const bgColor = match[2].trim();
+            if (bgColor && !bgColor.includes('teal') && !bgColor.includes('cyan')) {
+                bgRules.set(`#${id}`, bgColor);
+            }
+        }
+        
+        console.log(`[WP_SCRAPE] Found ${bgRules.size} background rules in CSS`);
+        
+        // Inject found backgrounds into matching HTML elements
+        Array.from(bgRules.entries()).forEach(([selector, bgColor]) => {
+            if (selector.startsWith('#')) {
+                // ID selector
+                const id = selector.substring(1);
+                const pattern = new RegExp(`(<[^>]*id=["']${id}["'][^>]*)>`, 'gi');
+                html = html.replace(pattern, (match, p1) => {
+                    if (match.includes('style=')) {
+                        return match.replace(/style=["']/, `style="background-color: ${bgColor}; `);
+                    }
+                    return `${p1} style="background-color: ${bgColor};">`;
+                });
+            } else {
+                // Class selector
+                const pattern = new RegExp(`(<[^>]*class=["'][^"']*${selector}[^"']*["'][^>]*)>`, 'gi');
+                html = html.replace(pattern, (match, p1) => {
+                    if (match.includes('style=')) {
+                        return match.replace(/style=["']/, `style="background-color: ${bgColor}; `);
+                    }
+                    return `${p1} style="background-color: ${bgColor};">`;
+                });
+            }
+        });
+        
+        return html;
     }
 
     private cleanScrapedHtml(html: string, baseUrl: string): string {

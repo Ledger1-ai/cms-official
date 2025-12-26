@@ -1,3 +1,4 @@
+
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -5,6 +6,7 @@ import { prismadb } from "@/lib/prisma";
 import { WordPressService } from "@/lib/wordpress/service";
 import { htmlToPuckBlocks } from "@/lib/wordpress/html-to-puck";
 import { logActivity } from "@/actions/audit";
+import { importLogger } from "@/lib/wordpress/import-logger";
 
 // Helper to fetch image and convert to Base64
 async function fetchImageAsBase64(url: string, mimeType: string): Promise<string> {
@@ -131,56 +133,77 @@ export async function POST(req: Request) {
                     const postType = (post as any).type || 'page';
                     const pageLink = post.link || '';
 
-                    // Try to get raw content with shortcodes first
-                    try {
-                        const rawPost = postType === 'page'
-                            ? await wpService.getPageWithRawContent(id)
-                            : await wpService.getPostWithRawContent(id);
+                    // STRATEGY: Prefer Raw Shortcodes (Source) -> Fallback to Scraped HTML
+                    importLogger.reset(title);
+                    importLogger.log('INIT', `Processing: "${title}" (${postType}, ID: ${id})`, { pageLink });
 
-                        // Check if raw content has shortcodes or more content
-                        const rawContent = rawPost.content?.raw || '';
-                        if (rawContent && rawContent.length > contentHtml.length) {
-                            // Use raw content if it's richer (contains shortcodes)
-                            contentHtml = `<!-- WP Shortcodes -->\n${rawContent}`;
+                    let usedScrapedContent = false;
+                    let rawSourceContent = '';
+
+                    // 1. Try XML-RPC first (Reliable raw content bypass)
+                    try {
+                        const xmlPost = await wpService.xmlRpcCall('wp.getPost', [id]);
+                        if (xmlPost && xmlPost.raw) {
+                            const contentMatch = xmlPost.raw.match(/<member><name>post_content<\/name><value><string>([\s\S]*?)<\/string><\/value>/);
+                            if (contentMatch) {
+                                let extracted = contentMatch[1];
+                                extracted = extracted.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+                                extracted = extracted.replace(/&quot;/g, '"').replace(/&#039;/g, "'");
+                                rawSourceContent = extracted;
+                                importLogger.sourceXmlRpc(true, rawSourceContent.length);
+                            }
                         }
                     } catch (e) {
-                        // Raw content requires higher auth - fall back to scraping
-                        console.log(`[WP_IMPORT] Raw content unavailable for ${id}, trying scrape...`);
+                        importLogger.sourceXmlRpc(false);
                     }
 
-                    // ALWAYS try scraping the actual page to capture page builder content
-                    let usedScrapedContent = false;
-                    const originalApiContent = post.content.rendered;
+                    // 2. Fallback to API context=edit
+                    if (!rawSourceContent) {
+                        try {
+                            const rawPost = postType === 'page'
+                                ? await wpService.getPageWithRawContent(id)
+                                : await wpService.getPostWithRawContent(id);
+                            if (rawPost.content?.raw) {
+                                rawSourceContent = rawPost.content.raw;
+                                importLogger.sourceRestApi(true, rawSourceContent.length);
+                            }
+                        } catch (e) {
+                            importLogger.sourceRestApi(false);
+                        }
+                    }
 
+                    // 3. DECISION: ALWAYS prefer scraped HTML for visual fidelity
+                    // Raw shortcodes often have wrong bg_color (e.g., #ffffff when site shows #0B1C2A)
+                    // because Flatsome's visual styling comes from theme settings, not shortcode attributes
+                    
                     if (pageLink) {
                         try {
-                            console.log(`[WP_IMPORT] ==============================`);
-                            console.log(`[WP_IMPORT] Scraping: ${pageLink}`);
-                            console.log(`[WP_IMPORT] API content length: ${originalApiContent.length} chars`);
-
+                            importLogger.log('SOURCE', `Scraping for visual fidelity: ${pageLink}`);
                             const scrapedHtml = await wpService.scrapePageHtml(pageLink);
-                            console.log(`[WP_IMPORT] Scraped content length: ${scrapedHtml.length} chars`);
 
-                            // ALWAYS use scraped content if it's > 5000 chars (page builder content)
-                            if (scrapedHtml && scrapedHtml.length > 5000) {
+                            if (scrapedHtml && scrapedHtml.length > 500) {
                                 contentHtml = scrapedHtml;
                                 usedScrapedContent = true;
-                                console.log(`[WP_IMPORT] ✓ USING SCRAPED CONTENT (${scrapedHtml.length} chars)`);
-                            } else if (scrapedHtml && scrapedHtml.length > originalApiContent.length) {
-                                // Use scraped if it's larger than API
-                                contentHtml = scrapedHtml;
-                                usedScrapedContent = true;
-                                console.log(`[WP_IMPORT] ✓ USING SCRAPED (larger than API)`);
+                                importLogger.sourceScrape(true, scrapedHtml.length);
+                                importLogger.sourceDecision('scrape', false);
+                                importLogger.log('SOURCE', `Scraped HTML has inline styles for accurate backgrounds`);
                             } else {
-                                console.log(`[WP_IMPORT] ✗ Scraped too small, using API content`);
+                                importLogger.log('WARN', `Scraped HTML too small (${scrapedHtml?.length || 0} chars), falling back to raw`);
                             }
-                            console.log(`[WP_IMPORT] ==============================`);
                         } catch (e: any) {
-                            console.log(`[WP_IMPORT] ✗ Scrape FAILED: ${e.message}`);
+                            importLogger.sourceScrape(false);
+                            importLogger.log('WARN', `Scrape failed: ${e.message}, falling back to raw`);
                         }
-                    } else {
-                        console.log(`[WP_IMPORT] No pageLink available for scraping`);
                     }
+                    
+                    // Fallback to raw shortcodes if scrape failed
+                    if (!usedScrapedContent && rawSourceContent) {
+                        contentHtml = rawSourceContent;
+                        usedScrapedContent = true;
+                        importLogger.sourceDecision(rawSourceContent.includes('[section') ? 'xml-rpc' : 'rest-api', rawSourceContent.includes('[section'));
+                        importLogger.log('SOURCE', `Fallback to raw content (may have incorrect bg_color)`);
+                    }
+
                     const excerpt = post.excerpt?.rendered || '';
 
                     // Extract featured image from _embedded data
@@ -192,14 +215,25 @@ export async function POST(req: Request) {
 
                     // Build Puck content blocks
                     const puckContent: any[] = [];
+                    const puckZones: Record<string, any[]> = {};
 
-                    // If we used scraped content, convert HTML to individual Puck blocks
+                    // If we used scraped content (OR Raw Source), convert to individual Puck blocks
                     if (usedScrapedContent) {
                         // Parse HTML into individual editable blocks
-                        const baseUrl = new URL(pageLink).origin;
-                        const parsedBlocks = htmlToPuckBlocks(contentHtml, baseUrl);
-                        console.log(`[WP_IMPORT] Converted to ${parsedBlocks.length} editable Puck blocks`);
+                        const baseUrl = pageLink ? new URL(pageLink).origin : '';
+                        importLogger.log('PARSE', `Starting conversion of ${contentHtml.length} chars`);
+                        const { content: parsedBlocks, zones: parsedZones } = htmlToPuckBlocks(contentHtml, baseUrl);
+                        importLogger.log('PARSE', `✓ Created ${parsedBlocks.length} blocks, ${Object.keys(parsedZones || {}).length} zones`);
+                        
+                        // Log each block type
+                        for (const block of parsedBlocks) {
+                            importLogger.blockCreated(block.type, block.props);
+                        }
+                        
                         puckContent.push(...parsedBlocks);
+                        if (parsedZones) Object.assign(puckZones, parsedZones);
+                        
+                        console.log(importLogger.getSummary());
                     } else {
                         // Standard import: add structured blocks
                         // 1. Featured Image Block (if available)
@@ -228,30 +262,47 @@ export async function POST(req: Request) {
                             }
                         });
 
-                        // 3. Excerpt/Intro Block (if available)
+                        // 3. Excerpt/Intro Block (if available) - NATIVE BLOCK ONLY
                         if (excerpt && excerpt.trim()) {
-                            puckContent.push({
-                                type: "RichTextBlock",
-                                props: {
-                                    id: `excerpt-${id}`,
-                                    content: `<div class="text-lg text-slate-400 mb-8">${excerpt}</div>`
-                                }
-                            });
+                            const cleanExcerpt = excerpt.replace(/<[^>]*>/g, '').trim();
+                            if (cleanExcerpt) {
+                                puckContent.push({
+                                    type: "TextBlock",
+                                    props: {
+                                        id: `excerpt-${id}`,
+                                        content: cleanExcerpt,
+                                        align: "left"
+                                    }
+                                });
+                            }
                         }
 
-                        // 4. Main Content Block
-                        puckContent.push({
-                            type: "RichTextBlock",
-                            props: {
-                                id: `content-${id}`,
-                                content: contentHtml
+                        // 4. Main Content Block (Parsed)
+                        // Use htmlToPuckBlocks to detect Flatsome shortcodes or split HTML
+                        const { content: parsedContent, zones: parsedZones } = htmlToPuckBlocks(contentHtml);
+                        if (parsedContent.length > 0) {
+                            puckContent.push(...parsedContent);
+                            if (parsedZones) Object.assign(puckZones, parsedZones);
+                        } else {
+                            // Fallback if parser returns nothing - NATIVE BLOCK ONLY
+                            const cleanContent = contentHtml.replace(/<[^>]*>/g, '').trim();
+                            if (cleanContent) {
+                                puckContent.push({
+                                    type: "TextBlock",
+                                    props: {
+                                        id: `content-${id}`,
+                                        content: cleanContent,
+                                        align: "left"
+                                    }
+                                });
                             }
-                        });
+                        }
                     }
 
                     const puckData = {
                         root: { props: { title: title } },
-                        content: puckContent
+                        content: puckContent,
+                        zones: puckZones
                     };
 
 

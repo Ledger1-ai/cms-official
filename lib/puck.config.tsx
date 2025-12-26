@@ -1,4 +1,5 @@
 import type { Config } from "@measured/puck";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
@@ -137,6 +138,17 @@ export type Props = {
         content: string;
         className?: string;
     } & CommonStyleProps;
+    // FLATSOME SUPPORT
+    Section: {
+        padding: string;
+        backgroundColor?: string;
+        content: React.ReactNode;
+    } & CommonStyleProps;
+    Button: {
+        label: string;
+        href: string;
+        variant?: "default" | "outline" | "ghost" | "link";
+    } & CommonStyleProps;
 };
 
 export const puckConfig: Config<Props> = {
@@ -170,7 +182,7 @@ export const puckConfig: Config<Props> = {
 
             return (
                 <div
-                    className="text-slate-100 antialiased selection:bg-indigo-500/30 relative overflow-x-hidden"
+                    className="text-slate-100 antialiased selection:bg-indigo-500/30 relative overflow-x-hidden h-full bg-[#0a0a0a]"
                     style={{ fontFamily: `'${font}', sans-serif` }}
                 >
                     <link rel="stylesheet" href={fontUrl} />
@@ -184,7 +196,7 @@ export const puckConfig: Config<Props> = {
     categories: {
         layout: {
             title: "Layout",
-            components: ["HeroBlock", "ColumnsBlock", "ContainerBlock", "SpacerBlock", "DividerBlock", "FeaturesGridBlock"]
+            components: ["HeroBlock", "ColumnsBlock", "ContainerBlock", "Section", "SpacerBlock", "DividerBlock", "FeaturesGridBlock"]
         },
         marketing: {
             title: "Marketing",
@@ -192,7 +204,7 @@ export const puckConfig: Config<Props> = {
         },
         basic: {
             title: "Basic",
-            components: ["HeadingBlock", "TextBlock", "RichTextBlock", "ButtonBlock", "ImageBlock", "VideoBlock", "IconBlock", "CardBlock", "CodeBlock"]
+            components: ["HeadingBlock", "TextBlock", "RichTextBlock", "ButtonBlock", "Button", "ImageBlock", "VideoBlock", "IconBlock", "CardBlock", "CodeBlock"]
         },
     },
     components: {
@@ -414,17 +426,25 @@ export const puckConfig: Config<Props> = {
                 content: "<p>Enter <b>rich text</b> or HTML here...</p>",
                 marginBottom: "4",
             },
-            render: ({ content, id, ...styleProps }) => (
-                <div
-                    id={id}
-                    className={cn(
-                        "prose prose-invert max-w-none", // Tailwind Typography
-                        getCommonStyleClasses(styleProps)
-                    )}
-                    style={getCommonInlineStyles(styleProps)}
-                    dangerouslySetInnerHTML={{ __html: content }}
-                />
-            ),
+            render: ({ content, id, ...styleProps }) => {
+                // Sanitize teal/cyan colors from content at render time
+                const sanitizedContent = content
+                    .replace(/background(-color)?\s*:\s*(teal|cyan|aqua|turquoise)[^;]*;?/gi, '')
+                    .replace(/background(-color)?\s*:\s*#(?:0d9488|14b8a6|2dd4bf|5eead4|99f6e4|115e59|134e4a|062a2a|0f2b31|146d7a|33b1c6|7bd3e6|0a1e21|0c2024|13323a)[^;]*;?/gi, '')
+                    .replace(/background(-color)?\s*:\s*rgba?\s*\(\s*[0-9]{1,2}\s*,\s*1[2-9][0-9]\s*,\s*1[2-9][0-9][^)]*\)[^;]*;?/gi, '');
+                
+                return (
+                    <div
+                        id={id}
+                        className={cn(
+                            "prose prose-invert max-w-none", // Tailwind Typography
+                            getCommonStyleClasses(styleProps)
+                        )}
+                        style={getCommonInlineStyles(styleProps)}
+                        dangerouslySetInnerHTML={{ __html: sanitizedContent }}
+                    />
+                );
+            },
         },
 
         // ===== BUTTON BLOCK =====
@@ -566,6 +586,68 @@ export const puckConfig: Config<Props> = {
                     </div>
                 )
             },
+        },
+
+        // ===== FLATSOME COMPATIBILITY COMPONENTS =====
+        // These components match the structure emitted by the Flatsome Parser
+
+        Section: {
+            label: "FW Section",
+            fields: {
+                padding: { type: "text" }, // e.g. "60px"
+                backgroundColor: { type: "text", label: "BG Color" },
+                content: { type: "slot" },
+                ...spacingFields,
+            },
+            defaultProps: {
+                padding: "60px",
+                backgroundColor: "transparent",
+                content: [],
+            },
+            render: ({ padding, backgroundColor, content, id, ...styleProps }) => {
+                return (
+                    <section
+                        id={id}
+                        className={cn("w-full relative", getCommonStyleClasses(styleProps))}
+                        style={{
+                            padding: padding,
+                            background: backgroundColor, // Use 'background' to support colors, gradients, and images
+                            ...getCommonInlineStyles(styleProps)
+                        }}
+                    >
+                        {typeof content === 'function' ? (content as any)() : content}
+                    </section>
+                )
+            }
+        },
+
+        Button: {
+            label: "FW Button",
+            fields: {
+                label: { type: "text" },
+                href: { type: "text" },
+                variant: {
+                    type: "select",
+                    options: [
+                        { label: "Default", value: "default" },
+                        { label: "Outline", value: "outline" },
+                        { label: "Ghost", value: "ghost" }
+                    ]
+                },
+                ...spacingFields
+            },
+            defaultProps: {
+                label: "Click Me",
+                href: "#",
+                variant: "default"
+            },
+            render: ({ label, href, variant, id, ...styleProps }) => (
+                <div id={id} className="inline-block" style={getCommonInlineStyles(styleProps)}>
+                    <Button variant={variant as any} asChild>
+                        <a href={href}>{label}</a>
+                    </Button>
+                </div>
+            )
         },
 
         // ===== HERO BLOCK =====
@@ -1323,7 +1405,7 @@ export const puckConfig: Config<Props> = {
                     <div
                         className={cn(
                             className,
-                            "relative group/container transition-all border border-dashed border-slate-700/50",
+                            "relative group/container transition-all",
                             layoutClasses[layout || "stack"],
                             gapClasses[gap || "md"],
                             alignItems && alignClasses[alignItems],

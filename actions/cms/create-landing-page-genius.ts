@@ -1,6 +1,7 @@
 "use server";
 import { prismadb } from "@/lib/prisma";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { v4 as uuidv4 } from 'uuid';
 import { logActivity } from "@/actions/audit";
 
@@ -19,6 +20,9 @@ export async function createLandingPageGenius(locale: string, prompt: string) {
     });
 
     await logActivity("Create Genius Page", "Landing Page", `Created page: ${page.title}`);
+
+    // Revalidate to ensure sidebar picks up the new page
+    revalidatePath(`/${locale}/cms/landing`);
 
     // Redirect with prompt
     redirect(`/${locale}/cms/landing/${page.id}?mode=advanced&aiPrompt=${encodeURIComponent(prompt)}`);

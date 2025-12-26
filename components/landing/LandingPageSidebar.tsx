@@ -137,6 +137,7 @@ export function LandingPageSidebar({
                 onClose={() => setPageToDelete(null)}
                 pageId={pageToDelete?.id || ""}
                 pageTitle={pageToDelete?.title || ""}
+                locale={locale}
             />
 
             <AiAssistantModal

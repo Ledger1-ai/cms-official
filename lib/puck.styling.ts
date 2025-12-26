@@ -53,6 +53,8 @@ export const borderColorOptions = [
     { label: "Purple", value: "purple-500/30" },
     { label: "Emerald", value: "emerald-500/30" },
     { label: "Orange", value: "orange-500/30" },
+    { label: "Solid White", value: "white" },
+    { label: "Solid Black", value: "black" },
 ];
 
 export const borderRadiusOptions = [
@@ -270,6 +272,8 @@ const borderCMap: Record<string, string> = {
     "purple-500/30": "border-purple-500/30",
     "emerald-500/30": "border-emerald-500/30",
     "orange-500/30": "border-orange-500/30",
+    "white": "border-white", // Solid White
+    "black": "border-black", // Solid Black
 };
 const roundedMap: Record<string, string> = {
     "none": "rounded-none",
@@ -601,7 +605,7 @@ export const getCommonStyleClasses = (props: CommonStyleProps): string => {
 export const getCommonInlineStyles = (props: CommonStyleProps): React.CSSProperties => {
     const styles: React.CSSProperties = {};
     if (props.customTextColor) styles.color = props.customTextColor;
-    if (props.customBackgroundColor) styles.backgroundColor = props.customBackgroundColor;
+    if (props.customBackgroundColor) styles.background = props.customBackgroundColor;
     if (props.customFont) styles.fontFamily = props.customFont;
     if (props.gap) {
         // Map gap option to px value roughly or use rem

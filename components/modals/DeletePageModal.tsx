@@ -20,12 +20,12 @@ interface DeletePageModalProps {
     onClose: () => void;
     pageId: string;
     pageTitle: string;
+    locale: string;
 }
 
-export function DeletePageModal({ isOpen, onClose, pageId, pageTitle }: DeletePageModalProps) {
+export function DeletePageModal({ isOpen, onClose, pageId, pageTitle, locale }: DeletePageModalProps) {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
-    const pathname = usePathname();
 
     const handleDelete = async () => {
         setIsLoading(true);
@@ -33,10 +33,6 @@ export function DeletePageModal({ isOpen, onClose, pageId, pageTitle }: DeletePa
             const result = await deleteLandingPage(pageId);
             if (result.success) {
                 toast.success("Page deleted successfully");
-
-                // Extract locale from pathname
-                const parts = pathname.split('/');
-                const locale = parts[1] || 'en';
 
                 // Redirect to next available page if it exists, otherwise to dashboard
                 if (result.nextPageId) {

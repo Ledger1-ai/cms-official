@@ -209,6 +209,7 @@ export default function EditorPage({
         const result = await saveLandingPage(params.id, data);
         if (result.success) {
             toast.success("Draft Saved");
+            router.refresh(); // Refresh to update Sidebar list and server state
         } else {
             toast.error("Save Failed");
         }
@@ -285,7 +286,7 @@ export default function EditorPage({
     }, []);
 
     const content = (
-        <div className={`font-sans flex flex-col overflow-hidden relative transition-colors duration-500 ${viewMode === "visual" ? "bg-slate-950" : "bg-[#0a0a0a]"} ${!showSidebars ? "fixed inset-0 z-[9999]" : "absolute inset-0"}`}>
+        <div className={`font-sans flex-1 flex flex-col w-full min-h-0 overflow-hidden transition-colors duration-500 ${viewMode === "visual" ? "bg-slate-950" : "bg-[#0a0a0a]"}`}>
             {/* Toolbar - Sleek & Beautiful */}
             <div className={`h-14 border-b backdrop-blur-xl flex items-center justify-between px-4 shrink-0 z-50 transition-all duration-500 ${viewMode === "visual" ? "border-white/10 bg-black/40" : "border-orange-500/20 bg-orange-950/20"}`}>
                 <div className="flex items-center gap-4">
@@ -431,44 +432,98 @@ export default function EditorPage({
             </div>
 
             {viewMode === "visual" ? (
-                <Puck
-                    key={editorKey}
-                    config={puckConfig}
-                    data={data}
-                    headerPath={undefined}
-                    onChange={(newData) => setData(newData)}
-                    viewports={VIEWPORTS}
-                    overrides={{
-                        headerActions: () => <></> // Hides the Publish button area
-                    }}
-                >
-                    <div className="flex h-full overflow-hidden">
-                        {showSidebars && (
-                            <div className="w-72 border-r border-white/10 bg-black/20 flex flex-col overflow-y-auto p-4 custom-scrollbar">
-                                <h3 className="text-white/60 font-semibold text-xs uppercase tracking-wider mb-4 px-2">Components</h3>
-                                <Puck.Components />
-                            </div>
-                        )}
+                <div className="flex-1 flex flex-col min-h-0 relative">
+                    <Puck
+                        key={editorKey}
+                        config={puckConfig}
+                        data={data}
+                        headerPath={undefined}
+                        onChange={(newData) => setData(newData)}
+                        viewports={VIEWPORTS}
+                        overrides={{
+                            headerActions: () => <></>,
+                            iframe: ({ children, document }) => {
+                                // eslint-disable-next-line react-hooks/rules-of-hooks
+                                useEffect(() => {
+                                    if (document) {
+                                        document.documentElement.style.height = "100%";
+                                        document.body.style.height = "100%";
+                                        document.body.style.margin = "0";
+                                        document.body.style.background = "#0a0a0a";
+                                    }
+                                }, [document]);
+                                return <>{children}</>;
+                            }
+                        }}
+                    >
+                        <div className="puck-editor-layout flex-1 flex min-h-0 w-full overflow-hidden">
+                            {showSidebars && (
+                                <PanelGroup direction="horizontal" className="flex-1 h-full" style={{ overflow: 'hidden' }}>
+                                    {/* Components Panel - Left */}
+                                    <Panel defaultSize={18} minSize={12} maxSize={30} style={{ overflow: 'hidden' }}>
+                                        <div style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }} className="border-r border-white/10 bg-black/20">
+                                            <h3 className="text-white/60 font-semibold text-xs uppercase tracking-wider px-4 py-3 border-b border-white/5" style={{ flexShrink: 0 }}>Components</h3>
+                                            <div className="flex-1 min-h-0 overflow-y-auto px-4 py-3 custom-scrollbar">
+                                                <Puck.Components />
+                                            </div>
+                                        </div>
+                                    </Panel>
 
-                        <div className="flex-1 relative bg-black/50 overflow-hidden flex flex-col">
-                            {/* Scroll Container */}
-                            <div className={`flex-1 overflow-auto flex justify-center custom-scrollbar relative ${!showSidebars ? "p-0" : "p-12"}`} id="puck-preview-container">
-                                {/* Preview Wrapper - STANDARD, NO ZOOM, NO TRANSFORM */}
-                                <div style={{
-                                    width: activeViewport.width === 2400 ? '100%' : activeViewport.width,
-                                    margin: '0 auto',
-                                    minHeight: '100vh',
-                                    backgroundColor: 'white',
-                                    boxShadow: activeViewport.width !== 2400 && activeViewport.width !== 1280 ? '0 0 40px -10px rgba(0,0,0,0.5)' : 'none'
-                                }}>
-                                    <Puck.Preview />
+                                    <PanelResizeHandle className="w-1.5 bg-white/5 hover:bg-emerald-500/50 transition-colors cursor-col-resize" />
+
+                                    {/* Page Canvas - Center */}
+                                    <Panel defaultSize={54} minSize={30} style={{ overflow: 'hidden' }}>
+                                        <div style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }} className="bg-black/50">
+                                            <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden' }} className="custom-scrollbar p-8" id="puck-preview-container">
+                                                <div 
+                                                    className="preview-isolation"
+                                                    style={{
+                                                        width: activeViewport.width === 2400 ? '100%' : activeViewport.width,
+                                                        margin: '0 auto',
+                                                        minHeight: '100%',
+                                                        backgroundColor: '#0a0a0a',
+                                                        color: '#ffffff',
+                                                        boxShadow: activeViewport.width !== 2400 && activeViewport.width !== 1280 ? '0 0 40px -10px rgba(0,0,0,0.5)' : 'none',
+                                                        isolation: 'isolate',
+                                                    }}>
+                                                    <Puck.Preview />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Panel>
+
+                                    <PanelResizeHandle className="w-1.5 bg-white/5 hover:bg-emerald-500/50 transition-colors cursor-col-resize" />
+
+                                    {/* Properties Panel - Right */}
+                                    <Panel defaultSize={28} minSize={15} maxSize={40} style={{ overflow: 'hidden' }}>
+                                        <PropertiesPanel />
+                                    </Panel>
+                                </PanelGroup>
+                            )}
+                            
+                            {/* Immersive Mode - No sidebars */}
+                            {!showSidebars && (
+                                <div className="flex-1 relative bg-black/50 overflow-hidden flex flex-col min-h-0">
+                                    <div className="flex-1 overflow-y-auto p-0 custom-scrollbar relative" id="puck-preview-container">
+                                        <div 
+                                            className="preview-isolation"
+                                            style={{
+                                                width: activeViewport.width === 2400 ? '100%' : activeViewport.width,
+                                                margin: '0 auto',
+                                                minHeight: '100vh',
+                                                backgroundColor: '#0a0a0a',
+                                                color: '#ffffff',
+                                                boxShadow: activeViewport.width !== 2400 && activeViewport.width !== 1280 ? '0 0 40px -10px rgba(0,0,0,0.5)' : 'none',
+                                                isolation: 'isolate',
+                                            }}>
+                                            <Puck.Preview />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
-
-                        {showSidebars && <PropertiesPanel />}
-                    </div>
-                </Puck>
+                    </Puck>
+                </div>
             ) : (
                 <div className="flex-1 flex bg-[#0a0a0a] overflow-hidden font-mono text-sm">
                     <PanelGroup direction="horizontal">
@@ -638,9 +693,8 @@ export default function EditorPage({
                             </div>
                         </Panel>
                     </PanelGroup>
-                </div >
-            )
-            }
+                </div>
+            )}
             {/* Immersive Mode Styles - Force Hide Sidebars to escape layout constraints */}
             {!showSidebars && (
                 <style dangerouslySetInnerHTML={{
@@ -669,13 +723,13 @@ const PropertiesPanel = () => {
     const label = selectedItem ? (puckConfig.components[selectedItem.type as keyof typeof puckConfig.components]?.label || selectedItem.type) : "Page Properties";
 
     return (
-        <div className="w-80 border-l border-white/10 bg-black/20 flex flex-col h-full overflow-hidden">
-            <div className="p-4 border-b border-white/5 bg-white/5 shrink-0">
+        <div style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }} className="w-full border-l border-white/10 bg-black/20">
+            <div className="px-4 py-3 border-b border-white/5 bg-white/5" style={{ flexShrink: 0 }}>
                 <h3 className="text-white font-bold text-xs uppercase tracking-wider truncate" title={label}>
                     {label}
                 </h3>
             </div>
-            <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
+            <div className="flex-1 min-h-0 overflow-y-auto p-4 custom-scrollbar">
                 <Puck.Fields />
             </div>
         </div>

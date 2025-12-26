@@ -5,10 +5,14 @@ import { logActivity } from "@/actions/audit";
 
 export async function saveLandingPage(id: string, data: any) {
     try {
+        // Extract title from data if available
+        const title = data?.root?.props?.title;
+
         await prismadb.landingPage.update({
             where: { id },
             data: {
                 content: data,
+                title: title ? title : undefined, // Only update if title exists
                 updatedAt: new Date(),
             },
         });

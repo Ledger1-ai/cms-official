@@ -1,6 +1,7 @@
 "use server";
 import { prismadb } from "@/lib/prisma";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { v4 as uuidv4 } from 'uuid';
 import { logActivity } from "@/actions/audit";
 
@@ -19,6 +20,9 @@ export async function createLandingPage(locale: string) {
     });
 
     await logActivity("Create Landing Page", "Landing Page", `Created page: ${page.title}`);
+
+    // Revalidate to ensure sidebar picks up the new page
+    revalidatePath(`/${locale}/cms/landing`);
 
     redirect(`/${locale}/cms/landing/${page.id}`);
 }
