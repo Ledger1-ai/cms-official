@@ -14,7 +14,7 @@ export default async function PartnerAiConfigPage() {
     // Verify Partner/Admin Status
     const user = await prismadb.users.findUnique({ where: { email: session.user.email! }, include: { assigned_team: true } });
 
-    const isPartner = user?.is_admin || user?.assigned_team?.slug === "ledger1";
+    const isPartner = user?.is_admin || user?.assigned_team?.slug === "basalt";
 
     if (!isPartner) {
         return redirect("/admin");

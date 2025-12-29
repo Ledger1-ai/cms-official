@@ -15,7 +15,7 @@ async function checkAdminAccess() {
         include: { assigned_role: true }
     });
 
-    const isOwner = session.user.email === (process.env.ADMIN_EMAIL || "admin@ledger1.ai");
+    const isOwner = session.user.email === (process.env.ADMIN_EMAIL || "info@basalthq.com");
     const isAdmin = user?.assigned_role?.name === "Admin" || user?.is_admin === true;
 
     return isOwner || isAdmin;

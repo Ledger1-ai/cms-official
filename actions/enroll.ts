@@ -96,7 +96,7 @@ export async function enrollUser(formData: FormData) {
 
         // 8. Notification Email
         await sendEmail({
-            to: "support@ledger1.ai", // Or configured support email
+            to: "info@basalthq.com", // Or configured support email
             from: process.env.EMAIL_USERNAME,
             subject: `New Enrollment: ${companyName} (${planSlug})`,
             text: `A new user has enrolled!\n\nName: ${firstName} ${lastName}\nEmail: ${email}\nCompany: ${companyName}\nPlan: ${planSlug}\n\nPlease verify their account setup.`,

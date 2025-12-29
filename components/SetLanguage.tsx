@@ -85,7 +85,7 @@ export function SetLanguage({ userId }: Props) {
     return (
       <LoadingModal
         isOpen={isLoading}
-        description="Changing Ledger1CMS language"
+        description="Changing BasaltCMS language"
       />
     );
   }

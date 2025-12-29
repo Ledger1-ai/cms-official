@@ -25,7 +25,7 @@ function requireEnv(name: string): string {
 }
 
 /**
- * Get the production base URL, with fallback to crm.ledger1.ai
+ * Get the production base URL, with fallback to crm.basalthq.com
  */
 function getProductionBaseUrl(): string {
   const explicit = (process.env.GMAIL_REDIRECT_URI || "").trim();
@@ -36,7 +36,7 @@ function getProductionBaseUrl(): string {
   const isLocalhost = (url: string) => /^https?:\/\/(localhost|127\.0\.0\.1)/i.test(url);
 
   // Production fallback
-  const PRODUCTION_FALLBACK = "https://crm.ledger1.ai";
+  const PRODUCTION_FALLBACK = "https://crm.basalthq.com";
 
   // Priority order:
   // 1. Explicit GMAIL_REDIRECT_URI if not localhost

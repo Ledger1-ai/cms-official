@@ -79,7 +79,7 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
 
-    /* Ledger1CRM: Turquoise primary accent */
+    /* BasaltCRM: Turquoise primary accent */
     --primary: 191 65% 58%;
     --primary-foreground: 0 0% 100%;
 
@@ -99,7 +99,7 @@
     /* Microtext font stack */
     --microtext-font: "Geist Sans", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-    /* Ledger1CRM theming variables */
+    /* BasaltCRM theming variables */
     --osiris-gradient: radial-gradient(900px circle at 8% 12%, rgba(77, 191, 217, 0.22), transparent 52%),
       radial-gradient(720px circle at 92% 18%, rgba(42, 169, 199, 0.18), transparent 58%),
       radial-gradient(780px circle at 18% 88%, rgba(77, 191, 217, 0.16), transparent 58%),
@@ -127,7 +127,7 @@
     --border: 198 30% 18%;
     --input: 198 30% 18%;
 
-    /* Ledger1CRM: Turquoise primary accent */
+    /* BasaltCRM: Turquoise primary accent */
     --primary: 191 65% 58%;
     --primary-foreground: 0 0% 100%;
 
@@ -144,7 +144,7 @@
 
     --ring: 191 65% 58%;
 
-    /* Ledger1CRM dark theming variables */
+    /* BasaltCRM dark theming variables */
     --osiris-gradient: radial-gradient(900px circle at 8% 12%, rgba(77, 191, 217, 0.24), transparent 48%),
       radial-gradient(720px circle at 92% 18%, rgba(42, 169, 199, 0.20), transparent 52%),
       radial-gradient(780px circle at 18% 88%, rgba(77, 191, 217, 0.18), transparent 52%),
@@ -163,14 +163,14 @@
 
   body {
     @apply bg-background text-foreground overflow-x-hidden;
-    /* Ledger1CRM: liquid glass morphism global gradient background */
+    /* BasaltCRM: liquid glass morphism global gradient background */
     background: var(--osiris-gradient);
     background-attachment: fixed;
     background-size: cover;
   }
 }
 
-/* Ledger1CRM: Glassmorphism utility */
+/* BasaltCRM: Glassmorphism utility */
 .glass {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);

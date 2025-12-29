@@ -14,7 +14,7 @@ interface Message {
 export default function SupportChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
-        { role: 'assistant', content: 'Hi! I\'m your Ledger1 AI assistant. How can I help you today?' }
+        { role: 'assistant', content: 'Hi! I\'m your Basalt AI assistant. How can I help you today?' }
     ]);
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -71,7 +71,7 @@ export default function SupportChatWidget() {
                                     <Bot className="h-5 w-5 text-primary" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white text-sm">Ledger1 Assistant</h3>
+                                    <h3 className="font-bold text-white text-sm">Basalt Assistant</h3>
                                     <p className="text-xs text-primary animate-pulse">Online</p>
                                 </div>
                             </div>

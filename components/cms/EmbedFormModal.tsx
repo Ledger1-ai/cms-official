@@ -18,11 +18,11 @@ export function EmbedFormModal({ isOpen, onClose, formId, formTitle }: EmbedForm
     const [tab, setTab] = useState<"iframe" | "js">("iframe");
     const [copied, setCopied] = useState(false);
 
-    const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://crm.ledger1.ai';
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://crm.basalthq.com';
     const embedUrl = `${baseUrl}/forms/embed/${formId}`;
 
     // Snippets
-    const iframeCode = `<!-- Ledger1CMS ${formTitle} Form Embed -->
+    const iframeCode = `<!-- BasaltCMS ${formTitle} Form Embed -->
 <iframe 
   src="${embedUrl}" 
   width="100%" 
@@ -38,9 +38,9 @@ export function EmbedFormModal({ isOpen, onClose, formId, formTitle }: EmbedForm
     js = d.createElement(s); js.id = id;
     js.src = "${baseUrl}/scripts/embed.js?id=${formId}";
     fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'ledger1-forms-js'));
+  }(document, 'script', 'basalt-forms-js'));
 </script>
-<div id="ledger1-form-${formId}"></div>`;
+<div id="basalt-form-${formId}"></div>`;
 
     const handleCopy = () => {
         const text = tab === "iframe" ? iframeCode : jsCode;

@@ -26,7 +26,7 @@ export default async function AdminDashboardPage() {
   return (
     <Container
       title="Administration"
-      description="Here you can setup your Ledger1CMS instance"
+      description="Here you can setup your BasaltCMS instance"
     >
       <div className="space-y-8">
         {/* Navigation Buttons */}

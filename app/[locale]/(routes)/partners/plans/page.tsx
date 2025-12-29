@@ -22,7 +22,7 @@ const PlansPage = async () => {
         include: { assigned_team: true }
     });
 
-    const isInternalTeam = user?.assigned_team?.slug === "ledger1";
+    const isInternalTeam = user?.assigned_team?.slug === "basalt";
     const isAdmin = user?.is_admin || (isInternalTeam && (user?.team_role === "SUPER_ADMIN" || user?.team_role === "OWNER"));
 
     if (!isAdmin) {

@@ -13,7 +13,7 @@ import { prismadb } from "@/lib/prisma";
  */
 
 const DEFAULT_RESOURCES = [
-  { id: "portalpay", label: "Explore PortalPay", href: "https://pay.ledger1.ai", type: "primary", enabled: true },
+  { id: "portalpay", label: "Explore PortalPay", href: "https://pay.basalthq.com", type: "primary", enabled: true },
   { id: "calendar", label: "Schedule a Call", href: "https://calendar.app.google/EJ4WsqeS2JSXt6ZcA", type: "primary", enabled: true },
   { id: "investor_portal", label: "View Investor Portal", href: "https://stack.angellist.com/s/lp1srl5cnf", type: "secondary", enabled: true },
   { id: "data_room", label: "Access Data Room", href: "https://stack.angellist.com/s/x8g9yjgpbw", type: "secondary", enabled: true },

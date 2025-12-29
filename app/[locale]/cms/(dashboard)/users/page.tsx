@@ -33,11 +33,11 @@ const AdminUsersPage = async () => {
   return (
     <Container
       title="Users administration"
-      description={"Here you can manage your Ledger1CMS users"}
+      description={"Here you can manage your BasaltCMS users"}
     >
       <div className="flex-col1">
         <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
-          Invite new user to Ledger1CMS
+          Invite new user to BasaltCMS
         </h4>
         <InviteForm />
       </div>

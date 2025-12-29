@@ -107,8 +107,8 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     if (!doc) return { title: "Article Not Found" };
 
     return {
-        title: `${doc.title} - Ledger University`,
-        description: `Learn about ${doc.title} in the Ledger University knowledge base.`,
+        title: `${doc.title} - Basalt University`,
+        description: `Learn about ${doc.title} in the Basalt University knowledge base.`,
     };
 }
 

@@ -58,7 +58,7 @@ interface SeoSettings {
 }
 
 const defaultSeoSettings: SeoSettings = {
-    globalTitle: "Ledger1 CMS | The Intelligent Visual Builder",
+    globalTitle: "Basalt CMS | The Intelligent Visual Builder",
     globalDescription: "Build, scale, and manage your digital presence with the world's most powerful AI-assisted visual CMS.",
     ogImage: "/images/opengraph-image.png",
     ogTitle: "",
@@ -171,7 +171,7 @@ export default function SocialAdminPage() {
     };
 
     const generateAiSeo = async () => {
-        toast.promise(generateAiMetadata("Optimized for Ledger1 CMS"), {
+        toast.promise(generateAiMetadata("Optimized for Basalt CMS"), {
             loading: "Asking Nano Banana for ideas...",
             success: (data) => {
                 setSeoSettings(prev => ({
@@ -340,7 +340,7 @@ export default function SocialAdminPage() {
                                                 <Input
                                                     value={footerSettings.footerLogoUrl}
                                                     onChange={e => setFooterSettings(p => ({ ...p, footerLogoUrl: e.target.value }))}
-                                                    placeholder="/ledger1-cms-logo.png"
+                                                    placeholder="/basalt-cms-tall-white.png"
                                                     className="bg-black/50 border-white/10 flex-1 h-12"
                                                 />
                                             </div>
@@ -488,7 +488,7 @@ export default function SocialAdminPage() {
                                             </div>
                                         )}
                                         <div className="p-3">
-                                            <div className="text-slate-500 text-sm">ledger1.ai</div>
+                                            <div className="text-slate-500 text-sm">basalthq.com</div>
                                             <div className="text-white text-[15px] font-medium leading-5 mt-0.5">
                                                 {seoSettings.ogTitle || seoSettings.globalTitle}
                                             </div>

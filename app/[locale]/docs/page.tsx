@@ -42,7 +42,7 @@ export default async function DocsPage() {
                             Build Faster.
                         </h1>
                         <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                            Everything you need to integrate, customize, and extend Ledger1CMS.
+                            Everything you need to integrate, customize, and extend BasaltCMS.
                         </p>
 
                         <div className="max-w-md mx-auto relative group">
@@ -63,7 +63,7 @@ export default async function DocsPage() {
                         <Link href="/docs/introduction" className="p-8 rounded-3xl bg-slate-900/40 border border-white/5 backdrop-blur-md hover:bg-slate-800/50 transition-all duration-300 cursor-pointer group block">
                             <Terminal className="w-10 h-10 text-emerald-400 mb-4 group-hover:scale-110 transition-transform" />
                             <h3 className="text-xl font-bold text-white mb-2">Introduction</h3>
-                            <p className="text-slate-400 mb-4">What is Ledger1CMS and why it's built for speed.</p>
+                            <p className="text-slate-400 mb-4">What is BasaltCMS and why it's built for speed.</p>
                             <span className="text-sm font-bold text-emerald-400 flex items-center group-hover:translate-x-1 transition-transform">Read Intro <ArrowRight className="w-4 h-4 ml-2" /></span>
                         </Link>
                         <Link href="/docs/authentication" className="p-8 rounded-3xl bg-slate-900/40 border border-white/5 backdrop-blur-md hover:bg-slate-800/50 transition-all duration-300 cursor-pointer group block">

@@ -34,10 +34,10 @@ async function main() {
         console.log("No SystemSeoConfig found. Creating one with correct defaults.");
         await prisma.systemSeoConfig.create({
             data: {
-                globalTitle: "Ledger1 CMS | The Intelligent Visual Builder",
+                globalTitle: "Basalt CMS | The Intelligent Visual Builder",
                 globalDescription: "Build, scale, and manage your digital presence with the world's most powerful AI-assisted visual CMS.",
                 ogImage: "/images/opengraph-image.png",
-                ogTitle: "Ledger1 CMS | The Intelligent Visual Builder",
+                ogTitle: "Basalt CMS | The Intelligent Visual Builder",
                 ogDescription: "Build, scale, and manage your digital presence with the world's most powerful AI-assisted visual CMS."
             }
         });

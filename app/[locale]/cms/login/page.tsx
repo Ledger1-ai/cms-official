@@ -86,10 +86,10 @@ export default function AdminLoginPage() {
             <div className="w-full max-w-md mx-4 p-4 sm:p-8 glass rounded-2xl relative z-10 border border-[#4DBFD9]/20 shadow-[0_0_50px_-20px_rgba(77,191,217,0.3)] backdrop-blur-3xl">
                 {/* Header */}
                 <div className="text-center mb-8 flex justify-center">
-                    <div className="relative h-32 w-64">
+                    <div className="relative h-40 w-80">
                         <NextImage
-                            src="/ledger1-cms-wide-logo.webp"
-                            alt="Ledger1 CMS"
+                            src="/basalt-cms-wide-white.png"
+                            alt="Basalt CMS"
                             fill
                             className="object-contain drop-shadow-[0_0_25px_rgba(77,191,217,0.2)]"
                             unoptimized
@@ -154,7 +154,7 @@ export default function AdminLoginPage() {
                 </form>
 
                 <div className="mt-8 text-center">
-                    <p className="text-[10px] text-slate-600 uppercase tracking-widest">Secured by Ledger1 Identity</p>
+                    <p className="text-[10px] text-slate-600 uppercase tracking-widest">Secured by Basalt Identity</p>
                 </div>
             </div>
 

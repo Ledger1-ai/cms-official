@@ -39,7 +39,7 @@ export default async function BlogPage() {
                         Blog & Insights
                     </h1>
                     <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                        Discover the latest news, tutorials, and success stories from the Ledger1CMS team.
+                        Discover the latest news, tutorials, and success stories from the BasaltCMS team.
                     </p>
                 </div>
 

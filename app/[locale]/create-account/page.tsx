@@ -2,7 +2,7 @@ import MarketingLayout from "@/components/marketing/MarketingLayout";
 import CreateAccountForm from "./CreateAccountForm";
 
 export const metadata = {
-    title: "Create Account | Ledger1CMS",
+    title: "Create Account | BasaltCMS",
     description: "Join the future of content management.",
 };
 

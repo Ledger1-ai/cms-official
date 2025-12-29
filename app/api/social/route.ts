@@ -15,7 +15,7 @@ export async function GET() {
         if (!settings) {
             settings = await prismadb.socialSettings.create({
                 data: {
-                    xTwitterUrl: "https://x.com/Ledger1AI",
+                    xTwitterUrl: "https://x.com/BasaltAI",
                     discordUrl: "https://discord.gg/vARPqF84Zt",
                 }
             });

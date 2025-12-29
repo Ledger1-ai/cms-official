@@ -34,7 +34,7 @@ export async function GET(request: Request) {
     const badge = searchParams.get("badge");
     const type = searchParams.get("type") || "default";
 
-    const isDefaultTitle = !titleParam || titleParam === "Ledger1CMS";
+    const isDefaultTitle = !titleParam || titleParam === "BasaltCMS";
     const displayTitle = isDefaultTitle ? null : titleParam;
 
     // Function to render widgets based on type
@@ -449,7 +449,7 @@ export async function GET(request: Request) {
                   src={`${origin}/logo.png`}
                   width="320"
                   height="85"
-                  alt="Ledger1CMS"
+                  alt="BasaltCMS"
                   style={{ objectFit: "contain", filter: "drop-shadow(0 0 20px rgba(255,255,255,0.1))" }}
                 />
 

@@ -1,8 +1,8 @@
 import React from "react";
 
 export const metadata = {
-    title: "Changelog - Ledger1CMS",
-    description: "See what's new in Ledger1CMS.",
+    title: "Changelog - BasaltCMS",
+    description: "See what's new in BasaltCMS.",
 };
 
 import MarketingLayout from "@/components/marketing/MarketingLayout";
@@ -48,7 +48,7 @@ export default function ChangelogPage() {
                         <ChangelogItem
                             date="October 28, 2025"
                             version="v2.0.0"
-                            title="Ledger1CMS 2.0 Launch"
+                            title="BasaltCMS 2.0 Launch"
                             description="The biggest update yet. A complete redesign of the UI, new branding, and a powerful new API."
                             changes={[
                                 "Complete UI redesign",

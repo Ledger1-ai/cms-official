@@ -187,8 +187,8 @@ export async function requestPasswordReset(email: string) {
                 const sendEmail = (await import("@/lib/sendmail")).default;
                 await sendEmail({
                     to: user.email,
-                    from: process.env.EMAIL_FROM || "admin@ledger1.ai",
-                    subject: "Your Temporary Password - Ledger1 CMS",
+                    from: process.env.EMAIL_FROM || "info@basalthq.com",
+                    subject: "Your Temporary Password - Basalt CMS",
                     text: `A password reset was requested for your account.\n\nTemporary Password: ${tempPassword}\n\nPlease login and change your password immediately.`,
                     html: `
                         <div style="font-family: sans-serif; padding: 20px; color: #333;">
@@ -257,18 +257,18 @@ export async function resetUserPassword(userId: string) {
 
         await sendEmail({
             to: user.email,
-            from: process.env.EMAIL_FROM || "admin@ledger1.ai",
-            subject: "Your Password Has Been Reset - Ledger1 CMS",
+            from: process.env.EMAIL_FROM || "info@basalthq.com",
+            subject: "Your Password Has Been Reset - Basalt CMS",
             text: `Your password has been reset by an administrator.\n\nNew Password: ${newPassword}\n\nPlease login and change this password immediately.`,
             html: `
                 <div style="font-family: sans-serif; padding: 20px; color: #333;">
                     <h2 style="color: #4f46e5;">Password Reset</h2>
-                    <p>Your password for Ledger1 CMS has been reset by an administrator.</p>
+                    <p>Your password for Basalt CMS has been reset by an administrator.</p>
                     <div style="background: #f3f4f6; padding: 15px; border-radius: 8px; margin: 20px 0;">
                         <strong>New Password:</strong>
                         <div style="font-family: monospace; font-size: 18px; margin-top: 5px; color: #111;">${newPassword}</div>
                     </div>
-                    <p>Please <a href="https://ledger1.ai/cms/login">login here</a> and change your password immediately.</p>
+                    <p>Please <a href="https://basalthq.com/cms/login">login here</a> and change your password immediately.</p>
                 </div>
             `
         });

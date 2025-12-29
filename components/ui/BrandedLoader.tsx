@@ -33,9 +33,9 @@ export function BrandedLoader({ variant = "fullscreen" }: BrandedLoaderProps) {
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     className="relative z-10 p-6"
                 >
-                    <div className="relative w-48 h-12">
+                    <div className="relative w-60 h-16">
                         <Image
-                            src="/ledger1-loader-text.png"
+                            src="/basalt-cms-wide-white.png"
                             alt="Loading..."
                             fill
                             className="object-contain drop-shadow-[0_0_25px_rgba(77,191,217,0.8)]"

@@ -5,14 +5,14 @@
         "country": "USA",
         "context": "The business capital of the world",
         "hero_title": "New York's Top Rated AI CMS",
-        "description": "Join thousands of NYC businesses using Ledger1CMS to stay ahead in the most competitive market on earth.",
-        "meta_title": "Top Rated AI CMS in New York | Ledger1CMS",
+        "description": "Join thousands of NYC businesses using BasaltCMS to stay ahead in the most competitive market on earth.",
+        "meta_title": "Top Rated AI CMS in New York | BasaltCMS",
         "meta_description": "AI-driven CMS for New York businesses. NYDFS-aware compliance, SOC 2 Type II, and multilingual support for global operations.",
         "keywords": [
             "New York CMS",
             "NYC CMS",
             "AI CMS New York",
-            "Ledger1CMS New York",
+            "BasaltCMS New York",
             "NYDFS compliant CMS"
         ],
         "subheading": "Local expertise, global scale",
@@ -58,8 +58,8 @@
         ],
         "faqs": [
             {
-                "q": "Does Ledger1CMS support NYDFS compliance requirements?",
-                "a": "Yes. Ledger1CMS offers audit logs, role-based access, encryption-at-rest and in-transit, and configurable retention policies aligned with NYDFS."
+                "q": "Does BasaltCMS support NYDFS compliance requirements?",
+                "a": "Yes. BasaltCMS offers audit logs, role-based access, encryption-at-rest and in-transit, and configurable retention policies aligned with NYDFS."
             },
             {
                 "q": "Can we run multi-language campaigns in NYC?",
@@ -71,7 +71,7 @@
                 "name": "A. Cohen",
                 "role": "VP Sales",
                 "company": "Hudson Capital",
-                "quote": "We replaced complex legacy systems with Ledger1CMS and cut cycle times by 37% in Manhattan and Brooklyn."
+                "quote": "We replaced complex legacy systems with BasaltCMS and cut cycle times by 37% in Manhattan and Brooklyn."
             }
         ],
         "ctas": [
@@ -88,7 +88,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS New York",
+            "name": "BasaltCMS New York",
             "address": {
                 "addressLocality": "New York",
                 "addressCountry": "US"
@@ -106,15 +106,15 @@
         "country": "UK",
         "context": "Europe's tech hub",
         "hero_title": "The #1 AI CMS in London",
-        "description": "From Shoreditch startups to City financial firms, London businesses trust Ledger1CMS for GDPR-compliant growth.",
-        "meta_title": "Best AI CMS in London | Ledger1CMS",
+        "description": "From Shoreditch startups to City financial firms, London businesses trust BasaltCMS for GDPR-compliant growth.",
+        "meta_title": "Best AI CMS in London | BasaltCMS",
         "meta_description": "GDPR-compliant CMS for London. Advanced AI for sales, marketing, and customer success.",
         "keywords": [
             "London CMS",
             "AI CMS London",
             "GDPR CMS",
             "UK CMS",
-            "Ledger1CMS London"
+            "BasaltCMS London"
         ],
         "subheading": "GDPR-first, innovation-forward",
         "highlights": [
@@ -159,8 +159,8 @@
         ],
         "faqs": [
             {
-                "q": "Is Ledger1CMS GDPR compliant?",
-                "a": "Yes. Ledger1CMS provides DPA, data subject rights tooling, and EU/UK data residency options."
+                "q": "Is BasaltCMS GDPR compliant?",
+                "a": "Yes. BasaltCMS provides DPA, data subject rights tooling, and EU/UK data residency options."
             },
             {
                 "q": "Do you integrate with HMRC-compatible invoicing?",
@@ -172,7 +172,7 @@
                 "name": "S. Patel",
                 "role": "COO",
                 "company": "FinTech London",
-                "quote": "Ledger1CMS is our GDPR-first platform with unbeatable automation."
+                "quote": "BasaltCMS is our GDPR-first platform with unbeatable automation."
             }
         ],
         "ctas": [
@@ -189,7 +189,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS London",
+            "name": "BasaltCMS London",
             "address": {
                 "addressLocality": "London",
                 "addressCountry": "GB"
@@ -208,13 +208,13 @@
         "context": "Canada's innovation center",
         "hero_title": "Toronto's Choice for Sales AI",
         "description": "Scale your Canadian business with the CMS that understands the local market. Local support, global power.",
-        "meta_title": "AI CMS in Toronto | Ledger1CMS",
+        "meta_title": "AI CMS in Toronto | BasaltCMS",
         "meta_description": "PIPEDA-aware CMS with bilingual support for Canadian enterprises in GTA.",
         "keywords": [
             "Toronto CMS",
             "AI CMS Canada",
             "PIPEDA CMS",
-            "Ledger1CMS Toronto"
+            "BasaltCMS Toronto"
         ],
         "subheading": "Bilingual, compliant, powerful",
         "highlights": [
@@ -272,7 +272,7 @@
                 "name": "M. Tremblay",
                 "role": "Director of CX",
                 "company": "GTA Retail Group",
-                "quote": "Ledger1CMS accelerated our bilingual outreach and improved retention."
+                "quote": "BasaltCMS accelerated our bilingual outreach and improved retention."
             }
         ],
         "ctas": [
@@ -289,7 +289,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Toronto",
+            "name": "BasaltCMS Toronto",
             "address": {
                 "addressLocality": "Toronto",
                 "addressCountry": "CA"
@@ -308,12 +308,12 @@
         "context": "APAC's leading market",
         "hero_title": "Accelerate Growth in Sydney",
         "description": "Dominate the Australian market with predictive sales tools designed for high-growth SMEs in NSW.",
-        "meta_title": "AI CMS in Sydney | Ledger1CMS",
+        "meta_title": "AI CMS in Sydney | BasaltCMS",
         "meta_description": "Australian businesses scale with AI-first CMS. Privacy Act and spam compliance supported.",
         "keywords": [
             "Sydney CMS",
             "AI CMS Australia",
-            "Ledger1CMS Sydney",
+            "BasaltCMS Sydney",
             "Australian Privacy Act"
         ],
         "subheading": "Built for APAC growth",
@@ -383,7 +383,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Sydney",
+            "name": "BasaltCMS Sydney",
             "address": {
                 "addressLocality": "Sydney",
                 "addressCountry": "AU"
@@ -401,14 +401,14 @@
         "country": "Singapore",
         "context": "Asia's financial gateway",
         "hero_title": "Smart CMS for Singapore",
-        "description": "Leverage the power of AI in the heart of Asia. Ledger1CMS helps Singaporean enterprises scale efficiently.",
-        "meta_title": "AI CMS in Singapore | Ledger1CMS",
+        "description": "Leverage the power of AI in the heart of Asia. BasaltCMS helps Singaporean enterprises scale efficiently.",
+        "meta_title": "AI CMS in Singapore | BasaltCMS",
         "meta_description": "PDPA-ready CMS for Singapore enterprises. Advanced analytics and multilingual AI agents.",
         "keywords": [
             "Singapore CMS",
             "PDPA CMS",
             "AI CMS Singapore",
-            "Ledger1CMS Singapore"
+            "BasaltCMS Singapore"
         ],
         "subheading": "Precision and speed, built-in",
         "highlights": [
@@ -460,7 +460,7 @@
                 "name": "L. Tan",
                 "role": "Head of Growth",
                 "company": "SEA Fintech",
-                "quote": "Ledger1CMS gives us predictive insights that outperform legacy CMSs."
+                "quote": "BasaltCMS gives us predictive insights that outperform legacy CMSs."
             }
         ],
         "ctas": [
@@ -477,7 +477,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Singapore",
+            "name": "BasaltCMS Singapore",
             "address": {
                 "addressLocality": "Singapore",
                 "addressCountry": "SG"
@@ -495,14 +495,14 @@
         "country": "USA",
         "context": "The tech capital",
         "hero_title": "Built for Silicon Valley",
-        "description": "From SoMa to South Bay, SF-based companies choose Ledger1CMS for rapid scaling and innovation-first culture.",
-        "meta_title": "AI CMS in San Francisco | Ledger1CMS",
+        "description": "From SoMa to South Bay, SF-based companies choose BasaltCMS for rapid scaling and innovation-first culture.",
+        "meta_title": "AI CMS in San Francisco | BasaltCMS",
         "meta_description": "Valley-grade AI CMS with SOC 2, open APIs, and developer-first workflows.",
         "keywords": [
             "San Francisco CMS",
             "Bay Area CMS",
             "AI CMS Silicon Valley",
-            "Ledger1CMS SF"
+            "BasaltCMS SF"
         ],
         "subheading": "Developer-first, AI-native",
         "highlights": [
@@ -570,7 +570,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS San Francisco",
+            "name": "BasaltCMS San Francisco",
             "address": {
                 "addressLocality": "San Francisco",
                 "addressCountry": "US"
@@ -588,14 +588,14 @@
         "country": "Germany",
         "context": "Europe's startup hub",
         "hero_title": "Berlin's Startup CMS",
-        "description": "Join the fastest-growing startups in Berlin using Ledger1CMS to disrupt their industries with AI.",
-        "meta_title": "AI CMS in Berlin | Ledger1CMS",
+        "description": "Join the fastest-growing startups in Berlin using BasaltCMS to disrupt their industries with AI.",
+        "meta_title": "AI CMS in Berlin | BasaltCMS",
         "meta_description": "GDPR-ready AI CMS with multilingual support and open APIs for Berlin startups.",
         "keywords": [
             "Berlin CMS",
             "AI CMS Germany",
             "GDPR CMS Berlin",
-            "Ledger1CMS Berlin"
+            "BasaltCMS Berlin"
         ],
         "subheading": "Startups scale here",
         "highlights": [
@@ -661,7 +661,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Berlin",
+            "name": "BasaltCMS Berlin",
             "address": {
                 "addressLocality": "Berlin",
                 "addressCountry": "DE"
@@ -679,13 +679,13 @@
         "country": "USA",
         "context": "The emerging tech hub",
         "hero_title": "Keep Austin Innovative",
-        "description": "Austin businesses are booming. Ledger1CMS helps you manage hypergrowth with intelligent automation.",
-        "meta_title": "AI CMS in Austin | Ledger1CMS",
+        "description": "Austin businesses are booming. BasaltCMS helps you manage hypergrowth with intelligent automation.",
+        "meta_title": "AI CMS in Austin | BasaltCMS",
         "meta_description": "AI-first CMS for Austin tech and services businesses with flexible workflows.",
         "keywords": [
             "Austin CMS",
             "AI CMS Texas",
-            "Ledger1CMS Austin"
+            "BasaltCMS Austin"
         ],
         "subheading": "Hypergrowth made manageable",
         "highlights": [
@@ -750,7 +750,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Austin",
+            "name": "BasaltCMS Austin",
             "address": {
                 "addressLocality": "Austin",
                 "addressCountry": "US"
@@ -769,13 +769,13 @@
         "context": "MENA's business center",
         "hero_title": "Dominate MENA Markets",
         "description": "Scale across the Middle East and North Africa with a CMS built for ambition and speed.",
-        "meta_title": "AI CMS in Dubai | Ledger1CMS",
+        "meta_title": "AI CMS in Dubai | BasaltCMS",
         "meta_description": "Arabic/English CMS with flexible hosting and compliance for MENA enterprises.",
         "keywords": [
             "Dubai CMS",
             "UAE CMS",
             "AI CMS Dubai",
-            "Ledger1CMS Dubai"
+            "BasaltCMS Dubai"
         ],
         "subheading": "Ambition meets automation",
         "highlights": [
@@ -840,7 +840,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Dubai",
+            "name": "BasaltCMS Dubai",
             "address": {
                 "addressLocality": "Dubai",
                 "addressCountry": "AE"
@@ -858,13 +858,13 @@
         "country": "Japan",
         "context": "Asia's innovation powerhouse",
         "hero_title": "AI CMS for Tokyo",
-        "description": "Japanese businesses demand precision. Ledger1CMS delivers with meticulous AI and world-class support.",
-        "meta_title": "AI CMS in Tokyo | Ledger1CMS",
+        "description": "Japanese businesses demand precision. BasaltCMS delivers with meticulous AI and world-class support.",
+        "meta_title": "AI CMS in Tokyo | BasaltCMS",
         "meta_description": "Privacy-conscious CMS for Japanese enterprises with multilingual templates and robust automations.",
         "keywords": [
             "Tokyo CMS",
             "AI CMS Japan",
-            "Ledger1CMS Tokyo"
+            "BasaltCMS Tokyo"
         ],
         "subheading": "Precision, security, speed",
         "highlights": [
@@ -929,7 +929,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Tokyo",
+            "name": "BasaltCMS Tokyo",
             "address": {
                 "addressLocality": "Tokyo",
                 "addressCountry": "JP"
@@ -946,13 +946,13 @@
         "country": "USA",
         "context": "Entertainment and tech convergence",
         "hero_title": "LA's Smartest CMS",
-        "description": "From Hollywood to Silicon Beach, LA businesses choose Ledger1CMS for creative and technical excellence.",
-        "meta_title": "AI CMS in Los Angeles | Ledger1CMS",
+        "description": "From Hollywood to Silicon Beach, LA businesses choose BasaltCMS for creative and technical excellence.",
+        "meta_title": "AI CMS in Los Angeles | BasaltCMS",
         "meta_description": "LA-focused CMS for media, tech, and services with predictive outreach and support.",
         "keywords": [
             "Los Angeles CMS",
             "AI CMS LA",
-            "Ledger1CMS Los Angeles"
+            "BasaltCMS Los Angeles"
         ],
         "subheading": "Creative industries meet AI",
         "highlights": [
@@ -1017,7 +1017,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Los Angeles",
+            "name": "BasaltCMS Los Angeles",
             "address": {
                 "addressLocality": "Los Angeles",
                 "addressCountry": "US"
@@ -1035,12 +1035,12 @@
         "context": "America's industrial heartland",
         "hero_title": "Chicago's Business Engine",
         "description": "Power your Chicago business with the CMS that understands the Midwest work ethic.",
-        "meta_title": "AI CMS in Chicago | Ledger1CMS",
+        "meta_title": "AI CMS in Chicago | BasaltCMS",
         "meta_description": "Industrial-strength CMS for Midwest manufacturing and services with predictive AI.",
         "keywords": [
             "Chicago CMS",
             "AI CMS Chicago",
-            "Ledger1CMS Chicago"
+            "BasaltCMS Chicago"
         ],
         "subheading": "Manufacturing-grade reliability",
         "highlights": [
@@ -1106,7 +1106,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Chicago",
+            "name": "BasaltCMS Chicago",
             "address": {
                 "addressLocality": "Chicago",
                 "addressCountry": "US"
@@ -1123,13 +1123,13 @@
         "country": "USA",
         "context": "Education and biotech hub",
         "hero_title": "Boston's Innovation CMS",
-        "description": "From universities to biotech startups, Boston businesses trust Ledger1CMS for intelligent growth.",
-        "meta_title": "AI CMS in Boston | Ledger1CMS",
+        "description": "From universities to biotech startups, Boston businesses trust BasaltCMS for intelligent growth.",
+        "meta_title": "AI CMS in Boston | BasaltCMS",
         "meta_description": "Biotech and education-focused CMS with HIPAA-aware workflows and grant tracking.",
         "keywords": [
             "Boston CMS",
             "AI CMS Boston",
-            "Ledger1CMS Boston",
+            "BasaltCMS Boston",
             "Biotech CMS"
         ],
         "subheading": "Built for research and growth",
@@ -1194,7 +1194,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Boston",
+            "name": "BasaltCMS Boston",
             "address": {
                 "addressLocality": "Boston",
                 "addressCountry": "US"
@@ -1212,12 +1212,12 @@
         "context": "Pacific Northwest tech leader",
         "hero_title": "Seattle's Scale-Up CMS",
         "description": "Join Amazon, Microsoft, and thousands of Seattle businesses using AI to dominate their markets.",
-        "meta_title": "AI CMS in Seattle | Ledger1CMS",
+        "meta_title": "AI CMS in Seattle | BasaltCMS",
         "meta_description": "Cloud-native CMS with deep integrations for the Pacific Northwest tech ecosystem.",
         "keywords": [
             "Seattle CMS",
             "AI CMS Seattle",
-            "Ledger1CMS Seattle"
+            "BasaltCMS Seattle"
         ],
         "subheading": "Cloud-native, integration-rich",
         "highlights": [
@@ -1280,7 +1280,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Seattle",
+            "name": "BasaltCMS Seattle",
             "address": {
                 "addressLocality": "Seattle",
                 "addressCountry": "US"
@@ -1299,12 +1299,12 @@
         "context": "Gateway to Latin America",
         "hero_title": "Miami's Growth CMS",
         "description": "Bridge North and South America with a CMS designed for Miami's unique international business environment.",
-        "meta_title": "AI CMS in Miami | Ledger1CMS",
+        "meta_title": "AI CMS in Miami | BasaltCMS",
         "meta_description": "Bilingual CMS with LATAM-friendly workflows and global compliance.",
         "keywords": [
             "Miami CMS",
             "AI CMS Miami",
-            "Ledger1CMS Miami",
+            "BasaltCMS Miami",
             "LATAM CMS"
         ],
         "subheading": "Bilingual and borderless",
@@ -1370,7 +1370,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Miami",
+            "name": "BasaltCMS Miami",
             "address": {
                 "addressLocality": "Miami",
                 "addressCountry": "US"
@@ -1387,14 +1387,14 @@
         "country": "France",
         "context": "European cultural and business capital",
         "hero_title": "Le CMS Parisien",
-        "description": "Elegance meets efficiency. Paris businesses choose Ledger1CMS for sophistication and intelligence.",
-        "meta_title": "AI CMS à Paris | Ledger1CMS",
+        "description": "Elegance meets efficiency. Paris businesses choose BasaltCMS for sophistication and intelligence.",
+        "meta_title": "AI CMS à Paris | BasaltCMS",
         "meta_description": "CMS intelligent pour Paris avec conformité RGPD et automations avancées.",
         "keywords": [
             "Paris CMS",
             "AI CMS Paris",
             "RGPD CMS",
-            "Ledger1CMS Paris"
+            "BasaltCMS Paris"
         ],
         "subheading": "Élégance et performance",
         "highlights": [
@@ -1458,7 +1458,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Paris",
+            "name": "BasaltCMS Paris",
             "address": {
                 "addressLocality": "Paris",
                 "addressCountry": "FR"
@@ -1476,12 +1476,12 @@
         "context": "Europe's logistics and tech hub",
         "hero_title": "Amsterdam's Smart CMS",
         "description": "Navigate European markets with the CMS trusted by Amsterdam's most innovative companies.",
-        "meta_title": "AI CMS in Amsterdam | Ledger1CMS",
+        "meta_title": "AI CMS in Amsterdam | BasaltCMS",
         "meta_description": "GDPR-ready CMS for logistics and tech in the Netherlands.",
         "keywords": [
             "Amsterdam CMS",
             "AI CMS Netherlands",
-            "Ledger1CMS Amsterdam"
+            "BasaltCMS Amsterdam"
         ],
         "subheading": "Logistics and tech perfected",
         "highlights": [
@@ -1544,7 +1544,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Amsterdam",
+            "name": "BasaltCMS Amsterdam",
             "address": {
                 "addressLocality": "Amsterdam",
                 "addressCountry": "NL"
@@ -1561,13 +1561,13 @@
         "country": "Spain",
         "context": "Mediterranean tech and tourism",
         "hero_title": "Barcelona's Business CMS",
-        "description": "From tourism to tech, Barcelona businesses scale faster with Ledger1CMS's AI platform.",
-        "meta_title": "AI CMS in Barcelona | Ledger1CMS",
+        "description": "From tourism to tech, Barcelona businesses scale faster with BasaltCMS's AI platform.",
+        "meta_title": "AI CMS in Barcelona | BasaltCMS",
         "meta_description": "Tourism and tech-focused CMS with multilingual campaigns and predictive analytics.",
         "keywords": [
             "Barcelona CMS",
             "AI CMS Spain",
-            "Ledger1CMS Barcelona"
+            "BasaltCMS Barcelona"
         ],
         "subheading": "Mediterranean growth, automated",
         "highlights": [
@@ -1632,7 +1632,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Barcelona",
+            "name": "BasaltCMS Barcelona",
             "address": {
                 "addressLocality": "Barcelona",
                 "addressCountry": "ES"
@@ -1650,12 +1650,12 @@
         "context": "India's financial capital",
         "hero_title": "Mumbai's Enterprise CMS",
         "description": "Power your Indian business with the CMS that understands the complexities of the Mumbai market.",
-        "meta_title": "AI CMS in Mumbai | Ledger1CMS",
+        "meta_title": "AI CMS in Mumbai | BasaltCMS",
         "meta_description": "Indian enterprises scale with multilingual CMS, GST-aware pipelines, and predictive automations.",
         "keywords": [
             "Mumbai CMS",
             "AI CMS India",
-            "Ledger1CMS Mumbai"
+            "BasaltCMS Mumbai"
         ],
         "subheading": "Enterprise-ready for India",
         "highlights": [
@@ -1704,7 +1704,7 @@
                 "name": "S. Rao",
                 "role": "Head of Sales",
                 "company": "Mumbai FinServ",
-                "quote": "Ledger1CMS manages complex enterprise cycles efficiently."
+                "quote": "BasaltCMS manages complex enterprise cycles efficiently."
             }
         ],
         "ctas": [
@@ -1721,7 +1721,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Mumbai",
+            "name": "BasaltCMS Mumbai",
             "address": {
                 "addressLocality": "Mumbai",
                 "addressCountry": "IN"
@@ -1739,13 +1739,13 @@
         "country": "India",
         "context": "India's Silicon Valley",
         "hero_title": "Bangalore's Tech CMS",
-        "description": "Join India's tech elite using Ledger1CMS to scale globally from Bangalore.",
-        "meta_title": "AI CMS in Bangalore | Ledger1CMS",
+        "description": "Join India's tech elite using BasaltCMS to scale globally from Bangalore.",
+        "meta_title": "AI CMS in Bangalore | BasaltCMS",
         "meta_description": "Tech-first CMS for Bangalore startups and enterprises with open APIs and predictive engines.",
         "keywords": [
             "Bangalore CMS",
             "AI CMS India",
-            "Ledger1CMS Bangalore"
+            "BasaltCMS Bangalore"
         ],
         "subheading": "Tech-native, scale-ready",
         "highlights": [
@@ -1811,7 +1811,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Bangalore",
+            "name": "BasaltCMS Bangalore",
             "address": {
                 "addressLocality": "Bangalore",
                 "addressCountry": "IN"
@@ -1830,12 +1830,12 @@
         "context": "Asia's financial center",
         "hero_title": "Hong Kong's Premier CMS",
         "description": "Navigate Asia-Pacific markets with the CMS built for Hong Kong's fast-paced business environment.",
-        "meta_title": "AI CMS in Hong Kong | Ledger1CMS",
+        "meta_title": "AI CMS in Hong Kong | BasaltCMS",
         "meta_description": "Financial-grade CMS for Hong Kong with multilingual outreach and predictive analytics.",
         "keywords": [
             "Hong Kong CMS",
             "AI CMS HK",
-            "Ledger1CMS Hong Kong"
+            "BasaltCMS Hong Kong"
         ],
         "subheading": "Finance-grade automation",
         "highlights": [
@@ -1901,7 +1901,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Hong Kong",
+            "name": "BasaltCMS Hong Kong",
             "address": {
                 "addressLocality": "Hong Kong",
                 "addressCountry": "HK"
@@ -1919,12 +1919,12 @@
         "context": "China's commercial capital",
         "hero_title": "Shanghai's Growth CMS",
         "description": "Scale across China with the CMS that understands Shanghai's unique market dynamics.",
-        "meta_title": "AI CMS in Shanghai | Ledger1CMS",
+        "meta_title": "AI CMS in Shanghai | BasaltCMS",
         "meta_description": "Multilingual CMS with local compliance awareness and AI-driven sales for China.",
         "keywords": [
             "Shanghai CMS",
             "AI CMS China",
-            "Ledger1CMS Shanghai"
+            "BasaltCMS Shanghai"
         ],
         "subheading": "Built for China-scale",
         "highlights": [
@@ -1989,7 +1989,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Shanghai",
+            "name": "BasaltCMS Shanghai",
             "address": {
                 "addressLocality": "Shanghai",
                 "addressCountry": "CN"
@@ -2007,12 +2007,12 @@
         "context": "Latin America's largest market",
         "hero_title": "CDMX's Business CMS",
         "description": "Dominate Latin American markets with the CMS trusted by Mexico City's leading enterprises.",
-        "meta_title": "AI CMS in Mexico City | Ledger1CMS",
+        "meta_title": "AI CMS in Mexico City | BasaltCMS",
         "meta_description": "Spanish/English CMS with multi-currency support and CASL/GDPR-aware patterns for LATAM expansion.",
         "keywords": [
             "Mexico City CMS",
             "AI CMS Mexico",
-            "Ledger1CMS CDMX"
+            "BasaltCMS CDMX"
         ],
         "subheading": "LATAM expansion engine",
         "highlights": [
@@ -2077,7 +2077,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Mexico City",
+            "name": "BasaltCMS Mexico City",
             "address": {
                 "addressLocality": "Mexico City",
                 "addressCountry": "MX"
@@ -2096,12 +2096,12 @@
         "context": "Brazil's economic powerhouse",
         "hero_title": "São Paulo's Scale CMS",
         "description": "Power your Brazilian business with AI-driven CMS built for São Paulo's competitive market.",
-        "meta_title": "AI CMS em São Paulo | Ledger1CMS",
+        "meta_title": "AI CMS em São Paulo | BasaltCMS",
         "meta_description": "CMS com IA para empresas brasileiras com campanhas multilíngues e automações avançadas.",
         "keywords": [
             "São Paulo CMS",
             "AI CMS Brasil",
-            "Ledger1CMS São Paulo"
+            "BasaltCMS São Paulo"
         ],
         "subheading": "Crescimento com IA",
         "highlights": [
@@ -2167,7 +2167,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS São Paulo",
+            "name": "BasaltCMS São Paulo",
             "address": {
                 "addressLocality": "São Paulo",
                 "addressCountry": "BR"
@@ -2185,12 +2185,12 @@
         "context": "Argentina's business center",
         "hero_title": "Buenos Aires CMS",
         "description": "Navigate South American markets with the CMS designed for Buenos Aires entrepreneurs.",
-        "meta_title": "AI CMS en Buenos Aires | Ledger1CMS",
+        "meta_title": "AI CMS en Buenos Aires | BasaltCMS",
         "meta_description": "CMS con IA para Argentina, campañas multilingües y flujos B2B.",
         "keywords": [
             "Buenos Aires CMS",
             "AI CMS Argentina",
-            "Ledger1CMS Buenos Aires"
+            "BasaltCMS Buenos Aires"
         ],
         "subheading": "El crecimiento inteligente",
         "highlights": [
@@ -2255,7 +2255,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Buenos Aires",
+            "name": "BasaltCMS Buenos Aires",
             "address": {
                 "addressLocality": "Buenos Aires",
                 "addressCountry": "AR"
@@ -2272,13 +2272,13 @@
         "country": "South Africa",
         "context": "Africa's tech hub",
         "hero_title": "Cape Town's Innovation CMS",
-        "description": "Lead the African tech revolution with Ledger1CMS's AI-powered platform.",
-        "meta_title": "AI CMS in Cape Town | Ledger1CMS",
+        "description": "Lead the African tech revolution with BasaltCMS's AI-powered platform.",
+        "meta_title": "AI CMS in Cape Town | BasaltCMS",
         "meta_description": "South African CMS with multilingual support, predictive analytics, and robust integrations.",
         "keywords": [
             "Cape Town CMS",
             "AI CMS South Africa",
-            "Ledger1CMS Cape Town"
+            "BasaltCMS Cape Town"
         ],
         "subheading": "Innovation at the Cape",
         "highlights": [
@@ -2343,7 +2343,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Cape Town",
+            "name": "BasaltCMS Cape Town",
             "address": {
                 "addressLocality": "Cape Town",
                 "addressCountry": "ZA"
@@ -2362,12 +2362,12 @@
         "context": "Africa's largest economy",
         "hero_title": "Lagos's Growth CMS",
         "description": "Scale your Nigerian business with the CMS built for Lagos's dynamic market.",
-        "meta_title": "AI CMS in Lagos | Ledger1CMS",
+        "meta_title": "AI CMS in Lagos | BasaltCMS",
         "meta_description": "CMS for Nigeria with multilingual outreach, multi-currency, and predictive analytics.",
         "keywords": [
             "Lagos CMS",
             "AI CMS Nigeria",
-            "Ledger1CMS Lagos"
+            "BasaltCMS Lagos"
         ],
         "subheading": "Scale across West Africa",
         "highlights": [
@@ -2432,7 +2432,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Lagos",
+            "name": "BasaltCMS Lagos",
             "address": {
                 "addressLocality": "Lagos",
                 "addressCountry": "NG"
@@ -2449,13 +2449,13 @@
         "country": "Turkey",
         "context": "Bridge between continents",
         "hero_title": "Istanbul's Business CMS",
-        "description": "Connect Europe, Asia, and the Middle East with Ledger1CMS's global platform.",
-        "meta_title": "AI CMS in Istanbul | Ledger1CMS",
+        "description": "Connect Europe, Asia, and the Middle East with BasaltCMS's global platform.",
+        "meta_title": "AI CMS in Istanbul | BasaltCMS",
         "meta_description": "Multilingual CMS for Turkey with EU-aware patterns and predictive AI.",
         "keywords": [
             "Istanbul CMS",
             "AI CMS Turkey",
-            "Ledger1CMS Istanbul"
+            "BasaltCMS Istanbul"
         ],
         "subheading": "Where markets meet",
         "highlights": [
@@ -2521,7 +2521,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Istanbul",
+            "name": "BasaltCMS Istanbul",
             "address": {
                 "addressLocality": "Istanbul",
                 "addressCountry": "TR"
@@ -2539,12 +2539,12 @@
         "context": "Startup Nation capital",
         "hero_title": "Tel Aviv's Startup CMS",
         "description": "Join Israel's innovation ecosystem with the CMS designed for high-growth tech companies.",
-        "meta_title": "AI CMS in Tel Aviv | Ledger1CMS",
+        "meta_title": "AI CMS in Tel Aviv | BasaltCMS",
         "meta_description": "Startup-grade CMS for Israel with developer tooling and predictive AI.",
         "keywords": [
             "Tel Aviv CMS",
             "AI CMS Israel",
-            "Ledger1CMS Tel Aviv"
+            "BasaltCMS Tel Aviv"
         ],
         "subheading": "Built for rapid iteration",
         "highlights": [
@@ -2609,7 +2609,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Tel Aviv",
+            "name": "BasaltCMS Tel Aviv",
             "address": {
                 "addressLocality": "Tel Aviv",
                 "addressCountry": "IL"
@@ -2627,12 +2627,12 @@
         "context": "Canada's Pacific gateway",
         "hero_title": "Vancouver's Scale CMS",
         "description": "Bridge North America and Asia with the CMS trusted by Vancouver's international businesses.",
-        "meta_title": "AI CMS in Vancouver | Ledger1CMS",
+        "meta_title": "AI CMS in Vancouver | BasaltCMS",
         "meta_description": "PIPEDA-aware CMS with bilingual support and APAC-friendly workflows.",
         "keywords": [
             "Vancouver CMS",
             "AI CMS Canada",
-            "Ledger1CMS Vancouver"
+            "BasaltCMS Vancouver"
         ],
         "subheading": "Pacific gateway growth",
         "highlights": [
@@ -2700,7 +2700,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Vancouver",
+            "name": "BasaltCMS Vancouver",
             "address": {
                 "addressLocality": "Vancouver",
                 "addressCountry": "CA"
@@ -2717,13 +2717,13 @@
         "country": "Canada",
         "context": "Canada's cultural capital",
         "hero_title": "Montreal's Bilingual CMS",
-        "description": "Serve anglophone and francophone markets with Ledger1CMS's flexible platform.",
-        "meta_title": "AI CMS in Montreal | Ledger1CMS",
+        "description": "Serve anglophone and francophone markets with BasaltCMS's flexible platform.",
+        "meta_title": "AI CMS in Montreal | BasaltCMS",
         "meta_description": "Bilingual CMS with EN/FR templates, CASL-aware outreach, and predictive analytics.",
         "keywords": [
             "Montreal CMS",
             "AI CMS Canada",
-            "Ledger1CMS Montreal",
+            "BasaltCMS Montreal",
             "Bilingual CMS"
         ],
         "subheading": "Bilingual growth engine",
@@ -2790,7 +2790,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Montreal",
+            "name": "BasaltCMS Montreal",
             "address": {
                 "addressLocality": "Montreal",
                 "addressCountry": "CA"
@@ -2808,12 +2808,12 @@
         "context": "Australia's cultural hub",
         "hero_title": "Melbourne's Smart CMS",
         "description": "Power your Australian business with the CMS that understands Melbourne's creative economy.",
-        "meta_title": "AI CMS in Melbourne | Ledger1CMS",
+        "meta_title": "AI CMS in Melbourne | BasaltCMS",
         "meta_description": "CMS for Melbourne with Privacy Act compliance, predictive analytics, and visual workflows.",
         "keywords": [
             "Melbourne CMS",
             "AI CMS Australia",
-            "Ledger1CMS Melbourne"
+            "BasaltCMS Melbourne"
         ],
         "subheading": "Creative workflows, automated",
         "highlights": [
@@ -2877,7 +2877,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Melbourne",
+            "name": "BasaltCMS Melbourne",
             "address": {
                 "addressLocality": "Melbourne",
                 "addressCountry": "AU"
@@ -2895,12 +2895,12 @@
         "context": "New Zealand's business center",
         "hero_title": "Auckland's Growth CMS",
         "description": "Scale across Oceania with the CMS built for Auckland's innovative businesses.",
-        "meta_title": "AI CMS in Auckland | Ledger1CMS",
+        "meta_title": "AI CMS in Auckland | BasaltCMS",
         "meta_description": "CMS for New Zealand with privacy awareness, AI agents, and open integrations.",
         "keywords": [
             "Auckland CMS",
             "AI CMS New Zealand",
-            "Ledger1CMS Auckland"
+            "BasaltCMS Auckland"
         ],
         "subheading": "Oceania-ready automation",
         "highlights": [
@@ -2965,7 +2965,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Auckland",
+            "name": "BasaltCMS Auckland",
             "address": {
                 "addressLocality": "Auckland",
                 "addressCountry": "NZ"
@@ -2982,13 +2982,13 @@
         "country": "Ireland",
         "context": "Europe's tech talent hub",
         "hero_title": "Dublin's Tech CMS",
-        "description": "Join Europe's fastest-growing tech ecosystem with Ledger1CMS's AI platform.",
-        "meta_title": "AI CMS in Dublin | Ledger1CMS",
+        "description": "Join Europe's fastest-growing tech ecosystem with BasaltCMS's AI platform.",
+        "meta_title": "AI CMS in Dublin | BasaltCMS",
         "meta_description": "GDPR-compliant CMS tailored for Ireland with EU hosting and predictive AI.",
         "keywords": [
             "Dublin CMS",
             "AI CMS Ireland",
-            "Ledger1CMS Dublin"
+            "BasaltCMS Dublin"
         ],
         "subheading": "EU-ready and talent-friendly",
         "highlights": [
@@ -3052,7 +3052,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Dublin",
+            "name": "BasaltCMS Dublin",
             "address": {
                 "addressLocality": "Dublin",
                 "addressCountry": "IE"
@@ -3069,13 +3069,13 @@
         "country": "Switzerland",
         "context": "Swiss precision and finance",
         "hero_title": "Zurich's Premium CMS",
-        "description": "Swiss businesses demand excellence. Ledger1CMS delivers with precision and security.",
-        "meta_title": "AI CMS in Zurich | Ledger1CMS",
+        "description": "Swiss businesses demand excellence. BasaltCMS delivers with precision and security.",
+        "meta_title": "AI CMS in Zurich | BasaltCMS",
         "meta_description": "Swiss-grade security and precision with predictive AI and multilingual support.",
         "keywords": [
             "Zurich CMS",
             "AI CMS Switzerland",
-            "Ledger1CMS Zurich"
+            "BasaltCMS Zurich"
         ],
         "subheading": "Precision meets intelligence",
         "highlights": [
@@ -3144,7 +3144,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Zurich",
+            "name": "BasaltCMS Zurich",
             "address": {
                 "addressLocality": "Zurich",
                 "addressCountry": "CH"
@@ -3162,12 +3162,12 @@
         "context": "Scandinavian innovation",
         "hero_title": "Stockholm's Startup CMS",
         "description": "Join unicorns like Spotify and Klarna using AI to dominate global markets.",
-        "meta_title": "AI CMS in Stockholm | Ledger1CMS",
+        "meta_title": "AI CMS in Stockholm | BasaltCMS",
         "meta_description": "Nordic-grade CMS with GDPR compliance, multilingual workflows, and predictive analytics.",
         "keywords": [
             "Stockholm CMS",
             "AI CMS Sweden",
-            "Ledger1CMS Stockholm"
+            "BasaltCMS Stockholm"
         ],
         "subheading": "Nordic innovation engine",
         "highlights": [
@@ -3232,7 +3232,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Stockholm",
+            "name": "BasaltCMS Stockholm",
             "address": {
                 "addressLocality": "Stockholm",
                 "addressCountry": "SE"
@@ -3250,12 +3250,12 @@
         "context": "Nordic design and tech",
         "hero_title": "Copenhagen's Smart CMS",
         "description": "Combine Danish design principles with AI intelligence for business growth.",
-        "meta_title": "AI CMS in Copenhagen | Ledger1CMS",
+        "meta_title": "AI CMS in Copenhagen | BasaltCMS",
         "meta_description": "Design-forward CMS with predictive AI and EU-compliant workflows.",
         "keywords": [
             "Copenhagen CMS",
             "AI CMS Denmark",
-            "Ledger1CMS Copenhagen"
+            "BasaltCMS Copenhagen"
         ],
         "subheading": "Design meets intelligence",
         "highlights": [
@@ -3320,7 +3320,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Copenhagen",
+            "name": "BasaltCMS Copenhagen",
             "address": {
                 "addressLocality": "Copenhagen",
                 "addressCountry": "DK"
@@ -3338,12 +3338,12 @@
         "context": "Norway's business capital",
         "hero_title": "Oslo's Business CMS",
         "description": "Navigate Nordic markets with the CMS built for Oslo's innovative companies.",
-        "meta_title": "AI CMS in Oslo | Ledger1CMS",
+        "meta_title": "AI CMS in Oslo | BasaltCMS",
         "meta_description": "CMS with predictive analytics, EU-aware compliance, and multilingual workflows for Norway.",
         "keywords": [
             "Oslo CMS",
             "AI CMS Norway",
-            "Ledger1CMS Oslo"
+            "BasaltCMS Oslo"
         ],
         "subheading": "Nordic workflows perfected",
         "highlights": [
@@ -3408,7 +3408,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Oslo",
+            "name": "BasaltCMS Oslo",
             "address": {
                 "addressLocality": "Oslo",
                 "addressCountry": "NO"
@@ -3425,13 +3425,13 @@
         "country": "Finland",
         "context": "Finnish tech excellence",
         "hero_title": "Helsinki's Tech CMS",
-        "description": "Join Finland's tech leaders using Ledger1CMS to scale globally.",
-        "meta_title": "AI CMS in Helsinki | Ledger1CMS",
+        "description": "Join Finland's tech leaders using BasaltCMS to scale globally.",
+        "meta_title": "AI CMS in Helsinki | BasaltCMS",
         "meta_description": "CMS for Finnish tech with EU-compliant workflows and predictive AI.",
         "keywords": [
             "Helsinki CMS",
             "AI CMS Finland",
-            "Ledger1CMS Helsinki"
+            "BasaltCMS Helsinki"
         ],
         "subheading": "Built for Finnish excellence",
         "highlights": [
@@ -3496,7 +3496,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Helsinki",
+            "name": "BasaltCMS Helsinki",
             "address": {
                 "addressLocality": "Helsinki",
                 "addressCountry": "FI"
@@ -3513,13 +3513,13 @@
         "country": "Austria",
         "context": "Central European hub",
         "hero_title": "Vienna's Enterprise CMS",
-        "description": "Connect Central and Eastern Europe with Ledger1CMS's intelligent platform.",
-        "meta_title": "AI CMS in Vienna | Ledger1CMS",
+        "description": "Connect Central and Eastern Europe with BasaltCMS's intelligent platform.",
+        "meta_title": "AI CMS in Vienna | BasaltCMS",
         "meta_description": "Enterprise-ready CMS for Austria with GDPR compliance and predictive AI.",
         "keywords": [
             "Vienna CMS",
             "AI CMS Austria",
-            "Ledger1CMS Vienna"
+            "BasaltCMS Vienna"
         ],
         "subheading": "Central Europe scalability",
         "highlights": [
@@ -3583,7 +3583,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Vienna",
+            "name": "BasaltCMS Vienna",
             "address": {
                 "addressLocality": "Vienna",
                 "addressCountry": "AT"
@@ -3601,12 +3601,12 @@
         "context": "CEE's startup hub",
         "hero_title": "Prague's Innovation CMS",
         "description": "Lead Central Europe's tech revolution with AI-powered CMS.",
-        "meta_title": "AI CMS in Prague | Ledger1CMS",
+        "meta_title": "AI CMS in Prague | BasaltCMS",
         "meta_description": "CEE-focused CMS with EU compliance and predictive analytics.",
         "keywords": [
             "Prague CMS",
             "AI CMS Czech Republic",
-            "Ledger1CMS Prague"
+            "BasaltCMS Prague"
         ],
         "subheading": "Central Europe innovation",
         "highlights": [
@@ -3671,7 +3671,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Prague",
+            "name": "BasaltCMS Prague",
             "address": {
                 "addressLocality": "Prague",
                 "addressCountry": "CZ"
@@ -3689,12 +3689,12 @@
         "context": "Poland's economic center",
         "hero_title": "Warsaw's Growth CMS",
         "description": "Power your Polish business with the CMS designed for Warsaw's dynamic market.",
-        "meta_title": "AI CMS in Warsaw | Ledger1CMS",
+        "meta_title": "AI CMS in Warsaw | BasaltCMS",
         "meta_description": "CMS for Poland with GDPR compliance, predictive analytics, and multilingual support.",
         "keywords": [
             "Warsaw CMS",
             "AI CMS Poland",
-            "Ledger1CMS Warsaw"
+            "BasaltCMS Warsaw"
         ],
         "subheading": "Polish growth engine",
         "highlights": [
@@ -3759,7 +3759,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Warsaw",
+            "name": "BasaltCMS Warsaw",
             "address": {
                 "addressLocality": "Warsaw",
                 "addressCountry": "PL"
@@ -3776,13 +3776,13 @@
         "country": "Portugal",
         "context": "Europe's rising tech hub",
         "hero_title": "Lisbon's Startup CMS",
-        "description": "Join Europe's fastest-growing tech scene with Ledger1CMS's AI platform.",
-        "meta_title": "AI CMS in Lisbon | Ledger1CMS",
+        "description": "Join Europe's fastest-growing tech scene with BasaltCMS's AI platform.",
+        "meta_title": "AI CMS in Lisbon | BasaltCMS",
         "meta_description": "CMS for Portugal with EU compliance and predictive analytics.",
         "keywords": [
             "Lisbon CMS",
             "AI CMS Portugal",
-            "Ledger1CMS Lisbon"
+            "BasaltCMS Lisbon"
         ],
         "subheading": "Rise with AI",
         "highlights": [
@@ -3846,7 +3846,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Lisbon",
+            "name": "BasaltCMS Lisbon",
             "address": {
                 "addressLocality": "Lisbon",
                 "addressCountry": "PT"
@@ -3864,12 +3864,12 @@
         "context": "Mediterranean business gateway",
         "hero_title": "Athens's Business CMS",
         "description": "Navigate Southern European and Mediterranean markets with intelligent CMS.",
-        "meta_title": "AI CMS in Athens | Ledger1CMS",
+        "meta_title": "AI CMS in Athens | BasaltCMS",
         "meta_description": "CMS for Greece with EU compliance, multilingual support, and predictive AI.",
         "keywords": [
             "Athens CMS",
             "AI CMS Greece",
-            "Ledger1CMS Athens"
+            "BasaltCMS Athens"
         ],
         "subheading": "Gateway to Mediterranean growth",
         "highlights": [
@@ -3933,7 +3933,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Athens",
+            "name": "BasaltCMS Athens",
             "address": {
                 "addressLocality": "Athens",
                 "addressCountry": "GR"
@@ -3951,12 +3951,12 @@
         "context": "European Union capital",
         "hero_title": "Brussels's Enterprise CMS",
         "description": "Navigate EU regulations and markets with GDPR-compliant AI CMS.",
-        "meta_title": "AI CMS in Brussels | Ledger1CMS",
+        "meta_title": "AI CMS in Brussels | BasaltCMS",
         "meta_description": "EU-focused CMS for Brussels with GDPR compliance and predictive analytics.",
         "keywords": [
             "Brussels CMS",
             "AI CMS Belgium",
-            "Ledger1CMS Brussels"
+            "BasaltCMS Brussels"
         ],
         "subheading": "EU-grade compliance, AI-grade growth",
         "highlights": [
@@ -4021,7 +4021,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Brussels",
+            "name": "BasaltCMS Brussels",
             "address": {
                 "addressLocality": "Brussels",
                 "addressCountry": "BE"
@@ -4039,12 +4039,12 @@
         "context": "Scotland's financial center",
         "hero_title": "Edinburgh's Finance CMS",
         "description": "Power your Scottish business with the CMS trusted by Edinburgh's financial sector.",
-        "meta_title": "AI CMS in Edinburgh | Ledger1CMS",
+        "meta_title": "AI CMS in Edinburgh | BasaltCMS",
         "meta_description": "Finance-focused CMS for Scotland with GDPR compliance and predictive analytics.",
         "keywords": [
             "Edinburgh CMS",
             "AI CMS Scotland",
-            "Ledger1CMS Edinburgh"
+            "BasaltCMS Edinburgh"
         ],
         "subheading": "Finance-grade automation",
         "highlights": [
@@ -4107,7 +4107,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Edinburgh",
+            "name": "BasaltCMS Edinburgh",
             "address": {
                 "addressLocality": "Edinburgh",
                 "addressCountry": "GB"
@@ -4125,12 +4125,12 @@
         "context": "Northern England's tech hub",
         "hero_title": "Manchester's Growth CMS",
         "description": "Join the Northern Powerhouse with AI-driven business intelligence.",
-        "meta_title": "AI CMS in Manchester | Ledger1CMS",
+        "meta_title": "AI CMS in Manchester | BasaltCMS",
         "meta_description": "Tech-focused CMS for Manchester with predictive analytics and open integrations.",
         "keywords": [
             "Manchester CMS",
             "AI CMS UK",
-            "Ledger1CMS Manchester"
+            "BasaltCMS Manchester"
         ],
         "subheading": "Northern Powerhouse automation",
         "highlights": [
@@ -4193,7 +4193,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Manchester",
+            "name": "BasaltCMS Manchester",
             "address": {
                 "addressLocality": "Manchester",
                 "addressCountry": "GB"
@@ -4211,12 +4211,12 @@
         "context": "Europe's financial capital",
         "hero_title": "Frankfurt's Finance CMS",
         "description": "Navigate European finance with the CMS built for Frankfurt's banking sector.",
-        "meta_title": "AI CMS in Frankfurt | Ledger1CMS",
+        "meta_title": "AI CMS in Frankfurt | BasaltCMS",
         "meta_description": "Finance-grade CMS with GDPR compliance, EU data residency, and predictive analytics.",
         "keywords": [
             "Frankfurt CMS",
             "AI CMS Germany",
-            "Ledger1CMS Frankfurt"
+            "BasaltCMS Frankfurt"
         ],
         "subheading": "Banking-grade intelligence",
         "highlights": [
@@ -4280,7 +4280,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Frankfurt",
+            "name": "BasaltCMS Frankfurt",
             "address": {
                 "addressLocality": "Frankfurt",
                 "addressCountry": "DE"
@@ -4298,12 +4298,12 @@
         "context": "German innovation center",
         "hero_title": "Munich's Enterprise CMS",
         "description": "Power your German business with precision-engineered AI CMS.",
-        "meta_title": "AI CMS in Munich | Ledger1CMS",
+        "meta_title": "AI CMS in Munich | BasaltCMS",
         "meta_description": "CMS for German enterprises with GDPR compliance and predictive AI.",
         "keywords": [
             "Munich CMS",
             "AI CMS Germany",
-            "Ledger1CMS Munich"
+            "BasaltCMS Munich"
         ],
         "subheading": "Precision-engineered growth",
         "highlights": [
@@ -4367,7 +4367,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Munich",
+            "name": "BasaltCMS Munich",
             "address": {
                 "addressLocality": "Munich",
                 "addressCountry": "DE"
@@ -4384,13 +4384,13 @@
         "country": "Spain",
         "context": "Spain's business capital",
         "hero_title": "Madrid's Business CMS",
-        "description": "Dominate Spanish and Latin American markets with Ledger1CMS.",
-        "meta_title": "AI CMS in Madrid | Ledger1CMS",
+        "description": "Dominate Spanish and Latin American markets with BasaltCMS.",
+        "meta_title": "AI CMS in Madrid | BasaltCMS",
         "meta_description": "CMS with ES/EN localization, EU compliance, and predictive AI for Spain.",
         "keywords": [
             "Madrid CMS",
             "AI CMS Spain",
-            "Ledger1CMS Madrid"
+            "BasaltCMS Madrid"
         ],
         "subheading": "Spain and LATAM expansion",
         "highlights": [
@@ -4454,7 +4454,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Madrid",
+            "name": "BasaltCMS Madrid",
             "address": {
                 "addressLocality": "Madrid",
                 "addressCountry": "ES"
@@ -4472,12 +4472,12 @@
         "context": "Historic capital and modern business",
         "hero_title": "Rome's Modern AI CMS",
         "description": "Italian enterprises modernize operations with predictive AI and GDPR-compliant CMS.",
-        "meta_title": "AI CMS in Rome | Ledger1CMS",
+        "meta_title": "AI CMS in Rome | BasaltCMS",
         "meta_description": "CMS for Italy with GDPR compliance, multilingual campaigns, and predictive automations.",
         "keywords": [
             "Rome CMS",
             "AI CMS Italy",
-            "Ledger1CMS Rome"
+            "BasaltCMS Rome"
         ],
         "subheading": "Tradition meets innovation",
         "highlights": [
@@ -4541,7 +4541,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Rome",
+            "name": "BasaltCMS Rome",
             "address": {
                 "addressLocality": "Rome",
                 "addressCountry": "IT"
@@ -4559,7 +4559,7 @@
         "context": "Italy's business and fashion capital",
         "hero_title": "Milan's Fashion & Finance CMS",
         "description": "Orchestrate omnichannel content for Italy's luxury and finance sectors with our Milan edge node.",
-        "meta_title": "Headless CMS in Milan | Ledger1CMS",
+        "meta_title": "Headless CMS in Milan | BasaltCMS",
         "meta_description": "Enterprise CMS for Milan. GDPR compliant, high-performance image delivery for fashion, and secure finance portals.",
         "keywords": [
             "Milan CMS",
@@ -4629,7 +4629,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Milan",
+            "name": "BasaltCMS Milan",
             "address": {
                 "addressLocality": "Milan",
                 "addressCountry": "IT"
@@ -4647,12 +4647,12 @@
         "context": "Global tech leader",
         "hero_title": "Seoul's AI-First CMS",
         "description": "Korean enterprises accelerate growth with multilingual, predictive AI CMS.",
-        "meta_title": "AI CMS in Seoul | Ledger1CMS",
+        "meta_title": "AI CMS in Seoul | BasaltCMS",
         "meta_description": "CMS for Korea with KR localization, multilingual campaigns, and predictive analytics.",
         "keywords": [
             "Seoul CMS",
             "AI CMS Korea",
-            "Ledger1CMS Seoul"
+            "BasaltCMS Seoul"
         ],
         "subheading": "K-tech growth engine",
         "highlights": [
@@ -4717,7 +4717,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Seoul",
+            "name": "BasaltCMS Seoul",
             "address": {
                 "addressLocality": "Seoul",
                 "addressCountry": "KR"
@@ -4735,12 +4735,12 @@
         "context": "Gateway to Southeast Asia",
         "hero_title": "KL's Growth CMS",
         "description": "Scale across SEA with multilingual CMS and predictive AI.",
-        "meta_title": "AI CMS in Kuala Lumpur | Ledger1CMS",
+        "meta_title": "AI CMS in Kuala Lumpur | BasaltCMS",
         "meta_description": "CMS for Malaysia with MY localization, multi-currency, and predictive analytics.",
         "keywords": [
             "Kuala Lumpur CMS",
             "AI CMS Malaysia",
-            "Ledger1CMS KL"
+            "BasaltCMS KL"
         ],
         "subheading": "SEA regional expansion",
         "highlights": [
@@ -4807,7 +4807,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Kuala Lumpur",
+            "name": "BasaltCMS Kuala Lumpur",
             "address": {
                 "addressLocality": "Kuala Lumpur",
                 "addressCountry": "MY"
@@ -4825,12 +4825,12 @@
         "context": "Indonesia's economic engine",
         "hero_title": "Jakarta's AI CMS",
         "description": "Automate growth with multilingual CMS built for Indonesia's scale.",
-        "meta_title": "AI CMS in Jakarta | Ledger1CMS",
+        "meta_title": "AI CMS in Jakarta | BasaltCMS",
         "meta_description": "CMS for Indonesia with ID localization, multi-currency, and predictive analytics.",
         "keywords": [
             "Jakarta CMS",
             "AI CMS Indonesia",
-            "Ledger1CMS Jakarta"
+            "BasaltCMS Jakarta"
         ],
         "subheading": "Built for scale",
         "highlights": [
@@ -4895,7 +4895,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Jakarta",
+            "name": "BasaltCMS Jakarta",
             "address": {
                 "addressLocality": "Jakarta",
                 "addressCountry": "ID"
@@ -4913,12 +4913,12 @@
         "context": "BPO and tech hub",
         "hero_title": "Manila's CMS for BPO & Tech",
         "description": "Run BPO and tech operations with predictive CMS and multilingual outreach.",
-        "meta_title": "AI CMS in Manila | Ledger1CMS",
+        "meta_title": "AI CMS in Manila | BasaltCMS",
         "meta_description": "CMS for the Philippines with EN/Tagalog localization and predictive analytics.",
         "keywords": [
             "Manila CMS",
             "AI CMS Philippines",
-            "Ledger1CMS Manila"
+            "BasaltCMS Manila"
         ],
         "subheading": "BPO-grade automation",
         "highlights": [
@@ -4983,7 +4983,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Manila",
+            "name": "BasaltCMS Manila",
             "address": {
                 "addressLocality": "Manila",
                 "addressCountry": "PH"
@@ -5001,12 +5001,12 @@
         "context": "SEA commerce powerhouse",
         "hero_title": "Bangkok's Commerce CMS",
         "description": "Drive retail and services growth with multilingual, predictive CMS.",
-        "meta_title": "AI CMS in Bangkok | Ledger1CMS",
+        "meta_title": "AI CMS in Bangkok | BasaltCMS",
         "meta_description": "CMS for Thailand with TH/EN localization, multi-currency, and predictive analytics.",
         "keywords": [
             "Bangkok CMS",
             "AI CMS Thailand",
-            "Ledger1CMS Bangkok"
+            "BasaltCMS Bangkok"
         ],
         "subheading": "SEA commerce automation",
         "highlights": [
@@ -5071,7 +5071,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Bangkok",
+            "name": "BasaltCMS Bangkok",
             "address": {
                 "addressLocality": "Bangkok",
                 "addressCountry": "TH"
@@ -5089,12 +5089,12 @@
         "context": "Emerging tech and manufacturing",
         "hero_title": "Hanoi's Growth CMS",
         "description": "Scale with AI-driven CMS for Vietnam's emerging tech and manufacturing sectors.",
-        "meta_title": "AI CMS in Hanoi | Ledger1CMS",
+        "meta_title": "AI CMS in Hanoi | BasaltCMS",
         "meta_description": "CMS for Vietnam with VI/EN localization, predictive analytics, and B2B workflows.",
         "keywords": [
             "Hanoi CMS",
             "AI CMS Vietnam",
-            "Ledger1CMS Hanoi"
+            "BasaltCMS Hanoi"
         ],
         "subheading": "Emerging market engine",
         "highlights": [
@@ -5159,7 +5159,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Hanoi",
+            "name": "BasaltCMS Hanoi",
             "address": {
                 "addressLocality": "Hanoi",
                 "addressCountry": "VN"
@@ -5177,12 +5177,12 @@
         "context": "GCC growth hub",
         "hero_title": "Riyadh's Enterprise CMS",
         "description": "Enterprise-grade CMS for GCC markets with Arabic/English localization and predictive AI.",
-        "meta_title": "AI CMS in Riyadh | Ledger1CMS",
+        "meta_title": "AI CMS in Riyadh | BasaltCMS",
         "meta_description": "CMS for Saudi Arabia with AR/EN localization, mega-project workflows, and predictive analytics.",
         "keywords": [
             "Riyadh CMS",
             "AI CMS Saudi Arabia",
-            "Ledger1CMS Riyadh"
+            "BasaltCMS Riyadh"
         ],
         "subheading": "GCC enterprise workflows",
         "highlights": [
@@ -5247,7 +5247,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Riyadh",
+            "name": "BasaltCMS Riyadh",
             "address": {
                 "addressLocality": "Riyadh",
                 "addressCountry": "SA"
@@ -5265,12 +5265,12 @@
         "context": "North Africa's business center",
         "hero_title": "Cairo's AI CMS",
         "description": "Scale across North Africa with multilingual CMS and predictive AI.",
-        "meta_title": "AI CMS in Cairo | Ledger1CMS",
+        "meta_title": "AI CMS in Cairo | BasaltCMS",
         "meta_description": "CMS for Egypt with AR/EN localization, multi-currency, and predictive analytics.",
         "keywords": [
             "Cairo CMS",
             "AI CMS Egypt",
-            "Ledger1CMS Cairo"
+            "BasaltCMS Cairo"
         ],
         "subheading": "North Africa growth engine",
         "highlights": [
@@ -5335,7 +5335,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Cairo",
+            "name": "BasaltCMS Cairo",
             "address": {
                 "addressLocality": "Cairo",
                 "addressCountry": "EG"
@@ -5353,12 +5353,12 @@
         "context": "East Africa's innovation hub",
         "hero_title": "Nairobi's Tech CMS",
         "description": "Run East Africa operations with mobile-first, predictive CMS.",
-        "meta_title": "AI CMS in Nairobi | Ledger1CMS",
+        "meta_title": "AI CMS in Nairobi | BasaltCMS",
         "meta_description": "CMS for Kenya with mobile-first workflows, multi-currency, and predictive analytics.",
         "keywords": [
             "Nairobi CMS",
             "AI CMS Kenya",
-            "Ledger1CMS Nairobi"
+            "BasaltCMS Nairobi"
         ],
         "subheading": "Mobile-first innovation",
         "highlights": [
@@ -5423,7 +5423,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Nairobi",
+            "name": "BasaltCMS Nairobi",
             "address": {
                 "addressLocality": "Nairobi",
                 "addressCountry": "KE"
@@ -5441,12 +5441,12 @@
         "context": "South Africa's financial hub",
         "hero_title": "Johannesburg's Enterprise CMS",
         "description": "Finance and services growth powered by AI-native CMS.",
-        "meta_title": "AI CMS in Johannesburg | Ledger1CMS",
+        "meta_title": "AI CMS in Johannesburg | BasaltCMS",
         "meta_description": "CMS for South Africa with POPIA compliance, multilingual support, and predictive analytics.",
         "keywords": [
             "Johannesburg CMS",
             "AI CMS South Africa",
-            "Ledger1CMS Johannesburg"
+            "BasaltCMS Johannesburg"
         ],
         "subheading": "Finance-grade automation",
         "highlights": [
@@ -5512,7 +5512,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Johannesburg",
+            "name": "BasaltCMS Johannesburg",
             "address": {
                 "addressLocality": "Johannesburg",
                 "addressCountry": "ZA"
@@ -5530,12 +5530,12 @@
         "context": "Mining and energy center",
         "hero_title": "Perth's Industry CMS",
         "description": "Manage mining and energy accounts with predictive workflows and rugged reliability.",
-        "meta_title": "AI CMS in Perth | Ledger1CMS",
+        "meta_title": "AI CMS in Perth | BasaltCMS",
         "meta_description": "Industry-grade CMS for mining and energy with predictive analytics and project workflows.",
         "keywords": [
             "Perth CMS",
             "AI CMS Australia",
-            "Ledger1CMS Perth",
+            "BasaltCMS Perth",
             "Mining CMS"
         ],
         "subheading": "Rugged reliability",
@@ -5600,7 +5600,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Perth",
+            "name": "BasaltCMS Perth",
             "address": {
                 "addressLocality": "Perth",
                 "addressCountry": "AU"
@@ -5618,12 +5618,12 @@
         "context": "Queensland's growth hub",
         "hero_title": "Brisbane's Growth CMS",
         "description": "AI-first CMS for Brisbane services, construction, and tech.",
-        "meta_title": "AI CMS in Brisbane | Ledger1CMS",
+        "meta_title": "AI CMS in Brisbane | BasaltCMS",
         "meta_description": "CMS for Brisbane with Privacy Act compliance, predictive analytics, and open integrations.",
         "keywords": [
             "Brisbane CMS",
             "AI CMS Australia",
-            "Ledger1CMS Brisbane"
+            "BasaltCMS Brisbane"
         ],
         "subheading": "Queensland growth engine",
         "highlights": [
@@ -5686,7 +5686,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Brisbane",
+            "name": "BasaltCMS Brisbane",
             "address": {
                 "addressLocality": "Brisbane",
                 "addressCountry": "AU"
@@ -5704,12 +5704,12 @@
         "context": "Energy and services",
         "hero_title": "Calgary's Industry CMS",
         "description": "Energy, services, and logistics unified by predictive CMS.",
-        "meta_title": "AI CMS in Calgary | Ledger1CMS",
+        "meta_title": "AI CMS in Calgary | BasaltCMS",
         "meta_description": "CMS for Alberta with PIPEDA compliance, predictive analytics, and bilingual workflows.",
         "keywords": [
             "Calgary CMS",
             "AI CMS Canada",
-            "Ledger1CMS Calgary"
+            "BasaltCMS Calgary"
         ],
         "subheading": "Alberta industry workflows",
         "highlights": [
@@ -5775,7 +5775,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Calgary",
+            "name": "BasaltCMS Calgary",
             "address": {
                 "addressLocality": "Calgary",
                 "addressCountry": "CA"
@@ -5793,12 +5793,12 @@
         "context": "Mountain region growth",
         "hero_title": "Denver's Growth CMS",
         "description": "Mountain West services and tech powered by predictive AI CMS.",
-        "meta_title": "AI CMS in Denver | Ledger1CMS",
+        "meta_title": "AI CMS in Denver | BasaltCMS",
         "meta_description": "CMS for Colorado with predictive analytics, open integrations, and strong security.",
         "keywords": [
             "Denver CMS",
             "AI CMS Colorado",
-            "Ledger1CMS Denver"
+            "BasaltCMS Denver"
         ],
         "subheading": "Mountain West automation",
         "highlights": [
@@ -5862,7 +5862,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Denver",
+            "name": "BasaltCMS Denver",
             "address": {
                 "addressLocality": "Denver",
                 "addressCountry": "US"
@@ -5880,12 +5880,12 @@
         "context": "Southwest services and construction",
         "hero_title": "Phoenix's Service CMS",
         "description": "Automate field services, construction, and customer engagement with predictive AI.",
-        "meta_title": "AI CMS in Phoenix | Ledger1CMS",
+        "meta_title": "AI CMS in Phoenix | BasaltCMS",
         "meta_description": "CMS for the Southwest with field services workflows, predictive analytics, and open integrations.",
         "keywords": [
             "Phoenix CMS",
             "AI CMS Arizona",
-            "Ledger1CMS Phoenix"
+            "BasaltCMS Phoenix"
         ],
         "subheading": "Field services automation",
         "highlights": [
@@ -5949,7 +5949,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Phoenix",
+            "name": "BasaltCMS Phoenix",
             "address": {
                 "addressLocality": "Phoenix",
                 "addressCountry": "US"
@@ -5967,12 +5967,12 @@
         "context": "Metroplex enterprise hub",
         "hero_title": "Dallas's Enterprise CMS",
         "description": "Enterprise workflows and predictive AI for the Dallas-Fort Worth metroplex.",
-        "meta_title": "AI CMS in Dallas | Ledger1CMS",
+        "meta_title": "AI CMS in Dallas | BasaltCMS",
         "meta_description": "CMS for Texas with enterprise-grade security, predictive analytics, and open integrations.",
         "keywords": [
             "Dallas CMS",
             "AI CMS Texas",
-            "Ledger1CMS Dallas"
+            "BasaltCMS Dallas"
         ],
         "subheading": "Enterprise-grade automation",
         "highlights": [
@@ -6036,7 +6036,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Dallas",
+            "name": "BasaltCMS Dallas",
             "address": {
                 "addressLocality": "Dallas",
                 "addressCountry": "US"
@@ -6054,12 +6054,12 @@
         "context": "Energy and logistics",
         "hero_title": "Houston's Industry CMS",
         "description": "Energy, logistics, and services unified by predictive AI CMS.",
-        "meta_title": "AI CMS in Houston | Ledger1CMS",
+        "meta_title": "AI CMS in Houston | BasaltCMS",
         "meta_description": "CMS for Houston with project workflows, predictive analytics, and field services support.",
         "keywords": [
             "Houston CMS",
             "AI CMS Texas",
-            "Ledger1CMS Houston"
+            "BasaltCMS Houston"
         ],
         "subheading": "Industry-grade workflows",
         "highlights": [
@@ -6123,7 +6123,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Houston",
+            "name": "BasaltCMS Houston",
             "address": {
                 "addressLocality": "Houston",
                 "addressCountry": "US"
@@ -6141,12 +6141,12 @@
         "context": "Northeast enterprise hub",
         "hero_title": "Philadelphia's Enterprise CMS",
         "description": "Enterprise workflows and predictive AI with strong compliance and security.",
-        "meta_title": "AI CMS in Philadelphia | Ledger1CMS",
+        "meta_title": "AI CMS in Philadelphia | BasaltCMS",
         "meta_description": "CMS for Philadelphia with SOC 2, HIPAA-aware patterns, and predictive analytics.",
         "keywords": [
             "Philadelphia CMS",
             "AI CMS Pennsylvania",
-            "Ledger1CMS Philadelphia"
+            "BasaltCMS Philadelphia"
         ],
         "subheading": "Enterprise automation",
         "highlights": [
@@ -6210,7 +6210,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Philadelphia",
+            "name": "BasaltCMS Philadelphia",
             "address": {
                 "addressLocality": "Philadelphia",
                 "addressCountry": "US"
@@ -6228,12 +6228,12 @@
         "context": "Southeast logistics and media",
         "hero_title": "Atlanta's Growth CMS",
         "description": "Logistics and media operations unified by predictive AI CMS.",
-        "meta_title": "AI CMS in Atlanta | Ledger1CMS",
+        "meta_title": "AI CMS in Atlanta | BasaltCMS",
         "meta_description": "CMS for Georgia with logistics workflows, predictive analytics, and media pipelines.",
         "keywords": [
             "Atlanta CMS",
             "AI CMS Georgia",
-            "Ledger1CMS Atlanta"
+            "BasaltCMS Atlanta"
         ],
         "subheading": "Southeast growth engine",
         "highlights": [
@@ -6296,7 +6296,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Atlanta",
+            "name": "BasaltCMS Atlanta",
             "address": {
                 "addressLocality": "Atlanta",
                 "addressCountry": "US"
@@ -6314,12 +6314,12 @@
         "context": "Government and enterprise",
         "hero_title": "DC's Public & Enterprise CMS",
         "description": "Serve the public better with case management and constituent services while powering enterprise operations.",
-        "meta_title": "AI CMS in Washington, D.C. | Ledger1CMS",
+        "meta_title": "AI CMS in Washington, D.C. | BasaltCMS",
         "meta_description": "Government-ready CMS with case management, predictive analytics, and compliance tooling.",
         "keywords": [
             "Washington DC CMS",
             "AI CMS Government",
-            "Ledger1CMS DC"
+            "BasaltCMS DC"
         ],
         "subheading": "Public service and enterprise",
         "highlights": [
@@ -6382,7 +6382,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Washington, D.C.",
+            "name": "BasaltCMS Washington, D.C.",
             "address": {
                 "addressLocality": "Washington, D.C.",
                 "addressCountry": "US"
@@ -6400,12 +6400,12 @@
         "context": "Automotive and manufacturing",
         "hero_title": "Detroit's Industry CMS",
         "description": "Automotive and manufacturing workflows unified by predictive AI.",
-        "meta_title": "AI CMS in Detroit | Ledger1CMS",
+        "meta_title": "AI CMS in Detroit | BasaltCMS",
         "meta_description": "CMS for Detroit with supplier relationships, order tracking, and predictive analytics.",
         "keywords": [
             "Detroit CMS",
             "AI CMS Michigan",
-            "Ledger1CMS Detroit",
+            "BasaltCMS Detroit",
             "Automotive CMS"
         ],
         "subheading": "Industry automation",
@@ -6469,7 +6469,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Detroit",
+            "name": "BasaltCMS Detroit",
             "address": {
                 "addressLocality": "Detroit",
                 "addressCountry": "US"
@@ -6487,12 +6487,12 @@
         "context": "Midwest tech and services",
         "hero_title": "Minneapolis's Growth CMS",
         "description": "Midwest services and tech operations with predictive AI CMS.",
-        "meta_title": "AI CMS in Minneapolis | Ledger1CMS",
+        "meta_title": "AI CMS in Minneapolis | BasaltCMS",
         "meta_description": "CMS for Minnesota with predictive analytics, open integrations, and strong security.",
         "keywords": [
             "Minneapolis CMS",
             "AI CMS Minnesota",
-            "Ledger1CMS Minneapolis"
+            "BasaltCMS Minneapolis"
         ],
         "subheading": "Midwest automation",
         "highlights": [
@@ -6555,7 +6555,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Minneapolis",
+            "name": "BasaltCMS Minneapolis",
             "address": {
                 "addressLocality": "Minneapolis",
                 "addressCountry": "US"
@@ -6573,12 +6573,12 @@
         "context": "Pacific Northwest innovation",
         "hero_title": "Portland's Startup CMS",
         "description": "Tech and creative operations powered by AI-native CMS.",
-        "meta_title": "AI CMS in Portland | Ledger1CMS",
+        "meta_title": "AI CMS in Portland | BasaltCMS",
         "meta_description": "CMS for Oregon with predictive analytics, open integrations, and strong security.",
         "keywords": [
             "Portland CMS",
             "AI CMS Oregon",
-            "Ledger1CMS Portland"
+            "BasaltCMS Portland"
         ],
         "subheading": "Creative tech automation",
         "highlights": [
@@ -6641,7 +6641,7 @@
         ],
         "structured_data": {
             "@type": "LocalBusiness",
-            "name": "Ledger1CMS Portland",
+            "name": "BasaltCMS Portland",
             "address": {
                 "addressLocality": "Portland",
                 "addressCountry": "US"

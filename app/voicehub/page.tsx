@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'VoiceHub - Real-Time AI Voice Conversations',
         description: 'Professional-grade, ultra-low latency voice AI powered by the world\'s most advanced real-time models. Pay per second with ETH.',
-        images: ['https://voice.ledger1.ai/vhlogo.png'],
+        images: ['https://voice.basalthq.com/vhlogo.png'],
     },
 };
 

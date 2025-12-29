@@ -704,7 +704,7 @@ export function IntegrationsVisual() {
             {/* Background Ambience */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.15),transparent_60%)]" />
 
-            {/* Central Hub - Ledger1CMS Logo */}
+            {/* Central Hub - BasaltCMS Logo */}
             <motion.div
                 className="w-24 h-24 bg-slate-900 rounded-3xl border-2 border-white/10 flex items-center justify-center relative z-20 shadow-[0_0_30px_rgba(168,85,247,0.2)] p-4"
                 animate={{
@@ -715,8 +715,8 @@ export function IntegrationsVisual() {
             >
                 <div className="relative w-full h-full">
                     <Image
-                        src="/ledger1-cms-logo.png"
-                        alt="Ledger1CMS"
+                        src="/basalt-cms-tall-white.png"
+                        alt="BasaltCMS"
                         fill
                         className="object-contain brightness-0 invert drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
                     />

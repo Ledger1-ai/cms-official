@@ -6,8 +6,8 @@ import competitors from "@/data/competitors.json";
 import { ArrowRight, Check, X, Zap, Shield, Globe } from "lucide-react";
 
 export const metadata = {
-    title: "Compare Ledger1CMS to Competitors | The Future of AI CMS",
-    description: "Compare Ledger1CMS vs Salesforce, HubSpot, and others. Discover why AI-native, headless architecture wins on performance, cost, and speed.",
+    title: "Compare BasaltCMS to Competitors | The Future of AI CMS",
+    description: "Compare BasaltCMS vs Salesforce, HubSpot, and others. Discover why AI-native, headless architecture wins on performance, cost, and speed.",
 };
 
 import MarketingLayout from "@/components/marketing/MarketingLayout";
@@ -28,7 +28,7 @@ export default function ComparePage() {
                         Stop Overpaying. <br /> Start Automating.
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto mb-12">
-                        See why forward-thinking companies are switching from legacy giants to Ledger1CMS&apos;s AI-native architecture.
+                        See why forward-thinking companies are switching from legacy giants to BasaltCMS&apos;s AI-native architecture.
                     </p>
 
                     <div className="relative w-full max-w-5xl mx-auto aspect-[2/1] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
@@ -64,7 +64,7 @@ export default function ComparePage() {
                                         </p>
                                     </div>
                                     <div className="space-y-2">
-                                        <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">The Ledger1 Advantage</p>
+                                        <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">The Basalt Advantage</p>
                                         <p className="text-emerald-300 font-medium flex items-start gap-2">
                                             <Check className="w-4 h-4 mt-1 shrink-0 opacity-70" />
                                             {competitor.comparison_text}

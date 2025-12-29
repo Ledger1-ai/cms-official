@@ -54,7 +54,7 @@ export default async function AdminDashboardLayout({
 
         // Owner and Admins see all modules
         // Hardcode check for owner email to prevent accidentally locking them out
-        if (dbUser?.email === "admin@ledger1.ai" || dbUser?.is_admin) {
+        if (dbUser?.email === "info@basalthq.com" || dbUser?.is_admin) {
             enabledModules = CMS_MODULES.map((m) => m.slug);
         } else {
             enabledModules = dbUser?.cmsModules || [];

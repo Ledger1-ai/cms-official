@@ -1,8 +1,8 @@
 import React from "react";
 
 export const metadata = {
-    title: "Privacy Policy - Ledger1CMS",
-    description: "Ledger1CMS Privacy Policy.",
+    title: "Privacy Policy - BasaltCMS",
+    description: "BasaltCMS Privacy Policy.",
 };
 
 import MarketingLayout from "@/components/marketing/MarketingLayout";
@@ -24,7 +24,7 @@ export default function PrivacyPage() {
                     <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
                         <div className="prose prose-invert prose-lg max-w-none text-slate-300">
                             <p className="lead text-xl text-slate-200 mb-8">
-                                At Ledger1CMS (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our software, or engage with our services.
+                                At BasaltCMS (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our software, or engage with our services.
                             </p>
 
                             <section className="mb-12">
@@ -116,7 +116,7 @@ export default function PrivacyPage() {
                                     <li className="flex items-start"><span className="text-blue-400 mr-2">•</span> <span><strong>Portability:</strong> Request transfer of your data to another service.</span></li>
                                 </ul>
                                 <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
-                                    <p className="text-blue-200">To exercise these rights, please contact us at <a href="mailto:privacy@ledger1crm.com" className="text-white font-semibold hover:underline">privacy@ledger1crm.com</a>.</p>
+                                    <p className="text-blue-200">To exercise these rights, please contact us at <a href="mailto:privacy@basalthq.com" className="text-white font-semibold hover:underline">privacy@basalthq.com</a>.</p>
                                 </div>
                             </section>
 
@@ -130,7 +130,7 @@ export default function PrivacyPage() {
                                 </p>
                                 <div className="mt-4 p-6 bg-slate-800/50 rounded-2xl border border-white/5">
                                     <p className="mb-2">
-                                        <strong>Email:</strong> <a href="mailto:privacy@ledger1crm.com" className="text-blue-400 hover:underline">privacy@ledger1crm.com</a>
+                                        <strong>Email:</strong> <a href="mailto:privacy@basalthq.com" className="text-blue-400 hover:underline">privacy@basalthq.com</a>
                                     </p>
                                     <p>
                                         <strong>Address:</strong> 123 AI Boulevard, San Francisco, CA 94105, USA

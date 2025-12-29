@@ -1,8 +1,8 @@
 import React from "react";
 
 export const metadata = {
-    title: "Cookie Policy - Ledger1CMS",
-    description: "Ledger1CMS Cookie Policy.",
+    title: "Cookie Policy - BasaltCMS",
+    description: "BasaltCMS Cookie Policy.",
 };
 
 import MarketingLayout from "@/components/marketing/MarketingLayout";
@@ -25,7 +25,7 @@ export default function CookiesPage() {
                         <div className="prose prose-invert prose-lg max-w-none text-slate-300 leading-relaxed">
                             <section className="mb-12">
                                 <p className="lead text-xl text-slate-200">
-                                    This Cookie Policy explains how Ledger1CMS (&quot;we&quot;, &quot;us&quot;, and &quot;our&quot;) uses cookies and similar technologies to recognize you when you visit our website at https://ledger1crm.com (&quot;Website&quot;). It explains what these technologies are and why we use them, as well as your rights to control our use of them.
+                                    This Cookie Policy explains how BasaltCMS (&quot;we&quot;, &quot;us&quot;, and &quot;our&quot;) uses cookies and similar technologies to recognize you when you visit our website at https://basalthq.com (&quot;Website&quot;). It explains what these technologies are and why we use them, as well as your rights to control our use of them.
                                 </p>
                             </section>
 
@@ -39,7 +39,7 @@ export default function CookiesPage() {
                                 </p>
                                 <div className="bg-slate-800/50 p-6 rounded-xl border border-white/5 my-6">
                                     <p className="mb-0 text-sm">
-                                        Cookies set by the website owner (in this case, Ledger1CMS) are called &quot;first-party cookies&quot;. Cookies set by parties other than the website owner are called &quot;third-party cookies&quot;. Third-party cookies enable third-party features or functionality to be provided on or through the website (e.g., advertising, interactive content, and analytics).
+                                        Cookies set by the website owner (in this case, BasaltCMS) are called &quot;first-party cookies&quot;. Cookies set by parties other than the website owner are called &quot;third-party cookies&quot;. Third-party cookies enable third-party features or functionality to be provided on or through the website (e.g., advertising, interactive content, and analytics).
                                     </p>
                                 </div>
                             </section>
@@ -98,7 +98,7 @@ export default function CookiesPage() {
                                     Contact Us
                                 </h2>
                                 <p>
-                                    If you have any questions about our use of cookies or other technologies, please email us at <a href="mailto:privacy@ledger1crm.com" className="text-blue-400 hover:underline">privacy@ledger1crm.com</a>.
+                                    If you have any questions about our use of cookies or other technologies, please email us at <a href="mailto:privacy@basalthq.com" className="text-blue-400 hover:underline">privacy@basalthq.com</a>.
                                 </p>
                             </section>
                         </div>

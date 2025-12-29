@@ -37,7 +37,7 @@ export async function POST(req: Request) {
         // Create Support Ticket
         // 1. Try to extract common fields
         let name = "Anonymous";
-        let email = "no-reply@ledger.com";
+        let email = "no-reply@basalthq.com";
         let subject = `New Submission: ${form.title}`;
         let message = `Form Submission for ${form.title}\n\n`;
 

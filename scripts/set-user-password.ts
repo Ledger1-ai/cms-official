@@ -1,5 +1,5 @@
 /**
- * One-off script to set a specific user's password in the current DATABASE_URL (ledger1crm).
+ * One-off script to set a specific user's password in the current DATABASE_URL (basaltcrm).
  *
  * Defaults:
  *  - TARGET_EMAIL = founders@theutilitycompany.co

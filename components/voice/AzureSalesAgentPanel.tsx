@@ -19,7 +19,7 @@ import CustomCCP from "@/components/voice/CustomCCP";
  */
 export default function AzureSalesAgentPanel({ leadId, contactId }: { leadId?: string; contactId?: string }) {
   const [prompt, setPrompt] = useState<string>(`
-You are a senior SDR on a live sales call for Ledger1CMS.
+You are a senior SDR on a live sales call for BasaltCMS.
 - Keep conversations concise and persuasive.
 - Follow discovery: intro, needs, value mapping, objections, next steps.
 - Ask for the meeting or next step explicitly.
@@ -79,7 +79,7 @@ You are a senior SDR on a live sales call for Ledger1CMS.
   async function generateFromLead() {
     try {
       // Lightweight prefill using known IDs; in future, fetch more context (company, last activity, etc.)
-      const base = `You are a Ledger1CMS voice agent.`;
+      const base = `You are a BasaltCMS voice agent.`;
       const leadLine = leadId ? ` Focus on lead ${leadId}.` : ``;
       const contactLine = contactId ? ` Contact reference: ${contactId}.` : ``;
       const guidance = ` Keep responses concise (<=10s). Ask open questions, confirm understanding, propose next step.`;

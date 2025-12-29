@@ -74,7 +74,7 @@ export default function RecentContent({ items }: RecentContentProps) {
 
     const getReadableTitle = (path: string, storedTitle?: string) => {
         // If we have a good title, use it
-        if (storedTitle && storedTitle !== "Untitled Page" && storedTitle !== "Ledger1 CMS") {
+        if (storedTitle && storedTitle !== "Untitled Page" && storedTitle !== "Basalt CMS") {
             return storedTitle;
         }
 

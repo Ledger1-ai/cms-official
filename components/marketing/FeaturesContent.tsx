@@ -158,7 +158,7 @@ export default function FeaturesContent() {
                 <div className="max-w-3xl mx-auto bg-gradient-to-b from-purple-900/20 to-transparent p-12 rounded-3xl border border-white/10 backdrop-blur-sm">
                     <h3 className="text-3xl font-bold mb-6">Ready to upgrade your stack?</h3>
                     <p className="text-slate-400 mb-8">
-                        Join thousands of developers building the future with Ledger1CMS.
+                        Join thousands of developers building the future with BasaltCMS.
                     </p>
                     <Link href="/pricing" className="inline-block">
                         <Button size="lg" className="bg-white text-purple-900 hover:bg-slate-200 rounded-full text-lg px-8 h-12">

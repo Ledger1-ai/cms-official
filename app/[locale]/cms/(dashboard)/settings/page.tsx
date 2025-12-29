@@ -228,7 +228,7 @@ function ProfileSettings() {
                     Can&apos;t remember your password or need it reset? Contact support and we&apos;ll help you out.
                 </p>
                 <a
-                    href={`mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'support@ledger1.ai'}?subject=Password Reset Request&body=Please reset my password for the CMS.`}
+                    href={`mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'info@basalthq.com'}?subject=Password Reset Request&body=Please reset my password for the CMS.`}
                     className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 text-white text-sm rounded-md transition-colors border border-white/10"
                 >
                     <Mail className="h-4 w-4" /> Request Password Reset

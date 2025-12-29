@@ -22,7 +22,7 @@ export async function getClients(query?: string) {
         const users = await prismadb.users.findMany({
             where: {
                 ...where,
-                email: { not: "admin@ledger1.ai" },
+                email: { not: "info@basalthq.com" },
             },
             include: {
                 assigned_team: {

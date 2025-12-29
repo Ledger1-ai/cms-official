@@ -193,7 +193,7 @@ const MOCK_APPS: AppItem[] = [
         name: "Nano Banana AI",
         description: "Draft content, generate images, and optimize SEO with our proprietary AI model.",
         icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/chatgpt-icon.png",
-        author: "Ledger1 AI",
+        author: "Basalt AI",
         rating: 5.0,
         installs: "Internal",
         status: "active",
@@ -688,7 +688,7 @@ function HeroCarousel() {
                     Accept payments with <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">Surge</span>
                 </>
             ),
-            desc: "The official payment partner of Ledger1 CMS. Crypto, Fiat, and Instant Reconciliation for modern merchants.",
+            desc: "The official payment partner of Basalt CMS. Crypto, Fiat, and Instant Reconciliation for modern merchants.",
             bg: "bg-gradient-to-r from-emerald-900 via-teal-900 to-slate-900",
             button: "Connect Wallet",
             glow: "bg-emerald-500/30"

@@ -221,7 +221,7 @@ export function MyAccountSettingsForm({ initialData }: UpdateAccountFormProps) {
                       <FormControl>
                         <Input
                           disabled={isLoading}
-                          placeholder="Ledger1CMS Inc."
+                          placeholder="BasaltCMS Inc."
                           {...field}
                         />
                       </FormControl>

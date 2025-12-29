@@ -19,7 +19,7 @@ export default async function SecurityPage() {
             include: { assigned_role: true }
         });
 
-        const isOwner = session.user.email === "admin@ledger1.ai";
+        const isOwner = session.user.email === "info@basalthq.com";
         const isAdmin = user?.assigned_role?.name === "Admin" || user?.is_admin === true;
 
         if (!isOwner && !isAdmin) {

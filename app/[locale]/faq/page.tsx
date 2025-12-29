@@ -10,8 +10,8 @@ import MarketingLayout from "@/components/marketing/MarketingLayout";
 import ReactMarkdown from "react-markdown";
 
 export const metadata = {
-    title: "FAQ - Ledger1 CMS",
-    description: "Frequently asked questions about Ledger1 CMS.",
+    title: "FAQ - Basalt CMS",
+    description: "Frequently asked questions about Basalt CMS.",
 };
 
 export default async function FAQPage() {
@@ -26,7 +26,7 @@ export default async function FAQPage() {
                         Frequently Asked <span className="text-purple-400">Questions</span>
                     </h1>
                     <p className="text-xl text-slate-400 text-center mb-16">
-                        Everything you need to know about Ledger1 CMS.
+                        Everything you need to know about Basalt CMS.
                     </p>
 
                     <Accordion type="single" collapsible className="w-full space-y-4">

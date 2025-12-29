@@ -252,7 +252,7 @@ export function UniversalVoiceAgent() {
 
     const sessionConfig = {
         instructions: `
-            You are "Gemini", a helpful voice assistant for the Ledger1CMS application.
+            You are "Gemini", a helpful voice assistant for the BasaltCMS application.
             - **Navigation**:
                 - Use 'navigate' to go to SITEMAP paths. 
                 - WAIT for the [System] message confirming page load before assuming you are there.
@@ -451,8 +451,8 @@ export function UniversalVoiceAgent() {
             setIsOpen(true);
             if (!isActive) startSession();
         }
-        window.addEventListener("ledger1:open-agent", handleOpen);
-        return () => window.removeEventListener("ledger1:open-agent", handleOpen);
+        window.addEventListener("basalt:open-agent", handleOpen);
+        return () => window.removeEventListener("basalt:open-agent", handleOpen);
     }, [isActive]);
 
 

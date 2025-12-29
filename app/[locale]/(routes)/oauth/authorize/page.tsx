@@ -6,8 +6,8 @@ import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 /**
- * Ledger1CMS OAuth Consent
- * Branded authorize screen for VoiceHub ↔ Ledger1CMS OAuth (Authorization Code + PKCE).
+ * BasaltCMS OAuth Consent
+ * Branded authorize screen for VoiceHub ↔ BasaltCMS OAuth (Authorization Code + PKCE).
  *
  * Query Params expected (passed through from /api/oauth/authorize):
  * - response_type=code
@@ -38,7 +38,7 @@ interface GenerateCodeResponse {
   error?: string;
 }
 
-export default function LedgerAuthorizePage() {
+export default function BasaltAuthorizePage() {
   const params = useSearchParams();
 
   const data = useMemo(() => {
@@ -91,7 +91,7 @@ export default function LedgerAuthorizePage() {
               }
             })();
             window.opener.postMessage(
-              { type: "ledger1crm_oauth_code", code, state: data.state || "" },
+              { type: "basaltcrm_oauth_code", code, state: data.state || "" },
               targetOrigin
             );
             window.close();
@@ -174,13 +174,13 @@ export default function LedgerAuthorizePage() {
   }
 
   return (
-    <div id="ledger1crm-popup" className="fixed inset-0 z-[10000] flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+    <div id="basaltcrm-popup" className="fixed inset-0 z-[10000] flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {isPopup && null}
       <div className="w-full max-w-lg rounded-2xl border border-white/10 bg-slate-900/60 p-6 shadow-xl">
         <div className="flex items-center gap-3 mb-4">
-          <NextImage src="/logo.png" alt="Ledger1CMS" width={32} height={32} className="rounded-md" unoptimized />
+          <NextImage src="/logo.png" alt="BasaltCMS" width={32} height={32} className="rounded-md" unoptimized />
           <div className="flex flex-col">
-            <div className="text-sm font-semibold">Ledger1CMS Authorization</div>
+            <div className="text-sm font-semibold">BasaltCMS Authorization</div>
             <div className="text-[11px] opacity-70">Grant access to VoiceHub</div>
           </div>
 
@@ -191,7 +191,7 @@ export default function LedgerAuthorizePage() {
             </div>
           ) : (
             <div className="text-xs mb-2 opacity-80">
-              Not signed in. Please sign in to Ledger1CMS if prompted, then approve access.
+              Not signed in. Please sign in to BasaltCMS if prompted, then approve access.
             </div>
           )}
         </div>

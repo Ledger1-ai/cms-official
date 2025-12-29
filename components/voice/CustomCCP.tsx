@@ -105,7 +105,7 @@ export default function CustomCCP({
   }
 
   const urlBase = useMemo(() => {
-    return instanceUrl || (process.env.NEXT_PUBLIC_CONNECT_BASE_URL || "https://ledger1crm.my.connect.aws");
+    return instanceUrl || (process.env.NEXT_PUBLIC_CONNECT_BASE_URL || "https://basaltcrm.my.connect.aws");
   }, [instanceUrl]);
 
   function logInfoMsg(msg: string) {

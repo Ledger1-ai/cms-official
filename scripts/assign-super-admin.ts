@@ -27,7 +27,7 @@ async function main() {
 
         // Check if internal team exists
         const internalTeam = await prismadb.team.findUnique({
-            where: { slug: "ledger1" }
+            where: { slug: "basalt" }
         });
 
         if (!internalTeam) {

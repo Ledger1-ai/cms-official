@@ -127,8 +127,8 @@ export async function reorderFaqs(items: { id: string; order: number }[]) {
 export async function seedDefaultFaqs() {
     const defaultFaqs = [
         {
-            question: "What makes Ledger1 CMS different from WordPress or Webflow?",
-            answer: "Ledger1 is an **AI-First CMS**, designed to automate your digital presence. While we offer a stunning \"Nano Banana\" Visual Builder, our true power explores the \"AI Workforce\" — autonomous agents that handle your SEO, blog writing, content updates, and social distribution 24/7.",
+            question: "What makes Basalt CMS different from WordPress or Webflow?",
+            answer: "Basalt is an **AI-First CMS**, designed to automate your digital presence. While we offer a stunning \"Nano Banana\" Visual Builder, our true power explores the \"AI Workforce\" — autonomous agents that handle your SEO, blog writing, content updates, and social distribution 24/7.",
             category: "General",
         },
         {
@@ -152,7 +152,7 @@ export async function seedDefaultFaqs() {
             category: "Features",
         },
         {
-            question: "Is Ledger1 CMS secure for enterprise use?",
+            question: "Is Basalt CMS secure for enterprise use?",
             answer: "Security is our foundation. We provide granular Role-Based Access Control (RBAC) so you can define exactly what content your editors, writers, and AI agents can touch. All API keys and sensitive data are encrypted with enterprise-grade standards.",
             category: "Security",
         },

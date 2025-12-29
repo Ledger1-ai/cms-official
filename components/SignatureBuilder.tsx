@@ -94,15 +94,15 @@ const SignatureBuilder: React.FC<SignatureBuilderProps> = ({ hasAccess }) => {
   const formatPhoneNumber = (value: string) => {
     // Remove all non-digit characters
     let phoneNumber = value.replace(/\D/g, '');
-    
+
     // If it starts with 1, remove it (assume it's the country code)
     if (phoneNumber.startsWith('1') && phoneNumber.length > 1) {
       phoneNumber = phoneNumber.slice(1);
     }
-    
+
     // Limit to 10 digits for US numbers
     phoneNumber = phoneNumber.slice(0, 10);
-    
+
     // Format as +1 (XXX) XXX-XXXX
     if (phoneNumber.length === 0) return '';
     if (phoneNumber.length <= 3) return `+1 (${phoneNumber}`;
@@ -229,22 +229,22 @@ const SignatureBuilder: React.FC<SignatureBuilderProps> = ({ hasAccess }) => {
     if (hexColor.toUpperCase() === '#F54029') {
       return 'brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)';
     }
-    
+
     // For other colors, convert hex to RGB and generate filter
     const r = parseInt(hexColor.slice(1, 3), 16);
     const g = parseInt(hexColor.slice(3, 5), 16);
     const b = parseInt(hexColor.slice(5, 7), 16);
-    
+
     // Convert to HSL for better filter control
     const rNorm = r / 255;
     const gNorm = g / 255;
     const bNorm = b / 255;
-    
+
     const max = Math.max(rNorm, gNorm, bNorm);
     const min = Math.min(rNorm, gNorm, bNorm);
     const diff = max - min;
     const lightness = (max + min) / 2;
-    
+
     let hue = 0;
     if (diff !== 0) {
       if (max === rNorm) {
@@ -255,17 +255,17 @@ const SignatureBuilder: React.FC<SignatureBuilderProps> = ({ hasAccess }) => {
         hue = ((rNorm - gNorm) / diff + 4) * 60;
       }
     }
-    
+
     // Generate filter based on color properties
     const saturation = Math.max(100, Math.min(300, lightness < 0.5 ? 200 : 150));
     const brightness = Math.max(90, Math.min(130, lightness * 100 + 30));
     const hueRotate = Math.round(hue);
-    
+
     return `brightness(0) saturate(100%) invert(${Math.round(lightness * 100)}%) sepia(70%) saturate(${saturation}%) hue-rotate(${hueRotate}deg) brightness(${brightness}%) contrast(95%)`;
   };
 
   const generateSignatureHTML = () => {
-    const { 
+    const {
       firstName, lastName, title, department, phone, email, website,
       profileImage, companyLogoUrl, companyTagline, accentColor,
       template, showSocial, showTagline, showMedallions
@@ -308,7 +308,6 @@ const SignatureBuilder: React.FC<SignatureBuilderProps> = ({ hasAccess }) => {
 <tr>
 <td style="padding-right:4px"><a href="https://osiris.theutilitycompany.co" target="_blank"><img src="https://storage.googleapis.com/tgl_cdn/images/Medallions/OP.png" width="32" height="32" alt="Osiris Protocol" style="display:block;border:0;border-radius:16px;"></a></td>
 <td style="padding-right:4px"><a href="https://www.requiem-electric.com" target="_blank"><img src="https://storage.googleapis.com/tgl_cdn/images/Medallions/RE.png" width="32" height="32" alt="Requiem Electric" style="display:block;border:0;border-radius:16px;"></a></td>
-<td style="padding-right:4px"><a href="https://www.thegraineledger.com" target="_blank"><img src="https://storage.googleapis.com/tgl_cdn/images/Medallions/TGL.png" width="32" height="32" alt="The Graine Ledger" style="display:block;border:0;border-radius:16px;"></a></td>
 <td style="padding-right:4px"><a href="https://www.thelochnessbotanicalsociety.com" target="_blank"><img src="https://storage.googleapis.com/tgl_cdn/images/Medallions/TLN.png" width="32" height="32" alt="Loch Ness Botanical Society" style="display:block;border:0;border-radius:16px;"></a></td>
 <td style="padding-right:4px"><a href="https://omgrown.life" target="_blank"><img src="https://storage.googleapis.com/tgl_cdn/images/Medallions/TSPAum1.png" width="32" height="32" alt="The Satellite Project Om" style="display:block;border:0;border-radius:16px;"></a></td>
 <td><a href="https://vulcan-forge.us" target="_blank"><img src="https://storage.googleapis.com/tgl_cdn/images/Medallions/VulcanForge2.png" width="32" height="32" alt="Vulcan Forge" style="display:block;border:0;border-radius:16px;"></a></td>
@@ -384,7 +383,7 @@ ${showTagline ? `<p style="margin: 0 0 12px 0; font-size: 13px; color: #6a7c8d; 
 
   const copyToClipboard = async () => {
     const signatureHTML = generateSignatureHTML();
-    
+
     // Format like HubSpot with fragment markers and proper HTML wrapping
     const formattedHTML = `<html>
 <body>
@@ -399,7 +398,7 @@ ${showTagline ? `<p style="margin: 0 0 12px 0; font-size: 13px; color: #6a7c8d; 
           'text/html': new Blob([formattedHTML], { type: 'text/html' }),
           'text/plain': new Blob([`${signatureData.firstName} ${signatureData.lastName}\n${signatureData.title}\n${signatureData.department}\n\n📱 ${signatureData.phone}\n✉️ ${signatureData.email}\n🌐 ${signatureData.website}`], { type: 'text/plain' })
         });
-        
+
         await navigator.clipboard.write([clipboardItem]);
         setCopiedToClipboard(true);
         setTimeout(() => setCopiedToClipboard(false), 3000);
@@ -408,17 +407,17 @@ ${showTagline ? `<p style="margin: 0 0 12px 0; font-size: 13px; color: #6a7c8d; 
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = formattedHTML;
         document.body.appendChild(tempDiv);
-        
+
         const range = document.createRange();
         range.selectNodeContents(tempDiv);
         const selection = window.getSelection();
         selection?.removeAllRanges();
         selection?.addRange(range);
-        
+
         document.execCommand('copy');
         setCopiedToClipboard(true);
         setTimeout(() => setCopiedToClipboard(false), 3000);
-        
+
         selection?.removeAllRanges();
         document.body.removeChild(tempDiv);
       }
@@ -494,315 +493,315 @@ ${showTagline ? `<p style="margin: 0 0 12px 0; font-size: 13px; color: #6a7c8d; 
       <div className="p-4 sm:p-6 lg:p-8">
 
 
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-xl sm:text-2xl font-bold">📧 Gmail Signature Builder</h3>
-      </div>
-      
-      {/* Social Media Links */}
-      <div className="flex justify-around mb-4 py-2 bg-gray-800/20 rounded-lg">
-        <a href="https://facebook.com" target="_blank" className="text-gray-400 hover:text-blue-500 transition-colors">
-          <FaFacebook size={20} />
-        </a>
-        <a href="https://x.com" target="_blank" className="text-gray-400 hover:text-gray-300 transition-colors">
-          <FaXTwitter size={20} />
-        </a>
-        <a href="https://linkedin.com" target="_blank" className="text-gray-400 hover:text-blue-600 transition-colors">
-          <FaLinkedin size={20} />
-        </a>
-        <a href="https://instagram.com" target="_blank" className="text-gray-400 hover:text-pink-500 transition-colors">
-          <FaInstagram size={20} />
-        </a>
-        <a href="https://medium.com" target="_blank" className="text-gray-400 hover:text-green-600 transition-colors">
-          <FaMedium size={20} />
-        </a>
-        <a href="https://patreon.com" target="_blank" className="text-gray-400 hover:text-orange-600 transition-colors">
-          <FaPatreon size={20} />
-        </a>
-        <a href="https://discord.gg/q4tFymyAnx" target="_blank" className="text-gray-400 hover:text-blue-500 transition-colors">
-          <FaDiscord size={20} />
-        </a>
-      </div>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-full">
-        {/* Input Form */}
-        <div className="lg:col-span-2 space-y-3">
-          {/* Basic Info */}
-          <div className="bg-gray-800/40 rounded-md p-3 border border-gray-700">
-            <h4 className="text-sm font-medium text-gray-200 mb-2 flex items-center">
-              <span className="w-1.5 h-1.5 bg-[#F54029] rounded-full mr-1.5"></span>
-              Personal Info
-            </h4>
-            <div className="space-y-2">
-              <div className="grid grid-cols-2 gap-2">
-                <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-0.5">First Name</label>
-                  <input
-                    type="text"
-                    value={signatureData.firstName}
-                    onChange={(e) => handleInputChange('firstName', e.target.value)}
-                    className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
-                    placeholder="John"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-0.5">Last Name</label>
-                  <input
-                    type="text"
-                    value={signatureData.lastName}
-                    onChange={(e) => handleInputChange('lastName', e.target.value)}
-                    className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
-                    placeholder="Doe"
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-xs font-medium text-gray-300 mb-0.5">Job Title</label>
-                <input
-                  type="text"
-                  value={signatureData.title}
-                  onChange={(e) => handleInputChange('title', e.target.value)}
-                  className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
-                  placeholder="Chief Technology Officer"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-xs font-medium text-gray-300 mb-0.5">Department</label>
-                <input
-                  type="text"
-                  value={signatureData.department}
-                  onChange={(e) => handleInputChange('department', e.target.value)}
-                  className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
-                  placeholder="Technology & Innovation"
-                />
-              </div>
-            </div>
-          </div>
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-xl sm:text-2xl font-bold">📧 Gmail Signature Builder</h3>
+        </div>
 
-          {/* Contact Info */}
-          <div className="bg-gray-800/40 rounded-md p-3 border border-gray-700">
-            <h4 className="text-sm font-medium text-gray-200 mb-2 flex items-center">
-              <span className="w-1.5 h-1.5 bg-[#F54029] rounded-full mr-1.5"></span>
-              Contact Info
-            </h4>
-            <div className="space-y-2">
-              <div>
-                <label className="block text-xs font-medium text-gray-300 mb-0.5">Phone</label>
-                <input
-                  type="tel"
-                  value={signatureData.phone}
-                  onChange={(e) => handlePhoneChange(e.target.value)}
-                  className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
-                  placeholder="+1 (555) 123-4567"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-xs font-medium text-gray-300 mb-0.5">Email</label>
-                <input
-                  type="email"
-                  value={signatureData.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                  className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
-                  placeholder="john.doe@theutilitycompany.co"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-xs font-medium text-gray-300 mb-0.5">Website</label>
-                <input
-                  type="text"
-                  value={signatureData.website}
-                  onChange={(e) => handleInputChange('website', e.target.value)}
-                  className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
-                  placeholder="theutilitycompany.co"
-                />
-              </div>
-            </div>
-          </div>
+        {/* Social Media Links */}
+        <div className="flex justify-around mb-4 py-2 bg-gray-800/20 rounded-lg">
+          <a href="https://facebook.com" target="_blank" className="text-gray-400 hover:text-blue-500 transition-colors">
+            <FaFacebook size={20} />
+          </a>
+          <a href="https://x.com" target="_blank" className="text-gray-400 hover:text-gray-300 transition-colors">
+            <FaXTwitter size={20} />
+          </a>
+          <a href="https://linkedin.com" target="_blank" className="text-gray-400 hover:text-blue-600 transition-colors">
+            <FaLinkedin size={20} />
+          </a>
+          <a href="https://instagram.com" target="_blank" className="text-gray-400 hover:text-pink-500 transition-colors">
+            <FaInstagram size={20} />
+          </a>
+          <a href="https://medium.com" target="_blank" className="text-gray-400 hover:text-green-600 transition-colors">
+            <FaMedium size={20} />
+          </a>
+          <a href="https://patreon.com" target="_blank" className="text-gray-400 hover:text-orange-600 transition-colors">
+            <FaPatreon size={20} />
+          </a>
+          <a href="https://discord.gg/q4tFymyAnx" target="_blank" className="text-gray-400 hover:text-blue-500 transition-colors">
+            <FaDiscord size={20} />
+          </a>
+        </div>
 
-
-
-          {/* Customization */}
-          <div className="bg-gray-800/40 rounded-md p-3 border border-gray-700">
-            <h4 className="text-sm font-medium text-gray-200 mb-2 flex items-center">
-              <span className="w-1.5 h-1.5 bg-[#F54029] rounded-full mr-1.5"></span>
-              Customization
-            </h4>
-            <div className="space-y-2">
-              <div>
-                <label className="block text-xs font-medium text-gray-300 mb-0.5">Accent Color</label>
-                <div className="flex gap-1.5">
-                  <input
-                    type="color"
-                    value={signatureData.accentColor}
-                    onChange={(e) => handleInputChange('accentColor', e.target.value)}
-                    className="w-12 h-8 rounded border border-gray-600 bg-gray-800"
-                  />
-                  <input
-                    type="text"
-                    value={signatureData.accentColor}
-                    onChange={(e) => handleInputChange('accentColor', e.target.value)}
-                    className="flex-1 px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
-                    placeholder="#F54029"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-gray-300 mb-0.5">Tagline</label>
-                <input
-                  type="text"
-                  value={signatureData.companyTagline}
-                  onChange={(e) => handleInputChange('companyTagline', e.target.value)}
-                  className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
-                  placeholder="Empowering Innovation"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-2">
-                <label className="flex items-center space-x-1.5 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={signatureData.showSocial}
-                    onChange={(e) => handleInputChange('showSocial', e.target.checked)}
-                    className="rounded border-gray-600 bg-gray-800 text-[#F54029] focus:ring-[#F54029] w-3 h-3"
-                  />
-                  <span className="text-xs text-gray-300">Social Links</span>
-                </label>
-                
-                <label className="flex items-center space-x-1.5 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={signatureData.showMedallions}
-                    onChange={(e) => handleInputChange('showMedallions', e.target.checked)}
-                    className="rounded border-gray-600 bg-gray-800 text-[#F54029] focus:ring-[#F54029] w-3 h-3"
-                  />
-                  <span className="text-xs text-gray-300">Medallions</span>
-                </label>
-                
-                                  <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-0.5">Profile Picture</label>
-                  
-                  {/* File Upload */}
-                  <div className="mb-2">
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (file) {
-                          handleImageUpload(file);
-                        }
-                      }}
-                      disabled={uploading}
-                      className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029] file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:bg-[#F54029] file:text-white disabled:opacity-50"
-                    />
-                    {uploading && (
-                      <p className="text-xs text-blue-400 mt-1">📤 Uploading to CDN...</p>
-                    )}
-                  </div>
-
-                  {/* URL Input */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-full">
+          {/* Input Form */}
+          <div className="lg:col-span-2 space-y-3">
+            {/* Basic Info */}
+            <div className="bg-gray-800/40 rounded-md p-3 border border-gray-700">
+              <h4 className="text-sm font-medium text-gray-200 mb-2 flex items-center">
+                <span className="w-1.5 h-1.5 bg-[#F54029] rounded-full mr-1.5"></span>
+                Personal Info
+              </h4>
+              <div className="space-y-2">
+                <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="block text-xs font-medium text-gray-400 mb-0.5">Or paste image URL:</label>
+                    <label className="block text-xs font-medium text-gray-300 mb-0.5">First Name</label>
                     <input
-                      type="url"
-                      value={signatureData.profileImage}
-                      onChange={(e) => handleInputChange('profileImage', e.target.value)}
+                      type="text"
+                      value={signatureData.firstName}
+                      onChange={(e) => handleInputChange('firstName', e.target.value)}
                       className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
-                      placeholder="https://your-image-url.com/profile.jpg"
-                    />
-                  </div>
-                  
-                  <p className="text-xs text-gray-400 mt-1">💡 Upload automatically saves to CDN for Gmail compatibility</p>
-                </div>
-                
-                {/* Company Logo */}
-                <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-0.5">Company Logo</label>
-                  <div className="mb-2">
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (file) {
-                          handleCompanyLogoUpload(file);
-                        }
-                      }}
-                      disabled={uploading}
-                      className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029] file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:bg-[#F54029] file:text-white disabled:opacity-50"
+                      placeholder="John"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-gray-400 mb-0.5">Or paste logo URL:</label>
+                    <label className="block text-xs font-medium text-gray-300 mb-0.5">Last Name</label>
                     <input
-                      type="url"
-                      value={signatureData.companyLogoUrl}
-                      onChange={(e) => handleInputChange('companyLogoUrl', e.target.value)}
+                      type="text"
+                      value={signatureData.lastName}
+                      onChange={(e) => handleInputChange('lastName', e.target.value)}
                       className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
-                      placeholder="https://your-logo-url.com/logo.png"
+                      placeholder="Doe"
                     />
                   </div>
                 </div>
-                
-                <label className="flex items-center space-x-1.5 cursor-pointer">
+
+                <div>
+                  <label className="block text-xs font-medium text-gray-300 mb-0.5">Job Title</label>
                   <input
-                    type="checkbox"
-                    checked={signatureData.showTagline}
-                    onChange={(e) => handleInputChange('showTagline', e.target.checked)}
-                    className="rounded border-gray-600 bg-gray-800 text-[#F54029] focus:ring-[#F54029] w-3 h-3"
+                    type="text"
+                    value={signatureData.title}
+                    onChange={(e) => handleInputChange('title', e.target.value)}
+                    className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
+                    placeholder="Chief Technology Officer"
                   />
-                  <span className="text-xs text-gray-300">Show Tagline</span>
-                </label>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-medium text-gray-300 mb-0.5">Department</label>
+                  <input
+                    type="text"
+                    value={signatureData.department}
+                    onChange={(e) => handleInputChange('department', e.target.value)}
+                    className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
+                    placeholder="Technology & Innovation"
+                  />
+                </div>
               </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="bg-gray-800/40 rounded-md p-3 border border-gray-700">
+              <h4 className="text-sm font-medium text-gray-200 mb-2 flex items-center">
+                <span className="w-1.5 h-1.5 bg-[#F54029] rounded-full mr-1.5"></span>
+                Contact Info
+              </h4>
+              <div className="space-y-2">
+                <div>
+                  <label className="block text-xs font-medium text-gray-300 mb-0.5">Phone</label>
+                  <input
+                    type="tel"
+                    value={signatureData.phone}
+                    onChange={(e) => handlePhoneChange(e.target.value)}
+                    className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
+                    placeholder="+1 (555) 123-4567"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-medium text-gray-300 mb-0.5">Email</label>
+                  <input
+                    type="email"
+                    value={signatureData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
+                    placeholder="john.doe@theutilitycompany.co"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-medium text-gray-300 mb-0.5">Website</label>
+                  <input
+                    type="text"
+                    value={signatureData.website}
+                    onChange={(e) => handleInputChange('website', e.target.value)}
+                    className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
+                    placeholder="theutilitycompany.co"
+                  />
+                </div>
+              </div>
+            </div>
+
+
+
+            {/* Customization */}
+            <div className="bg-gray-800/40 rounded-md p-3 border border-gray-700">
+              <h4 className="text-sm font-medium text-gray-200 mb-2 flex items-center">
+                <span className="w-1.5 h-1.5 bg-[#F54029] rounded-full mr-1.5"></span>
+                Customization
+              </h4>
+              <div className="space-y-2">
+                <div>
+                  <label className="block text-xs font-medium text-gray-300 mb-0.5">Accent Color</label>
+                  <div className="flex gap-1.5">
+                    <input
+                      type="color"
+                      value={signatureData.accentColor}
+                      onChange={(e) => handleInputChange('accentColor', e.target.value)}
+                      className="w-12 h-8 rounded border border-gray-600 bg-gray-800"
+                    />
+                    <input
+                      type="text"
+                      value={signatureData.accentColor}
+                      onChange={(e) => handleInputChange('accentColor', e.target.value)}
+                      className="flex-1 px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
+                      placeholder="#F54029"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-medium text-gray-300 mb-0.5">Tagline</label>
+                  <input
+                    type="text"
+                    value={signatureData.companyTagline}
+                    onChange={(e) => handleInputChange('companyTagline', e.target.value)}
+                    className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
+                    placeholder="Empowering Innovation"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <label className="flex items-center space-x-1.5 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={signatureData.showSocial}
+                      onChange={(e) => handleInputChange('showSocial', e.target.checked)}
+                      className="rounded border-gray-600 bg-gray-800 text-[#F54029] focus:ring-[#F54029] w-3 h-3"
+                    />
+                    <span className="text-xs text-gray-300">Social Links</span>
+                  </label>
+
+                  <label className="flex items-center space-x-1.5 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={signatureData.showMedallions}
+                      onChange={(e) => handleInputChange('showMedallions', e.target.checked)}
+                      className="rounded border-gray-600 bg-gray-800 text-[#F54029] focus:ring-[#F54029] w-3 h-3"
+                    />
+                    <span className="text-xs text-gray-300">Medallions</span>
+                  </label>
+
+                  <div>
+                    <label className="block text-xs font-medium text-gray-300 mb-0.5">Profile Picture</label>
+
+                    {/* File Upload */}
+                    <div className="mb-2">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            handleImageUpload(file);
+                          }
+                        }}
+                        disabled={uploading}
+                        className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029] file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:bg-[#F54029] file:text-white disabled:opacity-50"
+                      />
+                      {uploading && (
+                        <p className="text-xs text-blue-400 mt-1">📤 Uploading to CDN...</p>
+                      )}
+                    </div>
+
+                    {/* URL Input */}
+                    <div>
+                      <label className="block text-xs font-medium text-gray-400 mb-0.5">Or paste image URL:</label>
+                      <input
+                        type="url"
+                        value={signatureData.profileImage}
+                        onChange={(e) => handleInputChange('profileImage', e.target.value)}
+                        className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
+                        placeholder="https://your-image-url.com/profile.jpg"
+                      />
+                    </div>
+
+                    <p className="text-xs text-gray-400 mt-1">💡 Upload automatically saves to CDN for Gmail compatibility</p>
+                  </div>
+
+                  {/* Company Logo */}
+                  <div>
+                    <label className="block text-xs font-medium text-gray-300 mb-0.5">Company Logo</label>
+                    <div className="mb-2">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            handleCompanyLogoUpload(file);
+                          }
+                        }}
+                        disabled={uploading}
+                        className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029] file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:bg-[#F54029] file:text-white disabled:opacity-50"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-gray-400 mb-0.5">Or paste logo URL:</label>
+                      <input
+                        type="url"
+                        value={signatureData.companyLogoUrl}
+                        onChange={(e) => handleInputChange('companyLogoUrl', e.target.value)}
+                        className="w-full px-2 py-1.5 text-sm bg-gray-800/60 border border-gray-600 rounded text-gray-100 focus:outline-none focus:border-[#F54029]"
+                        placeholder="https://your-logo-url.com/logo.png"
+                      />
+                    </div>
+                  </div>
+
+                  <label className="flex items-center space-x-1.5 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={signatureData.showTagline}
+                      onChange={(e) => handleInputChange('showTagline', e.target.checked)}
+                      className="rounded border-gray-600 bg-gray-800 text-[#F54029] focus:ring-[#F54029] w-3 h-3"
+                    />
+                    <span className="text-xs text-gray-300">Show Tagline</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-2">
+              <button
+                onClick={saveSignature}
+                disabled={saving}
+                className="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded hover:from-emerald-600/80 hover:to-teal-600/80 transition-all duration-300 font-semibold text-sm shadow-md hover:shadow-lg disabled:opacity-60"
+              >
+                {saving ? '💾 Saving…' : (savedStatus === 'ok' ? '✅ Saved' : '💾 Save Signature')}
+              </button>
+              <button
+                onClick={copyToClipboard}
+                className="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-[#F54029] to-[#ff6b47] text-white rounded hover:from-[#F54029]/80 hover:to-[#ff6b47]/80 transition-all duration-300 font-semibold text-sm shadow-md hover:shadow-lg"
+              >
+                {copiedToClipboard ? '✅ Copied!' : '📋 Copy Signature'}
+              </button>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-2">
-            <button
-              onClick={saveSignature}
-              disabled={saving}
-              className="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded hover:from-emerald-600/80 hover:to-teal-600/80 transition-all duration-300 font-semibold text-sm shadow-md hover:shadow-lg disabled:opacity-60"
-            >
-              {saving ? '💾 Saving…' : (savedStatus === 'ok' ? '✅ Saved' : '💾 Save Signature')}
-            </button>
-            <button
-              onClick={copyToClipboard}
-              className="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-[#F54029] to-[#ff6b47] text-white rounded hover:from-[#F54029]/80 hover:to-[#ff6b47]/80 transition-all duration-300 font-semibold text-sm shadow-md hover:shadow-lg"
-            >
-              {copiedToClipboard ? '✅ Copied!' : '📋 Copy Signature'}
-            </button>
+          {/* Preview */}
+          <div className="bg-white/10 backdrop-blur-sm rounded-md p-3 border border-gray-600">
+            <h4 className="text-sm font-medium mb-2 text-gray-200 flex items-center">
+              <span className="w-1.5 h-1.5 bg-[#F54029] rounded-full mr-1.5"></span>
+              Preview
+            </h4>
+            <div className="bg-white rounded p-4 overflow-auto" style={{ minHeight: '200px', fontSize: '14px' }}>
+              <div dangerouslySetInnerHTML={{ __html: generateSignatureHTML() }} />
+            </div>
           </div>
         </div>
-        
-        {/* Preview */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-md p-3 border border-gray-600">
-          <h4 className="text-sm font-medium mb-2 text-gray-200 flex items-center">
-            <span className="w-1.5 h-1.5 bg-[#F54029] rounded-full mr-1.5"></span>
-            Preview
-          </h4>
-          <div className="bg-white rounded p-4 overflow-auto" style={{ minHeight: '200px', fontSize: '14px' }}>
-            <div dangerouslySetInnerHTML={{ __html: generateSignatureHTML() }} />
-          </div>
+
+        {/* Instructions */}
+        <div className="mt-3 p-3 bg-gray-800/30 rounded border border-gray-700">
+          <h4 className="text-xs font-medium text-gray-300 mb-1.5">📝 Quick Setup:</h4>
+          <ol className="text-xs text-gray-400 space-y-0.5 list-decimal list-inside">
+            <li>Fill form above</li>
+            <li>Copy signature</li>
+            <li>Gmail Settings → General → Signature</li>
+            <li>Paste & save</li>
+          </ol>
         </div>
       </div>
-      
-      {/* Instructions */}
-      <div className="mt-3 p-3 bg-gray-800/30 rounded border border-gray-700">
-        <h4 className="text-xs font-medium text-gray-300 mb-1.5">📝 Quick Setup:</h4>
-        <ol className="text-xs text-gray-400 space-y-0.5 list-decimal list-inside">
-          <li>Fill form above</li>
-          <li>Copy signature</li>
-          <li>Gmail Settings → General → Signature</li>
-          <li>Paste & save</li>
-        </ol>
-      </div>
     </div>
-    </div>
-    );
+  );
 };
 
 export default SignatureBuilder;

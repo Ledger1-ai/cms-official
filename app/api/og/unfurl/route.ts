@@ -20,7 +20,7 @@ export async function GET(req: Request) {
     const url = searchParams.get("url");
     if (!url) return new NextResponse("Missing url", { status: 400 });
 
-    const res = await fetch(url, { headers: { "User-Agent": "Ledger1CMS-Link-Preview/1.0" } });
+    const res = await fetch(url, { headers: { "User-Agent": "BasaltCMS-Link-Preview/1.0" } });
     if (!res.ok) return new NextResponse(`Fetch failed: ${res.status}`, { status: 502 });
     const html = await res.text();
 

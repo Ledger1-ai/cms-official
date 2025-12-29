@@ -5,7 +5,7 @@
         "weakness": "Plugin Bloat & Security",
         "strength": "Market Dominance",
         "comparison_title": "Escape the Plugin Hell",
-        "comparison_text": "WordPress powers 60% of the web, but it’s a security nightmare relying on dozens of plugins. Ledger1CMS is a secure, high-performance React-based headless CMS with zero plugin dependencies."
+        "comparison_text": "WordPress powers 60% of the web, but it’s a security nightmare relying on dozens of plugins. BasaltCMS is a secure, high-performance React-based headless CMS with zero plugin dependencies."
     },
     {
         "slug": "shopify",
@@ -13,7 +13,7 @@
         "weakness": "Rigid Architecture",
         "strength": "Hosted E-commerce",
         "comparison_title": "Freedom Beyond Templates",
-        "comparison_text": "Shopify is great for quick stores but traps you in their ecosystem. Ledger1CMS offers true headless commerce freedom, letting you build custom storefronts without transaction fee penalties."
+        "comparison_text": "Shopify is great for quick stores but traps you in their ecosystem. BasaltCMS offers true headless commerce freedom, letting you build custom storefronts without transaction fee penalties."
     },
     {
         "slug": "wix",
@@ -21,7 +21,7 @@
         "weakness": "Vendor Lock-in",
         "strength": "Ease of Use",
         "comparison_title": "Own Your Code",
-        "comparison_text": "Wix builds sites you can never export. Ledger1CMS generates clean, exportable Next.js code that you own 100%, hosting it wherever you want."
+        "comparison_text": "Wix builds sites you can never export. BasaltCMS generates clean, exportable Next.js code that you own 100%, hosting it wherever you want."
     },
     {
         "slug": "squarespace",
@@ -29,7 +29,7 @@
         "weakness": "Non-Scalable",
         "strength": "Design Templates",
         "comparison_title": "Scale Without Limits",
-        "comparison_text": "Squarespace looks good until you need custom logic. Ledger1CMS combines beautiful design with infinite backend scalability and open API extensibility."
+        "comparison_text": "Squarespace looks good until you need custom logic. BasaltCMS combines beautiful design with infinite backend scalability and open API extensibility."
     },
     {
         "slug": "joomla",
@@ -37,7 +37,7 @@
         "weakness": "Complex Maintenance",
         "strength": "Flexibility",
         "comparison_title": "Modernize Your Stack",
-        "comparison_text": "Joomla lives in the PHP past. Ledger1CMS brings you to the modern edge of TypeScript, Server Components, and AI automation."
+        "comparison_text": "Joomla lives in the PHP past. BasaltCMS brings you to the modern edge of TypeScript, Server Components, and AI automation."
     },
     {
         "slug": "drupal",
@@ -45,7 +45,7 @@
         "weakness": "Developer Heavy",
         "strength": "Enterprise features",
         "comparison_title": "Enterprise Power, Zero Headaches",
-        "comparison_text": "Drupal requires a dedicated dev team to maintain. Ledger1CMS offers the same enterprise-grade permissions and workflows but is managed by AI agents."
+        "comparison_text": "Drupal requires a dedicated dev team to maintain. BasaltCMS offers the same enterprise-grade permissions and workflows but is managed by AI agents."
     },
     {
         "slug": "webflow",
@@ -53,7 +53,7 @@
         "weakness": "CMS Limitations",
         "strength": "Visual Design",
         "comparison_title": "Visual Builder + Real Backend",
-        "comparison_text": "Webflow's CMS is rigidly tied to its visual builder. Ledger1CMS gives you a visual editor for marketers but a fully decoupled, unlimited backend for developers."
+        "comparison_text": "Webflow's CMS is rigidly tied to its visual builder. BasaltCMS gives you a visual editor for marketers but a fully decoupled, unlimited backend for developers."
     },
     {
         "slug": "adobe-experience-manager",
@@ -61,7 +61,7 @@
         "weakness": "Extremely Expensive",
         "strength": "DXP Ecosystem",
         "comparison_title": "Millions $ Saved",
-        "comparison_text": "AEM costs millions to license and implement. Ledger1CMS delivers superior Digital Experience capabilities at a fraction of the cost and implementation time."
+        "comparison_text": "AEM costs millions to license and implement. BasaltCMS delivers superior Digital Experience capabilities at a fraction of the cost and implementation time."
     },
     {
         "slug": "tilda",
@@ -69,7 +69,7 @@
         "weakness": "Limited Logic",
         "strength": "Blocks Design",
         "comparison_title": "Smart Blocks, Smarter Data",
-        "comparison_text": "Tilda makes pretty blocks. Ledger1CMS makes smart blocks that adapt to user behavior using real-time predictive AI."
+        "comparison_text": "Tilda makes pretty blocks. BasaltCMS makes smart blocks that adapt to user behavior using real-time predictive AI."
     },
     {
         "slug": "duda",
@@ -77,7 +77,7 @@
         "weakness": "Agency Silos",
         "strength": "Agency Tools",
         "comparison_title": "Agency Scaling Engine",
-        "comparison_text": "Duda is good for small sites. Ledger1CMS allows agencies to deploy complex web apps and portals across thousands of clients instantly."
+        "comparison_text": "Duda is good for small sites. BasaltCMS allows agencies to deploy complex web apps and portals across thousands of clients instantly."
     },
     {
         "slug": "hubspot-cms",
@@ -85,7 +85,7 @@
         "weakness": "Proprietary Language (HubL)",
         "strength": "CRM Integration",
         "comparison_title": "Don't Learn a Dead Language",
-        "comparison_text": "HubSpot forces you to learn HubL. Ledger1CMS uses standard React and TypeScript, so your developers are instantly productive."
+        "comparison_text": "HubSpot forces you to learn HubL. BasaltCMS uses standard React and TypeScript, so your developers are instantly productive."
     },
     {
         "slug": "sitecore",
@@ -93,7 +93,7 @@
         "weakness": "Aging Monolith",
         "strength": "Personalization",
         "comparison_title": "Modern Personalization",
-        "comparison_text": "Sitecore is the dinosaur of personalization. Ledger1CMS uses lightweight AI at the edge to personalize content without slowing down page loads."
+        "comparison_text": "Sitecore is the dinosaur of personalization. BasaltCMS uses lightweight AI at the edge to personalize content without slowing down page loads."
     },
     {
         "slug": "bigcommerce",
@@ -101,7 +101,7 @@
         "weakness": "API Rate Limits",
         "strength": "Scalable Commerce",
         "comparison_title": "Unbounded Commerce",
-        "comparison_text": "BigCommerce has limits. Ledger1CMS's event-driven architecture handles unlimited traffic spikes without rate limiting your growth."
+        "comparison_text": "BigCommerce has limits. BasaltCMS's event-driven architecture handles unlimited traffic spikes without rate limiting your growth."
     },
     {
         "slug": "contentful",
@@ -109,7 +109,7 @@
         "weakness": "Just a Database",
         "strength": "Composable Pioneer",
         "comparison_title": "More Than Just JSON",
-        "comparison_text": "Contentful gives you an API. Ledger1CMS gives you an API plus fully rendered front-end components and AI content generation tools."
+        "comparison_text": "Contentful gives you an API. BasaltCMS gives you an API plus fully rendered front-end components and AI content generation tools."
     },
     {
         "slug": "optimizely",
@@ -117,7 +117,7 @@
         "weakness": "Disjointed Acquisitions",
         "strength": "Experimentation",
         "comparison_title": "Integrated by Design",
-        "comparison_text": "Optimizely feels like unmatched parts glued together. Ledger1CMS is a unified platform where CMS, Analytics, and AI are built as one."
+        "comparison_text": "Optimizely feels like unmatched parts glued together. BasaltCMS is a unified platform where CMS, Analytics, and AI are built as one."
     },
     {
         "slug": "woocommerce",
@@ -125,7 +125,7 @@
         "weakness": "Database Performance",
         "strength": "Wordpress Integration",
         "comparison_title": "E-commerce at Light Speed",
-        "comparison_text": "WooCommerce slows down as you grow. Ledger1CMS stays blazingly fast with a serverless database that scales to millions of SKUs."
+        "comparison_text": "WooCommerce slows down as you grow. BasaltCMS stays blazingly fast with a serverless database that scales to millions of SKUs."
     },
     {
         "slug": "typo3",
@@ -133,7 +133,7 @@
         "weakness": "Steep Learning Curve",
         "strength": "Multi-language",
         "comparison_title": "Global Content, Simplified",
-        "comparison_text": "TYPO3 is notoriously hard to learn. Ledger1CMS offers the same robust multi-language support wrapped in an interface your grandmother could use."
+        "comparison_text": "TYPO3 is notoriously hard to learn. BasaltCMS offers the same robust multi-language support wrapped in an interface your grandmother could use."
     },
     {
         "slug": "contentstack",
@@ -141,7 +141,7 @@
         "weakness": "High Enterprise Cost",
         "strength": "Composable DXP",
         "comparison_title": "Accessible Enterprise Tech",
-        "comparison_text": "Contentstack is priced for the Fortune 500. Ledger1CMS democratizes composable architecture for startups and scale-ups."
+        "comparison_text": "Contentstack is priced for the Fortune 500. BasaltCMS democratizes composable architecture for startups and scale-ups."
     },
     {
         "slug": "storyblok",
@@ -149,7 +149,7 @@
         "weakness": "Visual Editor Lag",
         "strength": "Visual Headless",
         "comparison_title": "Real-Time Visual Editing",
-        "comparison_text": "Storyblok's visual editor can be clunky. Ledger1CMS uses a native React canvas for buttery smooth real-time previews and editing."
+        "comparison_text": "Storyblok's visual editor can be clunky. BasaltCMS uses a native React canvas for buttery smooth real-time previews and editing."
     },
     {
         "slug": "kentico",
@@ -157,7 +157,7 @@
         "weakness": ".NET Dependency",
         "strength": "All-in-one DXP",
         "comparison_title": "Stack Agnostic Freedom",
-        "comparison_text": "Kentico ties you to .NET. Ledger1CMS is built on standards-based web technologies deployable to Vercel, Netlify, or AWS."
+        "comparison_text": "Kentico ties you to .NET. BasaltCMS is built on standards-based web technologies deployable to Vercel, Netlify, or AWS."
     },
     {
         "slug": "magnolia",
@@ -165,7 +165,7 @@
         "weakness": "Java Complexity",
         "strength": "Hybrid Capability",
         "comparison_title": "Lightweight Power",
-        "comparison_text": "Magnolia brings Java enterprise baggage. Ledger1CMS is lightweight, serverless, and ready for the edge."
+        "comparison_text": "Magnolia brings Java enterprise baggage. BasaltCMS is lightweight, serverless, and ready for the edge."
     },
     {
         "slug": "sanity",
@@ -173,7 +173,7 @@
         "weakness": "Groq Learning Curve",
         "strength": "Structured Content",
         "comparison_title": "SQL/GraphQL Standard",
-        "comparison_text": "Sanity requires learning GROQ. Ledger1CMS works with standard GraphQL and SQL, so you don't need to retrain your team."
+        "comparison_text": "Sanity requires learning GROQ. BasaltCMS works with standard GraphQL and SQL, so you don't need to retrain your team."
     },
     {
         "slug": "liferay",
@@ -181,7 +181,7 @@
         "weakness": "Portal Legacy",
         "strength": "Intranets",
         "comparison_title": "Modern Digital Workplaces",
-        "comparison_text": "Liferay feels like corporate 2005. Ledger1CMS builds modern, reactive employee experiences that feel like consumer apps."
+        "comparison_text": "Liferay feels like corporate 2005. BasaltCMS builds modern, reactive employee experiences that feel like consumer apps."
     },
     {
         "slug": "sitefinity",
@@ -189,7 +189,7 @@
         "weakness": "Update Cycles",
         "strength": "Marketing features",
         "comparison_title": "Evergreen Updates",
-        "comparison_text": "Sitefinity upgrades are painful projects. Ledger1CMS is SaaS-delivered and always up to date with zero downtime."
+        "comparison_text": "Sitefinity upgrades are painful projects. BasaltCMS is SaaS-delivered and always up to date with zero downtime."
     },
     {
         "slug": "ghost",
@@ -197,6 +197,6 @@
         "weakness": "Publishing Only",
         "strength": "Blogging/Newsletters",
         "comparison_title": "Publishing Plus Application",
-        "comparison_text": "Ghost is great for blogs but fails at apps. Ledger1CMS powers your blog AND your SaaS application from the same content core."
+        "comparison_text": "Ghost is great for blogs but fails at apps. BasaltCMS powers your blog AND your SaaS application from the same content core."
     }
 ]

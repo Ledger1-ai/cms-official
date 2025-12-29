@@ -85,7 +85,7 @@ interface SeoSettings {
 }
 
 const defaultSeoSettings: SeoSettings = {
-    globalTitle: "Ledger1 CMS | The Intelligent Visual Builder",
+    globalTitle: "Basalt CMS | The Intelligent Visual Builder",
     globalDescription: "Build, scale, and manage your digital presence with the world's most powerful AI-assisted visual CMS.",
     ogImage: "/images/opengraph-image.png",
     ogTitle: "",
@@ -212,7 +212,7 @@ export default function FooterAdminPage() {
     };
 
     const generateAiSeo = async () => {
-        toast.promise(generateAiMetadata("Optimized for Ledger1 CMS"), {
+        toast.promise(generateAiMetadata("Optimized for Basalt CMS"), {
             loading: "Asking Nano Banana for ideas...",
             success: (data) => {
                 setSeoSettings(prev => ({
@@ -235,8 +235,8 @@ export default function FooterAdminPage() {
         if (!file) return;
 
         if (file.size > 10 * 1024 * 1024) {
-             toast.error("File size must be less than 10MB");
-             return;
+            toast.error("File size must be less than 10MB");
+            return;
         }
 
         const loadingToast = toast.loading(`Processing ${fieldName}...`);
@@ -254,8 +254,8 @@ export default function FooterAdminPage() {
                     canvas.height = targetHeight;
                     const ctx = canvas.getContext("2d");
                     if (!ctx) {
-                         toast.error("Failed to process image", { id: loadingToast });
-                         return;
+                        toast.error("Failed to process image", { id: loadingToast });
+                        return;
                     }
 
                     // Draw and resize (Fill / Cover strategy)
@@ -270,21 +270,21 @@ export default function FooterAdminPage() {
 
                     // "Cover" fit
                     if (imgRatio > targetRatio) {
-                         drawHeight = targetHeight;
-                         drawWidth = img.width * (targetHeight / img.height);
-                         offsetX = (targetWidth - drawWidth) / 2;
+                        drawHeight = targetHeight;
+                        drawWidth = img.width * (targetHeight / img.height);
+                        offsetX = (targetWidth - drawWidth) / 2;
                     } else {
-                         drawWidth = targetWidth;
-                         drawHeight = img.height * (targetWidth / img.width);
-                         offsetY = (targetHeight - drawHeight) / 2;
+                        drawWidth = targetWidth;
+                        drawHeight = img.height * (targetWidth / img.width);
+                        offsetY = (targetHeight - drawHeight) / 2;
                     }
 
                     // Background fill (optional, using black to be safe)
                     ctx.fillStyle = "#000000";
                     ctx.fillRect(0, 0, targetWidth, targetHeight);
-                    
+
                     ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-                    
+
                     // 2. Convert to Blob and Upload
                     const base64 = canvas.toDataURL(file.type === "image/png" ? "image/png" : "image/jpeg", 0.9);
 
@@ -295,30 +295,30 @@ export default function FooterAdminPage() {
                             url: base64,
                             filename: `${fieldName}-${Date.now()}.${file.type === "image/png" ? "png" : "jpg"}`,
                             mimeType: file.type === "image/png" ? "image/png" : "image/jpeg",
-                            size: Math.round((base64.length * 3) / 4), 
+                            size: Math.round((base64.length * 3) / 4),
                             title: fieldName === 'ogImage' ? 'OG Image' : (fieldName === 'twitterImage' ? 'Twitter Image' : 'Favicon'),
                             isPublic: true
                         }),
                     })
-                    .then(async res => {
-                        if (!res.ok) {
-                            const err = await res.json().catch(() => ({ error: res.statusText }));
-                            throw new Error(err.error || res.statusText);
-                        }
-                        return res.json();
-                    })
-                    .then(data => {
-                        if (data.url) {
-                            setSeoSettings(prev => ({ ...prev, [fieldName]: data.url }));
-                            toast.success(`${fieldName} updated!`, { id: loadingToast });
-                        } else {
-                            throw new Error("No URL returned");
-                        }
-                    })
-                    .catch(err => {
-                        console.error("Upload failed", err);
-                        toast.error(`Failed to upload ${fieldName}`, { id: loadingToast });
-                    });
+                        .then(async res => {
+                            if (!res.ok) {
+                                const err = await res.json().catch(() => ({ error: res.statusText }));
+                                throw new Error(err.error || res.statusText);
+                            }
+                            return res.json();
+                        })
+                        .then(data => {
+                            if (data.url) {
+                                setSeoSettings(prev => ({ ...prev, [fieldName]: data.url }));
+                                toast.success(`${fieldName} updated!`, { id: loadingToast });
+                            } else {
+                                throw new Error("No URL returned");
+                            }
+                        })
+                        .catch(err => {
+                            console.error("Upload failed", err);
+                            toast.error(`Failed to upload ${fieldName}`, { id: loadingToast });
+                        });
                 };
             };
         } catch (error) {
@@ -329,7 +329,7 @@ export default function FooterAdminPage() {
 
     // Kept for backward compat but simply calls smart upload now (or removed if not needed since we replaced usage)
     const handleFaviconUpload = (e: React.ChangeEvent<HTMLInputElement>) => handleSmartUpload(e, 'faviconUrl', 64, 64);
-    
+
     // --- Footer Helper Functions ---
 
     const updateSection = (index: number, field: keyof FooterSection, value: any) => {
@@ -468,7 +468,7 @@ export default function FooterAdminPage() {
                                         className="bg-black/50 border-white/10 text-white focus:border-blue-500 placeholder:text-slate-600 font-mono"
                                         value={settings.footerLogoUrl || ""}
                                         onChange={(e) => setSettings({ ...settings, footerLogoUrl: e.target.value })}
-                                        placeholder="/ledger1-cms-logo.png"
+                                        placeholder="/basalt-cms-tall-white.png"
                                     />
                                 </div>
                             </div>
@@ -811,7 +811,7 @@ export default function FooterAdminPage() {
                                                     placeholder="Leave empty to use Global OG Image"
                                                     className="bg-black/50 border-white/10 flex-1"
                                                 />
-                                                 <div className="relative">
+                                                <div className="relative">
                                                     <Input
                                                         type="file"
                                                         accept="image/*"
@@ -869,10 +869,10 @@ export default function FooterAdminPage() {
                                         {/* Image at top */}
                                         <div className="relative aspect-[1.91/1] w-full overflow-hidden">
                                             {(seoSettings.ogImage || seoSettings.twitterImage) ? (
-                                                <img 
-                                                    src={seoSettings.ogImage || seoSettings.twitterImage} 
-                                                    alt="OG Preview" 
-                                                    className="w-full h-full object-cover" 
+                                                <img
+                                                    src={seoSettings.ogImage || seoSettings.twitterImage}
+                                                    alt="OG Preview"
+                                                    className="w-full h-full object-cover"
                                                 />
                                             ) : (
                                                 <div className="w-full h-full bg-gradient-to-br from-indigo-900/50 to-purple-900/50 flex items-center justify-center">
@@ -908,7 +908,7 @@ export default function FooterAdminPage() {
                                             </div>
                                         )}
                                         <div className="p-3">
-                                            <div className="text-slate-500 text-sm">ledger1.ai</div>
+                                            <div className="text-slate-500 text-sm">basalthq.com</div>
                                             <div className="text-white text-[15px] font-medium leading-5 mt-0.5">
                                                 {seoSettings.ogTitle || seoSettings.globalTitle}
                                             </div>

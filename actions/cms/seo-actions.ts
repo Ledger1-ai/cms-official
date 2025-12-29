@@ -68,7 +68,7 @@ export async function generateAiMetadata(prompt: string) {
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     return {
-        title: `Ledger1 CMS | The Intelligent Visual Builder`, // Placeholder
+        title: `Basalt CMS | The Intelligent Visual Builder`, // Placeholder
         description: `Build, scale, and manage your digital presence with the world's most powerful AI-assisted visual CMS. Create stunning landing pages, manage content, and deploy AI agents instantly.`
     };
 }

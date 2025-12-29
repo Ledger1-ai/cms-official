@@ -1,5 +1,5 @@
 {
-  "name": "ledger1cms-app",
+  "name": "basalt-cms",
   "version": "1.0.5f",
   "private": true,
   "packageManager": "pnpm",

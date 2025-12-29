@@ -28,7 +28,7 @@ type Props = {
 function getBaseUrl(): string {
     const envUrl = process.env.NEXT_PUBLIC_APP_URL;
     if (!envUrl) {
-        return "https://crm.ledger1.ai";
+        return "https://crm.basalthq.com";
     }
     // Ensure URL has protocol
     if (!envUrl.startsWith("http://") && !envUrl.startsWith("https://")) {
@@ -44,8 +44,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
     if (!industry) return {};
 
-    const title = `Best AI CMS for ${industry.name} | Ledger1CMS`;
-    const description = `Ledger1CMS is the top-rated AI CMS for the ${industry.name} industry. ${industry.use_case}. Start for free.`;
+    const title = `Best AI CMS for ${industry.name} | BasaltCMS`;
+    const description = `BasaltCMS is the top-rated AI CMS for the ${industry.name} industry. ${industry.use_case}. Start for free.`;
     const baseUrl = getBaseUrl();
 
     let ogImageUrl = `${baseUrl}/api/og?title=${encodeURIComponent(`AI CMS for ${industry.name}`)}&description=${encodeURIComponent(`The #1 Choice for ${industry.name} Professionals`)}&type=industry&badge=${encodeURIComponent("Industry Leader")}`;
@@ -85,8 +85,8 @@ export async function generateStaticParams() {
 
 const STATIC = {
     faqs: [
-        { q: "Can we self-host?", a: "Ledger1CMS is a cloud-native SaaS platform designed for maximum reliability and automatic updates. For organizations with specific compliance requirements, we offer dedicated region hosting options that provide the security benefits of cloud infrastructure with data residency controls." },
-        { q: "Is there an API?", a: "Absolutely. Our REST API and Webhooks let you connect Ledger1CMS to virtually any system in your stack. Every integration uses scoped tokens with configurable rate limits, giving you enterprise-grade security without sacrificing flexibility." },
+        { q: "Can we self-host?", a: "BasaltCMS is a cloud-native SaaS platform designed for maximum reliability and automatic updates. For organizations with specific compliance requirements, we offer dedicated region hosting options that provide the security benefits of cloud infrastructure with data residency controls." },
+        { q: "Is there an API?", a: "Absolutely. Our REST API and Webhooks let you connect BasaltCMS to virtually any system in your stack. Every integration uses scoped tokens with configurable rate limits, giving you enterprise-grade security without sacrificing flexibility." },
         { q: "Do you offer templates?", a: "Yes—and they're built specifically for your industry. You'll get pre-configured email templates, pipeline stages, dashboard layouts, and automation workflows that reflect best practices. Of course, everything is fully customizable to match your exact needs." },
         { q: "How does AI train on our data?", a: "Your data stays yours. Our AI learns from your organization's patterns and signals, but we never mix data across tenants. Each AI agent adapts specifically to your business, improving over time based on your unique workflows and customer interactions." }
     ]
@@ -179,7 +179,7 @@ export default async function IndustryPage(props: Props) {
                                 Built for How {industry.name} Creates Content
                             </h2>
                             <p className="text-gray-400 text-lg leading-relaxed">
-                                Generic CMSs force you to adapt your content to their limitations. Ledger1CMS is different—it&apos;s designed from the ground up to handle the unique content lifecycles of {industry.name.toLowerCase()}, from {industry.use_case.toLowerCase()} to delivering personalized digital experiences.
+                                Generic CMSs force you to adapt your content to their limitations. BasaltCMS is different—it&apos;s designed from the ground up to handle the unique content lifecycles of {industry.name.toLowerCase()}, from {industry.use_case.toLowerCase()} to delivering personalized digital experiences.
                             </p>
                             <div className="space-y-6">
                                 <div className="flex items-start gap-4">
@@ -300,7 +300,7 @@ export default async function IndustryPage(props: Props) {
                         </div>
                         <h2 className="text-3xl font-bold mb-4">Workflows That Run Themselves</h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
-                            Stop manually moving deals through stages and chasing follow-ups. Ledger1CMS automates the
+                            Stop manually moving deals through stages and chasing follow-ups. BasaltCMS automates the
                             repetitive work so your team can focus on what humans do best—building relationships.
                         </p>
                     </div>
@@ -369,7 +369,7 @@ export default async function IndustryPage(props: Props) {
                         </div>
                         <h2 className="text-3xl font-bold mb-4">Connects to Everything You Use</h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
-                            Your CMS should be the hub, not a silo. Ledger1CMS integrates seamlessly with the tools
+                            Your CMS should be the hub, not a silo. BasaltCMS integrates seamlessly with the tools
                             your {industry.name.toLowerCase()} team relies on every day.
                         </p>
                     </div>
@@ -417,7 +417,7 @@ export default async function IndustryPage(props: Props) {
                                     <h3 className="text-xl font-semibold">Global Compliance</h3>
                                 </div>
                                 <p className="text-gray-400 mb-6">
-                                    Whether you&apos;re serving customers in Europe, North America, or Asia-Pacific, Ledger1CMS
+                                    Whether you&apos;re serving customers in Europe, North America, or Asia-Pacific, BasaltCMS
                                     helps you stay compliant with local data protection regulations.
                                 </p>
                                 <div className="flex flex-wrap gap-2">
@@ -484,7 +484,7 @@ export default async function IndustryPage(props: Props) {
                                 </p>
                                 <p className="text-gray-400 leading-relaxed">
                                     Our implementation specialists have deep experience with {industry.name.toLowerCase()}
-                                    workflows and will help you configure Ledger1CMS to match exactly how your team works.
+                                    workflows and will help you configure BasaltCMS to match exactly how your team works.
                                 </p>
                             </div>
                             <div className="space-y-4">
@@ -549,7 +549,7 @@ export default async function IndustryPage(props: Props) {
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold mb-4">Common Questions</h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
-                            Got questions about using Ledger1CMS for {industry.name.toLowerCase()}? Here are answers to what we hear most often.
+                            Got questions about using BasaltCMS for {industry.name.toLowerCase()}? Here are answers to what we hear most often.
                         </p>
                     </div>
 
@@ -570,7 +570,7 @@ export default async function IndustryPage(props: Props) {
                     <h2 className="text-3xl font-bold mb-6">Ready to Transform Your {industry.name} Operations?</h2>
                     <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
                         Join the {industry.name.toLowerCase()} teams who&apos;ve already made the switch to AI-native CMS.
-                        See exactly how Ledger1CMS can help you launch faster and scale further.
+                        See exactly how BasaltCMS can help you launch faster and scale further.
                     </p>
                     <div className="flex justify-center">
                         <Link href={primaryCta.url} target="_blank">

@@ -239,7 +239,7 @@ export default function DemoLandingView({ onStartDemo, socialSettings, footer }:
 
                             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Ready to Build the Future?</h2>
                             <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
-                                Join thousands of developers and marketers building faster, smarter, and better with Ledger1CMS.
+                                Join thousands of developers and marketers building faster, smarter, and better with BasaltCMS.
                             </p>
                             <div className="flex flex-col sm:flex-row justify-center gap-4">
                                 <Button

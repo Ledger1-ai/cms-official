@@ -2,8 +2,8 @@ import SupportClient from "./SupportClient";
 import MarketingLayout from "@/components/marketing/MarketingLayout";
 
 export const metadata = {
-    title: "Support - Ledger1CMS",
-    description: "Get help with Ledger1CMS.",
+    title: "Support - BasaltCMS",
+    description: "Get help with BasaltCMS.",
 };
 
 export default function SupportPage() {

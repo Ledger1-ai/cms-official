@@ -162,7 +162,7 @@ export default async function MarketingFooter() {
     sections.sort((a, b) => a.order - b.order);
 
     const tagline = footerSettings?.tagline || "Your 24/7 AI workforce. Content, Marketing, and Growth on autopilot.";
-    const copyrightText = footerSettings?.copyrightText || "© 2025 Ledger AI. All rights reserved.";
+    const copyrightText = footerSettings?.copyrightText || "© 2025 Basalt AI. All rights reserved.";
 
     // Build social links array from SocialSettings with brand colors
     const socialLinks: SocialLink[] = [
@@ -188,13 +188,13 @@ export default async function MarketingFooter() {
 
                     {/* Logo, Tagline, & Socials - Left side */}
                     <div className="flex flex-col items-center lg:items-start space-y-6 lg:w-1/4 lg:pr-8">
-                        <Link href="/" className="flex items-center gap-2" aria-label="Ledger1 Home">
+                        <Link href="/" className="flex items-center gap-2" aria-label="Basalt Home">
                             <Image
-                                src={footerSettings?.footerLogoUrl || "/ledger1-cms-wide-logo.webp"}
-                                alt="Ledger1CMS Logo"
-                                width={180}
-                                height={45}
-                                className="object-contain h-10 w-auto brightness-200 contrast-125"
+                                src={footerSettings?.footerLogoUrl || "/basalt-cms-wide-white.png"}
+                                alt="BasaltCMS Logo"
+                                width={225}
+                                height={56}
+                                className="object-contain h-12 w-auto brightness-200 contrast-125"
                                 unoptimized
                             />
                         </Link>
@@ -210,7 +210,7 @@ export default async function MarketingFooter() {
                                     href={social.url as string}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label={`Follow Ledger on ${social.label}`}
+                                    aria-label={`Follow Basalt on ${social.label}`}
                                     className={`text-white/60 ${social.hoverColor} hover:scale-110 transition-all duration-200`}
                                 >
                                     {social.icon}

@@ -10,7 +10,7 @@ export default async function CMSUniversityOverviewPage(props: { params: Promise
     const params = await props.params;
     const searchParams = await props.searchParams;
     const session = await getServerSession(authOptions);
-    const isAdmin = session?.user?.isAdmin || session?.user?.email === "admin@ledger1.ai";
+    const isAdmin = session?.user?.isAdmin || session?.user?.email === "info@basalthq.com";
 
     const docs = await prismadb.docArticle.findMany({
         where: { type: "university" }

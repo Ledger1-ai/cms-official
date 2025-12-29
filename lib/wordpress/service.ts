@@ -72,7 +72,7 @@ export class WordPressService {
             ...(options.headers as any),
             "Authorization": `Basic ${auth}`,
             "Content-Type": "application/json",
-            "User-Agent": "Ledger1-CMS/1.0 (Agentic-Sync)"
+            "User-Agent": "Basalt-CMS/1.0 (Agentic-Sync)"
         };
 
         // Method tunneling: if it's a PUT/PATCH/DELETE, we use POST + header + param
@@ -267,7 +267,7 @@ export class WordPressService {
             method: 'POST',
             headers: {
                 'Content-Type': 'text/xml',
-                'User-Agent': 'Ledger1-CMS/1.0 (XML-RPC-Fallback)'
+                'User-Agent': 'Basalt-CMS/1.0 (XML-RPC-Fallback)'
             },
             body: body
         });

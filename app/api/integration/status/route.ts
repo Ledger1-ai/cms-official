@@ -3,13 +3,13 @@ import { prismadb } from "@/lib/prisma";
 
 /**
  * GET /api/integration/status
- * Ledger1CMS integration status endpoint for VoiceHub connection and softphone config.
+ * BasaltCMS integration status endpoint for VoiceHub connection and softphone config.
  *
  * Response:
  * {
  *   voicehub_connected: boolean,
- *   iframeSrc: string,     // e.g., https://ledger1crm.my.connect.aws/ccp-v2/
- *   iframeOrigin: string,  // e.g., https://ledger1crm.my.connect.aws
+ *   iframeSrc: string,     // e.g., https://basaltcrm.my.connect.aws/ccp-v2/
+ *   iframeOrigin: string,  // e.g., https://basaltcrm.my.connect.aws
  *   queueId?: string,
  *   flowId?: string
  * }

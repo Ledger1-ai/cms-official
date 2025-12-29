@@ -43,7 +43,7 @@ export function TeamManagement() {
     }, [session]);
 
     const filteredUsers = users.filter(user => {
-        const isTeamMember = user.email === "admin@ledger1.ai" || user.is_admin || ["Admin", "Super Admin", "Editor"].includes(user.assigned_role?.name || "");
+        const isTeamMember = user.email === "info@basalthq.com" || user.is_admin || ["Admin", "Super Admin", "Editor"].includes(user.assigned_role?.name || "");
 
         if (teamViewMode === "team") {
             return isTeamMember;
@@ -101,7 +101,7 @@ export function TeamManagement() {
     const [deleteLoading, setDeleteLoading] = useState(false);
 
     const handleDeleteClick = (user: any) => {
-        if (user.email === "admin@ledger1.ai") {
+        if (user.email === "info@basalthq.com") {
             toast.error("Cannot delete the Owner/Super Admin.");
             return;
         }
@@ -130,7 +130,7 @@ export function TeamManagement() {
     };
 
     const handleToggleStatus = async (user: any) => {
-        if (user.email === "admin@ledger1.ai") {
+        if (user.email === "info@basalthq.com") {
             toast.error("Cannot change status of the Owner/Super Admin.");
             return;
         }
@@ -173,7 +173,7 @@ export function TeamManagement() {
         }
     };
 
-    const isOwner = (user: any) => user.email === "admin@ledger1.ai";
+    const isOwner = (user: any) => user.email === "info@basalthq.com";
 
     return (
         <div className="space-y-6">

@@ -41,7 +41,7 @@ async function getLocales(locale: string) {
 
 function getSafeBaseUrl(): string {
   const envUrl = process.env.NEXT_PUBLIC_APP_URL;
-  const PRODUCTION_FALLBACK = "https://crm.ledger1.ai";
+  const PRODUCTION_FALLBACK = "https://crm.basalthq.com";
 
   if (!envUrl || envUrl.trim() === "") {
     return PRODUCTION_FALLBACK;
@@ -88,7 +88,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   const siteUrl = getSafeBaseUrl();
 
-  const title = seoConfig?.globalTitle || "Ledger1 CMS | The Intelligent Visual Builder";
+  const title = seoConfig?.globalTitle || "Basalt CMS | The Intelligent Visual Builder";
   const description = seoConfig?.globalDescription || "";
   const ogImage = seoConfig?.ogImage || "/images/opengraph-image.png";
   const ogTitle = seoConfig?.ogTitle || title;
@@ -98,13 +98,13 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     metadataBase: new URL(siteUrl),
     title: {
       default: title,
-      template: `%s | Ledger1 CMS`,
+      template: `%s | Basalt CMS`,
     },
     description: description,
     keywords: seoConfig?.globalKeywords?.length ? seoConfig.globalKeywords : ["CMS", "AI CMS", "Headless CMS", "Visual Builder", "Next.js CMS", "Enterprise Content", "AI Agents"],
-    authors: [{ name: "Ledger1 CMS Team" }],
-    creator: "Ledger1 CMS",
-    publisher: "Ledger1 CMS",
+    authors: [{ name: "Basalt CMS Team" }],
+    creator: "Basalt CMS",
+    publisher: "Basalt CMS",
     formatDetection: {
       email: false,
       address: false,
@@ -114,7 +114,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       title: ogTitle,
       description: ogDescription,
       url: siteUrl,
-      siteName: "Ledger1 CMS",
+      siteName: "Basalt CMS",
       locale: locale,
       type: "website",
       images: [
@@ -130,16 +130,16 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       card: (seoConfig?.twitterCard as "summary_large_image" | "summary") || "summary_large_image",
       title: seoConfig?.twitterTitle || ogTitle,
       description: seoConfig?.twitterDescription || ogDescription,
-      creator: "@Ledger1AI",
+      creator: "@BasaltAI",
       images: [seoConfig?.twitterImage || ogImage],
     },
     icons: {
       icon: seoConfig?.faviconUrl?.startsWith("data:")
         ? seoConfig.faviconUrl
-        : (seoConfig?.faviconUrl || "/ledger1-cms-logo.png") + "?v=3",
+        : (seoConfig?.faviconUrl || "/basalt-cms-tall-white.png") + "?v=3",
       shortcut: seoConfig?.faviconUrl?.startsWith("data:")
         ? seoConfig.faviconUrl
-        : (seoConfig?.faviconUrl || "/ledger1-cms-logo.png") + "?v=3",
+        : (seoConfig?.faviconUrl || "/basalt-cms-tall-white.png") + "?v=3",
       apple: seoConfig?.faviconUrl?.startsWith("data:")
         ? seoConfig.faviconUrl
         : (seoConfig?.faviconUrl || "/apple-touch-icon.png") + "?v=3",

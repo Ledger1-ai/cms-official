@@ -4,8 +4,8 @@
         "name": "Real Estate",
         "use_case": "Property Portals & Agent Sites",
         "hero_title": "The Headless Real Estate CMS",
-        "description": "Launch lightning-fast property portals, agent microsites, and listing feeds with Ledger1CMS's predictive content engine.",
-        "meta_title": "Best Headless CMS for Real Estate | Ledger1CMS",
+        "description": "Launch lightning-fast property portals, agent microsites, and listing feeds with BasaltCMS's predictive content engine.",
+        "meta_title": "Best Headless CMS for Real Estate | BasaltCMS",
         "meta_description": "Real Estate CMS for brokerages. Manage millions of listings, syndicate to portals, and generate agent sites instantly.",
         "keywords": [
             "Real Estate CMS",
@@ -41,7 +41,7 @@
         "use_case": "Patient Portals & Intranets",
         "hero_title": "HIPAA-Compliant Content Hub",
         "description": "Deliver secure, personalized patient experiences and provider directories with a CMS built for compliance.",
-        "meta_title": "Healthcare Headless CMS | Ledger1CMS",
+        "meta_title": "Healthcare Headless CMS | BasaltCMS",
         "meta_description": "Healthcare CMS with HIPAA compliance, patient portals, and provider directories.",
         "keywords": [
             "Healthcare CMS",
@@ -77,7 +77,7 @@
         "use_case": "Secure Banking Portals",
         "hero_title": "FinTech Grade Digital Experience",
         "description": "Power secure banking portals, advisor knowledge bases, and regulatory disclosures with an audit-ready CMS.",
-        "meta_title": "Financial Services CMS | Ledger1CMS",
+        "meta_title": "Financial Services CMS | BasaltCMS",
         "meta_description": "Secure CMS for banks and wealth management. SOC 2 compliant audit trails.",
         "keywords": [
             "Finance CMS",
@@ -113,7 +113,7 @@
         "use_case": "Composable Commerce",
         "hero_title": "Headless Commerce Engine",
         "description": "Go beyond simple product pages. Build storytelling-driven commerce experiences that convert.",
-        "meta_title": "E-commerce Headless CMS | Ledger1CMS",
+        "meta_title": "E-commerce Headless CMS | BasaltCMS",
         "meta_description": "CMS for Shopify & BigCommerce. Rich product storytelling and landing pages.",
         "keywords": [
             "E-commerce CMS",
@@ -149,7 +149,7 @@
         "use_case": "Marketing Sites & Docs",
         "hero_title": "The CMS for Growth Teams",
         "description": "Manage your marketing site, documentation, and blog in one unified platform. Ship faster with Next.js.",
-        "meta_title": "SaaS Marketing CMS | Ledger1CMS",
+        "meta_title": "SaaS Marketing CMS | BasaltCMS",
         "meta_description": "CMS for SaaS. Manage landing pages, docs, and changelogs with git flows.",
         "keywords": [
             "SaaS CMS",
@@ -185,7 +185,7 @@
         "use_case": "Law Firm Knowledge Management",
         "hero_title": "The Attorney's Digital Edge",
         "description": "Streamline case studies, attorney bios, and client portals with a secure, professional CMS.",
-        "meta_title": "Legal Industry CMS | Ledger1CMS",
+        "meta_title": "Legal Industry CMS | BasaltCMS",
         "meta_description": "CMS for law firms. Manage attorney profiles, practice areas, and secure client resources.",
         "keywords": [
             "Legal CMS",
@@ -221,7 +221,7 @@
         "use_case": "Dealership & Manufacturer Sites",
         "hero_title": "Drive Digital Showrooms",
         "description": "Manage vehicle inventory, configurators, and dealer networks with high-performance content delivery.",
-        "meta_title": "Automotive CMS | Ledger1CMS",
+        "meta_title": "Automotive CMS | BasaltCMS",
         "meta_description": "Headless CMS for auto dealers and OEMs. Inventory integration and virtual showrooms.",
         "keywords": [
             "Automotive CMS",
@@ -257,7 +257,7 @@
         "use_case": "University & School Websites",
         "hero_title": "Campus-Wide Content Control",
         "description": "Unify departmental sites, course catalogs, and alumni portals under one governance model.",
-        "meta_title": "Higher Education CMS | Ledger1CMS",
+        "meta_title": "Higher Education CMS | BasaltCMS",
         "meta_description": "CMS for Universities. Manage hundreds of departmental sites with shared branding and governance.",
         "keywords": [
             "Higher Ed CMS",
@@ -293,7 +293,7 @@
         "use_case": "Destination Marketing",
         "hero_title": "Inspire the Next Journey",
         "description": "Showcase destinations with immersive media, itineraries, and booking engine integrations.",
-        "meta_title": "Travel Industry CMS | Ledger1CMS",
+        "meta_title": "Travel Industry CMS | BasaltCMS",
         "meta_description": "Headless CMS for travel agencies and DMOs. Rich media support and itinerary building.",
         "keywords": [
             "Travel CMS",
@@ -329,7 +329,7 @@
         "use_case": "Product Catalogs & Distributor Portals",
         "hero_title": "Industrial Strength Content",
         "description": "Manage complex product specs, CAD files, and distributor resources globally.",
-        "meta_title": "Manufacturing CMS | Ledger1CMS",
+        "meta_title": "Manufacturing CMS | BasaltCMS",
         "meta_description": "CMS for manufacturers. Handle complex product data, datasheets, and distributor portals.",
         "keywords": [
             "Manufacturing CMS",
@@ -365,7 +365,7 @@
         "use_case": "Streaming & News Platforms",
         "hero_title": "Content at Scale",
         "description": "Publish breaking news and stream media to millions with edge-cached delivery.",
-        "meta_title": "Media CMS | Ledger1CMS",
+        "meta_title": "Media CMS | BasaltCMS",
         "meta_description": "High-volume CMS for news and media. Fast publishing workflows and video management.",
         "keywords": [
             "News CMS",
@@ -401,7 +401,7 @@
         "use_case": "Donation & Impact Storytelling",
         "hero_title": "Amplify Your Mission",
         "description": "Tell compelling impact stories and drive donations with a CMS designed for advocacy.",
-        "meta_title": "Non-Profit CMS | Ledger1CMS",
+        "meta_title": "Non-Profit CMS | BasaltCMS",
         "meta_description": "CMS for charities and NGOs. Donation integrations and impact storytelling tools.",
         "keywords": [
             "Nonprofit CMS",
@@ -437,7 +437,7 @@
         "use_case": "Hotel & Restaurant Groups",
         "hero_title": "Five-Star Digital Service",
         "description": "Manage menus, room bookings, and location amenities across hotel chains and restaurant groups.",
-        "meta_title": "Hospitality CMS | Ledger1CMS",
+        "meta_title": "Hospitality CMS | BasaltCMS",
         "meta_description": "CMS for hotels and restaurants. Menu management, booking integration, and multi-location support.",
         "keywords": [
             "Hotel CMS",
@@ -473,7 +473,7 @@
         "use_case": "Project Portfolios & Bids",
         "hero_title": "Build Your Digital Presence",
         "description": "Showcase massive projects and manage bid documents securely.",
-        "meta_title": "Construction CMS | Ledger1CMS",
+        "meta_title": "Construction CMS | BasaltCMS",
         "meta_description": "CMS for construction firms. Project portfolios, bid management, and safety docs.",
         "keywords": [
             "Construction CMS",
@@ -509,7 +509,7 @@
         "use_case": "Customer Service & Outage Maps",
         "hero_title": "Powering Customer Connections",
         "description": "Deliver real-time outage info, usage reports, and sustainability data to millions.",
-        "meta_title": "Energy Utility CMS | Ledger1CMS",
+        "meta_title": "Energy Utility CMS | BasaltCMS",
         "meta_description": "CMS for energy coops and utilities. Outage maps, customer alerts, and billing integration.",
         "keywords": [
             "Utility CMS",
@@ -545,7 +545,7 @@
         "use_case": "Citizen Services Portals",
         "hero_title": "Digital Democracy Platform",
         "description": "Accessible, secure, and transparent content delivery for agencies and municipalities.",
-        "meta_title": "Government CMS | Ledger1CMS",
+        "meta_title": "Government CMS | BasaltCMS",
         "meta_description": "CMS for local and federal government. ADA compliant, secure, and citizen-focused.",
         "keywords": [
             "Government CMS",
@@ -581,7 +581,7 @@
         "use_case": "Policyholder Portals & Claims",
         "hero_title": "Trust & Transparency",
         "description": "simplify complex policy info and streamline claims with a secure digital experience.",
-        "meta_title": "Insurance CMS | Ledger1CMS",
+        "meta_title": "Insurance CMS | BasaltCMS",
         "meta_description": "CMS for insurance carriers. Policy management, claims portals, and agent resources.",
         "keywords": [
             "Insurance CMS",
@@ -617,7 +617,7 @@
         "use_case": "Tracking & Fleet Management",
         "hero_title": "Moving the World",
         "description": "Real-time tracking portals and customer tools for shipping and logistics firms.",
-        "meta_title": "Logistics CMS | Ledger1CMS",
+        "meta_title": "Logistics CMS | BasaltCMS",
         "meta_description": "CMS for shipping and logistics. Tracking integration, rate calculators, and fleet news.",
         "keywords": [
             "Logistics CMS",
@@ -653,7 +653,7 @@
         "use_case": "Thought Leadership & Client Portals",
         "hero_title": "Expertise on Display",
         "description": "Showcase white papers, case studies, and partner profiles to win high-value contracts.",
-        "meta_title": "Consulting Firm CMS | Ledger1CMS",
+        "meta_title": "Consulting Firm CMS | BasaltCMS",
         "meta_description": "CMS for management consulting. Thought leadership publishing and secure client rooms.",
         "keywords": [
             "Consulting CMS",
@@ -689,7 +689,7 @@
         "use_case": "R&D and Clinical Trial Sites",
         "hero_title": "Science at Speed",
         "description": "Manage clinical trial recruitment and drug info sites with strict regulatory compliance.",
-        "meta_title": "Pharma CMS | Ledger1CMS",
+        "meta_title": "Pharma CMS | BasaltCMS",
         "meta_description": "CMS for biotech and pharma. FDA compliance features, trial recruitment, and HCP portals.",
         "keywords": [
             "Pharma CMS",
@@ -725,7 +725,7 @@
         "use_case": "Portfolio Support & Deal Flow",
         "hero_title": "Fueling Innovation",
         "description": "Manage portfolio jobs, thesis content, and founder resources in a central hub.",
-        "meta_title": "VC Firm CMS | Ledger1CMS",
+        "meta_title": "VC Firm CMS | BasaltCMS",
         "meta_description": "CMS for venture capital. Portfolio job boards, founder platforms, and thesis publishing.",
         "keywords": [
             "VC CMS",
@@ -761,7 +761,7 @@
         "use_case": "Gyms & Online Coaching",
         "hero_title": "Empower Movement",
         "description": "Manage class schedules, trainer bios, and on-demand workout video libraries.",
-        "meta_title": "Fitness CMS | Ledger1CMS",
+        "meta_title": "Fitness CMS | BasaltCMS",
         "meta_description": "CMS for gyms and personal trainers. Class booking, video libraries, and member progress.",
         "keywords": [
             "Fitness CMS",
@@ -797,7 +797,7 @@
         "use_case": "Esports & Game Studios",
         "hero_title": "Level Up Your Presence",
         "description": "Engage fans with tournaments, patch notes, and community forums.",
-        "meta_title": "Gaming Industry CMS | Ledger1CMS",
+        "meta_title": "Gaming Industry CMS | BasaltCMS",
         "meta_description": "CMS for game studios and esports. Tournament brackets, patch notes, and fan wikis.",
         "keywords": [
             "Gaming CMS",
@@ -833,7 +833,7 @@
         "use_case": "CPA Firms & Client Portals",
         "hero_title": "Precision and Trust",
         "description": "Secure file exchange and tax resource centers for modern accounting firms.",
-        "meta_title": "Accounting CMS | Ledger1CMS",
+        "meta_title": "Accounting CMS | BasaltCMS",
         "meta_description": "CMS for CPAs. Secure client portals, tax date calendars, and regulatory guides.",
         "keywords": [
             "Accounting CMS",
@@ -869,7 +869,7 @@
         "use_case": "Client Reporting & Portfolios",
         "hero_title": "Showcase Your Creativity",
         "description": "Dynamic portfolios and live client reporting dashboards to prove your ROI.",
-        "meta_title": "Marketing Agency CMS | Ledger1CMS",
+        "meta_title": "Marketing Agency CMS | BasaltCMS",
         "meta_description": "CMS for digital agencies. Dynamic case studies, client dashboards, and service catalogs.",
         "keywords": [
             "Agency CMS",
@@ -905,7 +905,7 @@
         "use_case": "Conferences & Weddings",
         "hero_title": "Unforgettable Digital Experiences",
         "description": "Manage agendas, speaker bios, and registration for events of all sizes.",
-        "meta_title": "Event CMS | Ledger1CMS",
+        "meta_title": "Event CMS | BasaltCMS",
         "meta_description": "CMS for event planners. Agenda management, speaker profiles, and ticketing integration.",
         "keywords": [
             "Event CMS",
@@ -941,7 +941,7 @@
         "use_case": "Staffing Agencies",
         "hero_title": "Connect Talent Faster",
         "description": "High-volume job boards and candidate portals for modern staffing firms.",
-        "meta_title": "Recruiting CMS | Ledger1CMS",
+        "meta_title": "Recruiting CMS | BasaltCMS",
         "meta_description": "CMS for staffing agencies. Job boards, candidate portals, and ATS integration.",
         "keywords": [
             "Staffing CMS",
@@ -977,7 +977,7 @@
         "use_case": "Visual Portfolios",
         "hero_title": "Designed for Design",
         "description": "Minimalist, high-performance portfolios for architects to showcase their vision.",
-        "meta_title": "Architecture CMS | Ledger1CMS",
+        "meta_title": "Architecture CMS | BasaltCMS",
         "meta_description": "CMS for architects. High-res image galleries, project timelines, and minimalist design.",
         "keywords": [
             "Architecture Portfolio",
@@ -1013,7 +1013,7 @@
         "use_case": "Investor Relations & Science",
         "hero_title": "Innovating Life",
         "description": "Complex scientific data presentation and investor relations for biotech.",
-        "meta_title": "Biotech CMS | Ledger1CMS",
+        "meta_title": "Biotech CMS | BasaltCMS",
         "meta_description": "CMS for biotech companies. Pipeline visualization, investor relations, and scientific pubs.",
         "keywords": [
             "Biotech CMS",
@@ -1049,7 +1049,7 @@
         "use_case": "Threat Intel & Marketing",
         "hero_title": "Secure by Design",
         "description": "Publish threat intelligence reports and trust center updates securely.",
-        "meta_title": "Cybersecurity Tech CMS | Ledger1CMS",
+        "meta_title": "Cybersecurity Tech CMS | BasaltCMS",
         "meta_description": "CMS for security vendors. Threat blogs, trust centers, and technical marketing.",
         "keywords": [
             "Security CMS",

@@ -47,7 +47,7 @@ export default function CreateAccountForm() {
         if (selectedPlan === "SCALE") {
             // Redirect to demo booking
             toast.info("Sales Team", { description: "Redirecting to book a demo..." });
-            router.push("https://calendly.com/ledger1-demo"); // Placeholder or internal page
+            router.push("https://calendly.com/basalt-demo"); // Placeholder or internal page
             return;
         }
 
@@ -94,7 +94,7 @@ export default function CreateAccountForm() {
                 <div className="hidden lg:block space-y-8">
                     <div>
                         <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-500">
-                            Start building with Ledger1.
+                            Start building with Basalt.
                         </h1>
                         <p className="text-slate-400 text-lg">
                             Select the plan that fits your needs. Scale your content operations with AI-driven workflows.
@@ -136,7 +136,7 @@ export default function CreateAccountForm() {
                 <div className="bg-[#0A0A0B]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl animate-in fade-in slide-in-from-right-10 duration-700">
                     <div className="lg:hidden mb-8 text-center">
                         <h2 className="text-2xl font-bold text-white">Create Account</h2>
-                        <p className="text-slate-400 text-sm">Join Ledger1 today.</p>
+                        <p className="text-slate-400 text-sm">Join Basalt today.</p>
                     </div>
 
                     {/* Mobile Plan Select (Simplified) */}

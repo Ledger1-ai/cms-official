@@ -6,7 +6,7 @@ async function main() {
     try {
         const item = await prisma.mediaItem.findFirst({
             where: {
-                filename: 'Ledger1CMS Cyan - Wide.webp'
+                filename: 'BasaltCMS Cyan - Wide.webp'
             }
         });
         if (item) {

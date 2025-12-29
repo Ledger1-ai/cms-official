@@ -18,7 +18,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "voice.ledger1.ai",
+        hostname: "voice.basalthq.com",
       },
       {
         protocol: "https",

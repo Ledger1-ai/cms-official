@@ -493,7 +493,7 @@ export function CreateFormModal({ isOpen, onClose, initialData }: CreateFormModa
                                             <div className="w-3 h-3 rounded-full bg-green-400" />
                                         </div>
                                         <div className="mx-auto text-xs font-medium text-slate-400 bg-white px-3 py-1 rounded-md border border-slate-200 shadow-sm">
-                                            form.ledger.ai/view/{formData.project || "draft"}
+                                            form.basalthq.com/view/{formData.project || "draft"}
                                         </div>
                                     </div>
 
@@ -572,7 +572,7 @@ export function CreateFormModal({ isOpen, onClose, initialData }: CreateFormModa
                                                 Submit Form
                                             </Button>
                                             <p className="text-center text-xs text-slate-400 mt-4">
-                                                Powered by Ledger CMS
+                                                Powered by Basalt CMS
                                             </p>
                                         </div>
                                     </div>

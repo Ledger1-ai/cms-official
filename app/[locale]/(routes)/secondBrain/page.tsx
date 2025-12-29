@@ -41,7 +41,7 @@ const SecondBrainPage = async () => {
             </Link>
           </ol>
           <ol>
-            3. Create Ledger1CMS integration in Notion (
+            3. Create BasaltCMS integration in Notion (
             <a href="https://www.notion.so/my-integrations">
               https://www.notion.so/my-integrations
             </a>

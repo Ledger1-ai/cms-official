@@ -13,7 +13,7 @@ export default async function SecuritySopPage({ params }: { params: Promise<{ lo
     const session = await getServerSession(authOptions);
 
     // Strict Access Control
-    if (!session?.user?.isAdmin && session?.user?.email !== "admin@ledger1.ai") {
+    if (!session?.user?.isAdmin && session?.user?.email !== "info@basalthq.com") {
         return redirect(`/${locale}/cms/university`);
     }
 

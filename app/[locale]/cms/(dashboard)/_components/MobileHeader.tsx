@@ -19,10 +19,10 @@ export default function MobileHeader({ session, locale }: MobileHeaderProps) {
         <>
             <header className="md:hidden fixed top-0 left-0 right-0 h-16 bg-[#0A0A0B]/90 backdrop-blur-xl border-b border-white/10 z-50 flex items-center justify-between px-4">
                 {/* Left: Logo - Now links to CMS dashboard */}
-                <Link href={`/${locale}/cms`} className="relative h-8 w-28 opacity-90">
+                <Link href={`/${locale}/cms`} className="relative h-10 w-36 opacity-90">
                     <Image
-                        src="/ledger1-cms-wide-logo.webp"
-                        alt="Ledger1 CMS"
+                        src="/basalt-cms-wide-white.png"
+                        alt="Basalt CMS"
                         fill
                         className="object-contain object-left"
                         priority

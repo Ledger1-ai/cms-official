@@ -11,7 +11,7 @@ export async function generateCareerPost(jobTitle: string) {
     }
 
     const prompt = `
-    You are an expert HR Specialist and Recruiter for Ledger1CMS.
+    You are an expert HR Specialist and Recruiter for BasaltCMS.
     Your goal is to write a compelling, inclusive, and professional job description for the role: "${jobTitle}".
     
     Content Requirements:

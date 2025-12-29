@@ -112,7 +112,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
 
     return {
         title: `${doc.title} - Documentation`,
-        description: `Read about ${doc.title} in the Ledger1CMS knowledge base.`,
+        description: `Read about ${doc.title} in the BasaltCMS knowledge base.`,
     };
 }
 

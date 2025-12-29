@@ -13,7 +13,7 @@ async function main() {
       category: "1. Overview",
       type: "university",
       order: 1,
-      content: "# Overview and Introduction\\n\\n## Purpose and Scope\\nCMS University is the central knowledge base for the Ledger1 CMS platform. It is designed to provide users, administrators, and developers with comprehensive standard operating procedures (SOPs), how-to guides, and technical references.\\n\\n## Key Features\\n- **SOP Management**: Create and organize standard operating procedures.\\n- **Role-Based Access**: Manage permissions for team members and admins.\\n- **Content Engine**: Powerful tools for managing blogs, documentation, and media.\\n- **CRM Integration**: Built-in customer relationship management with lead tracking.\\n\\n## System Architecture\\nThe CMS is built on a modern stack:\\n- **Next.js**: React framework for the frontend and API.\\n- **Prisma & MongoDB**: Database layer for flexible content storage.\\n- **Tailwind CSS**: Utility-first styling for a consistent design system."
+      content: "# Overview and Introduction\\n\\n## Purpose and Scope\\nCMS University is the central knowledge base for the Basalt CMS platform. It is designed to provide users, administrators, and developers with comprehensive standard operating procedures (SOPs), how-to guides, and technical references.\\n\\n## Key Features\\n- **SOP Management**: Create and organize standard operating procedures.\\n- **Role-Based Access**: Manage permissions for team members and admins.\\n- **Content Engine**: Powerful tools for managing blogs, documentation, and media.\\n- **CRM Integration**: Built-in customer relationship management with lead tracking.\\n\\n## System Architecture\\nThe CMS is built on a modern stack:\\n- **Next.js**: React framework for the frontend and API.\\n- **Prisma & MongoDB**: Database layer for flexible content storage.\\n- **Tailwind CSS**: Utility-first styling for a consistent design system."
     },
 
     // II. User and Role Management
@@ -31,7 +31,7 @@ async function main() {
       category: "2. User Management",
       type: "university",
       order: 3,
-      content: "# Account Creation and Login\\n\\n## Creating a New User\\n1. Navigate to **System > Users**.\\n2. Click **Create User**.\\n3. Fill in the required details:\\n   - Full Name\\n   - Email Address\\n   - Role (e.g., Administrator, Member)\\n4. The user will receive an email with login instructions (if email service is configured) or you can set a temporary password.\\n\\n## Logging In\\nAccess the CMS at your specific domain (e.g., `app.ledger1.ai`). Use your email and password."
+      content: "# Account Creation and Login\\n\\n## Creating a New User\\n1. Navigate to **System > Users**.\\n2. Click **Create User**.\\n3. Fill in the required details:\\n   - Full Name\\n   - Email Address\\n   - Role (e.g., Administrator, Member)\\n4. The user will receive an email with login instructions (if email service is configured) or you can set a temporary password.\\n\\n## Logging In\\nAccess the CMS at your specific domain (e.g., `app.basalthq.com`). Use your email and password."
     },
     {
       title: "Password Reset and Security",

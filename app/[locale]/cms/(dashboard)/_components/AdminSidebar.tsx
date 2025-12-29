@@ -67,8 +67,8 @@ export default function AdminSidebar({ session, dbUser, visibleModules, locale }
                     <div className={`relative transition-transform duration-300 ${open ? "w-full h-24 hover:scale-105" : "w-10 h-10"}`}>
                         {open ? (
                             <Image
-                                src="/ledger1-cms-logo.png"
-                                alt="Ledger1 CRM"
+                                src="/basalt-cms-tall-white.png"
+                                alt="Basalt CRM"
                                 fill
                                 className="object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
                                 priority
@@ -77,7 +77,7 @@ export default function AdminSidebar({ session, dbUser, visibleModules, locale }
                             <div className="relative w-full h-full">
                                 <Image
                                     src="/apple-touch-icon.png"
-                                    alt="Ledger1 CRM"
+                                    alt="Basalt CRM"
                                     fill
                                     className="object-contain"
                                     priority
@@ -169,7 +169,7 @@ export default function AdminSidebar({ session, dbUser, visibleModules, locale }
                 {/* Voice Agent Trigger */}
                 {visibleModules.some(m => m.slug === "voice") && (
                     <button
-                        onClick={() => window.dispatchEvent(new CustomEvent("ledger1:open-agent"))}
+                        onClick={() => window.dispatchEvent(new CustomEvent("basalt:open-agent"))}
                         className="flex flex-col items-center justify-center gap-1 min-w-[60px] p-2 transition-all duration-300 group/item whitespace-nowrap"
                     >
                         <div className="h-10 w-10 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg transform group-active/item:scale-95 transition-transform">

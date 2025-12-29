@@ -4,8 +4,8 @@ import TeamMember from "../components/TeamMember";
 import { prismadb } from "@/lib/prisma";
 
 export const metadata = {
-    title: "About Us - Ledger1CMS",
-    description: "Learn about Ledger1CMS, the AI-first CRM designed to automate sales and support for modern businesses.",
+    title: "About Us - BasaltCMS",
+    description: "Learn about BasaltCMS, the AI-first CRM designed to automate sales and support for modern businesses.",
 };
 
 import MarketingLayout from "@/components/marketing/MarketingLayout";
@@ -43,7 +43,7 @@ export default async function AboutPage() {
                                 <h2 className="text-3xl font-bold mb-6">Our Story</h2>
                                 <div className="space-y-4 text-gray-300 leading-relaxed">
                                     <p>
-                                        Ledger1CMS started in 2025 with a simple observation: CMS software had become bloated, expensive, and surprisingly dumb.
+                                        BasaltCMS started in 2025 with a simple observation: CMS software had become bloated, expensive, and surprisingly dumb.
                                         Sales teams were spending more time entering data than closing deals.
                                     </p>
                                     <p>
@@ -52,7 +52,7 @@ export default async function AboutPage() {
                                         we created a system that can predict, automate, and even act on your behalf.
                                     </p>
                                     <p>
-                                        Today, thousands of companies use Ledger1CMS to punch above their weight class and compete with industry giants.
+                                        Today, thousands of companies use BasaltCMS to punch above their weight class and compete with industry giants.
                                     </p>
                                 </div>
                             </div>

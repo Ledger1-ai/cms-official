@@ -1,4 +1,4 @@
-# CMS-Ledger1
+# Basalt CMS
 
 A Next.js 16 + React 19 Monolithic CRM & CMS application.
 
@@ -32,7 +32,7 @@ A Next.js 16 + React 19 Monolithic CRM & CMS application.
 1.  **Clone the repository:**
     ```bash
     git clone <repo-url>
-    cd cms-ledger1
+    cd basalt-cms
     ```
 
 2.  **Install dependencies:**

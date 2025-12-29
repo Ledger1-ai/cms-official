@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 async function checkAdminStatus() {
     console.log('Checking admin status...');
 
-    const emails = ['admin@ledger1.com', 'admin@ledger1.ai'];
+    const emails = ['info@basalthq.com', 'info@basalthq.com'];
 
     for (const email of emails) {
         const user = await prisma.users.findUnique({

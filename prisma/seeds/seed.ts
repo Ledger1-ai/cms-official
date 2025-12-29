@@ -121,7 +121,7 @@ async function main() {
     await prisma.footerSetting.create({
       data: {
         tagline: "Your 24/7 AI workforce. Sales, Support, and Growth on autopilot.",
-        copyrightText: "© 2025 Ledger AI. All rights reserved.",
+        copyrightText: "© 2025 Basalt. All rights reserved.",
       },
     });
     console.log("Footer Settings seeded successfully");

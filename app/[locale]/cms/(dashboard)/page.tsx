@@ -27,7 +27,7 @@ export default async function CMSDashboardPage() {
     });
 
     // Super Admin and Admins get all modules
-    if (user?.email === "admin@ledger1.ai" || user?.is_admin) {
+    if (user?.email === "info@basalthq.com" || user?.is_admin) {
       enabledModules = ["blog", "careers", "docs", "media", "integrations", "social", "footer", "settings", "dashboard", "activity", "support", "forms"];
       isAdmin = true;
       unreadSupportCount = await getUnreadTicketCount();

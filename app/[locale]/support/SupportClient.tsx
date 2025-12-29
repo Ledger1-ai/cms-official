@@ -82,7 +82,7 @@ export default function SupportClient() {
                         title="Email Support"
                         description="For account-related issues or technical inquiries, send us an email."
                         actionText="Contact Support"
-                        href="mailto:support@ledger1crm.com"
+                        href="mailto:support@basalthq.com"
                     />
                 </div>
 

@@ -134,7 +134,7 @@ export function SystemStatusModal({ isOpen, onClose }: SystemStatusModalProps) {
 
                 <div className="bg-black/80 p-4 text-center border-t border-white/10">
                     <p className="text-[10px] text-cyan-700 font-mono">
-                        LEDGER1_CORE // AUTOPILOT ENABLED // ALL SYSTEMS OPERATIONAL
+                        BASALT_CORE // AUTOPILOT ENABLED // ALL SYSTEMS OPERATIONAL
                     </p>
                 </div>
             </DialogContent>

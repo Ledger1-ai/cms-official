@@ -1,7 +1,7 @@
 {
   "RootLayout": {
-    "title": "Ledger1CMS",
-    "description": "Ledger1CMS je open source CRM vytvořené na frameworku NextJS."
+    "title": "BasaltCMS",
+    "description": "BasaltCMS je open source CRM vytvořené na frameworku NextJS."
   },
   "ModuleMenu": {
     "dashboard": "Přehled",
@@ -24,7 +24,7 @@
   },
   "DashboardPage": {
     "containerTitle": "Přehled",
-    "containerDescription": "Vítejte v Ledger1CMS, zde můžete vidět všechny důležité informace o vašem podniku.",
+    "containerDescription": "Vítejte v BasaltCMS, zde můžete vidět všechny důležité informace o vašem podniku.",
     "totalRevenue": "Celkový obrat",
     "expectedRevenue": "Očekávaný obrat",
     "activeUsers": "Aktivní uživatelé",

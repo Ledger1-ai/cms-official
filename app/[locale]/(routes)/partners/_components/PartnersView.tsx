@@ -152,7 +152,7 @@ const PartnersView = ({ initialTeams, availablePlans = [] }: Props) => {
     };
 
     // Check if current user has access to manage plans (simple client check, real check is server side)
-    const hasInternalTeam = teams.some(t => t.slug === 'internal' || t.slug === 'ledger1');
+    const hasInternalTeam = teams.some(t => t.slug === 'internal' || t.slug === 'basalt');
 
     const pendingCount = teams.filter(t => t.status === 'PENDING').length;
 

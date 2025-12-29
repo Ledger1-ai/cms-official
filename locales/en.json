@@ -1,7 +1,7 @@
 {
   "RootLayout": {
-    "title": "Ledger1CMS",
-    "description": "Ledger1CMS is an open source CRM build on top of NextJS."
+    "title": "BasaltCMS",
+    "description": "BasaltCMS is an open source CRM build on top of NextJS."
   },
   "ModuleMenu": {
     "dashboard": "Dashboard",
@@ -25,7 +25,7 @@
   "DashboardPage": {
     "containerTitle": "Dashboard",
     "totalRevenue": "Total revenue",
-    "containerDescription": "Welcome to Ledger1CMS, here you can see all important information about your business.",
+    "containerDescription": "Welcome to BasaltCMS, here you can see all important information about your business.",
     "expectedRevenue": "Expected revenue",
     "activeUsers": "Active users",
     "accounts": "Companies",

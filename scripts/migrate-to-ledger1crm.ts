@@ -1,9 +1,9 @@
 /**
- * Consolidate Mongo data into the ledger1crm database using Prisma with datasource overrides.
+ * Consolidate Mongo data into the basaltcrm database using Prisma with datasource overrides.
  *
  * This script:
  * - Connects to SOURCE and TARGET Mongo databases (same cluster, different DB names)
- * - Copies all Prisma-modeled collections from SOURCE (e.g., nextcrm) into TARGET (ledger1crm)
+ * - Copies all Prisma-modeled collections from SOURCE (e.g., nextcrm) into TARGET (basaltcrm)
  * - Reconciles Users by email, preserving TARGET user IDs when duplicates exist and remapping references
  * - Preserves ObjectId values when inserting new records to maintain relational integrity
  *
@@ -13,12 +13,12 @@
  *
  * Environment variables (provide via CLI when running):
  * - SOURCE_DATABASE_URL  (e.g., .../nextcrm?... )
- * - TARGET_DATABASE_URL  (e.g., .../ledger1crm?... )
+ * - TARGET_DATABASE_URL  (e.g., .../basaltcrm?... )
  *
  * Example run on Windows (cmd.exe):
  *   set SOURCE_DATABASE_URL="mongodb+srv://user:pass@host/nextcrm?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000" && ^
- *   set TARGET_DATABASE_URL="mongodb+srv://user:pass@host/ledger1crm?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000" && ^
- *   npx ts-node ./scripts/migrate-to-ledger1crm.ts
+ *   set TARGET_DATABASE_URL="mongodb+srv://user:pass@host/basaltcrm?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000" && ^
+ *   npx ts-node ./scripts/migrate-to-basaltcrm.ts
  *
  * Safety features:
  * - Skips chat collections from SOURCE (chat_Sessions, chat_Messages) since they’re already in TARGET
@@ -335,7 +335,7 @@ async function reconcileUsers() {
  * Main execution
  */
 async function main() {
-  console.log("[START] Migrate to ledger1crm");
+  console.log("[START] Migrate to basaltcrm");
   console.log("[SOURCE]", maskUrl(SOURCE_URL));
   console.log("[TARGET]", maskUrl(TARGET_URL));
 

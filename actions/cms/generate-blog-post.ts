@@ -16,7 +16,7 @@ export async function generateBlogPost(topic: string) {
     }
 
     const prompt = `
-    You are an expert SEO Content Writer for Ledger1CMS, a leading CRM platform powered by AI.
+    You are an expert SEO Content Writer for BasaltCMS, a leading CRM platform powered by AI.
     Your goal is to write a high-ranking, authoritative, and engaging blog post on the topic: "${topic}".
     
     Content Requirements:
@@ -39,7 +39,7 @@ export async function generateBlogPost(topic: string) {
         -   Use bullet points and numbered lists to break up text.
         -   Keep paragraphs short (2-3 sentences).
     5.  Call to Action (CTA):
-        -   End with a strong CTA encouraging readers to try Ledger1CMS to solve their sales challenges.
+        -   End with a strong CTA encouraging readers to try BasaltCMS to solve their sales challenges.
   `;
 
     try {

@@ -285,7 +285,7 @@ const TeamMembersTable = ({ teamId, teamSlug, members, isSuperAdmin }: Props) =>
                                         </DropdownMenuItem>
 
                                         {/* Super Admin Option - Only if internal team and authorized */}
-                                        {teamSlug === "ledger1" && isSuperAdmin && (
+                                        {teamSlug === "basalt" && isSuperAdmin && (
                                             <DropdownMenuItem onClick={() => handleRoleUpdate(member.id, "SUPER_ADMIN")} className="text-red-500 font-bold bg-red-50 focus:bg-red-100 mt-1">
                                                 <Shield className="w-4 h-4 mr-2" /> Make Super Admin
                                             </DropdownMenuItem>

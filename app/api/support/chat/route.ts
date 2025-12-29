@@ -59,7 +59,7 @@ export async function POST(req: Request) {
 function generateMockResponse(input: string): string {
     const lower = input.toLowerCase();
     if (lower.includes("price") || lower.includes("cost")) return "Our pricing starts at $0 for the Free tier. The Individual Pro plan is $50/month. You can check the Pricing page for more details!";
-    if (lower.includes("support") || lower.includes("help")) return "We offer community support for free users and priority 24/7 support for Pro plans. You can also email us at support@ledger1crm.com.";
-    if (lower.includes("hello") || lower.includes("hi")) return "Hello! How can I help you with Ledger1 CRM today?";
+    if (lower.includes("support") || lower.includes("help")) return "We offer community support for free users and priority 24/7 support for Pro plans. You can also email us at support@basalthq.com.";
+    if (lower.includes("hello") || lower.includes("hi")) return "Hello! How can I help you with Basalt CRM today?";
     return "That's a great question. I'd recommend checking our documentation or submitting a support ticket for a detailed answer from our team.";
 }

@@ -246,7 +246,7 @@ export function BlogAnalyticsModal({ isOpen, onClose }: BlogAnalyticsModalProps)
                 {/* Footer */}
                 <div className="bg-black/80 p-4 text-center border-t border-white/10">
                     <p className="text-[10px] text-cyan-700 font-mono">
-                        LEDGER1_ANALYTICS // BLOG ENGAGEMENT TRACKER // DATA REFRESHES ON OPEN
+                        BASALT_ANALYTICS // BLOG ENGAGEMENT TRACKER // DATA REFRESHES ON OPEN
                     </p>
                 </div>
 

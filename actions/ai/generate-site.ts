@@ -88,7 +88,7 @@ export async function generateSite(data: {
                     });
                     content.push({
                         type: "TextBlock",
-                        props: { content: "Get in touch with our team at support@ledger.ai", align: "center" }
+                        props: { content: "Get in touch with our team at info@basalthq.com", align: "center" }
                     });
                     // Add a mockup form via CodeBlock for now
                     content.push({

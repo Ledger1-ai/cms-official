@@ -8,11 +8,11 @@ const prismadb = new PrismaClient();
 async function main() {
     console.log("Starting migration...");
     const targetTeam = await prismadb.team.findUnique({
-        where: { slug: "ledger1" },
+        where: { slug: "basalt" },
     });
 
     if (!targetTeam) {
-        console.error("Target team 'ledger1' not found");
+        console.error("Target team 'basalt' not found");
         return;
     }
 

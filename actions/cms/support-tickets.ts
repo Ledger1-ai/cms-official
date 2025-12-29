@@ -27,7 +27,7 @@ export async function getUnreadTicketCount() {
 
     // Check admin
     const user = await prismadb.users.findUnique({ where: { email: session.user.email } });
-    if (!user?.is_admin && user?.email !== "admin@ledger1.ai") return 0;
+    if (!user?.is_admin && user?.email !== "info@basalthq.com") return 0;
 
     const count = await prismadb.supportTicket.count({
         where: {

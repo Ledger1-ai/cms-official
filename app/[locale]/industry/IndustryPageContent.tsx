@@ -42,7 +42,7 @@ export default function IndustryPageContent() {
                         Built for Your Business.
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto mb-12">
-                        Don&apos;t settle for generic software. Ledger1CMS comes pre-configured with the workflows, compliance, and language of your industry.
+                        Don&apos;t settle for generic software. BasaltCMS comes pre-configured with the workflows, compliance, and language of your industry.
                     </p>
 
                     <div className="relative w-full max-w-5xl mx-auto aspect-[2/1] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
@@ -95,7 +95,7 @@ export default function IndustryPageContent() {
                     <div className="relative p-12 md:p-24 text-center">
                         <h2 className="text-4xl font-bold text-white mb-6">Don&apos;t see your industry?</h2>
                         <p className="text-xl text-slate-400 mb-8 max-w-2xl mx-auto">
-                            Our open API and flexible data model mean Ledger1CMS can be adapted to any vertical in days, not months.
+                            Our open API and flexible data model mean BasaltCMS can be adapted to any vertical in days, not months.
                         </p>
                         <Button
                             onClick={() => setIsContactOpen(true)}

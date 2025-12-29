@@ -21,7 +21,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     if (!job) return {};
 
     return {
-        title: `${job.title} | Careers at Ledger1CMS`,
+        title: `${job.title} | Careers at BasaltCMS`,
         description: job.summary || `Join our team as a ${job.title}.`,
     };
 }

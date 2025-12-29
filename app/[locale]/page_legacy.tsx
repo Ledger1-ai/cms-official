@@ -39,35 +39,35 @@ import MarketingFooter from "./components/MarketingFooter";
 import MarketingHeader from "./components/MarketingHeader";
 
 export const metadata: Metadata = {
-    title: "Ledger1 – AI Sales & Support Engine",
+    title: "Basalt – AI Sales & Support Engine",
     description: "Automated prospecting, social intelligence, and 24/7 AI agents that never sleep.",
     keywords: ["AI CMS", "Sales AI", "Customer Support Bot", "SME CRM", "Next.js CRM"],
     openGraph: {
-        title: "Ledger1 – AI Sales & Support Engine",
+        title: "Basalt – AI Sales & Support Engine",
         description: "Automated prospecting, social intelligence, and 24/7 AI agents that never sleep.",
         type: "website",
-        url: "https://crm.ledger1.ai",
+        url: "https://crm.basalthq.com",
         images: [
             {
-                url: "https://crm.ledger1.ai/social-preview.jpg",
+                url: "https://crm.basalthq.com/social-preview.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Ledger1 – AI Sales & Support Engine",
+                alt: "Basalt – AI Sales & Support Engine",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Ledger1 – AI Sales & Support Engine",
+        title: "Basalt – AI Sales & Support Engine",
         description: "Automated prospecting, social intelligence, and 24/7 AI agents that never sleep.",
-        images: ["https://crm.ledger1.ai/social-preview.jpg"],
+        images: ["https://crm.basalthq.com/social-preview.jpg"],
     },
 };
 
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Ledger1CMS",
+    "name": "BasaltCMS",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "offers": {
@@ -106,7 +106,7 @@ export default function LandingPage() {
                                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-teal-500">Supercharged.</span>
                                 </h1>
                                 <p className="mx-auto max-w-[800px] text-muted-foreground md:text-xl lg:text-2xl leading-relaxed">
-                                    Focus on the features that keep you competitive in this new era. Be excited about business again. The first CRM that doesn&apos;t just manage your data—it actively works for you. From finding prospects to closing deals with voice AI, Ledger1CMS is your unfair advantage.
+                                    Focus on the features that keep you competitive in this new era. Be excited about business again. The first CRM that doesn&apos;t just manage your data—it actively works for you. From finding prospects to closing deals with voice AI, BasaltCMS is your unfair advantage.
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-6 min-w-[300px] justify-center pt-4">
@@ -177,7 +177,7 @@ export default function LandingPage() {
                 <section id="voicehub" className="w-full py-24 md:py-32 bg-[#020617] relative overflow-hidden text-white border-y border-white/10">
                     {/* Background Effects */}
                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-slate-950 to-slate-950" />
-                    <div className="absolute inset-0 bg-[url('https://voice.ledger1.ai/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+                    <div className="absolute inset-0 bg-[url('https://voice.basalthq.com/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
 
                     <div className="container px-4 md:px-6 relative z-10">
                         {/* Header */}
@@ -271,7 +271,7 @@ export default function LandingPage() {
                         {/* Image Branding */}
                         <div className="mt-20 flex justify-center opacity-80 hover:opacity-100 transition-opacity duration-500">
                             <Image
-                                src="https://voice.ledger1.ai/vhlogo.png"
+                                src="https://voice.basalthq.com/vhlogo.png"
                                 alt="VoiceHub Logo"
                                 width={0}
                                 height={0}
@@ -289,7 +289,7 @@ export default function LandingPage() {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div className="space-y-8">
                                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                                    What Ledger1CMS<br />
+                                    What BasaltCMS<br />
                                     <span className="text-primary">Does For You.</span>
                                 </h2>
                                 <p className="text-muted-foreground md:text-xl leading-relaxed">
@@ -349,7 +349,7 @@ export default function LandingPage() {
                                     Ready to Dominate Your Market?
                                 </h2>
                                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                                    Join thousands of forward-thinking businesses using Ledger1CMS to scale smarter, faster, and more securely.
+                                    Join thousands of forward-thinking businesses using BasaltCMS to scale smarter, faster, and more securely.
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-6">

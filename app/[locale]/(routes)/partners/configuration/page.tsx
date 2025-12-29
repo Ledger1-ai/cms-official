@@ -18,9 +18,9 @@ export default async function PartnerAiConfigPage() {
         include: { assigned_team: true }
     });
 
-    // Strict check for Ledger1 team or Admin
+    // Strict check for Basalt team or Admin
     // (Reusing logic from PartnersPage)
-    const isInternalTeam = user?.assigned_team?.slug === "ledger1";
+    const isInternalTeam = user?.assigned_team?.slug === "basalt";
     const isAdmin = user?.is_admin;
 
     if (!isAdmin && !isInternalTeam) {

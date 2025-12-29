@@ -44,7 +44,7 @@ export default function DashboardHeader({ userName, unreadSupportCount }: Dashbo
                         Welcome back, {userName}
                     </h1>
                     <p className="text-sm md:text-base text-slate-400 font-medium max-w-lg">
-                        Manage your digital presence from the <span className="text-cyan-400 font-bold">Ledger1 Command Center</span>.
+                        Manage your digital presence from the <span className="text-cyan-400 font-bold">Basalt Command Center</span>.
                     </p>
                 </div>
 

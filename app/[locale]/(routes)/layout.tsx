@@ -10,7 +10,7 @@ import { Metadata } from "next";
 
 function getSafeMetadataBase(): URL {
   const envUrl = process.env.NEXT_PUBLIC_APP_URL;
-  const PRODUCTION_FALLBACK = "https://crm.ledger1.ai";
+  const PRODUCTION_FALLBACK = "https://crm.basalthq.com";
 
   if (!envUrl || envUrl.trim() === "") {
     return new URL(PRODUCTION_FALLBACK);

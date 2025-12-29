@@ -161,7 +161,7 @@ export function UserManagementModal({ isOpen, onClose, user }: UserManagementMod
                 <Tabs defaultValue="details" className="w-full">
                     <TabsList className="mb-4 bg-black border border-white/10">
                         <TabsTrigger value="details">Details</TabsTrigger>
-                        {user && user.email !== "admin@ledger1.ai" && <TabsTrigger value="modules">CMS Modules</TabsTrigger>}
+                        {user && user.email !== "info@basalthq.com" && <TabsTrigger value="modules">CMS Modules</TabsTrigger>}
                     </TabsList>
 
                     <TabsContent value="details">
@@ -234,7 +234,7 @@ export function UserManagementModal({ isOpen, onClose, user }: UserManagementMod
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <Label className="text-slate-300">Role</Label>
-                                    {user?.email === "admin@ledger1.ai" ? (
+                                    {user?.email === "info@basalthq.com" ? (
                                         <div className="h-10 px-3 flex items-center bg-black border border-white/10 rounded-md text-amber-500 font-medium text-sm">
                                             Owner (Super Admin)
                                         </div>
@@ -308,7 +308,7 @@ export function UserManagementModal({ isOpen, onClose, user }: UserManagementMod
                         </form>
                     </TabsContent>
 
-                    {user && user.email !== "admin@ledger1.ai" && (
+                    {user && user.email !== "info@basalthq.com" && (
                         <TabsContent value="modules">
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2 text-sm text-slate-400">

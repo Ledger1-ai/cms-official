@@ -55,8 +55,8 @@ export default function DemoHeader({ onStartDemo }: { onStartDemo?: () => void }
                     <div className="relative w-48 h-12">
                         {/* Ensure you have widely supported image formats or use the specific file found */}
                         <Image
-                            src="/ledger1-cms-logo.png"
-                            alt="Ledger1CMS"
+                            src="/basalt-cms-tall-white.png"
+                            alt="BasaltCMS"
                             width={192}
                             height={48}
                             className="w-full h-full object-contain brightness-0 invert drop-shadow-lg transition-all group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]"

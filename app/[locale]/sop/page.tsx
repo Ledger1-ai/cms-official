@@ -39,13 +39,13 @@ export default async function UniversityPage() {
                         <div className="text-left mb-16 space-y-6">
                             <div className="inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-sm font-medium text-blue-300 backdrop-blur-sm">
                                 <GraduationCap className="w-4 h-4 mr-2" />
-                                Ledger University
+                                Basalt University
                             </div>
                             <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white via-white/80 to-white/20 pb-2">
                                 Master Your Workflow.
                             </h1>
                             <p className="text-xl text-slate-400 max-w-2xl">
-                                Comprehensive SOPs, training modules, and best practices for the Ledger1CMS ecosystem.
+                                Comprehensive SOPs, training modules, and best practices for the BasaltCMS ecosystem.
                             </p>
 
                             <div className="max-w-md relative group">

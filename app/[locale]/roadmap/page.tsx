@@ -2,8 +2,8 @@ import React from "react";
 import { CheckCircle2, Circle, Clock } from "lucide-react";
 
 export const metadata = {
-    title: "Roadmap - Ledger1CMS",
-    description: "See what we've built and what's coming next for Ledger1CMS.",
+    title: "Roadmap - BasaltCMS",
+    description: "See what we've built and what's coming next for BasaltCMS.",
 };
 
 import MarketingLayout from "@/components/marketing/MarketingLayout";

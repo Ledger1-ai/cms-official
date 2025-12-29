@@ -22,15 +22,15 @@ const CMS_MODULES = [
 async function verifyCmsModules() {
     console.log('--- Verifying CMS Modules Logic ---');
 
-    // 1. Test Super Admin (admin@ledger1.ai)
-    const superAdmin = await prisma.users.findUnique({ where: { email: 'admin@ledger1.ai' } });
+    // 1. Test Super Admin (info@basalthq.com)
+    const superAdmin = await prisma.users.findUnique({ where: { email: 'info@basalthq.com' } });
     if (!superAdmin) {
         console.error('Super Admin not found!');
     } else {
         console.log(`\nUser: ${superAdmin.email} (IsAdmin: ${superAdmin.is_admin})`);
         // Simulate Layout Logic
         let enabledModules: string[] = [];
-        if (superAdmin.email === 'admin@ledger1.ai' || superAdmin.is_admin) {
+        if (superAdmin.email === 'info@basalthq.com' || superAdmin.is_admin) {
             enabledModules = CMS_MODULES.map(m => m.slug);
             console.log('  [PASS] Authorization: Full Access Granted (Admin Override)');
         } else {
@@ -41,10 +41,10 @@ async function verifyCmsModules() {
     }
 
     // 2. Test Standard User (Create temp if needed, or use existing)
-    // Let's use 'admin@ledger1.com' which we know is NOT an admin
-    const stdUser = await prisma.users.findUnique({ where: { email: 'admin@ledger1.com' } });
+    // Let's use 'info@basalthq.com' which we know is NOT an admin
+    const stdUser = await prisma.users.findUnique({ where: { email: 'info@basalthq.com' } });
     if (!stdUser) {
-        console.warn('\nStandard user admin@ledger1.com not found, skipping specific test.');
+        console.warn('\nStandard user info@basalthq.com not found, skipping specific test.');
     } else {
         console.log(`\nUser: ${stdUser.email} (IsAdmin: ${stdUser.is_admin})`);
 
@@ -59,7 +59,7 @@ async function verifyCmsModules() {
 
         // Simulate Layout Logic
         let enabledModules: string[] = [];
-        if (updatedUser?.email === 'admin@ledger1.ai' || updatedUser?.is_admin) {
+        if (updatedUser?.email === 'info@basalthq.com' || updatedUser?.is_admin) {
             enabledModules = CMS_MODULES.map(m => m.slug);
         } else {
             enabledModules = updatedUser?.cmsModules || [];
