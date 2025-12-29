@@ -820,7 +820,7 @@ model FooterSetting {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
   tagline       String   @default("Your 24/7 AI workforce. Sales, Support, and Growth on autopilot.")
   copyrightText String   @default("© 2025 Basalt. All rights reserved.")
-  footerLogoUrl String?  @default("/basalt-cms-tall-white.png")
+  footerLogoUrl String?  @default("/BasaltCMS.png")
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }

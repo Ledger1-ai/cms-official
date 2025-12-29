@@ -88,7 +88,7 @@ export default function AdminLoginPage() {
                 <div className="text-center mb-8 flex justify-center">
                     <div className="relative h-40 w-80">
                         <NextImage
-                            src="/basalt-cms-wide-white.png"
+                            src="/BasaltCMSWide.png"
                             alt="Basalt CMS"
                             fill
                             className="object-contain drop-shadow-[0_0_25px_rgba(77,191,217,0.2)]"

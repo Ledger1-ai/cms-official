@@ -468,7 +468,7 @@ export default function FooterAdminPage() {
                                         className="bg-black/50 border-white/10 text-white focus:border-blue-500 placeholder:text-slate-600 font-mono"
                                         value={settings.footerLogoUrl || ""}
                                         onChange={(e) => setSettings({ ...settings, footerLogoUrl: e.target.value })}
-                                        placeholder="/basalt-cms-tall-white.png"
+                                        placeholder="/BasaltCMS.png"
                                     />
                                 </div>
                             </div>

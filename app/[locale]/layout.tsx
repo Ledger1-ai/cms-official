@@ -136,10 +136,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     icons: {
       icon: seoConfig?.faviconUrl?.startsWith("data:")
         ? seoConfig.faviconUrl
-        : (seoConfig?.faviconUrl || "/basalt-cms-tall-white.png") + "?v=3",
+        : (seoConfig?.faviconUrl || "/BasaltCMS.png") + "?v=3",
       shortcut: seoConfig?.faviconUrl?.startsWith("data:")
         ? seoConfig.faviconUrl
-        : (seoConfig?.faviconUrl || "/basalt-cms-tall-white.png") + "?v=3",
+        : (seoConfig?.faviconUrl || "/BasaltCMS.png") + "?v=3",
       apple: seoConfig?.faviconUrl?.startsWith("data:")
         ? seoConfig.faviconUrl
         : (seoConfig?.faviconUrl || "/apple-touch-icon.png") + "?v=3",

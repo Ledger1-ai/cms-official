@@ -55,7 +55,7 @@ export default function DemoHeader({ onStartDemo }: { onStartDemo?: () => void }
                     <div className="relative w-48 h-12">
                         {/* Ensure you have widely supported image formats or use the specific file found */}
                         <Image
-                            src="/basalt-cms-tall-white.png"
+                            src="/BasaltCMS.png"
                             alt="BasaltCMS"
                             width={192}
                             height={48}

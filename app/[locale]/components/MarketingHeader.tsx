@@ -98,11 +98,11 @@ export default function MarketingHeader({ socialSettings }: MarketingHeaderProps
                         {/* Logo */}
                         <Link className="flex items-center justify-center z-50 relative" href="/" aria-label="BasaltCMS Home">
                             <Image
-                                src="/basalt-cms-wide-white.png"
+                                src="/BasaltCMSWide.png"
                                 alt="BasaltCMS Logo"
                                 width={225}
                                 height={63}
-                                className={cn("object-contain transition-all duration-300", isScrolled ? "h-10 w-auto" : "h-12 w-auto", "brightness-200 contrast-125")}
+                                className={cn("object-contain transition-all duration-300 h-14 w-auto", "brightness-200 contrast-125")}
                                 priority
                                 sizes="(max-width: 768px) 140px, 180px"
                                 quality={85}

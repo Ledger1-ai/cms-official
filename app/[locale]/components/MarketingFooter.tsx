@@ -190,7 +190,7 @@ export default async function MarketingFooter() {
                     <div className="flex flex-col items-center lg:items-start space-y-6 lg:w-1/4 lg:pr-8">
                         <Link href="/" className="flex items-center gap-2" aria-label="Basalt Home">
                             <Image
-                                src={footerSettings?.footerLogoUrl || "/basalt-cms-wide-white.png"}
+                                src={footerSettings?.footerLogoUrl || "/BasaltCMSWide.png"}
                                 alt="BasaltCMS Logo"
                                 width={225}
                                 height={56}

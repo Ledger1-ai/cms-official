@@ -715,7 +715,7 @@ export function IntegrationsVisual() {
             >
                 <div className="relative w-full h-full">
                     <Image
-                        src="/basalt-cms-tall-white.png"
+                        src="/BasaltCMS.png"
                         alt="BasaltCMS"
                         fill
                         className="object-contain brightness-0 invert drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"

@@ -67,7 +67,7 @@ export default function AdminSidebar({ session, dbUser, visibleModules, locale }
                     <div className={`relative transition-transform duration-300 ${open ? "w-full h-24 hover:scale-105" : "w-10 h-10"}`}>
                         {open ? (
                             <Image
-                                src="/basalt-cms-tall-white.png"
+                                src="/BasaltCMS.png"
                                 alt="Basalt CRM"
                                 fill
                                 className="object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"

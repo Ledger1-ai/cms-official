@@ -340,7 +340,7 @@ export default function SocialAdminPage() {
                                                 <Input
                                                     value={footerSettings.footerLogoUrl}
                                                     onChange={e => setFooterSettings(p => ({ ...p, footerLogoUrl: e.target.value }))}
-                                                    placeholder="/basalt-cms-tall-white.png"
+                                                    placeholder="/BasaltCMS.png"
                                                     className="bg-black/50 border-white/10 flex-1 h-12"
                                                 />
                                             </div>

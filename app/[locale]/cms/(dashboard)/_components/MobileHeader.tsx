@@ -21,7 +21,7 @@ export default function MobileHeader({ session, locale }: MobileHeaderProps) {
                 {/* Left: Logo - Now links to CMS dashboard */}
                 <Link href={`/${locale}/cms`} className="relative h-10 w-36 opacity-90">
                     <Image
-                        src="/basalt-cms-wide-white.png"
+                        src="/BasaltCMSWide.png"
                         alt="Basalt CMS"
                         fill
                         className="object-contain object-left"

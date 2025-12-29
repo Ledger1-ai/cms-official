@@ -35,7 +35,7 @@ export function BrandedLoader({ variant = "fullscreen" }: BrandedLoaderProps) {
                 >
                     <div className="relative w-60 h-16">
                         <Image
-                            src="/basalt-cms-wide-white.png"
+                            src="/BasaltCMSWide.png"
                             alt="Loading..."
                             fill
                             className="object-contain drop-shadow-[0_0_25px_rgba(77,191,217,0.8)]"
