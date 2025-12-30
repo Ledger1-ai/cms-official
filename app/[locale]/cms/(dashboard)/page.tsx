@@ -8,6 +8,7 @@ import DashboardHeader from "./components/DashboardHeader";
 import RecentContent from "./components/RecentContent";
 import CommandCenter from "./components/CommandCenter"; // New Consolidated Component
 import { prismadb } from "@/lib/prisma";
+import { CMS_MODULES } from "@/app/[locale]/cms/config";
 import { getUnreadTicketCount } from "@/actions/cms/support-tickets";
 import { getDashboardStats } from "@/actions/cms/get-dashboard-stats";
 import { getAnalyticsStats } from "@/actions/analytics/get-stats";
@@ -28,7 +29,7 @@ export default async function CMSDashboardPage() {
 
     // Super Admin and Admins get all modules
     if (user?.email === "info@basalthq.com" || user?.is_admin) {
-      enabledModules = ["blog", "careers", "docs", "media", "integrations", "social", "footer", "settings", "dashboard", "activity", "support", "forms"];
+      enabledModules = CMS_MODULES.map(m => m.slug);
       isAdmin = true;
       unreadSupportCount = await getUnreadTicketCount();
     } else {

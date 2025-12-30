@@ -22,7 +22,7 @@ export default async function AdminDashboardLayout({
     const { locale } = await params;
     const session = await getServerSession(authOptions);
 
-    console.log(`[Layout Debug] Checking session for locale ${locale}`);
+    console.log(`[Layout Debug] Checking session for locale ${locale} - Cache Buster ${Date.now()}`);
     if (session) {
         console.log(`[Layout Debug] Session found: ${session.user?.email}`);
     } else {

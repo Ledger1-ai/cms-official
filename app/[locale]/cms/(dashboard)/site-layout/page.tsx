@@ -13,7 +13,9 @@ import {
 import { DeleteConfirmationModal } from "@/components/cms/DeleteConfirmationModal";
 import { restoreFooterDefaults } from "@/actions/cms/restore-footer-defaults";
 import { getSeoConfig, updateSeoConfig, generateAiMetadata } from "@/actions/cms/seo-actions";
+import { getHeaderConfig } from "@/actions/cms/header-actions";
 import { MediaPickerModal } from "@/components/cms/MediaPickerModal";
+import HeaderEditor from "@/components/cms/header/HeaderEditor";
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -116,6 +118,7 @@ export default function FooterAdminPage() {
     const [socialSettings, setSocialSettings] = useState<SocialSettings>(defaultSocialSettings);
     const [seoSettings, setSeoSettings] = useState<SeoSettings>(defaultSeoSettings);
     const [mediaPickerOpen, setMediaPickerOpen] = useState(false);
+    const [headerConfig, setHeaderConfig] = useState<any>(null);
 
     const tabParam = searchParams.get("tab") || "content";
 
@@ -158,6 +161,10 @@ export default function FooterAdminPage() {
                     faviconUrl: seoConfig.faviconUrl || "",
                 });
             }
+
+            // 4. Fetch Header Config
+            const headerData = await getHeaderConfig();
+            setHeaderConfig(headerData);
 
         } catch (error) {
             toast.error("Failed to load settings");
@@ -405,26 +412,34 @@ export default function FooterAdminPage() {
         <div className="p-4 md:p-8 max-w-7xl mx-auto space-y-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-white tracking-tight">Footer & Social</h1>
-                    <p className="text-slate-400 mt-1 text-lg">Manage site footer, social profiles, and SEO metadata.</p>
+                    <h1 className="text-3xl font-bold text-white tracking-tight">Site Layout</h1>
+                    <p className="text-slate-400 mt-1 text-lg">Manage your website header, footer, social profiles, and SEO.</p>
                 </div>
-                <Button
-                    onClick={onSave}
-                    disabled={saving}
-                    variant="gradient"
-                    className="text-white"
-                >
-                    {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
-                    Save Changes
-                </Button>
+                {tabParam !== "header" && (
+                    <Button
+                        onClick={onSave}
+                        disabled={saving}
+                        variant="gradient"
+                        className="text-white"
+                    >
+                        {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
+                        Save Changes
+                    </Button>
+                )}
             </div>
 
             <Tabs defaultValue="content" value={tabParam} onValueChange={handleTabChange} className="space-y-6">
                 <TabsList className="inline-flex h-auto bg-[#0A0A0B] border border-white/10 rounded-lg p-1 flex-wrap gap-1 mb-6">
+                    <TabsTrigger value="header" className="px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-sm">Header</TabsTrigger>
                     <TabsTrigger value="content" className="px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-sm">Footer Content</TabsTrigger>
                     <TabsTrigger value="profiles" className="px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-sm">Social Profiles</TabsTrigger>
                     <TabsTrigger value="seo" className="px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-sm">SEO & Metadata</TabsTrigger>
                 </TabsList>
+
+                {/* --- TAB: HEADER --- */}
+                <TabsContent value="header" className="space-y-8 animate-in fade-in-50 slide-in-from-bottom-2">
+                    <HeaderEditor initialConfig={headerConfig} />
+                </TabsContent>
 
                 {/* --- TAB: FOOTER CONTENT --- */}
                 <TabsContent value="content" className="space-y-8 animate-in fade-in-50 slide-in-from-bottom-2">

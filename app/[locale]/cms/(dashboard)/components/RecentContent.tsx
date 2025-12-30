@@ -64,7 +64,7 @@ export default function RecentContent({ items }: RecentContentProps) {
         if (path.includes("media")) return { icon: ImageIcon, classes: "bg-orange-500/10 border-orange-500/20 text-orange-400 group-hover:border-orange-500/40" };
         if (path.includes("settings")) return { icon: Settings, classes: "bg-slate-500/10 border-slate-500/20 text-slate-400 group-hover:border-slate-500/40" };
         if (path.includes("social")) return { icon: Share2, classes: "bg-pink-500/10 border-pink-500/20 text-pink-400 group-hover:border-pink-500/40" };
-        if (path.includes("footer")) return { icon: Globe, classes: "bg-amber-500/10 border-amber-500/20 text-amber-400 group-hover:border-amber-500/40" };
+        if (path.includes("site-layout")) return { icon: Globe, classes: "bg-amber-500/10 border-amber-500/20 text-amber-400 group-hover:border-amber-500/40" };
         if (path.includes("publishing") || path.includes("blog")) return { icon: PenTool, classes: "bg-rose-500/10 border-rose-500/20 text-rose-400 group-hover:border-rose-500/40" };
         if (path.includes("docs")) return { icon: BookOpen, classes: "bg-blue-500/10 border-blue-500/20 text-blue-400 group-hover:border-blue-500/40" };
 
@@ -80,7 +80,7 @@ export default function RecentContent({ items }: RecentContentProps) {
 
         // Fallback mapping based on path
         if (path.includes("/cms/blog")) return "Blog Dashboard";
-        if (path.includes("/cms/footer")) return "Footer & SEO";
+        if (path.includes("/cms/site-layout")) return "Site Layout";
         if (path.includes("/cms/social")) return "Social Command Center";
         if (path.includes("/cms/media")) return "Media Library";
         if (path.includes("/cms/apps")) return "System Apps";

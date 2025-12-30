@@ -1,6 +1,6 @@
 "use client";
 
-import { Grid, Briefcase, BookOpen, Globe, Share2, Users, ArrowRight, Activity, Mail, Image as ImageIcon, Settings, Radio, Brain, PenTool, FileInput } from "lucide-react";
+import { Grid, Briefcase, BookOpen, Globe, Share2, Users, ArrowRight, Activity, Mail, Image as ImageIcon, Settings, Radio, Brain, PenTool, FileInput, Ticket } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { SystemStatusModal } from "@/components/cms/SystemStatusModal";
@@ -31,6 +31,16 @@ export interface DashboardItem {
 
 const items: DashboardItem[] = [
     {
+        slug: "integrations", // Using parent module slug for permissions
+        title: "AI Models",
+        description: "Configure AI Providers",
+        href: "/cms/oauth?tab=ai",
+        icon: Brain,
+        gradient: "from-purple-500/20 via-fuchsia-500/5 to-transparent border-purple-500/20 hover:border-purple-500/50",
+        iconColor: "text-purple-400",
+        type: "link"
+    },
+    {
         slug: "dashboard", // Visible to all dashboard users
         title: "App Marketplace",
         description: "Browse & install apps",
@@ -41,7 +51,7 @@ const items: DashboardItem[] = [
         type: "link"
     },
     {
-        slug: "social", // Shared slug for visibility (Broadcast)
+        slug: "broadcast", // Matching config.ts slug
         title: "Base Broadcast",
         description: "Broadcast Command Center",
         href: "/cms/apps?tab=broadcast",
@@ -51,13 +61,23 @@ const items: DashboardItem[] = [
         type: "link"
     },
     {
-        slug: "integrations", // Using parent module slug for permissions
-        title: "AI Models",
-        description: "Configure AI Providers",
-        href: "/cms/oauth?tab=ai",
-        icon: Brain,
-        gradient: "from-purple-500/20 via-fuchsia-500/5 to-transparent border-purple-500/20 hover:border-purple-500/50",
-        iconColor: "text-purple-400",
+        slug: "coupons",
+        title: "Coupons", // Ticket icon used
+        description: "Manage discounts & codes",
+        href: "/cms/coupons",
+        icon: Ticket,
+        gradient: "from-amber-500/20 via-amber-500/5 to-transparent border-amber-500/20 hover:border-amber-500/50",
+        iconColor: "text-amber-400",
+        type: "link"
+    },
+    {
+        slug: "forms", // Use 'forms' slug
+        title: "Form Builder",
+        description: "Create & manage forms",
+        href: "/cms/forms",
+        icon: FileInput,
+        gradient: "from-teal-500/20 via-teal-500/5 to-transparent border-teal-500/20 hover:border-teal-500/50",
+        iconColor: "text-teal-400",
         type: "link"
     },
     {
@@ -71,31 +91,6 @@ const items: DashboardItem[] = [
         type: "link"
     },
     {
-        slug: "integrations",
-        title: "System",
-        description: "Real-time metrics",
-        action: "system_status",
-        icon: Activity,
-        gradient: "from-emerald-500/20 via-emerald-500/5 to-transparent border-emerald-500/20 hover:border-emerald-500/50",
-        iconColor: "text-emerald-400",
-        type: "modal",
-        adminOnly: true
-    },
-    {
-        slug: "footer",
-        title: "Footer & Social",
-        description: "Manage footer, profiles & SEO",
-        icon: Globe,
-        gradient: "from-amber-500/20 via-amber-500/5 to-transparent border-amber-500/20 hover:border-amber-500/50",
-        iconColor: "text-amber-400",
-        type: "menu",
-        menuItems: [
-            { label: "Footer Content", href: "/cms/footer?tab=content" },
-            { label: "Social Profiles", href: "/cms/footer?tab=profiles" },
-            { label: "SEO & Metadata", href: "/cms/footer?tab=seo" },
-        ]
-    },
-    {
         slug: "settings",
         title: "Settings",
         description: "System & User Settings",
@@ -106,24 +101,30 @@ const items: DashboardItem[] = [
         type: "link"
     },
     {
-        slug: "blog", // Shared slug for visibility (Publishing fits Blog context)
-        title: "Publishing",
-        description: "External Platforms",
-        href: "/cms/apps?tab=publishing",
-        icon: PenTool,
-        gradient: "from-rose-500/20 via-rose-500/5 to-transparent border-rose-500/20 hover:border-rose-500/50",
-        iconColor: "text-rose-400",
-        type: "link"
+        slug: "site-layout",
+        title: "Site Layout",
+        description: "Manage header, footer & SEO",
+        icon: Globe,
+        gradient: "from-lime-500/20 via-lime-500/5 to-transparent border-lime-500/20 hover:border-lime-500/50",
+        iconColor: "text-lime-400",
+        type: "menu",
+        menuItems: [
+            { label: "Header", href: "/cms/site-layout?tab=header" },
+            { label: "Footer Content", href: "/cms/site-layout?tab=content" },
+            { label: "Social Profiles", href: "/cms/site-layout?tab=profiles" },
+            { label: "SEO & Metadata", href: "/cms/site-layout?tab=seo" },
+        ]
     },
     {
-        slug: "forms", // Use 'forms' slug
-        title: "Form Builder",
-        description: "Create & manage forms",
-        href: "/cms/forms",
-        icon: FileInput,
-        gradient: "from-teal-500/20 via-teal-500/5 to-transparent border-teal-500/20 hover:border-teal-500/50",
-        iconColor: "text-teal-400",
-        type: "link"
+        slug: "integrations",
+        title: "System",
+        description: "Real-time metrics",
+        action: "system_status",
+        icon: Activity,
+        gradient: "from-emerald-500/20 via-emerald-500/5 to-transparent border-emerald-500/20 hover:border-emerald-500/50",
+        iconColor: "text-emerald-400",
+        type: "modal",
+        adminOnly: true
     }
 ];
 
