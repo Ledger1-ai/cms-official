@@ -76,7 +76,7 @@ export default function AdminSidebar({ session, dbUser, visibleModules, locale }
                         ) : (
                             <div className="relative w-full h-full">
                                 <Image
-                                    src="/apple-touch-icon.png"
+                                    src="/BasaltCMS.png"
                                     alt="Basalt CRM"
                                     fill
                                     className="object-contain"

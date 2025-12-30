@@ -130,7 +130,7 @@ const ModuleMenu = ({ modules, dict, features, isPartnerAdmin }: Props) => {
               ) : (
                 <div className="relative">
                   <NextImage
-                    src="/apple-touch-icon.png"
+                    src="/BasaltCMS.png"
                     alt="Logo Icon"
                     width={32}
                     height={32}

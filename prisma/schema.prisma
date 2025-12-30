@@ -12,6 +12,21 @@ datasource db {
   url      = env("CMS_DATABASE_URL")
 }
 
+model Coupon {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  code        String   @unique
+  type        String   // "fixed_cart", "percent", "fixed_product"
+  amount      Float
+  description String?
+  productIds  String[]
+  usageCount  Int      @default(0)
+  usageLimit  Int      @default(0) // 0 = unlimited
+  expiryDate  DateTime?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
 
 
 
@@ -677,6 +692,17 @@ model SystemSeoConfig {
   twitterDescription String?
   faviconUrl         String?
   updatedAt          DateTime @updatedAt
+}
+
+model SystemHeaderConfig {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  logoUrl         String?
+  navigationItems Json?    // Array of { label, href, type }
+  showCta         Boolean  @default(true)
+  ctaText         String   @default("Get Started")
+  ctaLink         String   @default("/create-account")
+  isActive        Boolean  @default(true) // If false, fallback to hardcoded
+  updatedAt       DateTime @updatedAt
 }
 
 model SystemAiConfig {

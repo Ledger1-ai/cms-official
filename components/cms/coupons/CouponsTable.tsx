@@ -11,7 +11,8 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MoreHorizontal, Trash2, Edit } from "lucide-react";
+import { MoreHorizontal, Trash2, Edit, Copy, Share2 } from "lucide-react";
+import { toast } from "sonner";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -91,6 +92,18 @@ export function CouponsTable({ data, onEdit, onDelete }: CouponsTableProps) {
                                         </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end" className="bg-[#1A1B1E] border-white/10 text-slate-200">
+                                        <DropdownMenuItem onClick={() => {
+                                            navigator.clipboard.writeText(`https://store.example.com?coupon=${coupon.code}`);
+                                            toast.success("Coupon link copied to clipboard");
+                                        }} className="cursor-pointer hover:bg-white/10 focus:bg-white/10">
+                                            <Share2 className="mr-2 h-4 w-4 text-blue-400" /> Share Link
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem onClick={() => {
+                                            navigator.clipboard.writeText(coupon.code);
+                                            toast.success("Code copied to clipboard");
+                                        }} className="cursor-pointer hover:bg-white/10 focus:bg-white/10">
+                                            <Copy className="mr-2 h-4 w-4" /> Copy Code
+                                        </DropdownMenuItem>
                                         <DropdownMenuItem onClick={() => onEdit(coupon)} className="cursor-pointer hover:bg-white/10 focus:bg-white/10">
                                             <Edit className="mr-2 h-4 w-4" /> Edit
                                         </DropdownMenuItem>

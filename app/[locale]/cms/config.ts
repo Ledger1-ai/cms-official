@@ -135,6 +135,14 @@ export const CMS_MODULES: CMSModule[] = [
             { label: "SEO Settings", href: (l: string) => `/${l}/cms/footer?tab=seo`, icon: "Search" }
         ]
     },
+    {
+        slug: "header",
+        href: (l: string) => `/${l}/cms/header`,
+        icon: "PanelTop",
+        label: "Header",
+        section: "Content",
+        color: "cyan"
+    },
     { slug: "manage", href: (l: string) => `/${l}/cms/manage`, icon: "Users2", label: "Team Members", section: "Content", color: "yellow" },
     { slug: "university", href: (l: string) => `/${l}/cms/university`, icon: "GraduationCap", label: "University", section: "System", color: "violet" },
     {

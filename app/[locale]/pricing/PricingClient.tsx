@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import MessageSentModal from "@/components/modals/message-sent-modal";
+import { CouponInput } from "@/components/public/CouponInput";
 
 export default function PricingClient() {
     const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
@@ -197,6 +198,11 @@ export default function PricingClient() {
                     </motion.div>
                 </AnimatePresence>
             </section>
+            {/* Coupon Section */}
+            <section className="container mx-auto px-4 max-w-7xl mb-24 flex justify-center">
+                <CouponInput />
+            </section>
+
             {/* Optional Add-ons */}
             <section className="container mx-auto px-4 max-w-5xl mb-24">
                 <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500/10 via-cyan-500/10 to-primary/10 border border-primary/30 p-1">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { PlusCircle, Filter, Download, Ticket, Gift, CreditCard, Users, Link as LinkIcon, Box, LucideIcon } from "lucide-react";
 import { CouponsTable, Coupon } from "@/components/cms/coupons/CouponsTable";
@@ -8,17 +8,38 @@ import { CouponModal } from "@/components/cms/coupons/CouponModal";
 import { toast } from "sonner";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-
-const MOCK_COUPONS: Coupon[] = [
-    { id: "1", code: "WELCOME20", type: "percent", amount: 20, description: "New user discount", productIds: [], usageCount: 45, usageLimit: 100, expiryDate: "2025-12-31" },
-    { id: "2", code: "SHIPFREE", type: "fixed_cart", amount: 15, description: "Free shipping offset", productIds: [], usageCount: 12, usageLimit: 0, expiryDate: "" },
-    { id: "3", code: "WINTERSALE", type: "fixed_product", amount: 50, description: "Clearance items", productIds: ["101", "102"], usageCount: 89, usageLimit: 0, expiryDate: "2025-02-28" },
-];
+import { getCoupons, createCoupon, updateCoupon, deleteCoupon } from "@/actions/cms/coupons";
 
 export default function CouponsPage() {
-    const [coupons, setCoupons] = useState<Coupon[]>(MOCK_COUPONS);
+    const [coupons, setCoupons] = useState<Coupon[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingCoupon, setEditingCoupon] = useState<Coupon | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    const loadCoupons = async () => {
+        setIsLoading(true);
+        const res = await getCoupons();
+        if (res.success && res.data) {
+            // Map Prisma format to UI format if needed, mostly they match based on our interface
+            // We need to ensure types match perfectly. Prisma returns objects, our UI expects Coupon interface.
+            // Our Coupon interface in CouponsTable has specific types.
+            // We cast for now, assuming server action returns compatible structure.
+            const mappedData = res.data.map(c => ({
+                ...c,
+                description: c.description || "",
+                expiryDate: c.expiryDate ? new Date(c.expiryDate).toISOString() : "",
+                type: c.type as any
+            }));
+            setCoupons(mappedData);
+        } else {
+            toast.error("Failed to load coupons");
+        }
+        setIsLoading(false);
+    };
+
+    useEffect(() => {
+        loadCoupons();
+    }, []);
 
     const handleCreate = () => {
         setEditingCoupon(null);
@@ -30,33 +51,48 @@ export default function CouponsPage() {
         setIsModalOpen(true);
     };
 
-    const handleDelete = (id: string) => {
-        // In a real app, show confirmation dialog
-        setCoupons(prev => prev.filter(c => c.id !== id));
-        toast.success("Coupon deleted");
+    const handleDelete = async (id: string) => {
+        if (!confirm("Are you sure you want to delete this coupon?")) return;
+
+        try {
+            const res = await deleteCoupon(id);
+            if (res.success) {
+                setCoupons(prev => prev.filter(c => c.id !== id));
+                toast.success("Coupon deleted");
+            } else {
+                toast.error(res.error || "Failed to delete");
+            }
+        } catch (error) {
+            toast.error("Error deleting coupon");
+        }
     };
 
-    const handleSave = (couponData: Partial<Coupon>) => {
-        if (editingCoupon) {
-            // Update
-            setCoupons(prev => prev.map(c => c.id === editingCoupon.id ? { ...c, ...couponData } as Coupon : c));
-            toast.success("Coupon updated successfully");
-        } else {
-            // Create
-            const newCoupon: Coupon = {
-                id: Math.random().toString(36).substr(2, 9),
-                productIds: [],
-                usageCount: 0,
-                description: "",
-                usageLimit: 0,
-                expiryDate: "",
-                code: couponData.code || "UNKNOWN",
-                type: couponData.type || "fixed_cart",
-                amount: couponData.amount || 0,
-                ...couponData
-            };
-            setCoupons(prev => [newCoupon, ...prev]);
-            toast.success("Coupon created successfully");
+    const handleSave = async (couponData: Partial<Coupon>) => {
+        try {
+            if (editingCoupon) {
+                // Update
+                const res = await updateCoupon(editingCoupon.id, couponData as any);
+                if (res.success) {
+                    await loadCoupons(); // Reload to get fresh data
+                    toast.success("Coupon updated successfully");
+                    setIsModalOpen(false);
+                } else {
+                    toast.error(res.error || "Failed to update");
+                }
+            } else {
+                // Create
+                const res = await createCoupon(couponData as any);
+                if (res.success) {
+                    await loadCoupons();
+                    toast.success("Coupon created successfully");
+                    setIsModalOpen(false);
+                } else {
+                    toast.error(res.error || "Failed to create");
+                }
+            }
+        } catch (error) {
+            console.error(error);
+            toast.error("An error occurred");
         }
     };
 
@@ -85,11 +121,17 @@ export default function CouponsPage() {
             </div>
 
             {/* Main Table */}
-            <CouponsTable
-                data={coupons}
-                onEdit={handleEdit}
-                onDelete={handleDelete}
-            />
+            {isLoading ? (
+                <div className="text-center py-20 bg-[#0A0A0B] border border-white/5 rounded-xl">
+                    <p className="text-slate-500">Loading coupons...</p>
+                </div>
+            ) : (
+                <CouponsTable
+                    data={coupons}
+                    onEdit={handleEdit}
+                    onDelete={handleDelete}
+                />
+            )}
 
             <CouponModal
                 isOpen={isModalOpen}

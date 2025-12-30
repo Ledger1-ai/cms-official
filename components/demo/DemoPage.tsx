@@ -28,9 +28,10 @@ interface SocialSettings {
 interface DemoPageProps {
     footer: React.ReactNode;
     socialSettings?: SocialSettings | null;
+    headerConfig?: any | null;
 }
 
-export default function DemoPage({ footer, socialSettings }: DemoPageProps) {
+export default function DemoPage({ footer, socialSettings, headerConfig }: DemoPageProps) {
     const [mode, setMode] = useState<"landing" | "builder">("landing");
     const [isMobile, setIsMobile] = useState(false);
     const [showDesktopModal, setShowDesktopModal] = useState(false);
@@ -69,6 +70,7 @@ export default function DemoPage({ footer, socialSettings }: DemoPageProps) {
                         key="landing"
                         onStartDemo={handleStartDemo}
                         socialSettings={socialSettings}
+                        headerConfig={headerConfig}
                         footer={footer}
                     />
                 )}

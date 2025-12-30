@@ -2,19 +2,22 @@ import { PrismaClient } from "@prisma/client";
 
 declare global {
   // eslint-disable-next-line no-var, no-unused-vars
-  var cachedPrisma: PrismaClient;
+  var cachedPrisma_v2: PrismaClient;
 }
 
 let prisma: PrismaClient;
 if (process.env.NODE_ENV === "production") {
-  // Prisma 7 requires connection configuration via prisma.config.ts or driver adapter
-  // Ensure prisma.config.ts is present and valid for connection to work.
   prisma = new PrismaClient();
 } else {
-  if (!(globalThis as any).cachedPrisma) {
-    (globalThis as any).cachedPrisma = new PrismaClient();
+  if (!(globalThis as any).cachedPrisma_v2) {
+    (globalThis as any).cachedPrisma_v2 = new PrismaClient();
+    // Debug log to confirm available models
+    setTimeout(() => {
+      console.log("DEBUG: Prisma Client Initialized. Available keys:", Object.keys((globalThis as any).cachedPrisma_v2));
+      console.log("DEBUG: Checking systemHeaderConfig:", !!(globalThis as any).cachedPrisma_v2.systemHeaderConfig);
+    }, 100);
   }
-  prisma = (globalThis as any).cachedPrisma;
+  prisma = (globalThis as any).cachedPrisma_v2;
 }
 
 export const prismadb = prisma;

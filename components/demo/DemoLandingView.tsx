@@ -42,14 +42,15 @@ const VISUAL_COMPONENTS: Record<string, React.ComponentType> = {
 interface DemoLandingViewProps {
     onStartDemo: () => void;
     socialSettings?: SocialSettings | null;
+    headerConfig?: any | null; // Pass through
     footer: React.ReactNode;
 }
 
-export default function DemoLandingView({ onStartDemo, socialSettings, footer }: DemoLandingViewProps) {
+export default function DemoLandingView({ onStartDemo, socialSettings, headerConfig, footer }: DemoLandingViewProps) {
     return (
         <div className="relative">
             {/* Header */}
-            <MarketingHeader socialSettings={socialSettings} />
+            <MarketingHeader socialSettings={socialSettings} headerConfig={headerConfig} />
 
             <div className="relative z-10 lg:pt-10">
                 <main className="container mx-auto px-6 pt-12 pb-20">

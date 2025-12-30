@@ -142,7 +142,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
         : (seoConfig?.faviconUrl || "/BasaltCMS.png") + "?v=3",
       apple: seoConfig?.faviconUrl?.startsWith("data:")
         ? seoConfig.faviconUrl
-        : (seoConfig?.faviconUrl || "/apple-touch-icon.png") + "?v=3",
+        : (seoConfig?.faviconUrl || "/BasaltCMS.png") + "?v=3",
     },
     manifest: "/site.webmanifest",
     alternates: {
